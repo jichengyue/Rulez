@@ -44,8 +44,21 @@ Il servizio offre un editor visuale delle regole lato web.
   * Le variabili e funzioni disponibili all'utente dipendono dal contesto e vengono suggerite volta per volta.
 
 ### Applicare le regole (lato codice)
-
 Per valutare una regola, basta richiamarla utilizzando la funzione `rulez` definita dalla gemma e il nome della regola definita in fase di creazione
 
   Esempio: viene definita la regola `create_new_users` che definisce la possibilità di creare nuovi utenti.
-  Per valutarla nel codice basterà eseguire una cosa del tipo `if rulez create_new_users ... else ... end`  
+  Per valutarla nel codice basterà eseguire una cosa del tipo `if rulez create_new_users ... else ... end`
+
+### Contesti
+La gemma permette di definire dei contesti all'interno dei quali è garantita la presenza di alcune variabili.
+
+Un `context` prevede:
+* nome: univoco, identificativo
+* descrizione: anche lunga, deve spiegare che cos'è questo contesto, dove è definito e utilizzato all'interno dell'applicazione
+* variabili: una serie di variabili che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
+  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
+  * code_name: il nome reale della variabile, serve per eseguire il binding dalla grammatica custom a ruby
+* funzioni: una serie di funzioni che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
+  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
+  * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
+  * Ogni funzione dovrà essere definita e implementata in una classe (ancora da specificare)

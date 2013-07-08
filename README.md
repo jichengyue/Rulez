@@ -1,3 +1,5 @@
+# Rulez
+
 Gestisce condizioni logiche configurabili lato web e valutabili lato codice.
 
 L'idea è quella di avere un editor visuale di espressioni booleane, definite in una grammatica custom.

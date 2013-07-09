@@ -8,7 +8,7 @@ L'idea è quella di avere un editor visuale di espressioni booleane, definite in
 
 * Ogni regola `rule` è composta da un'espressione `expr` che ritorna un booleano
 * Ogni `expr` è un gruppo `operand`-`operator`-`operand`
-* Ogni `operand` può essere: booleano, numerico, `expr`, `var` o `func`
+* Ogni `operand` può essere: `boolean`, `num`, `datetime`, `expr`, `var` o `func`
   * `var`: sono variabili rese disponibili dal contesto corrente (vedi la sezione **Contesti**)
   * `func`: sono funzioni custom rese disponibili dal contesto corrente (vedi la sezione **Contesti**)
 * Lista degli `operator` validi:
@@ -58,7 +58,10 @@ Un `context` prevede:
 * variabili: una serie di variabili che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
   * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
   * code_name: il nome reale della variabile, serve per eseguire il binding dalla grammatica custom a ruby
+  * type: indica il tipo della variabile
 * funzioni: una serie di funzioni che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
   * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
+  * description: descrive cosa fa la funzione
+  * type: indica il tipo che ritorna la funzione
   * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
-  * Ogni funzione dovrà essere definita e implementata in una classe (ancora da specificare)
+  * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto

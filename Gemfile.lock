@@ -3,6 +3,7 @@ PATH
   specs:
     rulez (0.0.1)
       rails (~> 3.2.13)
+      treetop (~> 1.4.14)
 
 GEM
   remote: http://rubygems.org/

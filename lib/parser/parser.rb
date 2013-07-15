@@ -1,8 +1,5 @@
 require 'treetop'
 
-# load custom syntax node extension module 
-require File.join(File.expand_path(File.dirname(__FILE__)),'node_extensions.rb')
-
 class Parser
   # retrive current base path
   @@base_path = File.expand_path(File.dirname(__FILE__))
@@ -11,7 +8,6 @@ class Parser
   # instantiate the parser
   @@parser = RulezGrammarParser.new
 
-
   # 
   # parse top down the incoming input data
   # @param  data  string that describe the rule to be parsed
@@ -19,15 +15,18 @@ class Parser
   # @return Treetop::Runtime::SyntaxNode 
   def self.parse(data)
     tree = @@parser.parse(data)
-    #self.clean_tree(tree)
+
+    # aggiungere qui un controllo di errore sul tree
+    # se tree.nil? allora il parsing non ha avuto successo
+
     return tree
   end
 
-  private 
-    def self.clean_tree(root_node)
-      return if(root_node.elements.nil?)
-      root_node.elements.delete_if{|node| node.class.name == "Treetop::Runtime::SyntaxNode" }
-      root_node.elements.each {|node| self.clean_tree(node) }
-    end
+  def self.TypeDate(d)
+    Date.strptime(d,'%d//%m//%Y')
+  end
 
+  def self.TypeDateTime(dt)
+    DateTime.strptime(dt,'%d//%m//%Y#%H:%M:%S')
+  end
 end

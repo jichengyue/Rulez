@@ -1112,12 +1112,130 @@ module RulezGrammar
   end
 
   module SYMBOL0
+    def primary
+      elements[1]
+    end
+
+  end
+
+  module SYMBOL1
+    def ID
+      elements[1]
+    end
+
+  end
+
+  module SYMBOL2
+    def ID
+      elements[0]
+    end
+
   end
 
   def _nt_SYMBOL
     start_index = index
     if node_cache[:SYMBOL].has_key?(index)
       cached = node_cache[:SYMBOL][index]
+      if cached
+        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
+        @index = cached.interval.end
+      end
+      return cached
+    end
+
+    i0, s0 = index, []
+    r1 = _nt_ID
+    s0 << r1
+    if r1
+      s2, i2 = [], index
+      loop do
+        i3, s3 = index, []
+        if has_terminal?('.', false, index)
+          r4 = instantiate_node(SyntaxNode,input, index...(index + 1))
+          @index += 1
+        else
+          terminal_parse_failure('.')
+          r4 = nil
+        end
+        s3 << r4
+        if r4
+          r5 = _nt_ID
+          s3 << r5
+          if r5
+            i7, s7 = index, []
+            if has_terminal?('("', false, index)
+              r8 = instantiate_node(SyntaxNode,input, index...(index + 2))
+              @index += 2
+            else
+              terminal_parse_failure('("')
+              r8 = nil
+            end
+            s7 << r8
+            if r8
+              r9 = _nt_primary
+              s7 << r9
+              if r9
+                if has_terminal?('")', false, index)
+                  r10 = instantiate_node(SyntaxNode,input, index...(index + 2))
+                  @index += 2
+                else
+                  terminal_parse_failure('")')
+                  r10 = nil
+                end
+                s7 << r10
+              end
+            end
+            if s7.last
+              r7 = instantiate_node(SyntaxNode,input, i7...index, s7)
+              r7.extend(SYMBOL0)
+            else
+              @index = i7
+              r7 = nil
+            end
+            if r7
+              r6 = r7
+            else
+              r6 = instantiate_node(SyntaxNode,input, index...index)
+            end
+            s3 << r6
+          end
+        end
+        if s3.last
+          r3 = instantiate_node(SyntaxNode,input, i3...index, s3)
+          r3.extend(SYMBOL1)
+        else
+          @index = i3
+          r3 = nil
+        end
+        if r3
+          s2 << r3
+        else
+          break
+        end
+      end
+      r2 = instantiate_node(SyntaxNode,input, i2...index, s2)
+      s0 << r2
+    end
+    if s0.last
+      r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
+      r0.extend(SYMBOL2)
+    else
+      @index = i0
+      r0 = nil
+    end
+
+    node_cache[:SYMBOL][start_index] = r0
+
+    r0
+  end
+
+  module ID0
+  end
+
+  def _nt_ID
+    start_index = index
+    if node_cache[:ID].has_key?(index)
+      cached = node_cache[:ID][index]
       if cached
         cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
         @index = cached.interval.end
@@ -1153,31 +1271,13 @@ module RulezGrammar
     end
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
-      r0.extend(SYMBOL0)
+      r0.extend(ID0)
     else
       @index = i0
       r0 = nil
     end
 
-    node_cache[:SYMBOL][start_index] = r0
-
-    r0
-  end
-
-  def _nt_NUM_SEMANTIC
-    start_index = index
-    if node_cache[:NUM_SEMANTIC].has_key?(index)
-      cached = node_cache[:NUM_SEMANTIC][index]
-      if cached
-        cached = SyntaxNode.new(input, index...(index + 1)) if cached == true
-        @index = cached.interval.end
-      end
-      return cached
-    end
-
-    r0 = _nt_NUM
-
-    node_cache[:NUM_SEMANTIC][start_index] = r0
+    node_cache[:ID][start_index] = r0
 
     r0
   end

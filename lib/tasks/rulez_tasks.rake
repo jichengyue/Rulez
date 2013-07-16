@@ -5,7 +5,7 @@
 namespace :rulez do
   
   desc "Install rulez gem, create tables: rulez_rule, rulez_context, rulez_symbol"
-  task :install => :enviroment do
+  task :install => :environment do
     conn = ActiveRecord::Base.connection
     conn.create_table :rulez_rule do |t|
       t.string :rule
@@ -30,7 +30,7 @@ namespace :rulez do
   end
 
   desc "Uninstall rulez gem, drop tables: rulez_rule, rulez_context, rulez_symbol"
-  task :uninstall => :enviroment do 
+  task :uninstall => :environment do 
     conn = ActiveRecord::Base.connection
     conn.drop_table :rulez_rule
     conn.drop_table :rulez_context

@@ -1,3 +1,4 @@
-module Rulez
+require "rulez/engine"
 
+module Rulez
 end

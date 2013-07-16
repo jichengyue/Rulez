@@ -1,4 +1,7 @@
 #!/usr/bin/env rake
+
+import 'lib/tasks/rulez_tasks.rake'
+
 begin
   require 'bundler/setup'
 rescue LoadError
@@ -19,9 +22,6 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
-
-
-
 
 Bundler::GemHelper.install_tasks
 

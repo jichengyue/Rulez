@@ -100,7 +100,7 @@ grammar RulezGrammar
   end
 
   rule SYMBOL
-    ID ('.' ID ('("' primary '")')? )*
+    ID ('.' ID ('(' (('"' primary '"' / primary) (',' ('"' primary '"' / primary))*)? ')')? )*
   end
 
   rule ID

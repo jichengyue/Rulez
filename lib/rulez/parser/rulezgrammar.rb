@@ -1119,13 +1119,29 @@ module RulezGrammar
   end
 
   module SYMBOL1
-    def ID
+    def primary
       elements[1]
     end
 
   end
 
   module SYMBOL2
+  end
+
+  module SYMBOL3
+  end
+
+  module SYMBOL4
+  end
+
+  module SYMBOL5
+    def ID
+      elements[1]
+    end
+
+  end
+
+  module SYMBOL6
     def ID
       elements[0]
     end
@@ -1163,31 +1179,159 @@ module RulezGrammar
           s3 << r5
           if r5
             i7, s7 = index, []
-            if has_terminal?('("', false, index)
-              r8 = instantiate_node(SyntaxNode,input, index...(index + 2))
-              @index += 2
+            if has_terminal?('(', false, index)
+              r8 = instantiate_node(SyntaxNode,input, index...(index + 1))
+              @index += 1
             else
-              terminal_parse_failure('("')
+              terminal_parse_failure('(')
               r8 = nil
             end
             s7 << r8
             if r8
-              r9 = _nt_primary
+              i10, s10 = index, []
+              i11 = index
+              i12, s12 = index, []
+              if has_terminal?('"', false, index)
+                r13 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                @index += 1
+              else
+                terminal_parse_failure('"')
+                r13 = nil
+              end
+              s12 << r13
+              if r13
+                r14 = _nt_primary
+                s12 << r14
+                if r14
+                  if has_terminal?('"', false, index)
+                    r15 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                    @index += 1
+                  else
+                    terminal_parse_failure('"')
+                    r15 = nil
+                  end
+                  s12 << r15
+                end
+              end
+              if s12.last
+                r12 = instantiate_node(SyntaxNode,input, i12...index, s12)
+                r12.extend(SYMBOL0)
+              else
+                @index = i12
+                r12 = nil
+              end
+              if r12
+                r11 = r12
+              else
+                r16 = _nt_primary
+                if r16
+                  r11 = r16
+                else
+                  @index = i11
+                  r11 = nil
+                end
+              end
+              s10 << r11
+              if r11
+                s17, i17 = [], index
+                loop do
+                  i18, s18 = index, []
+                  if has_terminal?(',', false, index)
+                    r19 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                    @index += 1
+                  else
+                    terminal_parse_failure(',')
+                    r19 = nil
+                  end
+                  s18 << r19
+                  if r19
+                    i20 = index
+                    i21, s21 = index, []
+                    if has_terminal?('"', false, index)
+                      r22 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                      @index += 1
+                    else
+                      terminal_parse_failure('"')
+                      r22 = nil
+                    end
+                    s21 << r22
+                    if r22
+                      r23 = _nt_primary
+                      s21 << r23
+                      if r23
+                        if has_terminal?('"', false, index)
+                          r24 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                          @index += 1
+                        else
+                          terminal_parse_failure('"')
+                          r24 = nil
+                        end
+                        s21 << r24
+                      end
+                    end
+                    if s21.last
+                      r21 = instantiate_node(SyntaxNode,input, i21...index, s21)
+                      r21.extend(SYMBOL1)
+                    else
+                      @index = i21
+                      r21 = nil
+                    end
+                    if r21
+                      r20 = r21
+                    else
+                      r25 = _nt_primary
+                      if r25
+                        r20 = r25
+                      else
+                        @index = i20
+                        r20 = nil
+                      end
+                    end
+                    s18 << r20
+                  end
+                  if s18.last
+                    r18 = instantiate_node(SyntaxNode,input, i18...index, s18)
+                    r18.extend(SYMBOL2)
+                  else
+                    @index = i18
+                    r18 = nil
+                  end
+                  if r18
+                    s17 << r18
+                  else
+                    break
+                  end
+                end
+                r17 = instantiate_node(SyntaxNode,input, i17...index, s17)
+                s10 << r17
+              end
+              if s10.last
+                r10 = instantiate_node(SyntaxNode,input, i10...index, s10)
+                r10.extend(SYMBOL3)
+              else
+                @index = i10
+                r10 = nil
+              end
+              if r10
+                r9 = r10
+              else
+                r9 = instantiate_node(SyntaxNode,input, index...index)
+              end
               s7 << r9
               if r9
-                if has_terminal?('")', false, index)
-                  r10 = instantiate_node(SyntaxNode,input, index...(index + 2))
-                  @index += 2
+                if has_terminal?(')', false, index)
+                  r26 = instantiate_node(SyntaxNode,input, index...(index + 1))
+                  @index += 1
                 else
-                  terminal_parse_failure('")')
-                  r10 = nil
+                  terminal_parse_failure(')')
+                  r26 = nil
                 end
-                s7 << r10
+                s7 << r26
               end
             end
             if s7.last
               r7 = instantiate_node(SyntaxNode,input, i7...index, s7)
-              r7.extend(SYMBOL0)
+              r7.extend(SYMBOL4)
             else
               @index = i7
               r7 = nil
@@ -1202,7 +1346,7 @@ module RulezGrammar
         end
         if s3.last
           r3 = instantiate_node(SyntaxNode,input, i3...index, s3)
-          r3.extend(SYMBOL1)
+          r3.extend(SYMBOL5)
         else
           @index = i3
           r3 = nil
@@ -1218,7 +1362,7 @@ module RulezGrammar
     end
     if s0.last
       r0 = instantiate_node(SyntaxNode,input, i0...index, s0)
-      r0.extend(SYMBOL2)
+      r0.extend(SYMBOL6)
     else
       @index = i0
       r0 = nil

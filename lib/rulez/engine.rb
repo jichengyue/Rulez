@@ -6,7 +6,7 @@ module Rulez
     isolate_namespace Rulez
   end
 
-  class RulezParser
+  class Parser
     # instantiate the parser
     @@parser = RulezGrammarParser.new
 

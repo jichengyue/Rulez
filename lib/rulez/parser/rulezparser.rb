@@ -2,7 +2,7 @@ require 'treetop'
 require File.join(File.expand_path(File.dirname(__FILE__)),'rulezgrammar.rb')
 
 
-class RulezParser
+class Parser
   # retrive current base path
   @@base_path = File.expand_path(File.dirname(__FILE__))
   # create the parser class from the grammar defined in rulezgrammar.treetop

@@ -1,0 +1,11 @@
+class CreateRulezRules < ActiveRecord::Migration
+  def change
+    create_table :rulez_rules do |t|
+      t.string :name
+      t.text :description
+      t.string :rule
+      t.timestamps
+      t.belongs_to :context
+    end
+  end
+end

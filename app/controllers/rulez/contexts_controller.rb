@@ -25,7 +25,7 @@ module Rulez
 
     # POST /contexts
     def create
-      @context = Context.new(context_params)
+      @context = Context.new(params[:context])
 
       if @context.save
         redirect_to @context, notice: 'Context was successfully created.'
@@ -37,7 +37,7 @@ module Rulez
     # PATCH/PUT /contexts/1
     def update
       set_context
-      if @context.update(context_params)
+      if @context.update(params[:context])
         redirect_to @context, notice: 'Context was successfully updated.'
       else
         render action: 'edit'
@@ -55,11 +55,6 @@ module Rulez
       # Use callbacks to share common setup or constraints between actions.
       def set_context
         @context = Context.find(params[:id])
-      end
-
-      # Only allow a trusted parameter "white list" through.
-      def context_params
-        params.require(:context).permit(:name, :description)
       end
   end
 end

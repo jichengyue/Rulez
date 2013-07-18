@@ -1,3 +1,5 @@
 Rulez::Engine.routes.draw do
-  root to: 'rulez#index'
+  root to: 'static#index'
+
+  resources :contexts
 end

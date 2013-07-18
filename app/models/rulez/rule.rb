@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  name        :string(255)
 #  description :text
-#  rule        :string(255)
+#  rule        :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  context_id  :integer

@@ -3,4 +3,5 @@ Rulez::Engine.routes.draw do
 
   resources :contexts
   resources :rules
+  resources :symbols
 end

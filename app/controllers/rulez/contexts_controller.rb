@@ -37,7 +37,7 @@ module Rulez
     # PATCH/PUT /contexts/1
     def update
       set_context
-      if @context.update(params[:context])
+      if @context.update_attributes!(params[:context])
         redirect_to @context, notice: 'Context was successfully updated.'
       else
         render action: 'edit'

@@ -13,7 +13,7 @@
 
 module Rulez
   class Rule < ActiveRecord::Base
-    attr_accessible :description, :name, :rule
+    attr_accessible :description, :name, :rule, :context_id
 
     #associations
     belongs_to :context
@@ -22,5 +22,6 @@ module Rulez
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
     validates :rule, presence: true, syntax: true
+    validates :context_id, presence: true
   end
 end

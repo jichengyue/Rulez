@@ -13,6 +13,12 @@ module Rulez
       set_context
     end
 
+    def symbols
+      set_context
+      @symbols = @context.symbols
+      render layout: false
+    end
+
     # GET /contexts/new
     def new
       @context = Context.new
@@ -37,7 +43,7 @@ module Rulez
     # PATCH/PUT /contexts/1
     def update
       set_context
-      if @context.update_attributes!(params[:context])
+      if @context.update_attributes(params[:context])
         redirect_to @context, notice: 'Context was successfully updated.'
       else
         render action: 'edit'

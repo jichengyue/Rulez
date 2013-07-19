@@ -37,7 +37,7 @@ module Rulez
     # PATCH/PUT /symbols/1
     def update
       set_symbol
-      if @symbol.update_attributes!(params[:symbol])
+      if @symbol.update_attributes(params[:symbol])
         redirect_to @symbol, notice: 'Symbol was successfully updated.'
       else
         render action: 'edit'

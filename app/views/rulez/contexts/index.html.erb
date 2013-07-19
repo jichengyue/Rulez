@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Symbols</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,11 @@
       <tr>
         <td><%= context.name %></td>
         <td><%= context.description %></td>
+        <td>
+          <% context.symbols.each do |sym| %>
+            <%= sym.name %><br>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', context %></td>
         <td><%= link_to 'Edit', edit_context_path(context) %></td>
         <td><%= link_to 'Destroy', context, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,7 +11,7 @@
 
 module Rulez
   class Context < ActiveRecord::Base
-    attr_accessible :description, :name
+    attr_accessible :description, :name, :symbol_ids
 
     has_many :rules
     has_and_belongs_to_many :symbols, join_table: :rulez_contexts_symbols

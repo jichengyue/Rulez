@@ -1,0 +1,7 @@
+<strong>Available symbols (with descriptions):</strong><br>
+<% @symbols.each do |sym| %>
+  <%= sym.name %> 
+  <span class="symbol_description">
+    <%= " - " << sym.description if sym.description.present? %>
+  </span><br>
+<% end %>

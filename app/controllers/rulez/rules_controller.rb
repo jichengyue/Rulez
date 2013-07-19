@@ -28,7 +28,6 @@ module Rulez
     # POST /rules
     def create
       @rule = Rule.new(params[:rule])
-      set_contexts
 
       if @rule.save
         redirect_to @rule, notice: 'Rule was successfully created.'
@@ -40,8 +39,9 @@ module Rulez
     # PATCH/PUT /rules/1
     def update
       set_rule
+      set_contexts
 
-      if @rule.update_attributes!(params[:rule])
+      if @rule.update_attributes(params[:rule])
         redirect_to @rule, notice: 'Rule was successfully updated.'
       else
         render action: 'edit'
@@ -58,11 +58,11 @@ module Rulez
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_rule
-        @rule = Rule.find(params[:id])
+        @rule ||= Rule.find(params[:id])
       end
 
       def set_contexts
-        @contexts = Context.all
+        @contexts ||= Context.all
       end
   end
 end

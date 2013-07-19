@@ -14,5 +14,7 @@ module Rulez
     attr_accessible :description, :name
 
     has_and_belongs_to_many :context, join_table: :rulez_contexts_symbols
+
+    validates :name, presence: true, uniqueness: true
   end
 end

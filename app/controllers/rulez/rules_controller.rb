@@ -28,7 +28,7 @@ module Rulez
     # POST /rules
     def create
       @rule = Rule.new(params[:rule])
-
+      set_contexts
       if @rule.save
         redirect_to @rule, notice: 'Rule was successfully created.'
       else

@@ -2,16 +2,22 @@ module Rulez
 
   class SyntaxValidator < ActiveModel::EachValidator
 
-
     def validate_each(object, attribute, value)
-      tree = Parser.parse(value.gsub(/\s+/, '')) if value
-      if !value || !tree
-        object.errors[attribute] << (options[:message] || "is not a valid expression: parse error")
-      else
-        object.errors[attribute] << check_ids(tree, object.context.symbols)
+      if value
+        begin
+          Parser.parse(value)
+
+          if object.context
+            if !(Parser.symbols_list - object.context.symbols.map {|s| s.name}).empty?
+              object.errors[attribute] << 'expression contains invalid symbols.'
+            end
+          end
+
+        rescue
+          object.errors[attribute] << 'is not a valid expression, parse error.'
+        end
       end
     end
-
 
   end
 end

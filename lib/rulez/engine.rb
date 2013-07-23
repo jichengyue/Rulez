@@ -8,10 +8,19 @@ module Rulez
   end
 
   class Parser
+    @@arr = []
     def self.parse(input)
+      @@arr = []
       parser = SyntaxAnalyzer.new
       parser.parse(input)
-      p parser.get_symbols
+    end
+
+    def self.add_new_symbol(v)
+      @@arr.push(v)
+    end
+
+    def self.symbols_list
+      @@arr
     end
   end
 

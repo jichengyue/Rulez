@@ -1,12 +1,11 @@
 require 'whittle'
-require 'date'
 
-class RulezSyntaxAnalyzer < Whittle::Parser
+class SyntaxAnalyzer < Whittle::Parser
 
-  @@sl = []
+  @sl = []
 
-  def self.symbols_list
-    @@sl
+  def get_symbols
+    return @sl
   end
 
   rule(:wsp => /\s+/).skip!
@@ -55,7 +54,7 @@ class RulezSyntaxAnalyzer < Whittle::Parser
     r[:symbol_value]
   end
 
-  rule(boolean_value: /true|false/).as { |b| b == "true" ? true : false; }
+  rule(boolean_value: /true|false/)#.as { |b| b == "true" ? true : false; }
 
   rule(datetime_value: 
     /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})(\#)([01][0-9]|2[0-3])(\:)([0-5][0-9])(\:)([0-5][0-9])/
@@ -65,7 +64,7 @@ class RulezSyntaxAnalyzer < Whittle::Parser
     /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
   ).as { |d| Date.strptime(d,'%d//%m//%Y') }
 
-  rule(symbol_value: /[a-zA-Z][a-zA-Z0-9_]*/).as { |s| @@sl.push(s) }
+  rule(symbol_value: /[a-zA-Z][a-zA-Z0-9_]*/).as { |s| @sl.push(s) }
 
   rule(float_value: /([1-9][0-9]*|0)?\.[0-9]+/).as { |f| Float(f) }
 
@@ -73,17 +72,3 @@ class RulezSyntaxAnalyzer < Whittle::Parser
 
   start(:expr)
 end
-
-
-# ESEMPIO
-RulezSyntaxAnalyzer.new.parse("ciao == 3 && var1 < 4 && user_id == 98")
-p "lista dei simboli ridotti:"
-p RulezSyntaxAnalyzer.symbols_list
-##p RulezSyntaxAnalyzer.new.parse("31//10//1988#22:45:07 == 31//10//1988#22:45:07 || 31//10//1988#22:45:07 != 31//10//1988#22:45:07")
-
-
-
-
-
-
-

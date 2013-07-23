@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @context.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @context.description %>
+</p>
+
+<p>
+  <strong>Symbols:</strong>
+  <% @context.symbols.each do |s| %>
+    <br><%= s.name %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_context_path(@context) %> |
+<%= link_to 'Back', contexts_path %>

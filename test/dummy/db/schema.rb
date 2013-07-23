@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130717090860) do
+ActiveRecord::Schema.define(:version => 20130718135643) do
 
   create_table "rulez_contexts", :force => true do |t|
     t.string   "name"
@@ -20,15 +20,15 @@ ActiveRecord::Schema.define(:version => 20130717090860) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "rulez_contexts_rulez_symbols", :force => true do |t|
-    t.integer "rulez_contexts_id"
-    t.integer "rulez_symbols_id"
+  create_table "rulez_contexts_symbols", :force => true do |t|
+    t.integer "context_id"
+    t.integer "symbol_id"
   end
 
   create_table "rulez_rules", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "rule"
+    t.text     "rule"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "context_id"

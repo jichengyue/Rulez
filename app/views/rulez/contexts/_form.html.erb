@@ -1,0 +1,28 @@
+<%= form_for(@context) do |f| %>
+  <% if @context.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@context.errors.count, "error") %> prohibited this context from being saved:</h2>
+
+      <ul>
+      <% @context.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.select :symbol_ids, Rulez::Symbol.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

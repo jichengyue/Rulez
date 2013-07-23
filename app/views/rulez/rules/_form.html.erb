@@ -1,0 +1,39 @@
+<%= javascript_include_tag "rulez/rules" %>
+
+<%= form_for(@rule) do |f| %>
+  <% if @rule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
+
+      <ul>
+      <% @rule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :context_id %>
+    <%= f.collection_select(:context_id, @contexts, :id, :name, { :prompt => true })
+   %>
+  </div>
+  <div>
+    <p id="available_symbols"></p>
+  </div>
+  <div class="field">
+    <%= f.label :rule %><br>
+    <%= f.text_area :rule %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

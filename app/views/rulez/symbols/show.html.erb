@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @symbol.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @symbol.description %>
+</p>
+
+<%= link_to 'Edit', edit_symbol_path(@symbol) %> |
+<%= link_to 'Back', symbols_path %>

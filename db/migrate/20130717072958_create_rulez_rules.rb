@@ -3,7 +3,7 @@ class CreateRulezRules < ActiveRecord::Migration
     create_table :rulez_rules do |t|
       t.string :name
       t.text :description
-      t.string :rule
+      t.text :rule
       t.timestamps
       t.belongs_to :context
     end

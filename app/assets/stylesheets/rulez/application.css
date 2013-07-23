@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+table{ background-color: #DDD }
+td{ background-color: #FFF }
+.symbol_description {
+  color: #666;
+  font-style: italic;
+}

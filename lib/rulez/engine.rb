@@ -1,5 +1,6 @@
-require 'treetop'
-require File.join(File.expand_path(File.dirname(__FILE__)),'parser/rulezgrammar.rb')
+require 'whittle'
+require 'date'
+require File.join(File.expand_path(File.dirname(__FILE__)),'parser/rulez_syntax_analyzer.rb')
 
 module Rulez
   class Engine < ::Rails::Engine
@@ -7,29 +8,19 @@ module Rulez
   end
 
   class Parser
-    # instantiate the parser
-    @@parser = RulezGrammarParser.new
-
-    # 
-    # parse top down the incoming input data
-    # @param  data  string that describe the rule to be parsed
-    # 
-    # @return Treetop::Runtime::SyntaxNode 
-    def self.parse(data)
-      tree = @@parser.parse(data)
-
-      # aggiungere qui un controllo di errore sul tree
-      # se tree.nil? allora il parsing non ha avuto successo
-
-      return tree
+    @@arr = []
+    def self.parse(input)
+      @@arr = []
+      parser = SyntaxAnalyzer.new
+      parser.parse(input)
     end
 
-    def self.TypeDate(d)
-      Date.strptime(d,'%d//%m//%Y')
+    def self.add_new_symbol(v)
+      @@arr.push(v)
     end
 
-    def self.TypeDateTime(dt)
-      DateTime.strptime(dt,'%d//%m//%Y#%H:%M:%S')
+    def self.symbols_list
+      @@arr
     end
   end
 

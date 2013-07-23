@@ -1,0 +1,29 @@
+<h1>Listing symbols</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @symbols.each do |symbol| %>
+      <tr>
+        <td><%= symbol.name %></td>
+        <td><%= symbol.description %></td>
+        <td><%= link_to 'Show', symbol %></td>
+        <td><%= link_to 'Edit', edit_symbol_path(symbol) %></td>
+        <td><%= link_to 'Destroy', symbol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Symbol', new_symbol_path %>

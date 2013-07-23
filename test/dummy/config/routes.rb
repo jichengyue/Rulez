@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Rulez::Engine => "/rulez"
+  root to: "static#index"
+
+  mount Rulez::Engine => "/rulez", as: 'rulez'
 end

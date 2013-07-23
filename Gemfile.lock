@@ -3,7 +3,7 @@ PATH
   specs:
     rulez (0.0.1)
       rails (~> 3.2.13)
-      treetop (~> 1.4.14)
+      whittle (~> 0.0.8)
 
 GEM
   remote: http://rubygems.org/
@@ -95,6 +95,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
+    whittle (0.0.8)
 
 PLATFORMS
   ruby

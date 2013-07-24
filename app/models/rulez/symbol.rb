@@ -13,8 +13,11 @@ module Rulez
   class Symbol < ActiveRecord::Base
     attr_accessible :description, :name
 
+    #associations
     has_and_belongs_to_many :context, join_table: :rulez_contexts_symbols
 
+    #validations
     validates :name, presence: true, uniqueness: true
+    validates :description, presence: true
   end
 end

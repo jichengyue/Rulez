@@ -13,7 +13,12 @@ module Rulez
   class Context < ActiveRecord::Base
     attr_accessible :description, :name, :symbol_ids
 
+    #associations
     has_many :rules
     has_and_belongs_to_many :symbols, join_table: :rulez_contexts_symbols
+
+    #validations
+    validates :name, presence: true, uniqueness: true
+    validates :description, presence:true
   end
 end

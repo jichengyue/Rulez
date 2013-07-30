@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :context_id %>
-    <%= f.collection_select(:context_id, @contexts, :id, :name, { :prompt => true })
+    <%= f.collection_select(:context_id, @contexts, :id, :name, { prompt: true })
    %>
   </div>
   <div>
@@ -33,6 +33,18 @@
     <%= f.label :rule %><br>
     <%= f.text_area :rule %>
   </div>
+
+  <% unless Rulez::get_methods_class == nil %>
+    <div class="field">
+      Add function:
+      <%= select_tag(:methods_select, options_for_select(
+        Rulez::get_methods_class.methods(false).map do |entry|
+          [entry.to_s, entry.to_s]
+        end
+      ), { prompt: true }) %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

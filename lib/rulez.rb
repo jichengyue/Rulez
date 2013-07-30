@@ -12,7 +12,11 @@ module Rulez
   end
 
   def self.get_methods_class
-    @@methods_class
+    if @@methods_class
+      @@methods_class
+    else
+      raise 'Init error, methods class is not present.'
+    end
   end
 
 end

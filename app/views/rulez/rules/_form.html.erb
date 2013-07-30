@@ -37,11 +37,12 @@
   <% unless Rulez::get_methods_class == nil %>
     <div class="field">
       Add function:
+
       <%= select_tag(:methods_select, options_for_select(
         Rulez::get_methods_class.methods(false).map do |entry|
           [entry.to_s, entry.to_s]
         end
-      ), { prompt: true }) %>
+      ),  prompt: 'Please select' ) %>
     </div>
   <% end %>
 

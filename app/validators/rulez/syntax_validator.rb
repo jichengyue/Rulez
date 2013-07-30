@@ -8,7 +8,11 @@ module Rulez
           Parser.parse(value)
 
           if object.context
-            if !(Parser.symbols_list - object.context.symbols.map {|s| s.name}).empty?
+            parsed = Parser.symbols_list
+            parsed = parsed - object.context.symbols.map { |s| s.name } #check symbols
+            parsed = parsed - Rulez.get_methods_class.methods(false).map { |s| s.to_s } #check functions
+
+            if !parsed.empty?
               object.errors[attribute] << 'expression contains invalid symbols.'
             end
           end

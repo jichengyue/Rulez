@@ -79,8 +79,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">app/models/rulez/rule.rb<span class="defines">,<br />
-  lib/rulez.rb,<br /> lib/rulez/engine.rb,<br /> lib/rulez/version.rb,<br /> app/models/rulez/symbol.rb,<br /> app/models/rulez/context.rb,<br /> app/helpers/rulez/rules_helper.rb,<br /> app/helpers/rulez/symbols_helper.rb,<br /> app/helpers/rulez/contexts_helper.rb,<br /> app/helpers/rulez/application_helper.rb,<br /> app/validators/rulez/syntax_validator.rb,<br /> app/controllers/rulez/rules_controller.rb,<br /> app/controllers/rulez/static_controller.rb,<br /> app/controllers/rulez/symbols_controller.rb,<br /> app/controllers/rulez/contexts_controller.rb,<br /> app/controllers/rulez/application_controller.rb</span>
+    <dd class="r1 last">lib/rulez/engine.rb<span class="defines">,<br />
+  lib/rulez.rb,<br /> lib/rulez/version.rb,<br /> app/models/rulez/rule.rb,<br /> app/models/rulez/symbol.rb,<br /> app/models/rulez/context.rb,<br /> app/helpers/rulez/rules_helper.rb,<br /> app/helpers/rulez/symbols_helper.rb,<br /> app/helpers/rulez/contexts_helper.rb,<br /> app/helpers/rulez/application_helper.rb,<br /> app/validators/rulez/syntax_validator.rb,<br /> app/controllers/rulez/rules_controller.rb,<br /> app/controllers/rulez/static_controller.rb,<br /> app/controllers/rulez/symbols_controller.rb,<br /> app/controllers/rulez/contexts_controller.rb,<br /> app/controllers/rulez/application_controller.rb</span>
 </dd>
   
 </dl>
@@ -132,6 +132,11 @@ updated_at  :datetime         not null</code></pre>
         </dt>
         <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
       
+        <dt id="models-classvariable" class="">@@models =
+          
+        </dt>
+        <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+      
     </dl>
   
 
@@ -152,7 +157,31 @@ updated_at  :datetime         not null</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_methods_class-class_method" title="get_methods_class (class method)">+ (Object) <strong>get_methods_class</strong> </a>
+      <a href="#get_methods_class-class_method" title="get_methods_class (class method)">+ (Class) <strong>get_methods_class</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the methods class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_models-class_method" title="get_models (class method)">+ (Object) <strong>get_models</strong> </a>
     
 
     
@@ -188,7 +217,9 @@ updated_at  :datetime         not null</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Evaluates a rule.</p>
+</div></span>
   
 </li>
 
@@ -196,7 +227,7 @@ updated_at  :datetime         not null</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#set_methods_class-class_method" title="set_methods_class (class method)">+ (Object) <strong>set_methods_class</strong>(c) </a>
+      <a href="#set_methods_class-class_method" title="set_methods_class (class method)">+ (Class) <strong>set_methods_class</strong>(c) </a>
     
 
     
@@ -210,7 +241,34 @@ updated_at  :datetime         not null</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Set the methods class: a class that contains all the methods that are
+wanted to be referenceable and evaluable from the rules.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_models-class_method" title="set_models (class method)">+ (Array) <strong>set_models</strong>(models) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set the models of the application.</p>
+</div></span>
   
 </li>
 
@@ -227,7 +285,74 @@ updated_at  :datetime         not null</code></pre>
       <div class="method_details first">
   <h3 class="signature first" id="get_methods_class-class_method">
   
-    + (<tt>Object</tt>) <strong>get_methods_class</strong> 
+    + (<tt>Class</tt>) <strong>get_methods_class</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the methods class.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the methods class</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_methods_class'>get_methods_class</span>
+  <span class='kw'>if</span> <span class='cvar'>@@methods_class</span>
+    <span class='cvar'>@@methods_class</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, methods class is not present.</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_models-class_method">
+  
+    + (<tt>Object</tt>) <strong>get_models</strong> 
   
 
   
@@ -239,22 +364,22 @@ updated_at  :datetime         not null</code></pre>
       <pre class="lines">
 
 
-14
-15
-16
-17
-18
-19
-20</pre>
+53
+54
+55
+56
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 53</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_methods_class'>get_methods_class</span>
-  <span class='kw'>if</span> <span class='cvar'>@@methods_class</span>
-    <span class='cvar'>@@methods_class</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_models'>get_models</span>
+  <span class='kw'>if</span> <span class='cvar'>@@models</span>
+    <span class='cvar'>@@models</span>
   <span class='kw'>else</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, methods class is not present.</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, models not initialized</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -274,11 +399,33 @@ updated_at  :datetime         not null</code></pre>
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Evaluates a rule</p>
+
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>the</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name of the rule to evaluate</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -288,6 +435,11 @@ updated_at  :datetime         not null</code></pre>
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>the result of the rule evaluated</p>
+</div>
       
     </li>
   
@@ -299,18 +451,18 @@ updated_at  :datetime         not null</code></pre>
       <pre class="lines">
 
 
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre>
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_is_rule_valid?'>is_rule_valid?</span><span class='lparen'>(</span><span class='id identifier rubyid_rule'>rule</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rule'>rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_find_by_name'>find_by_name</span><span class='lparen'>(</span><span class='id identifier rubyid_rule'>rule</span><span class='rparen'>)</span>
@@ -329,28 +481,78 @@ updated_at  :datetime         not null</code></pre>
       <div class="method_details ">
   <h3 class="signature " id="set_methods_class-class_method">
   
-    + (<tt>Object</tt>) <strong>set_methods_class</strong>(c) 
+    + (<tt>Class</tt>) <strong>set_methods_class</strong>(c) 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the methods class: a class that contains all the methods that are
+wanted to be referenceable and evaluable from the rules.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>c</span>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The methods class</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The methods class</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-6
-7
-8
-9
-10
-11
-12</pre>
+14
+15
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_methods_class'>set_methods_class</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>Class</span>
@@ -364,12 +566,109 @@ updated_at  :datetime         not null</code></pre>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="set_models-class_method">
+  
+    + (<tt>Array</tt>) <strong>set_models</strong>(models) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the models of the application.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>models</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the array of model names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the array of model names</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_models'>set_models</span><span class='lparen'>(</span><span class='id identifier rubyid_models'>models</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_models'>models</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>Array</span>
+    <span class='id identifier rubyid_models'>models</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Found a member of the array that is not a model</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='cvar'>@@models</span> <span class='op'>=</span> <span class='id identifier rubyid_models'>models</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Parameter should be an Array</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Mon Aug  5 11:00:37 2013 by
+  Generated on Mon Aug  5 16:09:30 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

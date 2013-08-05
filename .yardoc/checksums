@@ -1,10 +1,10 @@
-lib/rulez.rb db0b0e5b192872408a2a84419c32e7f6103c46c0
-lib/rulez/engine.rb f97ac18ba6f864d85578e9026d3b313efd1600a8
+lib/rulez.rb 33107744db3274f5aa26bcd4c1c174765fffd2df
+lib/rulez/engine.rb df9a1a9da81b843a9803f7556693b565e0829412
 lib/rulez/version.rb 8b70eb671331e811fd1962002b6d725845afcc90
 app/models/rulez/rule.rb 342f9d85ef48e1cdd52babd96f5a5cca1eb7ba9a
-app/models/rulez/symbol.rb d52335665345dcfa20ee377e416b47c214c3bb3c
+app/models/rulez/symbol.rb 55151dc96d2dd33d4606f8530a1ce7f9dda01fe5
 app/models/rulez/context.rb 930c7c5b8a811f3881155f5b097087d39121e711
-lib/rulez/parser/rulez_parser.rb 5286b756de9bc5c768e8327c9de6d46bba524316
+lib/rulez/parser/rulez_parser.rb 2dce88d8d237859232a13045826743800704f9bd
 app/helpers/rulez/rules_helper.rb df2b2cd712b4b53c49e97f23d0592209b7440f1f
 app/helpers/rulez/symbols_helper.rb 2314b8838ca270bc29d0c65cb6dc8f5e0c9bf18e
 app/helpers/rulez/contexts_helper.rb 60be0715f5b66a47ab3a9d04d2a6e09dac90eef7
@@ -13,6 +13,6 @@ app/validators/rulez/syntax_validator.rb 9cb638fd4cad338c4eb62ed817bc8d4f65f0e07
 lib/rulez/parser/rulez_syntax_analyzer.rb 4014405ce5a2620dcd65ba903337e03f292d36f8
 app/controllers/rulez/rules_controller.rb 39c927579937d4cf8c933972d55f553b669b2f3f
 app/controllers/rulez/static_controller.rb f2b7de21cd7c6162b321f5e2e51885ce9118775a
-app/controllers/rulez/symbols_controller.rb b629f6c40aac585c4500ae448312424b14db3a9b
+app/controllers/rulez/symbols_controller.rb fffc377dfb95febccdbe1f4095964e4a55d931fd
 app/controllers/rulez/contexts_controller.rb 7e48f8596b3e496bd0f2be8c3df53b126e97b4d0
 app/controllers/rulez/application_controller.rb a2eecdd1ea3d35bb2acb2008dad1a0fb954787cc

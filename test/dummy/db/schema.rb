@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130718135643) do
+ActiveRecord::Schema.define(:version => 20130805133928) do
+
+  create_table "restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "city"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "rulez_contexts", :force => true do |t|
     t.string   "name"
@@ -37,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130718135643) do
   create_table "rulez_symbols", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "model"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

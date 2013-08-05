@@ -19,6 +19,10 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+  <div class="field">
+    <%= f.label :model %><br>
+    <%= f.select :model, @models.collect {|x| [x.name, x.name]}, {}, :multiple => false %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

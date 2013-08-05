@@ -13,7 +13,10 @@
  */
 
 table{ background-color: #DDD }
-td{ background-color: #FFF }
+td{ 
+  background-color: #FFF;
+  padding: 4px;
+}
 .symbol_description {
   color: #666;
   font-style: italic;

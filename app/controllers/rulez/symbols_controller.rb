@@ -16,17 +16,19 @@ module Rulez
     # GET /symbols/new
     def new
       @symbol = Symbol.new
+      set_models
     end
 
     # GET /symbols/1/edit
     def edit
       set_symbol
+      set_models
     end
 
     # POST /symbols
     def create
       @symbol = Symbol.new(params[:symbol])
-
+      set_models
       if @symbol.save
         redirect_to @symbol, notice: 'Symbol was successfully created.'
       else
@@ -37,6 +39,7 @@ module Rulez
     # PATCH/PUT /symbols/1
     def update
       set_symbol
+      set_models
       if @symbol.update_attributes(params[:symbol])
         redirect_to @symbol, notice: 'Symbol was successfully updated.'
       else
@@ -59,6 +62,14 @@ module Rulez
       # @return [Symbol] the current symbol
       def set_symbol
         @symbol = Symbol.find(params[:id])
+      end
+
+      # 
+      # Set the available models
+      # 
+      # @return [Array] the array of models available
+      def set_models
+        @models = Rulez::get_models
       end
   end
 end

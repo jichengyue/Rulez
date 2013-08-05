@@ -241,6 +241,30 @@
         <li class="private ">
   <span class="summary_signature">
     
+      <a href="#set_models-instance_method" title="#set_models (instance method)">- (Array) <strong>set_models</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  <span class="note title private">private</span>
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Set the available models.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="private ">
+  <span class="summary_signature">
+    
       <a href="#set_symbol-instance_method" title="#set_symbol (instance method)">- (Symbol) <strong>set_symbol</strong> </a>
     
 
@@ -352,22 +376,22 @@
       <pre class="lines">
 
 
-27
-28
 29
 30
 31
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='ivar'>@symbol</span> <span class='op'>=</span> <span class='const'>Symbol</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:symbol</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-
+  <span class='id identifier rubyid_set_models'>set_models</span>
   <span class='kw'>if</span> <span class='ivar'>@symbol</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
     <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@symbol</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Symbol was successfully created.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>else</span>
@@ -405,14 +429,14 @@
       <pre class="lines">
 
 
-48
-49
-50
 51
-52</pre>
+52
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_set_symbol'>set_symbol</span>
@@ -450,15 +474,17 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_edit'>edit</span>
   <span class='id identifier rubyid_set_symbol'>set_symbol</span>
+  <span class='id identifier rubyid_set_models'>set_models</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -534,13 +560,74 @@
 
 17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span>
   <span class='ivar'>@symbol</span> <span class='op'>=</span> <span class='const'>Symbol</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_set_models'>set_models</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="set_models-instance_method">
+  
+    - (<tt>Array</tt>) <strong>set_models</strong>  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Set the available models</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the array of models available</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_set_models'>set_models</span>
+  <span class='ivar'>@models</span> <span class='op'>=</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='id identifier rubyid_get_models'>get_models</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -591,12 +678,12 @@
       <pre class="lines">
 
 
-60
-61
-62</pre>
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_symbol'>set_symbol</span>
   <span class='ivar'>@symbol</span> <span class='op'>=</span> <span class='const'>Symbol</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -673,20 +760,22 @@
       <pre class="lines">
 
 
-38
-39
 40
 41
 42
 43
 44
-45</pre>
+45
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/symbols_controller.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_set_symbol'>set_symbol</span>
+  <span class='id identifier rubyid_set_models'>set_models</span>
   <span class='kw'>if</span> <span class='ivar'>@symbol</span><span class='period'>.</span><span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:symbol</span><span class='rbracket'>]</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@symbol</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Symbol was successfully updated.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>else</span>
@@ -703,7 +792,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Aug  5 11:00:38 2013 by
+  Generated on Mon Aug  5 16:09:30 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

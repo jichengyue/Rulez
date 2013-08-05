@@ -65,17 +65,49 @@ class RulezParser < Whittle::Parser
     /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
   ).as { |s| Date.strptime(s, '%d//%m//%Y') }
 
-  rule(symbol_value: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+
+  #new symbol value per contesti: [a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*
+  # questa regola fa il match di variabile.metodo...
+  
+  rule(method_symbol: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
     if Rulez.get_methods_class.methods(false).map { |s| s.to_s }.include?(s)
       Rulez.get_methods_class.method(s).call
     else
-      #esecuzione della funzione del contesto (se è del contesto!)
+      raise "Missing method #{s}! Did you delete methods in your lib?"
     end
   end
 
+  rule(context_symbol: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+    splitted = s.split('.')
+    key = splitted.first.to_sym
+    method = splitted.last.to_sym
+    #Rulez::PreParser.get_hash[key].method(method).call
+    debugger
+    p 'ass'
+  end
+
+  rule(:symbol_value) do |r|
+    r[:context_symbol]
+    r[:method_symbol]
+  end
+  
+  # rule(symbol_value: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+  #   if Rulez.get_methods_class.methods(false).map { |s| s.to_s }.include?(s)
+  #     Rulez.get_methods_class.method(s).call
+  #   else
+  #     #esecuzione della funzione del contesto (se è del contesto!)
+  #   end
+  # end
+
   rule(float_value: /([1-9][0-9]*|0)?\.[0-9]+/).as { |s| s.to_f }
 
-  rule(integer_value: /[1-9][0-9]*|0/).as { |s| s.to_i}
+  rule(integer_value: /[1-9][0-9]*|0/).as { |s| s.to_i }
 
   start(:expr)
+
+  def initialize(hash)
+    #super
+    @hash = hash
+    debugger
+  end
 end

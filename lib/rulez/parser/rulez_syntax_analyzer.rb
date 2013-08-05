@@ -58,7 +58,20 @@ class SyntaxAnalyzer < Whittle::Parser
     /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
   )
 
-  rule(symbol_value: /[a-zA-Z][a-zA-Z0-9_]*/).as { |s| Rulez::Parser.add_new_symbol(s) }
+  rule(method_symbol: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+    Rulez::Parser.add_new_symbol(s)
+  end
+
+  rule(context_symbol: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+    Rulez::Parser.add_new_symbol(s)
+  end
+
+  rule(:symbol_value) do |r|
+    r[:context_symbol]
+    r[:method_symbol]
+  end
+
+  #rule(symbol_value: /[a-zA-Z][a-zA-Z0-9_]*/).as { |s| Rulez::Parser.add_new_symbol(s) }
 
   rule(float_value: /([1-9][0-9]*|0)?\.[0-9]+/)
 

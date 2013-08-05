@@ -35,7 +35,7 @@ class RulezParser < Whittle::Parser
     r[:expr, "*", :expr].as { |a, _, b| a * b }
     r[:expr, "/", :expr].as { |a, _, b| a / b }
     r["-", :expr].as { |_, a| -a }
-    r["(", :expr, ")"].as { |_, a, _| a }
+    r["(", :expr, ")"].as { |_, a, _| (a) }
     r[:primary]
   end
 

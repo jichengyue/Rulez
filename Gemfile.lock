@@ -84,6 +84,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -96,6 +97,9 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
     whittle (0.0.8)
+    yard (0.8.6.1)
+    yard-rails (0.3.0)
+      yard
 
 PLATFORMS
   ruby
@@ -104,4 +108,7 @@ DEPENDENCIES
   debugger
   jquery-rails
   mysql2
+  redcarpet
   rulez!
+  yard (~> 0.8)
+  yard-rails (~> 0.3)

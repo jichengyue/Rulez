@@ -10,6 +10,12 @@
 #
 
 module Rulez
+
+  # 
+  # A context defines a set of symbols and functions that can be referenced and evaluated by rules.
+  # A rule must be associated with a context for using its symbols and functions.
+  # All symbols that are not defined in that context are considered invalid.
+  # 
   class Context < ActiveRecord::Base
     attr_accessible :description, :name, :symbol_ids
 

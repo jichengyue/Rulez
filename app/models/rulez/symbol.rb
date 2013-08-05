@@ -10,6 +10,11 @@
 #
 
 module Rulez
+
+  # 
+  # A symbol is a variable name that is guaranteed to be referenceable and evaluable.
+  # Defining symbols allows to design rules that directly reference and evaluate application objects.
+  # 
   class Symbol < ActiveRecord::Base
     attr_accessible :description, :name
 

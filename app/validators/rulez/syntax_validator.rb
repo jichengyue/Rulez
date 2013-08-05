@@ -1,7 +1,15 @@
 module Rulez
 
+  # 
+  # Defines a syntax validator for rulez expressions
+  # 
+  # @author [author]
+  # 
   class SyntaxValidator < ActiveModel::EachValidator
 
+    # 
+    # Custom expression validator
+    # 
     def validate_each(object, attribute, value)
       if value
         begin

@@ -1,6 +1,10 @@
 require_dependency "rulez/application_controller"
 
 module Rulez
+
+  # 
+  # The rules controller
+  # 
   class RulesController < ApplicationController
 
     # GET /rules
@@ -56,11 +60,20 @@ module Rulez
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
+
+      # 
+      # Set the current rule
+      # 
+      # @return [Rule] the current rule
       def set_rule
         @rule ||= Rule.find(params[:id])
       end
 
+
+      # 
+      # Return all the contexts
+      # 
+      # @return [Array] An array containing all the contexts
       def set_contexts
         @contexts ||= Context.all
       end

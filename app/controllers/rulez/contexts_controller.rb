@@ -1,6 +1,10 @@
 require_dependency "rulez/application_controller"
 
 module Rulez
+
+  # 
+  # The Contexts Controller
+  # 
   class ContextsController < ApplicationController
 
     # GET /contexts
@@ -13,6 +17,10 @@ module Rulez
       set_context
     end
 
+    # 
+    # Renders the available symbols for a given context.
+    # This action is called in Ajax from other views
+    # 
     def symbols
       set_context
       @symbols = @context.symbols
@@ -58,7 +66,10 @@ module Rulez
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
+      # 
+      # Set the @context variable, from the given id
+      # 
+      # @return [Context] the current context
       def set_context
         @context = Context.find(params[:id])
       end

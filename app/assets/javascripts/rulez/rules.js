@@ -5,7 +5,7 @@ $(document).ready(function() {
   $(context_select).change(function(){
     var context_id = $('#rule_context_id')[0].value;
     var request = $.ajax({
-      url: "../../rulez/contexts/" + context_id + "/symbols" ,
+      url: BASE_URL + "/contexts/" + context_id + "/symbols" ,
       type: "GET",
       dataType: "html"
     });

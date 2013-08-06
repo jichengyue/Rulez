@@ -1,3 +1,6 @@
+<script type="text/javascript">
+  var BASE_URL = '<%= root_url %>';
+</script>
 <%= javascript_include_tag "rulez/rules" %>
 
 <%= form_for(@rule) do |f| %>
@@ -27,7 +30,8 @@
    %>
   </div>
   <div>
-    <p id="available_symbols"></p>
+    <p id="available_symbols">
+    </p>
   </div>
   <div class="field">
     <%= f.label :rule %><br>

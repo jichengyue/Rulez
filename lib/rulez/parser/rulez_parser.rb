@@ -102,10 +102,4 @@ class RulezParser < Whittle::Parser
   rule(integer_value: /[1-9][0-9]*|0/).as { |s| s.to_i }
 
   start(:expr)
-
-  def initialize(hash)
-    #super
-    @hash = hash
-    debugger
-  end
 end

@@ -25,11 +25,32 @@ module Rulez
   def self.rulez?(rule)
     rule = Rule.find_by_name(rule)
     if rule
+      if @target.nil?
+        raise "Target object not found. Did you forget to set the target?"
+      end
+
+      #set context variables
+      context_variables = {}
+      rule.context.symbols.each do |s|
+        context_variables[s.name] = @target.instance_variable_get(("@" + s.name).to_sym)
+      end
+      Parser.set_context_variables(context_variables)
+
       parser = RulezParser.new
+
       parser.parse(rule.rule)
     else
       raise 'No such rule!'
     end
+  end
+
+  # 
+  # Set the target of the rulez engine, from which the engine can fetch the requested symbols.
+  # 
+  # @param  obj [Object] the target object
+  # 
+  def self.set_rulez_target(obj)
+    @target = obj
   end
 
   # 
@@ -47,6 +68,7 @@ module Rulez
     def self.parse(input)
       @@arr = []
       @@context_list = []
+      @@context_variables = {}
       analyzer = SyntaxAnalyzer.new
       analyzer.parse(input)
     end
@@ -79,6 +101,23 @@ module Rulez
     # 
     def self.symbols_list
       @@arr
+    end
+
+    # 
+    # set the context variables from the application
+    # 
+    # @param  hash [Hash] the context variables (the keys are the names, the values are the real values)
+    # 
+    def self.set_context_variables(hash)
+      @@context_variables = hash
+    end
+
+    # 
+    # get the context variables
+    # 
+    # @return [Hash] All context variables
+    def self.get_context_variables
+      @@context_variables
     end
   end
 

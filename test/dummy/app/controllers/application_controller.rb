@@ -2,9 +2,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :rulez?
+  before_filter :set_rulez_target, :last_restaurant
 
   private
     def rulez? rule
       return Rulez::rulez? rule
+    end
+
+    def set_rulez_target
+      Rulez::set_rulez_target self
+    end
+
+    def last_restaurant
+      @last_restaurant ||= Restaurant.last
     end
 end

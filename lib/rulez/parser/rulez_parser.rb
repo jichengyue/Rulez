@@ -79,9 +79,19 @@ class RulezParser < Whittle::Parser
 
   rule(context_symbol: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
     splitted = s.split('.')
-    key = splitted.first.to_sym
-    method = splitted.last.to_sym
-    #Rulez::PreParser.get_hash[key].method(method).call
+    left = splitted.first
+    right = splitted.last
+    context_variables = Rulez::Parser.get_context_variables
+
+    if context_variables.blank?
+      raise "Context variables not found."
+    end
+
+    if context_variables[left]
+      context_variables[left].send(right)
+    else
+      raise "Missing variable @#{left}. Did you initialized all the variables of this context?"
+    end
   end
 
   rule(:symbol_value) do |r|
@@ -102,4 +112,5 @@ class RulezParser < Whittle::Parser
   rule(integer_value: /[1-9][0-9]*|0/).as { |s| s.to_i }
 
   start(:expr)
+
 end

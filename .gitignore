@@ -10,5 +10,6 @@ test/dummy/.sass-cache
 
 lib/rulez/.DS_Store
 
-# aptana studio project
+# aptana studio files
 .project
+.settings/

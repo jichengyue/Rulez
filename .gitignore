@@ -9,3 +9,6 @@ test/dummy/.sass-cache
 .DS_Store
 
 lib/rulez/.DS_Store
+
+# aptana studio project
+.project

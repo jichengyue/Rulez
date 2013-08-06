@@ -82,8 +82,6 @@ class RulezParser < Whittle::Parser
     key = splitted.first.to_sym
     method = splitted.last.to_sym
     #Rulez::PreParser.get_hash[key].method(method).call
-    debugger
-    p 'ass'
   end
 
   rule(:symbol_value) do |r|

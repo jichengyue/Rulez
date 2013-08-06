@@ -63,7 +63,7 @@ class SyntaxAnalyzer < Whittle::Parser
   end
 
   rule(context_symbol: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
-    Rulez::Parser.add_new_symbol(s)
+    Rulez::Parser.add_new_context_symbol(s)
   end
 
   rule(:symbol_value) do |r|

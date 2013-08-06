@@ -38,16 +38,33 @@ module Rulez
   class Parser
     @@arr = []
 
+    @@context_list = []
+
     # 
     # Parse the input
     # @param  input [String] the expression to parse
     # 
     def self.parse(input)
       @@arr = []
+      @@context_list = []
       analyzer = SyntaxAnalyzer.new
       analyzer.parse(input)
     end
 
+    #
+    # Add a symbol to the context symbol table
+    # @param  v [String] Symbol to add
+    # 
+    def self.add_new_context_symbol(v)
+      @@context_list.push(v)
+    end
+
+    #
+    # Returns the array of context symbols
+    # 
+    def self.context_symbols_list
+      @@context_list
+    end
 
     # 
     # Add a symbol to the symbol table

@@ -1,4 +1,21 @@
 <h1>Dummy this project</h1>
 <h3>This is the dummy project homepage.</h3>
+<p>
+  if rulez? 'rule1' <br>
+  &nbsp;&nbsp;p 'rulez!'<br>
+
+  else <br> 
+  &nbsp;&nbsp;p 'pwned!' <br>
+  end <br>
+</p>
+<div style="border: 1px solid #888; padding: 4px;">
+  <%=
+    if rulez? 'rule1'
+      p 'rulez!'
+    else
+      p 'pwned!'
+    end
+  %>
+</div>
 <p>Manage <%= link_to "restaurants", restaurants_path %>!</p>
 <p>Go to the <%= link_to "rulez engine", rulez_path %>!</p>

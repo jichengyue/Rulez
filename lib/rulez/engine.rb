@@ -22,7 +22,7 @@ module Rulez
   # @param [String] the name of the rule to evaluate
   # 
   # @return [Boolean] the result of the rule evaluated
-  def self.is_rule_valid?(rule)
+  def self.rulez?(rule)
     rule = Rule.find_by_name(rule)
     if rule
       parser = RulezParser.new

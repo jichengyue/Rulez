@@ -102,6 +102,39 @@ private
   end
 ```
 
+in lib/ creare un file rulez_methods.rb dove verranno inseriti dei metodi statici utilizzabili all'interno delle rules
+```ruby
+module RulezMethods
+  class Methods
+    def self.thetruth
+      true
+    end
+  end
+end
+```
+
+in config/initializers creare un file rulez_methods_init.rb:
+```ruby
+require 'rulez_methods'
+
+module <NomeApplicazione>
+  class Application < Rails::Application
+    config.after_initialize do
+      
+      #set methods class here
+      Rulez.set_methods_class(RulezMethods::Methods)
+
+      #set models here
+      Dir[Rails.root + "app/models/**/*.rb"].each do |path|
+        require path
+      end
+      Rulez.set_models(ActiveRecord::Base.send :descendants)
+
+    end
+  end
+end
+```
+
 creare le regole lato web.
 
 Per utilizzare le regole nel codice:

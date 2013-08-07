@@ -65,3 +65,49 @@ Un `context` prevede:
   * type: indica il tipo che ritorna la funzione
   * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
   * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto
+
+## Configurazione
+
+Gemfile:
+
+```ruby
+gem 'rulez'
+```
+
+eseguire da terminale:
+
+```
+bundle install
+rake rulez:install:migrations
+rake db:migrate
+```
+
+routes.rb:
+```ruby
+mount Rulez::Engine => "/rulez", as: 'rulez'
+```
+
+application_controller.rb:
+```ruby
+helper_method :rulez?
+before_filter :set_rulez_target
+
+private
+  def rulez? rule
+    return Rulez::rulez? rule
+  end
+
+  def set_rulez_target
+    Rulez::set_rulez_target self
+  end
+```
+
+creare le regole lato web.
+
+Per utilizzare le regole nel codice:
+
+```ruby
+if rulez? 'nomeregola'
+  ...
+end
+```

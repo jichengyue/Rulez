@@ -1,7 +1,15 @@
 <strong>Available symbols (with descriptions):</strong><br>
 <% @symbols.each do |sym| %>
-  <%= sym.name %> 
-  <span class="symbol_description">
-    <%= " - " << sym.description if sym.description.present? %>
-  </span><br>
+  <p>
+    <%= "#{sym.name} (#{sym.model})" %> 
+    <span class="symbol_description">
+      <%= " - " << sym.description if sym.description.present? %>
+    </span>
+    <% methods = sym.methods(false) + sym.attribute_names %>
+    <% methods.each do |m| %>
+      <br>
+      &nbsp;&nbsp;
+      <%= ".#{m}" %>
+    <% end %>
+  </p>
 <% end %>

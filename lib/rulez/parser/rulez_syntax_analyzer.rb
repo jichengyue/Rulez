@@ -60,6 +60,7 @@ class SyntaxAnalyzer < Whittle::Parser
   rule(:math_operand) do |r|
     r[:datetime_value]
     r[:date_value]
+    r[:string_value]
     r[:float_value]
     r[:integer_value]
     r[:symbol_value]
@@ -74,6 +75,8 @@ class SyntaxAnalyzer < Whittle::Parser
   rule(date_value: 
     /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
   )
+
+  rule(string_value: /\"[a-zA-Z0-9 ]*\"/)
 
   rule(method_symbol: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
     Rulez::Parser.add_new_symbol(s)

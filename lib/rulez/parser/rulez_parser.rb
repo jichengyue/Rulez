@@ -4,43 +4,60 @@ class RulezParser < Whittle::Parser
 
   rule(:wsp => /\s+/).skip!
 
-  rule("!") % :left ^ 1
-  rule("&&") % :left ^ 1
   rule("||") % :left ^ 1
-  rule("==") ^ 2
-  rule("!=") ^ 2
-  rule("<=") ^ 2
-  rule(">=") ^ 2
-  rule("<") ^ 2
-  rule(">") ^ 2
+  rule("&&") % :left ^ 2
+  rule("==")
+  rule("!=")
+  rule("<=")
+  rule(">=")
+  rule("<")
+  rule(">")
   rule("+") % :left ^ 3
   rule("-") % :left ^ 3
   rule("*") % :left ^ 4
   rule("/") % :left ^ 4
   rule("(") ^ 5
   rule(")") ^ 5
+  rule("!") % :left ^ 6
 
-  rule(:expr) do |r|
-    r["!", :expr].as { |_, a| !a }
-    r[:expr, "&&", :expr].as { |a, _, b| a && b }
-    r[:expr, "||", :expr].as { |a, _, b| a || b }
-    r[:expr, "==", :expr].as { |a, _, b| a == b }
-    r[:expr, "!=", :expr].as { |a, _, b| a != b }
-    r[:expr, "<=", :expr].as { |a, _, b| a <= b }
-    r[:expr, ">=", :expr].as { |a, _, b| a >= b }
-    r[:expr, "<", :expr].as { |a, _, b| a < b }
-    r[:expr, ">", :expr].as { |a, _, b| a > b }
-    r[:expr, "+", :expr].as { |a, _, b| a + b }
-    r[:expr, "-", :expr].as { |a, _, b| a - b }
-    r[:expr, "*", :expr].as { |a, _, b| a * b }
-    r[:expr, "/", :expr].as { |a, _, b| a / b }
-    r["-", :expr].as { |_, a| -a }
-    r["(", :expr, ")"].as { |_, a, _| (a) }
-    r[:primary]
+  rule(:bool_operation) do |r|
+    r["(", :bool_operation, ")"].as { |_, a, _| (a) }
+    r["!", :bool_operation].as { |_, a| !a }
+    r[:bool_operation, "||", :bool_operation].as { |a, _, b| a || b }
+    r[:bool_operation, "&&", :bool_operation].as { |a, _, b| a && b }
+    r[:bool_operand]
   end
 
-  rule(:primary) do |r|
+  rule(:bool_operand) do |r|
+    r[:cmp_operation]
     r[:boolean_value]
+  end
+
+  rule(:cmp_operation) do |r|
+    r[:cmp_operand, ">", :cmp_operand].as { |a, _, b| a > b }
+    r[:cmp_operand, "<", :cmp_operand].as { |a, _, b| a < b }
+    r[:cmp_operand, ">=", :cmp_operand].as { |a, _, b| a >= b }
+    r[:cmp_operand, "<=", :cmp_operand].as { |a, _, b| a <= b }
+    r[:cmp_operand, "!=", :cmp_operand].as { |a, _, b| a != b }
+    r[:cmp_operand, "==", :cmp_operand].as { |a, _, b| a == b }
+    r[:cmp_operand]
+  end
+
+  rule(:cmp_operand) do |r|
+    r[:math_operation]
+  end
+
+  rule(:math_operation) do |r|
+    r["(", :math_operation, ")"].as { |_, a, _| (a) }
+    r["-", :math_operation].as { |_, a| -a }
+    r[:math_operation, "/", :math_operation].as { |a, _, b| a / b }
+    r[:math_operation, "*", :math_operation].as { |a, _, b| a * b }
+    r[:math_operation, "-", :math_operation].as { |a, _, b| a - b }
+    r[:math_operation, "+", :math_operation].as { |a, _, b| a + b }
+    r[:math_operand]
+  end
+
+  rule(:math_operand) do |r|
     r[:datetime_value]
     r[:date_value]
     r[:float_value]
@@ -111,6 +128,6 @@ class RulezParser < Whittle::Parser
 
   rule(integer_value: /[1-9][0-9]*|0/).as { |s| s.to_i }
 
-  start(:expr)
+  start(:bool_operation)
 
 end

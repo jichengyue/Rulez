@@ -4,14 +4,14 @@ class RulezParser < Whittle::Parser
 
   rule(:wsp => /\s+/).skip!
 
-  rule("&&") % :left ^ 1
   rule("||") % :left ^ 1
-  rule("==") ^ 2
-  rule("!=") ^ 2
-  rule("<=") ^ 2
-  rule(">=") ^ 2
-  rule("<") ^ 2
-  rule(">") ^ 2
+  rule("&&") % :left ^ 2
+  rule("==")
+  rule("!=")
+  rule("<=")
+  rule(">=")
+  rule("<")
+  rule(">")
   rule("+") % :left ^ 3
   rule("-") % :left ^ 3
   rule("*") % :left ^ 4
@@ -40,6 +40,7 @@ class RulezParser < Whittle::Parser
     r[:cmp_operand, "<=", :cmp_operand].as { |a, _, b| a <= b }
     r[:cmp_operand, "!=", :cmp_operand].as { |a, _, b| a != b }
     r[:cmp_operand, "==", :cmp_operand].as { |a, _, b| a == b }
+    r[:cmp_operand]
   end
 
   rule(:cmp_operand) do |r|

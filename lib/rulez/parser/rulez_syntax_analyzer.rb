@@ -29,8 +29,8 @@ class SyntaxAnalyzer < Whittle::Parser
   end
 
   rule(:bool_operand) do |r|
-    r[:boolean_value]
     r[:cmp_operation]
+    r[:boolean_value]
   end
 
   rule(:cmp_operation) do |r|

@@ -7,12 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
-<p>
-  <%= link_to "Rulez configuration home", rulez.root_path %>
-</p>
-
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">
+        Rulez
+      </a>
+      <ul class="nav">
+        <li><a href='<%= rulez.root_path %>'>Home</a></li>
+        <li><a href="<%= rulez.contexts_path %>">Contexts</a></li>
+        <li><a href="<%= rulez.rules_path %>">Rules</a></li>
+        <li><a href="<%= rulez.symbols_path %>">Symbols</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

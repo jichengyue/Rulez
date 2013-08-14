@@ -1,33 +1,37 @@
-<h1>Listing rules</h1>
+<div class='page-header'>
+  <h1>Rules</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Rule</th>
-      <th>Context</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rules.each do |rule| %>
+<div class='span9'>
+  <table class='table table-bordered table-hover'>
+    <thead>
       <tr>
-        <td><%= rule.name %></td>
-        <td><%= rule.description %></td>
-        <td><%= rule.rule %></td>
-        <td><%= rule.context.name %></td>
-        <td><%= link_to 'Show', rule %></td>
-        <td><%= link_to 'Edit', edit_rule_path(rule) %></td>
-        <td><%= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Rule</th>
+        <th>Context</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Rule', new_rule_path %>
+    </thead>
+    <tbody>
+      <% @rules.each do |rule| %>
+        <tr>
+          <td><%= rule.name %></td>
+          <td><%= rule.description %></td>
+          <td><%= rule.rule %></td>
+          <td><%= rule.context.name %></td>
+          <td>
+            <div class='btn-group'>
+              <%= link_to 'Show', rule, class: 'btn btn-mini' %>
+              <%= link_to 'Edit', edit_rule_path(rule), class: 'btn btn-mini' %>
+              <%= link_to 'Destroy', rule, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class='form-actions'>
+    <%= link_to 'New Rule', new_rule_path, class: 'btn btn-primary' %>
+  </div>
+</div>

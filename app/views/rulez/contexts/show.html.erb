@@ -1,4 +1,8 @@
-<p id='notice'><%= notice %></p>
+<% if notice %>
+  <div id='notice' class='alert alert-success span6'>
+    <%= notice %>
+  </div>
+<% end %>
 
 <div class='span6'>
   <dl class='dl-horizontal'>

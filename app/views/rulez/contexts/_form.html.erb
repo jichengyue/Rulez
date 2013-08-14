@@ -1,6 +1,6 @@
 <%= form_for @context, html: { class: 'form-horizontal' } do |f| %>
   <% if @context.errors.any? %>
-    <div id='error_explanation' class='alert'>
+    <div id='error_explanation' class='alert alert-error'>
       <h4><%= pluralize(@context.errors.count, 'error') %> prohibited this context from being saved:</h4>
       <ul>
       <% @context.errors.full_messages.each do |msg| %>

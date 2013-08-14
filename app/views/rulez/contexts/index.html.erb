@@ -1,35 +1,38 @@
-<h1>Listing contexts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Symbols</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contexts.each do |context| %>
+<div class='page-header'>
+  <h1>Contexts</h1>
+</div>
+<div class='span9'>
+  <table class='table table-bordered table-hover'>
+    <thead>
       <tr>
-        <td><%= context.name %></td>
-        <td><%= context.description %></td>
-        <td>
-          <% context.symbols.each do |sym| %>
-            <%= sym.name %><br>
-          <% end %>
-        </td>
-        <td><%= link_to 'Show', context %></td>
-        <td><%= link_to 'Edit', edit_context_path(context) %></td>
-        <td><%= link_to 'Destroy', context, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Symbols</th>
+        <th>Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Context', new_context_path %>
+    </thead>
+    <tbody>
+      <% @contexts.each do |context| %>
+        <tr>
+          <td><%= context.name %></td>
+          <td><%= context.description %></td>
+          <td>
+            <% context.symbols.each do |sym| %>
+              <%= sym.name %><br>
+            <% end %>
+          </td>
+          <td>
+            <div class='btn-group'>
+              <%= link_to 'Show', context, class: 'btn btn-mini' %>
+              <%= link_to 'Edit', edit_context_path(context), class: 'btn btn-mini' %>
+              <%= link_to 'Destroy', context, class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class='form-actions'>
+    <%= link_to 'New Context', new_context_path, class: 'btn btn-primary' %>
+  </div>
+</div>

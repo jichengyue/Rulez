@@ -1,21 +1,27 @@
-<p id="notice"><%= notice %></p>
+<p id='notice'><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @context.name %>
-</p>
+<div class='span6'>
+  <dl class='dl-horizontal'>
+    <dt><strong>Name:</strong></dt>
+      <dd><%= @context.name %></dd>
+    <br>
+    <dt><strong>Description:</strong></dt>
+      <dd><%= @context.description %></dd>
+    <br>
+    <dt><strong>Symbols:</strong></dt>
+      <% @context.symbols.each do |s| %>
+        <dd><%= s.name %></dd>
+      <% end %>
+  </dl>
+  <div class='form-actions'>
+    <%= link_to 'Back', contexts_path, class: 'btn' %>
+    <%= link_to 'Edit', edit_context_path(@context), class: 'btn' %>
+    <%= link_to 'Destroy',
+                @context,
+                class: 'btn btn-danger',
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @context.description %>
-</p>
 
-<p>
-  <strong>Symbols:</strong>
-  <% @context.symbols.each do |s| %>
-    <br><%= s.name %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_context_path(@context) %> |
-<%= link_to 'Back', contexts_path %>

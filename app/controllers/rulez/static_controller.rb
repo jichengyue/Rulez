@@ -1,3 +1,5 @@
+require_dependency "rulez/application_controller"
+
 module Rulez
   class StaticController < ApplicationController
 

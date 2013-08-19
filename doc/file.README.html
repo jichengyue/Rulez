@@ -145,10 +145,88 @@
   * type: indica il tipo che ritorna la funzione
   * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
   * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto</p>
+
+<h2>Configurazione</h2>
+
+<p>Gemfile:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rulez</span><span class='tstring_end'>'</span></span>
+</code></pre>
+
+<p>eseguire da terminale:</p>
+
+<pre class="code ruby"><code class="ruby">bundle install
+rake rulez:install:migrations
+rake db:migrate
+</code></pre>
+
+<p>routes.rb:
+<code>ruby
+mount Rulez::Engine =&gt; &quot;/rulez&quot;, as: &#39;rulez&#39;
+</code></p>
+
+<p>application_controller.rb:
+```ruby
+helper_method :rulez?
+before_filter :set_rulez_target</p>
+
+<p>private
+  def rulez? rule
+    return Rulez::rulez? rule
+  end</p>
+
+<p>def set_rulez_target
+    Rulez::set_rulez_target self
+  end
+```</p>
+
+<p>in lib/ creare un file rulez_methods.rb dove verranno inseriti dei metodi statici utilizzabili all&#39;interno delle rules
+<code>ruby
+module RulezMethods
+  class Methods
+    def self.thetruth
+      true
+    end
+  end
+end
+</code></p>
+
+<p>in config/initializers creare un file rulez_methods_init.rb:
+```ruby
+require &#39;rulez_methods&#39;</p>
+
+<p>module <NomeApplicazione>
+  class Application &lt; Rails::Application
+    config.after_initialize do</p>
+
+<pre class="code ruby"><code class="ruby">  #set methods class here
+  Rulez.set_methods_class(RulezMethods::Methods)
+
+  #set models here
+  Dir[Rails.root + &quot;app/models/**/*.rb&quot;].each do |path|
+    require path
+  end
+  Rulez.set_models(ActiveRecord::Base.send :descendants)
+
+end
+</code></pre>
+
+<p>end
+end
+```</p>
+
+<p>creare le regole lato web.</p>
+
+<p>Per utilizzare le regole nel codice:</p>
+
+<pre class="code ruby"><code class="ruby">if rulez? 'nomeregola'
+  ...
+end
+</code></pre>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Aug  5 16:09:30 2013 by
+  Generated on Mon Aug 19 11:57:17 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

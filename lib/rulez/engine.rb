@@ -19,7 +19,7 @@ module Rulez
 
   # 
   # Evaluates a rule
-  # @param [String] the name of the rule to evaluate
+  # @param [String] rule the name of the rule to evaluate
   # 
   # @return [Boolean] the result of the rule evaluated
   def self.rulez?(rule)

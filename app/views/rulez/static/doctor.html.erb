@@ -1,0 +1,38 @@
+<% if @errors.empty? %>
+  Rules are perfect, stars sing and all the universe is in peace.
+<% else %>
+  <table class='table table-bordered table-hover'>
+    <tr>
+      <th>Error level</th>
+      <th>Problematic element</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+    <% @errors.each do |e| %>
+      <tr>
+        <td>
+          <%= e[:level].to_s.camelize %>
+        </td>
+        <td>
+          <%= e[:ref].name + " (" + e[:type] + ")" %>
+        </td>
+        <td>
+          <%= e[:description] %>
+        </td>
+        <td>
+          <div class='btn-group'>  
+            <%= link_to 'Show', e[:ref], class: 'btn btn-mini' %>
+            <%= case e[:type]
+                when "Symbol"
+                  link_to 'Edit', edit_symbol_path(e[:ref]), class: 'btn btn-mini'
+                when "Rule"
+                  link_to 'Edit', edit_rule_path(e[:ref]), class: 'btn btn-mini'
+                end
+            %>
+            <%= link_to 'Destroy', e[:ref], class: 'btn btn-mini btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

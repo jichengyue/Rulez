@@ -1,3 +1,8 @@
+<script type="text/javascript">
+  var BASE_URL = '<%= root_url %>';
+</script>
+<%= javascript_include_tag "rulez/index" %>
+
 <%= render partial: 'nav' %> 
 
 <div class='page-header'>
@@ -5,8 +10,11 @@
 </div>
 
 <div class='span12'>
-
-<% #render partial: 'doctor' %> 
+<div id='doctor_button' class='btn'>
+  Run Doctor
+</div>
+<div id='doctor_output' class='row'>
+</div>
 <% #render partial: 'logger' %> 
 
 </div>

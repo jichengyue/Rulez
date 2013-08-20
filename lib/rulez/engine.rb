@@ -75,11 +75,11 @@ module Rulez
 
     rules.each do |r|
       if !r.valid?
-        r.errors.each do |e|
+        r.errors.messages.each do |k, v|
           errors << {
             level: :error,
             type: "Rule",
-            description: e.error,
+            description: "#{k.to_s} => " + v.join(', '),
             ref: r
           }
         end

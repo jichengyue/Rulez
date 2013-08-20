@@ -26,6 +26,6 @@ module Rulez
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
     validates :rule, presence: true, syntax: true
-    validates :context_id, presence: true
+    validates :context, presence: true
   end
 end

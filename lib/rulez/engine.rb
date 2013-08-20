@@ -51,6 +51,45 @@ module Rulez
   end
 
   # 
+  # Looks for errors in the whole engine logic
+  # 
+  # @return [Array] a list of errors and warnings, ordered by priority
+  def self.doctor
+    errors = []
+
+    rules = Rule.all
+    symbols = Rulez::Symbol.all
+    
+    existing_models = @@models.map { |m| m.name }
+
+    symbols.each do |s|
+      if !existing_models.include? s.model
+        errors << { 
+          level: :error, 
+          type: "Symbol", 
+          description: "Symbol #{s.name} refers to non-existent model: #{s.model}",
+          ref: s
+        }
+      end
+    end
+
+    rules.each do |r|
+      if !r.valid?
+        r.errors.each do |e|
+          errors << {
+            level: :error,
+            type: "Rule",
+            description: e.error,
+            ref: r
+          }
+        end
+      end
+    end
+
+    errors
+  end
+
+  # 
   # Set the target of the rulez engine, from which the engine can fetch the requested symbols.
   # 
   # @param  obj [Object] the target object

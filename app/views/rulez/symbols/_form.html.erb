@@ -1,8 +1,7 @@
-<%= form_for(@symbol) do |f| %>
+<%= form_for @symbol, html: { class: 'form-horizontal' } do |f| %>
   <% if @symbol.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@symbol.errors.count, "error") %> prohibited this symbol from being saved:</h2>
-
+    <div id='error_explanation' class='alert alert-error'>
+      <h4><%= pluralize(@symbol.errors.count, 'error') %> prohibited this context from being saved:</h4>
       <ul>
       <% @symbol.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,19 +10,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class='control-group'>
+    <%= f.label :name, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class='control-group'>
+    <%= f.label :description, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :description %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :model %><br>
-    <%= f.select :model, @models.collect {|x| [x.name, x.name]}, {}, :multiple => false %>
+  <div class='control-group'>
+    <%= f.label :model, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.select :model, @models.collect {|x| [x.name, x.name]}, {}, :multiple => false %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class='form-actions'>
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Back', contexts_path, class: 'btn' %>
   </div>
 <% end %>

@@ -1,14 +1,26 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'nav' %> 
 
-<p>
-  <strong>Name:</strong>
-  <%= @symbol.name %>
-</p>
+<% if notice %>
+  <div id='notice' class='alert alert-success span12'>
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @symbol.description %>
-</p>
-
-<%= link_to 'Edit', edit_symbol_path(@symbol) %> |
-<%= link_to 'Back', symbols_path %>
+<div class='span12'>
+  <dl class='dl-horizontal'>
+    <dt><strong>Name:</strong></dt>
+      <dd><%= @symbol.name %></dd>
+    <br>
+    <dt><strong>Description:</strong></dt>
+      <dd><%= @symbol.description %></dd>
+  </dl>
+  <div class='form-actions'>
+    <%= link_to 'Back', symbols_path, class: 'btn' %>
+    <%= link_to 'Edit', edit_symbol_path(@symbol), class: 'btn' %>
+    <%= link_to 'Destroy',
+                @symbol,
+                class: 'btn btn-danger',
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

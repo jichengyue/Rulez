@@ -3,11 +3,10 @@
 </script>
 <%= javascript_include_tag "rulez/rules" %>
 
-<%= form_for(@rule) do |f| %>
-  <% if @rule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
-
+<%= form_for @rule, html: { class: 'form-horizontal' } do |f| %>
+    <% if @rule.errors.any? %>
+    <div id='error_explanation' class='alert alert-error'>
+      <h4><%= pluralize(@rule.errors.count, 'error') %> prohibited this context from being saved:</h4>
       <ul>
       <% @rule.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -16,41 +15,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class='control-group'>
+    <%= f.label :name, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class='control-group'>
+    <%= f.label :description, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :description %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :context_id %>
-    <%= f.collection_select(:context_id, @contexts, :id, :name, { prompt: true })
-   %>
+  <div class='control-group'>
+    <%= f.label :context_id, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.collection_select(:context_id, @contexts, :id, :name, { prompt: true }) %>
+    </div>
   </div>
-  <div>
-    <p id="available_symbols">
-    </p>
+
+  <div class='control-group' id='available_symbols'>
   </div>
-  <div class="field">
-    <%= f.label :rule %><br>
-    <%= f.text_area :rule %>
+
+  <div class='control-group'>
+    <%= f.label :rule, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_area :rule %>
+    </div>
   </div>
 
   <% unless Rulez::get_methods_class == nil %>
-    <div class="field">
-      Add function:
-
-      <%= select_tag(:methods_select, options_for_select(
-        Rulez::get_methods_class.methods(false).map do |entry|
-          [entry.to_s, entry.to_s]
-        end
-      ),  prompt: 'Please select' ) %>
+    <div class='control-group'>
+      
+      <%= f.label 'Add function:', class: 'control-label' %>
+      <div class='controls'>
+        <%= select_tag(:methods_select, options_for_select(
+          Rulez::get_methods_class.methods(false).map do |entry|
+            [entry.to_s, entry.to_s]
+          end
+        ),  prompt: 'Please select' ) %>
+      </div>
     </div>
+      
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class='form-actions'>
+    <%= f.submit class: 'btn btn-primary'%>
+    <%= link_to 'Back', rules_path, class: 'btn' %>
   </div>
 <% end %>

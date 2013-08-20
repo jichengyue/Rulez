@@ -1,10 +1,12 @@
+<%= render partial: 'nav' %>
+
 <% if notice %>
-  <div id='notice' class='alert alert-success span6'>
+  <div id='notice' class='alert alert-success span12'>
     <%= notice %>
   </div>
 <% end %>
 
-<div class='span6'>
+<div class='span12'>
   <dl class='dl-horizontal'>
     <dt><strong>Name:</strong></dt>
       <dd><%= @context.name %></dd>

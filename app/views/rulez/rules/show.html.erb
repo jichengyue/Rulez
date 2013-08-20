@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: 'nav' %> 
 
-<p>
-  <strong>Name:</strong>
-  <%= @rule.name %>
-</p>
+<% if notice %>
+  <div id='notice' class='alert alert-success span12'>
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @rule.description %>
-</p>
-
-<p>
-  <strong>Rule:</strong>
-  <%= @rule.rule %>
-</p>
-
-<p>
-  <strong>Context:</strong>
-  <%= @rule.context.name %>
-</p>
-
-<%= link_to 'Edit', edit_rule_path(@rule) %> |
-<%= link_to 'Back', rules_path %>
+<div class='span12'>
+  <dl class='dl-horizontal'>
+    <dt><strong>Name:</strong></dt>
+      <dd><%= @rule.name %></dd>
+    <br>
+    <dt><strong>Description:</strong></dt>
+      <dd><%= @rule.description %></dd>
+    <br>
+    <dt><strong>Rule:</strong></dt>
+      <dd><%= @rule.rule %></dd>
+    <br>
+    <dt><strong>Context:</strong></dt>
+      <dd><%= @rule.context.name %></dd>
+  </dl>
+  <div class='form-actions'>
+    <%= link_to 'Back', rules_path, class: 'btn' %>
+    <%= link_to 'Edit', edit_rule_path(@rule), class: 'btn' %>
+    <%= link_to 'Destroy',
+                @rule,
+                class: 'btn btn-danger',
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>

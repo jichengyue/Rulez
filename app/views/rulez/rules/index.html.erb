@@ -21,7 +21,7 @@
           <td><%= rule.name %></td>
           <td><%= rule.description %></td>
           <td><%= rule.rule %></td>
-          <td><%= rule.context.name %></td>
+          <td><%= rule.context.name if rule.context.present? %></td>
           <td>
             <div class='btn-group'>
               <%= link_to 'Show', rule, class: 'btn btn-mini' %>

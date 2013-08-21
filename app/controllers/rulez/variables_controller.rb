@@ -51,7 +51,10 @@ module Rulez
     def destroy
       set_variable
       @variable.destroy
-      redirect_to variables_url, notice: 'Variable was successfully destroyed.'
+      respond_to do |format|
+        format.html { redirect_to variables_url, notice: 'Variable was successfully destroyed.' }
+        format.json { render json: "{\"response\" : \"OK\"}" }
+      end
     end
 
     private

@@ -9,16 +9,16 @@
 <div class='span12'>
   <dl class='dl-horizontal'>
     <dt><strong>Name:</strong></dt>
-      <dd><%= @symbol.name %></dd>
+      <dd><%= @variable.name %></dd>
     <br>
     <dt><strong>Description:</strong></dt>
-      <dd><%= @symbol.description %></dd>
+      <dd><%= @variable.description %></dd>
   </dl>
   <div class='form-actions'>
-    <%= link_to 'Back', symbols_path, class: 'btn' %>
-    <%= link_to 'Edit', edit_symbol_path(@symbol), class: 'btn' %>
+    <%= link_to 'Back', variables_path, class: 'btn' %>
+    <%= link_to 'Edit', edit_variable_path(@variable), class: 'btn' %>
     <%= link_to 'Destroy',
-                @symbol,
+                @variable,
                 class: 'btn btn-danger',
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %>

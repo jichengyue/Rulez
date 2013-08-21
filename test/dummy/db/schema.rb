@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(:version => 20130805133928) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "rulez_contexts_symbols", :force => true do |t|
+  create_table "rulez_contexts_variables", :force => true do |t|
     t.integer "context_id"
-    t.integer "symbol_id"
+    t.integer "variable_id"
   end
 
   create_table "rulez_rules", :force => true do |t|
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20130805133928) do
     t.integer  "context_id"
   end
 
-  create_table "rulez_symbols", :force => true do |t|
+  create_table "rulez_variables", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "model"

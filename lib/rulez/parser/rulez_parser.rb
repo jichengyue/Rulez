@@ -63,7 +63,7 @@ class RulezParser < Whittle::Parser
     r[:string_value]
     r[:float_value]
     r[:integer_value]
-    r[:symbol_value]
+    r[:variable_value]
   end
 
   rule(boolean_value: /true|false/).as do |s|
@@ -86,10 +86,10 @@ class RulezParser < Whittle::Parser
   rule(string_value: /\"[a-zA-Z0-9 ]*\"/).as { |s| String.new(s[1..(s.length-2)]) }
 
 
-  #new symbol value per contesti: [a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*
+  #new variable value per contesti: [a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*
   # questa regola fa il match di variabile.metodo...
   
-  rule(method_symbol: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+  rule(method_variable: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
     if Rulez.get_methods_class.methods(false).map { |s| s.to_s }.include?(s)
       Rulez.get_methods_class.method(s).call
     else
@@ -97,7 +97,7 @@ class RulezParser < Whittle::Parser
     end
   end
 
-  rule(context_symbol: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+  rule(context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
     splitted = s.split('.')
     left = splitted.first
     right = splitted.last
@@ -114,9 +114,9 @@ class RulezParser < Whittle::Parser
     end
   end
 
-  rule(:symbol_value) do |r|
-    r[:context_symbol]
-    r[:method_symbol]
+  rule(:variable_value) do |r|
+    r[:context_variable]
+    r[:method_variable]
   end
 
   rule(float_value: /([1-9][0-9]*|0)?\.[0-9]+/).as { |s| s.to_f }

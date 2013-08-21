@@ -3,8 +3,8 @@ Rulez::Engine.routes.draw do
 
   resources :contexts
   resources :rules
-  resources :symbols
+  resources :variables
 
-  get 'contexts/:id/symbols', to: 'contexts#symbols', as: 'context_symbols'
+  get 'contexts/:id/variables', to: 'contexts#variables', as: 'context_variables'
   get 'doctor', to: 'static#doctor'
 end

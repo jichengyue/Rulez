@@ -145,7 +145,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_new_context_symbol-class_method" title="add_new_context_symbol (class method)">+ (Object) <strong>add_new_context_symbol</strong>(v) </a>
+      <a href="#add_new_context_variable-class_method" title="add_new_context_variable (class method)">+ (Object) <strong>add_new_context_variable</strong>(v) </a>
     
 
     
@@ -160,7 +160,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Add a symbol to the context symbol table.</p>
+<p>Add a variable to the context variable table.</p>
 </div></span>
   
 </li>
@@ -169,7 +169,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_new_symbol-class_method" title="add_new_symbol (class method)">+ (Object) <strong>add_new_symbol</strong>(v) </a>
+      <a href="#add_new_variable-class_method" title="add_new_variable (class method)">+ (Object) <strong>add_new_variable</strong>(v) </a>
     
 
     
@@ -184,7 +184,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Add a symbol to the symbol table.</p>
+<p>Add a variable to the variable table.</p>
 </div></span>
   
 </li>
@@ -193,7 +193,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#context_symbols_list-class_method" title="context_symbols_list (class method)">+ (Object) <strong>context_symbols_list</strong> </a>
+      <a href="#context_variables_list-class_method" title="context_variables_list (class method)">+ (Object) <strong>context_variables_list</strong> </a>
     
 
     
@@ -208,7 +208,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the array of context symbols.</p>
+<p>Returns the array of context variables.</p>
 </div></span>
   
 </li>
@@ -289,7 +289,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#symbols_list-class_method" title="symbols_list (class method)">+ (Object) <strong>symbols_list</strong> </a>
+      <a href="#variables_list-class_method" title="variables_list (class method)">+ (Object) <strong>variables_list</strong> </a>
     
 
     
@@ -304,7 +304,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the array of symbols.</p>
+<p>Returns the array of variables.</p>
 </div></span>
   
 </li>
@@ -320,9 +320,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="add_new_context_symbol-class_method">
+  <h3 class="signature first" id="add_new_context_variable-class_method">
   
-    + (<tt>Object</tt>) <strong>add_new_context_symbol</strong>(v) 
+    + (<tt>Object</tt>) <strong>add_new_context_variable</strong>(v) 
   
 
   
@@ -331,7 +331,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Add a symbol to the context symbol table</p>
+<p>Add a variable to the context variable table</p>
 
 
   </div>
@@ -351,7 +351,7 @@
       
         &mdash;
         <div class='inline'>
-<p>Symbol to add</p>
+<p>Variable to add</p>
 </div>
       
     </li>
@@ -365,14 +365,14 @@
       <pre class="lines">
 
 
-80
-81
-82</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 125</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_context_symbol'>add_new_context_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_context_variable'>add_new_context_variable</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='cvar'>@@context_list</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -381,9 +381,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="add_new_symbol-class_method">
+  <h3 class="signature " id="add_new_variable-class_method">
   
-    + (<tt>Object</tt>) <strong>add_new_symbol</strong>(v) 
+    + (<tt>Object</tt>) <strong>add_new_variable</strong>(v) 
   
 
   
@@ -392,7 +392,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Add a symbol to the symbol table</p>
+<p>Add a variable to the variable table</p>
 
 
   </div>
@@ -412,7 +412,7 @@
       
         &mdash;
         <div class='inline'>
-<p>The symbol to add</p>
+<p>The variable to add</p>
 </div>
       
     </li>
@@ -426,14 +426,14 @@
       <pre class="lines">
 
 
-95
-96
-97</pre>
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 140</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_symbol'>add_new_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_variable'>add_new_variable</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='cvar'>@@arr</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -442,9 +442,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="context_symbols_list-class_method">
+  <h3 class="signature " id="context_variables_list-class_method">
   
-    + (<tt>Object</tt>) <strong>context_symbols_list</strong> 
+    + (<tt>Object</tt>) <strong>context_variables_list</strong> 
   
 
   
@@ -453,7 +453,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the array of context symbols</p>
+<p>Returns the array of context variables</p>
 
 
   </div>
@@ -467,14 +467,14 @@
       <pre class="lines">
 
 
-87
-88
-89</pre>
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 132</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_context_symbols_list'>context_symbols_list</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_context_variables_list'>context_variables_list</span>
   <span class='cvar'>@@context_list</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -526,12 +526,12 @@
       <pre class="lines">
 
 
-119
-120
-121</pre>
+164
+165
+166</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 164</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_context_variables'>get_context_variables</span>
   <span class='cvar'>@@context_variables</span>
@@ -587,16 +587,16 @@
       <pre class="lines">
 
 
-68
-69
-70
-71
-72
-73
-74</pre>
+113
+114
+115
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
   <span class='cvar'>@@arr</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -657,12 +657,12 @@ values)</p>
       <pre class="lines">
 
 
-111
-112
-113</pre>
+156
+157
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_context_variables'>set_context_variables</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='cvar'>@@context_variables</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span>
@@ -673,9 +673,9 @@ values)</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="symbols_list-class_method">
+  <h3 class="signature " id="variables_list-class_method">
   
-    + (<tt>Object</tt>) <strong>symbols_list</strong> 
+    + (<tt>Object</tt>) <strong>variables_list</strong> 
   
 
   
@@ -684,7 +684,7 @@ values)</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the array of symbols</p>
+<p>Returns the array of variables</p>
 
 
   </div>
@@ -698,14 +698,14 @@ values)</p>
       <pre class="lines">
 
 
-102
-103
-104</pre>
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 147</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_symbols_list'>symbols_list</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_variables_list'>variables_list</span>
   <span class='cvar'>@@arr</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -718,7 +718,7 @@ values)</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Aug 19 11:57:18 2013 by
+  Generated on Wed Aug 21 12:24:12 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

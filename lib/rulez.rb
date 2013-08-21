@@ -14,8 +14,10 @@ module Rulez
   def self.set_methods_class(c)
     if c.class == Class
       @@methods_class = c
+      RulezLogger.tagged('DEBUG', DateTime.now) { RulezLogger.debug "Methods class set: #{c}" }
     else
       raise 'Parameter should be a class'
+      RulezLogger.tagged('FATAL', DateTime.now) { RulezLogger.fatal "Methods class set: parameter is not a class!" }
     end
   end
 
@@ -28,6 +30,7 @@ module Rulez
     if @@methods_class
       @@methods_class
     else
+      RulezLogger.tagged('ERROR', DateTime.now) { RulezLogger.error "Methods class get: class is not present!" }
       raise 'Init error, methods class is not present.'
     end
   end
@@ -41,11 +44,13 @@ module Rulez
     if models.class == Array
       models.each do |m|
         if !(m < ActiveRecord::Base)
+          RulezLogger.tagged('ERROR', DateTime.now) { RulezLogger.error "Models set: one member is not a model!" }
           raise 'Found a member of the array that is not a model'
         end
       end
       @@models = models
     else
+      RulezLogger.tagged('ERROR', DateTime.now) { RulezLogger.error "Models set: parameter is not an array!" }
       raise 'Parameter should be an Array'
     end
   end
@@ -54,6 +59,7 @@ module Rulez
     if @@models
       @@models
     else
+      RulezLogger.tagged('ERROR', DateTime.now) { RulezLogger.error "Models get: models not initialized!" }
       raise 'Init error, models not initialized'
     end
   end

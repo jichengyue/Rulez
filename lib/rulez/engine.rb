@@ -8,12 +8,15 @@ require File.join(File.expand_path(File.dirname(__FILE__)),'parser/rulez_parser.
 # 
 module Rulez
 
+  RulezLogger = ActiveSupport::TaggedLogging.new( Logger.new( File.open('log/rulez.log', 'a') ) )
 
   # 
   # Isolate the Rulez namespace
   # 
   class Engine < ::Rails::Engine
     isolate_namespace Rulez
+    
+    RulezLogger.tagged('INFO', DateTime.now) { RulezLogger.info "Rulez waking up!" }
   end
 
 
@@ -26,6 +29,7 @@ module Rulez
     rule = Rule.find_by_name(rule)
     if rule
       if @target.nil?
+        RulezLogger.tagged('ERR', DateTime.now) { RulezLogger.info "Evaluating #{rule.name}: Target object not found. Did you forget to set the target?" }
         raise "Target object not found. Did you forget to set the target?"
       end
 
@@ -38,9 +42,12 @@ module Rulez
 
       parser = RulezParser.new
 
-      parser.parse(rule.rule)
+      value = parser.parse(rule.rule)
+      RulezLogger.tagged('INFO', DateTime.now) { RulezLogger.info "Evaluated #{rule.name}: #{value}" }
+      value
     else
       raise 'No such rule!'
+      RulezLogger.tagged('FATAL', DateTime.now) { RulezLogger.fatal "Can't find rule #{rule.name} to evaluate!" }
     end
   end
 
@@ -51,6 +58,7 @@ module Rulez
   # 
   def self.set_rulez_target(obj)
     @target = obj
+    RulezLogger.tagged('DEBUG', DateTime.now) { RulezLogger.debug "Target set: #{obj}" }
   end
 
   # 

@@ -23,8 +23,8 @@
           <div class='btn-group'>  
             <%= link_to 'Show', e[:ref], class: 'btn btn-mini' %>
             <%= case e[:type]
-                when "Symbol"
-                  link_to 'Edit', edit_symbol_path(e[:ref]), class: 'btn btn-mini'
+                when "Variable"
+                  link_to 'Edit', edit_variable_path(e[:ref]), class: 'btn btn-mini'
                 when "Rule"
                   link_to 'Edit', edit_rule_path(e[:ref]), class: 'btn btn-mini'
                 end

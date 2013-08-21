@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: rulez_symbols
+# Table name: rulez_variables
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
@@ -13,14 +13,14 @@
 module Rulez
 
   # 
-  # A symbol is a variable name that is guaranteed to be referenceable and evaluable.
-  # Defining symbols allows to design rules that directly reference and evaluate application objects.
+  # A variable is a variable name that is guaranteed to be referenceable and evaluable.
+  # Defining variables allows to design rules that directly reference and evaluate application objects.
   # 
-  class Symbol < ActiveRecord::Base
+  class Variable < ActiveRecord::Base
     attr_accessible :description, :name, :model
 
     #associations
-    has_and_belongs_to_many :context, join_table: :rulez_contexts_symbols
+    has_and_belongs_to_many :context, join_table: :rulez_contexts_variables
 
     #validations
     validates :name, presence: true, uniqueness: true

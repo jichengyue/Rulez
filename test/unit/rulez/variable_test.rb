@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: rulez_symbols
+# Table name: rulez_variables
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
@@ -13,7 +13,7 @@
 require 'test_helper'
 
 module Rulez
-  class SymbolTest < ActiveSupport::TestCase
+  class VariableTest < ActiveSupport::TestCase
     # test "the truth" do
     #   assert true
     # end

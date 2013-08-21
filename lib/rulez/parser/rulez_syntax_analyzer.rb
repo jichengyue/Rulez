@@ -63,7 +63,7 @@ class SyntaxAnalyzer < Whittle::Parser
     r[:string_value]
     r[:float_value]
     r[:integer_value]
-    r[:symbol_value]
+    r[:variable_value]
   end
 
   rule(boolean_value: /true|false/) 
@@ -78,17 +78,17 @@ class SyntaxAnalyzer < Whittle::Parser
 
   rule(string_value: /\"[a-zA-Z0-9 ]*\"/)
 
-  rule(method_symbol: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
-    Rulez::Parser.add_new_symbol(s)
+  rule(method_variable: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+    Rulez::Parser.add_new_variable(s)
   end
 
-  rule(context_symbol: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
-    Rulez::Parser.add_new_context_symbol(s)
+  rule(context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+    Rulez::Parser.add_new_context_variable(s)
   end
 
-  rule(:symbol_value) do |r|
-    r[:context_symbol]
-    r[:method_symbol]
+  rule(:variable_value) do |r|
+    r[:context_variable]
+    r[:method_variable]
   end
     
   rule(float_value: /([1-9][0-9]*|0)?\.[0-9]+/)

@@ -14,8 +14,8 @@
     <dt><strong>Description:</strong></dt>
       <dd><%= @context.description %></dd>
     <br>
-    <dt><strong>Symbols:</strong></dt>
-      <% @context.symbols.each do |s| %>
+    <dt><strong>Variables:</strong></dt>
+      <% @context.variables.each do |s| %>
         <dd><%= s.name %></dd>
       <% end %>
   </dl>

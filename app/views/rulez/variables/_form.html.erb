@@ -1,9 +1,9 @@
-<%= form_for @symbol, html: { class: 'form-horizontal' } do |f| %>
-  <% if @symbol.errors.any? %>
+<%= form_for @variable, html: { class: 'form-horizontal' } do |f| %>
+  <% if @variable.errors.any? %>
     <div id='error_explanation' class='alert alert-error'>
-      <h4><%= pluralize(@symbol.errors.count, 'error') %> prohibited this context from being saved:</h4>
+      <h4><%= pluralize(@variable.errors.count, 'error') %> prohibited this context from being saved:</h4>
       <ul>
-      <% @symbol.errors.full_messages.each do |msg| %>
+      <% @variable.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

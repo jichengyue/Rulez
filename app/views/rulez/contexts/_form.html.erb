@@ -23,9 +23,9 @@
     </div>
   </div>
   <div class='control-group'>
-    <%= f.label :symbols, class: 'control-label' %>
+    <%= f.label :variables, class: 'control-label' %>
     <div class='controls'>
-      <%= f.select :symbol_ids, Rulez::Symbol.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+      <%= f.select :variable_ids, Rulez::Variable.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
     </div>
   </div>
   <div class='form-actions'>

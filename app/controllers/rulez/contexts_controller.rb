@@ -18,12 +18,12 @@ module Rulez
     end
 
     # 
-    # Renders the available symbols for a given context.
+    # Renders the available variables for a given context.
     # This action is called in Ajax from other views
     # 
-    def symbols
+    def variables
       set_context
-      @symbols = @context.symbols
+      @variables = @context.variables
       render layout: false
     end
 

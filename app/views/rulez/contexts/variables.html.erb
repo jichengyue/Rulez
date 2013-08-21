@@ -1,8 +1,8 @@
-<strong>Available symbols (with descriptions):</strong><br>
-<% @symbols.each do |sym| %>
+<strong>Available variables (with descriptions):</strong><br>
+<% @variables.each do |sym| %>
   <p>
     <%= "#{sym.name} (#{sym.model})" %> 
-    <span class="symbol_description">
+    <span class="variable_description">
       <%= " - " << sym.description if sym.description.present? %>
     </span>
     <% methods = (eval "#{sym.model}").new.public_methods(false) + (eval "#{sym.model}").new.attribute_names %>

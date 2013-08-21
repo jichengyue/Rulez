@@ -37,7 +37,7 @@ module Rulez
 
       #set context variables
       context_variables = {}
-      rule.context.symbols.each do |s|
+      rule.context.variables.each do |s|
         context_variables[s.name] = @target.instance_variable_get(("@" + s.name).to_sym)
       end
       Parser.set_context_variables(context_variables)
@@ -58,16 +58,16 @@ module Rulez
     errors = []
 
     rules = Rule.all
-    symbols = Rulez::Symbol.all
+    variables = Rulez::Variable.all
     
     existing_models = @@models.map { |m| m.name }
 
-    symbols.each do |s|
+    variables.each do |s|
       if !existing_models.include? s.model
         errors << { 
           level: :error, 
-          type: "Symbol", 
-          description: "Symbol #{s.name} refers to non-existent model: #{s.model}",
+          type: "Variable", 
+          description: "Variable #{s.name} refers to non-existent model: #{s.model}",
           ref: s
         }
       end
@@ -90,7 +90,7 @@ module Rulez
   end
 
   # 
-  # Set the target of the rulez engine, from which the engine can fetch the requested symbols.
+  # Set the target of the rulez engine, from which the engine can fetch the requested variables.
   # 
   # @param  obj [Object] the target object
   # 
@@ -119,32 +119,32 @@ module Rulez
     end
 
     #
-    # Add a symbol to the context symbol table
-    # @param  v [String] Symbol to add
+    # Add a variable to the context variable table
+    # @param  v [String] Variable to add
     # 
-    def self.add_new_context_symbol(v)
+    def self.add_new_context_variable(v)
       @@context_list.push(v)
     end
 
     #
-    # Returns the array of context symbols
+    # Returns the array of context variables
     # 
-    def self.context_symbols_list
+    def self.context_variables_list
       @@context_list
     end
 
     # 
-    # Add a symbol to the symbol table
-    # @param  v [String] The symbol to add
+    # Add a variable to the variable table
+    # @param  v [String] The variable to add
     # 
-    def self.add_new_symbol(v)
+    def self.add_new_variable(v)
       @@arr.push(v)
     end
 
     # 
-    # Returns the array of symbols
+    # Returns the array of variables
     # 
-    def self.symbols_list
+    def self.variables_list
       @@arr
     end
 

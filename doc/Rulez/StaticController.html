@@ -121,6 +121,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#doctor-instance_method" title="#doctor (instance method)">- (Object) <strong>doctor</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Executes rulez doctor and returns html page with errors or success message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#index-instance_method" title="#index (instance method)">- (Object) <strong>index</strong> </a>
     
 
@@ -159,7 +183,50 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="index-instance_method">
+  <h3 class="signature first" id="doctor-instance_method">
+  
+    - (<tt>Object</tt>) <strong>doctor</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Executes rulez doctor and returns html page with errors or success message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/static_controller.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_doctor'>doctor</span>
+  <span class='ivar'>@errors</span> <span class='op'>=</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='id identifier rubyid_doctor'>doctor</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='label'>layout:</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="index-instance_method">
   
     - (<tt>Object</tt>) <strong>index</strong> 
   
@@ -184,11 +251,11 @@
       <pre class="lines">
 
 
-7
-8</pre>
+9
+10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/static_controller.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/static_controller.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
 <span class='kw'>end</span></pre>
@@ -202,7 +269,7 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Aug 19 11:57:18 2013 by
+  Generated on Wed Aug 21 12:24:12 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

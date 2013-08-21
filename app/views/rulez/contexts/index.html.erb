@@ -10,7 +10,7 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Symbols</th>
+        <th>Variables</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -20,7 +20,7 @@
           <td><%= context.name %></td>
           <td><%= context.description %></td>
           <td>
-            <% context.symbols.each do |sym| %>
+            <% context.variables.each do |sym| %>
               <%= sym.name %><br>
             <% end %>
           </td>

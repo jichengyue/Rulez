@@ -18,38 +18,38 @@ module Rulez
           if object.context
 
             # check all functions
-            parsed = Parser.symbols_list
+            parsed = Parser.variables_list
             parsed = parsed - Rulez.get_methods_class.methods(false).map { |s| s.to_s } #check functions
             if !parsed.empty?
-              object.errors[attribute] << "expression contains invalid symbols: #{parsed.join(', ')}."
+              object.errors[attribute] << "expression contains invalid variables: #{parsed.join(', ')}."
             end
 
-            # check all symbols
-            Parser.context_symbols_list.each do |context_symbol|
-              # split symbol from method
-              splitted = context_symbol.split('.')
-              symbol_object = splitted.first
-              symbol_method = splitted.last
+            # check all variables
+            Parser.context_variables_list.each do |context_variable|
+              # split variable from method
+              splitted = context_variable.split('.')
+              variable_object = splitted.first
+              variable_method = splitted.last
 
-              # check if symbol is permitted
-              symbol_class_name = false
-              object.context.symbols.each do |s|
-                if s.name == symbol_object
-                  symbol_class_name = s.model
+              # check if variable is permitted
+              variable_class_name = false
+              object.context.variables.each do |s|
+                if s.name == variable_object
+                  variable_class_name = s.model
                   break
                 end
               end
 
-              # check if symbol is permitted
-              if symbol_class_name
+              # check if variable is permitted
+              if variable_class_name
                 # check if method is permitted
-                valid_methods = (eval "#{symbol_class_name}.new.public_methods(false)").map { |e| e.to_s }
-                valid_methods += (eval "#{symbol_class_name}.new.attribute_names")
-                if !valid_methods.include?(symbol_method)
-                  object.errors[attribute] << "not valid: #{symbol_method} is not a valid method/attribute for #{symbol_object}."
+                valid_methods = (eval "#{variable_class_name}.new.public_methods(false)").map { |e| e.to_s }
+                valid_methods += (eval "#{variable_class_name}.new.attribute_names")
+                if !valid_methods.include?(variable_method)
+                  object.errors[attribute] << "not valid: #{variable_method} is not a valid method/attribute for #{variable_object}."
                 end
               else
-                object.errors[attribute] << "expression contains invalid symbol: #{symbol_object}."
+                object.errors[attribute] << "expression contains invalid variable: #{variable_object}."
               end
             end
           end

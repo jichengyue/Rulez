@@ -4,13 +4,13 @@ $(document).ready(function() {
     var route = $(this).attr("data-route");
     var request = $.ajax({
       url: route,
-      type: "DELETE",
-      dataType: "html"
+      type: "POST",
+      dataType: "json",
+      data: {"_method":"delete"},
+      success: function(msg){
+        $(this).closest("tr").slideUp().remove();
+      }
     });
-    request.done(function(msg) {
-      alert("sega!");
-    });
-
   });
 
 });

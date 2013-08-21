@@ -56,7 +56,10 @@ module Rulez
     def destroy
       set_rule
       @rule.destroy
-      redirect_to rules_url, notice: 'Rule was successfully destroyed.'
+      respond_to do |format|
+        format.html { redirect_to rules_url, notice: 'Rule was successfully destroyed.' }
+        format.json { render json: "{\"response\" : \"OK\"}" }
+      end
     end
 
     private

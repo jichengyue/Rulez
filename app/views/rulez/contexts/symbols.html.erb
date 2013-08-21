@@ -5,7 +5,7 @@
     <span class="symbol_description">
       <%= " - " << sym.description if sym.description.present? %>
     </span>
-    <% methods = (eval "#{sym.model}").new.methods(false) + (eval "#{sym.model}").new.attribute_names %>
+    <% methods = (eval "#{sym.model}").new.public_methods(false) + (eval "#{sym.model}").new.attribute_names %>
     <% methods.each do |m| %>
       <br>
       &nbsp;&nbsp;

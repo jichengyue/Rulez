@@ -6,4 +6,5 @@ Rulez::Engine.routes.draw do
   resources :symbols
 
   get 'contexts/:id/symbols', to: 'contexts#symbols', as: 'context_symbols'
+  get 'doctor', to: 'static#doctor'
 end

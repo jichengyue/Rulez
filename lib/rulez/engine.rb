@@ -17,6 +17,12 @@ module Rulez
     isolate_namespace Rulez
     
     RulezLogger.tagged('INFO', DateTime.now) { RulezLogger.info "Rulez waking up!" }
+
+    initializer :append_migrations do |app|
+      unless app.root.to_s.match root.to_s
+        app.config.paths["db/migrate"] += config.paths["db/migrate"].expanded
+      end
+    end
   end
 
 
@@ -49,6 +55,45 @@ module Rulez
       raise 'No such rule!'
       RulezLogger.tagged('FATAL', DateTime.now) { RulezLogger.fatal "Can't find rule #{rule.name} to evaluate!" }
     end
+  end
+
+  # 
+  # Looks for errors in the whole engine logic
+  # 
+  # @return [Array] a list of errors and warnings, ordered by priority
+  def self.doctor
+    errors = []
+
+    rules = Rule.all
+    symbols = Rulez::Symbol.all
+    
+    existing_models = @@models.map { |m| m.name }
+
+    symbols.each do |s|
+      if !existing_models.include? s.model
+        errors << { 
+          level: :error, 
+          type: "Symbol", 
+          description: "Symbol #{s.name} refers to non-existent model: #{s.model}",
+          ref: s
+        }
+      end
+    end
+
+    rules.each do |r|
+      if !r.valid?
+        r.errors.messages.each do |k, v|
+          errors << {
+            level: :error,
+            type: "Rule",
+            description: "#{k.to_s} => " + v.join(', '),
+            ref: r
+          }
+        end
+      end
+    end
+
+    errors
   end
 
   # 

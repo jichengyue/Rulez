@@ -8,21 +8,45 @@ require File.join(File.expand_path(File.dirname(__FILE__)),'parser/rulez_parser.
 # 
 module Rulez
 
-  RulezLogger = ActiveSupport::TaggedLogging.new( Logger.new( File.open('log/rulez.log', 'a') ) )
-
   # 
   # Isolate the Rulez namespace
   # 
   class Engine < ::Rails::Engine
     isolate_namespace Rulez
     
-    RulezLogger.tagged('INFO', DateTime.now) { RulezLogger.info "Rulez waking up!" }
+    @@rulez_logger = nil
 
     initializer :append_migrations do |app|
       unless app.root.to_s.match root.to_s
         app.config.paths["db/migrate"] += config.paths["db/migrate"].expanded
       end
     end
+
+    initializer :logger do |app|
+      @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( File.open('log/rulez.log', 'a') ) )
+      Engine::info_log('Rulez waking up!')
+    end
+
+    def self.debug_log(message)
+      @@rulez_logger.tagged('DEBUG', DateTime.now) { @@rulez_logger.debug message }
+    end
+
+    def self.info_log(message)
+      @@rulez_logger.tagged('INFO', DateTime.now) { @@rulez_logger.info message }
+    end
+
+    def self.error_log(message)
+      @@rulez_logger.tagged('ERROR', DateTime.now) { @@rulez_logger.error message }
+    end
+
+    def self.fatal_log(message)
+      @@rulez_logger.tagged('FATAL', DateTime.now) { @@rulez_logger.fatal message }
+    end
+
+    def self.warning_log(message)
+      @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warning message }
+    end
+
   end
 
 
@@ -35,7 +59,7 @@ module Rulez
     rule = Rule.find_by_name(rule)
     if rule
       if @target.nil?
-        RulezLogger.tagged('ERR', DateTime.now) { RulezLogger.info "Evaluating #{rule.name}: Target object not found. Did you forget to set the target?" }
+        Engine::error_log("Evaluating #{rule.name}: Target object not found. Did you forget to set the target?")
         raise "Target object not found. Did you forget to set the target?"
       end
 
@@ -49,11 +73,11 @@ module Rulez
       parser = RulezParser.new
 
       value = parser.parse(rule.rule)
-      RulezLogger.tagged('INFO', DateTime.now) { RulezLogger.info "Evaluated #{rule.name}: #{value}" }
+      Engine::info_log("Evaluated #{rule.name}: #{value}")
       value
     else
       raise 'No such rule!'
-      RulezLogger.tagged('FATAL', DateTime.now) { RulezLogger.fatal "Can't find rule #{rule.name} to evaluate!" }
+      Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
     end
   end
 
@@ -103,7 +127,7 @@ module Rulez
   # 
   def self.set_rulez_target(obj)
     @target = obj
-    RulezLogger.tagged('DEBUG', DateTime.now) { RulezLogger.debug "Target set: #{obj}" }
+    Engine::debug_log("Target set: #{obj}")
   end
 
   # 

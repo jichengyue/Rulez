@@ -4,7 +4,7 @@ Rulez::Engine.routes.draw do
 
   resources :contexts
   resources :rules do
-    resources :alternatives
+    resources :alternatives, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :variables
 

@@ -2,32 +2,25 @@ require_dependency "rulez/application_controller"
 
 module Rulez
   class AlternativesController < ApplicationController
-    before_action :set_alternative, only: [:show, :edit, :update, :destroy]
-
-    # GET /alternatives
-    def index
-      @alternatives = Alternative.all
-    end
-
-    # GET /alternatives/1
-    def show
-    end
+    before_filter :set_rule
 
     # GET /alternatives/new
     def new
-      @alternative = Alternative.new
+      @alternative = @rule.alternatives.new
     end
 
     # GET /alternatives/1/edit
     def edit
+      set_alternative
     end
 
     # POST /alternatives
     def create
-      @alternative = Alternative.new(alternative_params)
+      @alternative = @rule.alternatives.new(params[:alternative])
+      @alternative.priority = @rule.alternatives.length
 
       if @alternative.save
-        redirect_to @alternative, notice: 'Alternative was successfully created.'
+        redirect_to @rule, notice: 'Alternative was successfully created.'
       else
         render action: 'new'
       end
@@ -35,8 +28,9 @@ module Rulez
 
     # PATCH/PUT /alternatives/1
     def update
-      if @alternative.update(alternative_params)
-        redirect_to @alternative, notice: 'Alternative was successfully updated.'
+      set_alternative
+      if @alternative.update_attributes(params[:alternative])
+        redirect_to @rule, notice: 'Alternative was successfully updated.'
       else
         render action: 'edit'
       end
@@ -44,19 +38,24 @@ module Rulez
 
     # DELETE /alternatives/1
     def destroy
+      set_alternative
       @alternative.destroy
-      redirect_to alternatives_url, notice: 'Alternative was successfully destroyed.'
+      redirect_to rule_path(@rule), notice: 'Alternative was successfully destroyed.'
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_alternative
-        @alternative = Alternative.find(params[:id])
+
+      # 
+      # Set current rule
+      # 
+      # @return [type] [description]
+      def set_rule
+        @rule ||= Rule.find(params[:rule_id])
       end
 
-      # Only allow a trusted parameter "white list" through.
-      def alternative_params
-        params.require(:alternative).permit(:description, :condition, :alternative)
+      # Use callbacks to share common setup or constraints between actions.
+      def set_alternative
+        @alternative = @rule.alternatives.find(params[:id])
       end
   end
 end

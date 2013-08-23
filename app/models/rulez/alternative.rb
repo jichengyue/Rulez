@@ -8,10 +8,11 @@ module Rulez
     attr_accessible :description, :condition, :alternative
 
     belongs_to :rule
+    has_one :context, through: :rule
 
     # validations
-    validate :description, :rule, presence: true
-    validate :condition, :alternative, presence: true, syntax: true
-    validate :priority, presence:true, numericality: true
+    validates :description, :rule, presence: true
+    validates :condition, :alternative, presence: true, syntax: true
+    validates :priority, presence:true, numericality: true
   end
 end

@@ -16,12 +16,6 @@ $(document).ready(function() {
 
   });
 
-
-  $('#methods_select').change(function(){
-    $('#rule_rule').val( $('#rule_rule').val() + $(this).val() );
-    $(this).val('').trigger('liszt:updated');
-  });
-
   if(context_select.value){
     $(context_select).change();
   }

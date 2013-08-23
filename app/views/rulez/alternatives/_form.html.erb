@@ -1,3 +1,8 @@
+<%= javascript_include_tag "rulez/alternatives" %>
+<script type="text/javascript">
+  var context_id = <%= @alternative.context.id %>;
+</script>
+
 <%= form_for([@rule, @alternative]) do |f| %>
   <% if @alternative.errors.any? %>
     <div id="error_explanation">
@@ -15,10 +20,15 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+  
+  <div class='field' id='available_variables'>
+  </div>
+
   <div class="field">
     <%= f.label :condition %><br>
     <%= f.text_area :condition %>
   </div>
+
   <div class="field">
     <%= f.label :alternative %><br>
     <%= f.text_area :alternative %>

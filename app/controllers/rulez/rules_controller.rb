@@ -35,7 +35,7 @@ module Rulez
       set_contexts
       if @rule.save
         Engine::info_log("Rule #{@rule.name} was successfully created!")
-        redirect_to @rule, notice: 'Rule #{@rule.name} was successfully created.'
+        redirect_to @rule, notice: "Rule #{@rule.name} was successfully created."
       else
         render action: 'new'
       end
@@ -48,7 +48,7 @@ module Rulez
 
       if @rule.update_attributes(params[:rule])
         Engine::info_log("Rule #{@rule.name} was successfully updated!")
-        redirect_to @rule, notice: 'Rule #{@rule.name} was successfully updated.'
+        redirect_to @rule, notice: "Rule #{@rule.name} was successfully updated."
       else
         render action: 'edit'
       end

@@ -1,8 +1,11 @@
 Rulez::Engine.routes.draw do
+
   root to: 'static#index'
 
   resources :contexts
-  resources :rules
+  resources :rules do
+    resources :alternatives, only: [:new, :create, :edit, :update, :destroy]
+  end
   resources :variables
 
   get 'contexts/:id/variables', to: 'contexts#variables', as: 'context_variables'

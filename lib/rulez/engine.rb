@@ -72,7 +72,17 @@ module Rulez
 
       parser = RulezParser.new
 
-      value = parser.parse(rule.rule)
+      evaluated = false
+      value = false
+      rule.alternatives.sort { |a, b| a.priority <=> b.priority }.each do |alternative|
+        if parser.parse(alternative.condition)
+          evaluated = true
+          value = parser.parse(alternative.alternative)
+          break
+        end
+      end
+      value = parser.parse(rule.rule) if !evaluated
+      
       Engine::info_log("Evaluated #{rule.name}: #{value}")
       value
     else

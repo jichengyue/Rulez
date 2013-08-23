@@ -19,6 +19,36 @@
     <br>
     <dt><strong>Context:</strong></dt>
       <dd><%= @rule.context.name %></dd>
+      <br>
+    <dt><strong>Alternatives:</strong></dt>
+      <dd>
+        <div class="accordion" id="accordion1">
+          <% @rule.alternatives.sort { |a, b| a.priority <=> b.priority }.each do |alternative| %>
+            <div class='accordion-group'>
+              <div class='accordion-heading'>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                  <%= alternative.priority.to_s + ": " + alternative.description %>
+                  <%= link_to 'Edit', edit_rule_alternative_path(@rule, alternative), class: 'btn btn-mini' %>
+                  <%= link_to 'Destroy',
+                              [@rule, alternative],
+                              class: 'btn btn-mini btn-danger',
+                              method: :delete,
+                              data: { confirm: 'Are you sure? '} %>
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                  <strong>Condition:</strong>
+                  <%= alternative.condition %>
+                  <strong>Alternative:</strong>
+                  <%= alternative.alternative %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <%= link_to 'Add alternative', new_rule_alternative_path(@rule) %>
+      </dd>
   </dl>
   <div class='form-actions'>
     <%= link_to 'Back', rules_path, class: 'btn' %>

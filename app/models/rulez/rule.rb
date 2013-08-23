@@ -21,6 +21,7 @@ module Rulez
 
     #associations
     belongs_to :context
+    has_many :alternatives, dependent: :destroy
 
     #validations
     validates :name, presence: true, uniqueness: true

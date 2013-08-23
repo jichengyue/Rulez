@@ -1,0 +1,39 @@
+<%= javascript_include_tag "rulez/alternatives" %>
+<script type="text/javascript">
+  var context_id = <%= @alternative.context.id %>;
+</script>
+
+<%= form_for([@rule, @alternative]) do |f| %>
+  <% if @alternative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@alternative.errors.count, "error") %> prohibited this alternative from being saved:</h2>
+
+      <ul>
+      <% @alternative.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  
+  <div class='field' id='available_variables'>
+  </div>
+
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.text_area :condition %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alternative %><br>
+    <%= f.text_area :alternative %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -24,6 +24,7 @@ module Rulez
     def variables
       set_context
       @variables = @context.variables
+      @methods = Rulez::get_methods_class.methods(false).map { |e| e.to_s }
       render layout: false
     end
 

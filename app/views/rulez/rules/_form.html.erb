@@ -41,21 +41,6 @@
     </div>
   </div>
 
-  <% unless Rulez::get_methods_class == nil %>
-    <div class='control-group'>
-      
-      <%= f.label 'Add function:', class: 'control-label' %>
-      <div class='controls'>
-        <%= select_tag(:methods_select, options_for_select(
-          Rulez::get_methods_class.methods(false).map do |entry|
-            [entry.to_s, entry.to_s]
-          end
-        ),  prompt: 'Please select' ) %>
-      </div>
-    </div>
-      
-  <% end %>
-
   <div class='form-actions'>
     <%= f.submit class: 'btn btn-primary'%>
     <%= link_to 'Back', rules_path, class: 'btn' %>

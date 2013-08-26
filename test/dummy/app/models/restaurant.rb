@@ -11,4 +11,8 @@
 
 class Restaurant < ActiveRecord::Base
   attr_accessible :city, :name
+
+  def annullamenti_a_settimane
+    3
+  end
 end

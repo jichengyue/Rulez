@@ -16,6 +16,10 @@ module RulezMethods
     def self.datetime_now
       DateTime.now
     end
+
+    def self.current_role
+      "master"
+    end
   end
 
 end

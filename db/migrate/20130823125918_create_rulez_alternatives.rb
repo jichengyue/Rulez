@@ -4,6 +4,8 @@ class CreateRulezAlternatives < ActiveRecord::Migration
       t.string :description
       t.text :condition
       t.text :alternative
+      t.integer :rule_id
+      t.integer :priority
 
       t.timestamps
     end

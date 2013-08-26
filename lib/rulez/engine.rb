@@ -44,7 +44,7 @@ module Rulez
     end
 
     def self.warning_log(message)
-      @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warning message }
+      @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warn message }
     end
 
   end

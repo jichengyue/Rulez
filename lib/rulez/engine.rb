@@ -154,7 +154,7 @@ module Rulez
   # The rule parser
   # 
   class Parser
-    @@arr = []
+    @@function_list = []
 
     @@context_list = []
 
@@ -163,7 +163,7 @@ module Rulez
     # @param  input [String] the expression to parse
     # 
     def self.parse(input)
-      @@arr = []
+      @@function_list = []
       @@context_list = []
       @@context_variables = {}
       analyzer = SyntaxAnalyzer.new
@@ -189,15 +189,15 @@ module Rulez
     # Add a variable to the variable table
     # @param  v [String] The variable to add
     # 
-    def self.add_new_variable(v)
-      @@arr.push(v)
+    def self.add_new_function(v)
+      @@function_list.push(v)
     end
 
     # 
     # Returns the array of variables
     # 
-    def self.variables_list
-      @@arr
+    def self.functions_list
+      @@function_list
     end
 
     # 

@@ -16,7 +16,7 @@ class SyntaxValidator < ActiveModel::EachValidator
         if object.context
 
           # check all functions
-          parsed = Rulez::Parser.variables_list
+          parsed = Rulez::Parser.functions_list
           parsed = parsed - Rulez.get_methods_class.methods(false).map { |s| s.to_s } #check functions
           if !parsed.empty?
             object.errors[attribute] << "expression contains invalid variables: #{parsed.join(', ')}."
@@ -53,7 +53,6 @@ class SyntaxValidator < ActiveModel::EachValidator
         end
 
       rescue Exception => e
-        debugger
         object.errors[attribute] << "is not a valid expression, parse error."
       end
     end

@@ -29,8 +29,8 @@ class SyntaxAnalyzer < Whittle::Parser
   end
 
   rule(:bool_operand) do |r|
-    r[:cmp_operation]
     r[:boolean_value]
+    r[:cmp_operation]
   end
 
   rule(:cmp_operation) do |r|
@@ -40,11 +40,17 @@ class SyntaxAnalyzer < Whittle::Parser
     r[:cmp_operand, "<=", :cmp_operand]
     r[:cmp_operand, "!=", :cmp_operand]
     r[:cmp_operand, "==", :cmp_operand]
-    r[:cmp_operand]
+    r[:cmp_operand, ">", :boolean_value]
+    r[:cmp_operand, "<", :boolean_value]
+    r[:cmp_operand, ">=", :boolean_value]
+    r[:cmp_operand, "<=", :boolean_value]
+    r[:cmp_operand, "!=", :boolean_value]
+    r[:cmp_operand, "==", :boolean_value]
   end
 
   rule(:cmp_operand) do |r|
     r[:math_operation]
+    r[:variable_value]
   end
 
   rule(:math_operation) do |r|
@@ -63,7 +69,6 @@ class SyntaxAnalyzer < Whittle::Parser
     r[:string_value]
     r[:float_value]
     r[:integer_value]
-    r[:variable_value]
   end
 
   rule(boolean_value: /true|false/) 
@@ -78,8 +83,8 @@ class SyntaxAnalyzer < Whittle::Parser
 
   rule(string_value: /\"[a-zA-Z0-9 ]*\"/)
 
-  rule(method_variable: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
-    Rulez::Parser.add_new_variable(s)
+  rule(function: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
+    Rulez::Parser.add_new_function(s)
   end
 
   rule(context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
@@ -88,7 +93,7 @@ class SyntaxAnalyzer < Whittle::Parser
 
   rule(:variable_value) do |r|
     r[:context_variable]
-    r[:method_variable]
+    r[:function]
   end
     
   rule(float_value: /([1-9][0-9]*|0)?\.[0-9]+/)

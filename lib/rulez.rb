@@ -16,8 +16,8 @@ module Rulez
       @@methods_class = c
       Engine::debug_log("Methods class set: #{c}")
     else
-      raise 'Parameter should be a class'
       Engine::fatal_log("Methods class set: parameter is not a class!")
+      raise 'Parameter should be a class'
     end
   end
 

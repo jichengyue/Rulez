@@ -127,6 +127,16 @@ module Rulez
       end
     end
 
+    if errors.count == 0
+      Engine::info_log("Doctor invoked, no errors found.")
+    else
+      s = "Doctor invoked, errors found! "
+      errors.each do |error|
+        s += " -- #{error[:description]} -- "
+      end
+      Engine::error_log(s)
+    end
+
     errors
   end
 

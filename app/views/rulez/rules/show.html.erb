@@ -1,12 +1,12 @@
 <%= render partial: 'nav' %> 
 
 <% if notice %>
-  <div id='notice' class='alert alert-success span12'>
+  <div id='notice' class='alert alert-success'>
     <%= notice %>
   </div>
 <% end %>
 
-<div class='span12'>
+<div class='row'>
   <dl class='dl-horizontal'>
     <dt><strong>Name:</strong></dt>
       <dd><%= @rule.name %></dd>
@@ -52,10 +52,11 @@
         </div>
         <%= link_to 'Add alternative', new_rule_alternative_path(@rule) %>
       </dd>
+    <br>
   </dl>
-  <div class='form-actions'>
-    <%= link_to 'Back', rules_path, class: 'btn' %>
-    <%= link_to 'Edit', edit_rule_path(@rule), class: 'btn' %>
+  <div>
+    <%= link_to 'Back', rules_path, class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_rule_path(@rule), class: 'btn btn-default' %>
     <%= link_to 'Destroy',
                 @rule,
                 class: 'btn btn-danger',

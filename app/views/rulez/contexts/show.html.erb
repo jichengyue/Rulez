@@ -1,12 +1,12 @@
 <%= render partial: 'nav' %>
 
 <% if notice %>
-  <div id='notice' class='alert alert-success span12'>
+  <div id='notice' class='alert alert-success'>
     <%= notice %>
   </div>
 <% end %>
 
-<div class='span12'>
+<div class='row'>
   <dl class='dl-horizontal'>
     <dt><strong>Name:</strong></dt>
       <dd><%= @context.name %></dd>
@@ -18,10 +18,11 @@
       <% @context.variables.each do |s| %>
         <dd><%= s.name %></dd>
       <% end %>
+    <br>
   </dl>
-  <div class='form-actions'>
-    <%= link_to 'Back', contexts_path, class: 'btn' %>
-    <%= link_to 'Edit', edit_context_path(@context), class: 'btn' %>
+  <div>
+    <%= link_to 'Back', contexts_path, class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_context_path(@context), class: 'btn btn-default' %>
     <%= link_to 'Destroy',
                 @context,
                 class: 'btn btn-danger',

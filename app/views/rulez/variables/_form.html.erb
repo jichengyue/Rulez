@@ -1,6 +1,6 @@
-<%= form_for @variable, html: { class: 'form-horizontal' } do |f| %>
+<div class='col-md-12'>
   <% if @variable.errors.any? %>
-    <div id='error_explanation' class='alert alert-error'>
+    <div id='error_explanation' class='alert alert-danger'>
       <h4><%= pluralize(@variable.errors.count, 'error') %> prohibited this context from being saved:</h4>
       <ul>
       <% @variable.errors.full_messages.each do |msg| %>
@@ -9,27 +9,25 @@
       </ul>
     </div>
   <% end %>
+</div>
 
-  <div class='control-group'>
-    <%= f.label :name, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :name %>
+<div class='col-md-6'>
+  <%= form_for @variable, html: { role: 'form' } do |f| %>
+    <div class='form-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
-  </div>
-  <div class='control-group'>
-    <%= f.label :description, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.text_area :description %>
+    <div class='form-group'>
+      <%= f.label :description %>
+      <%= f.text_field :description, rows: 10, class: 'form-control' %>
     </div>
-  </div>
-  <div class='control-group'>
-    <%= f.label :model, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.select :model, @models.collect {|x| [x.name, x.name]}, {}, :multiple => false %>
+    <div class='form-group'>
+      <%= f.label :model %>
+        <%= f.select :model, @models.collect {|x| [x.name, x.name]}, {}, :multiple => false, class: 'form-control' %>
     </div>
-  </div>
-  <div class='form-actions'>
-    <%= f.submit class: 'btn btn-primary' %>
-    <%= link_to 'Back', contexts_path, class: 'btn' %>
-  </div>
-<% end %>
+    <div class='form-group'>
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back', contexts_path, class: 'btn' %>
+    </div>
+  <% end %>
+</div>

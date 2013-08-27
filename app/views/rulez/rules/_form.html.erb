@@ -1,8 +1,8 @@
 <%= javascript_include_tag "rulez/rules" %>
 
-<%= form_for @rule, html: { class: 'form-horizontal' } do |f| %>
-    <% if @rule.errors.any? %>
-    <div id='error_explanation' class='alert alert-error'>
+<div class='col-md-12'>
+  <% if @rule.errors.any? %>
+    <div id='error_explanation' class='alert alert-danger'>
       <h4><%= pluralize(@rule.errors.count, 'error') %> prohibited this context from being saved:</h4>
       <ul>
       <% @rule.errors.full_messages.each do |msg| %>
@@ -11,44 +11,35 @@
       </ul>
     </div>
   <% end %>
+</div>
 
-  <div class='control-group'>
-    <%= f.label :name, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :name %>
+<div class='col-md-6'>
+  <%= form_for @rule, html: { role: 'form' } do |f| %>
+    <div class='form-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
-  </div>
-  <div class='control-group'>
-    <%= f.label :description, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :description %>
+    <div class='form-group'>
+      <%= f.label :description %>
+      <%= f.text_field :description, rows: 10, class: 'form-control' %>
     </div>
-  </div>
-  <div class='control-group'>
-    <%= f.label :parameters, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :parameters %>
+    <div class='form-group'>
+      <%= f.label :parameters %>
+      <%= f.text_field :parameters, class: 'form-control' %>
     </div>
-  </div>
-  <div class='control-group'>
-    <%= f.label :context_id, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.collection_select(:context_id, @contexts, :id, :name, { prompt: true }) %>
+    <div class='form-group'>
+      <%= f.label :context_id %>
+      <%= f.collection_select :context_id, @contexts, :id, :name, { prompt: true }, class: 'form-control' %>
     </div>
-  </div>
-
-  <div class='control-group' id='available_variables'>
-  </div>
-
-  <div class='control-group'>
-    <%= f.label :rule, class: 'control-label' %>
-    <div class='controls'>
-      <%= f.text_area :rule %>
+    <div class='form-group' id='available_variables'>
     </div>
-  </div>
-
-  <div class='form-actions'>
-    <%= f.submit class: 'btn btn-primary'%>
-    <%= link_to 'Back', rules_path, class: 'btn' %>
-  </div>
-<% end %>
+    <div class='form-group'>
+      <%= f.label :rule %>
+      <%= f.text_area :rule, rows: 10, class: 'form-control' %>
+    </div>
+    <div class='form-group'>
+      <%= f.submit class: 'btn btn-primary'%>
+      <%= link_to 'Back', rules_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

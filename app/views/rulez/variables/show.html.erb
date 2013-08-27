@@ -1,22 +1,23 @@
 <%= render partial: 'nav' %> 
 
 <% if notice %>
-  <div id='notice' class='alert alert-success span12'>
+  <div id='notice' class='alert alert-success'>
     <%= notice %>
   </div>
 <% end %>
 
-<div class='span12'>
+<div class='row'>
   <dl class='dl-horizontal'>
     <dt><strong>Name:</strong></dt>
       <dd><%= @variable.name %></dd>
     <br>
     <dt><strong>Description:</strong></dt>
       <dd><%= @variable.description %></dd>
+    <br>
   </dl>
-  <div class='form-actions'>
-    <%= link_to 'Back', variables_path, class: 'btn' %>
-    <%= link_to 'Edit', edit_variable_path(@variable), class: 'btn' %>
+  <div>
+    <%= link_to 'Back', variables_path, class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_variable_path(@variable), class: 'btn btn-default' %>
     <%= link_to 'Destroy',
                 @variable,
                 class: 'btn btn-danger',

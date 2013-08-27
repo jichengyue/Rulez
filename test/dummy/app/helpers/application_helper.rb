@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def rulez? rule
-    return Rulez::rulez? rule
+  def rulez? rule, params = {}
+    return Rulez::rulez? rule, params
   end
 end

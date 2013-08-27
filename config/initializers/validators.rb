@@ -1,7 +1,23 @@
 # 
-# Defines a syntax validator for rulez expressions
+# Defines a validator for parameters definition
 # 
-# @author [author]
+class ParametersValidator < ActiveModel::EachValidator
+
+  # 
+  # Custom paramters definition validator
+  #
+  def validate_each(object, attribute, value)
+    if value.present?
+      regex = /^[A-Za-z_][A-Za-z0-9_]*(,\s*[A-Za-z_][A-Za-z0-9_]*)*$/
+      if !(value =~ regex)
+        object.errors[attribute] << "must be defined separated by comma. Only alphanumeric and \'_\' characters are allowed."
+      end
+    end
+  end
+end
+
+# 
+# Defines a syntax validator for rulez expressions
 # 
 class SyntaxValidator < ActiveModel::EachValidator
 
@@ -18,6 +34,7 @@ class SyntaxValidator < ActiveModel::EachValidator
           # check all functions
           parsed = Rulez::Parser.variables_list
           parsed = parsed - Rulez.get_methods_class.methods(false).map { |s| s.to_s } #check functions
+          parsed = parsed - object.get_parameters_list
           if !parsed.empty?
             object.errors[attribute] << "expression contains invalid variables: #{parsed.join(', ')}."
           end
@@ -53,10 +70,8 @@ class SyntaxValidator < ActiveModel::EachValidator
         end
 
       rescue Exception => e
-        debugger
         object.errors[attribute] << "is not a valid expression, parse error."
       end
     end
   end
-
 end

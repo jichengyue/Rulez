@@ -25,6 +25,12 @@
     </div>
   </div>
   <div class='control-group'>
+    <%= f.label :parameters, class: 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :parameters %>
+    </div>
+  </div>
+  <div class='control-group'>
     <%= f.label :context_id, class: 'control-label' %>
     <div class='controls'>
       <%= f.collection_select(:context_id, @contexts, :id, :name, { prompt: true }) %>

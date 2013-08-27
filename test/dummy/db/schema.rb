@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130823125918) do
     t.string   "name"
     t.text     "description"
     t.text     "rule"
+    t.text     "parameters"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "context_id"

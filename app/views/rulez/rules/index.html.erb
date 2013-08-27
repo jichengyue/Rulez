@@ -10,8 +10,9 @@
       <tr>
         <th>Name</th>
         <th>Description</th>
-        <th>Rule</th>
+        <th>Parameters</th>
         <th>Context</th>
+        <th>Rule</th>
         <th>Alternatives</th>
         <th>Actions</th>
       </tr>
@@ -21,8 +22,9 @@
         <tr>
           <td><%= rule.name %></td>
           <td><%= rule.description %></td>
-          <td><%= rule.rule %></td>
+          <td><%= rule.parameters %></td>
           <td><%= rule.context.name if rule.context.present? %></td>
+          <td><%= rule.rule %></td>
           <td><%= rule.alternatives.length %> alternatives</td>
           <td>
             <div class='btn-group'>

@@ -44,7 +44,7 @@ module Rulez
     end
 
     def self.warning_log(message)
-      @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warning message }
+      @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warn message }
     end
 
   end
@@ -52,10 +52,11 @@ module Rulez
 
   # 
   # Evaluates a rule
-  # @param [String] rule the name of the rule to evaluate
+  # @param rule [String] the name of the rule to evaluate
+  # @param params [Hash] the params of the evaluating rule (if present)
   # 
   # @return [Boolean] the result of the rule evaluated
-  def self.rulez?(rule)
+  def self.rulez?(rule, params = {})
     rule = Rule.find_by_name(rule)
     if rule
       if @target.nil?
@@ -69,6 +70,22 @@ module Rulez
         context_variables[s.name] = @target.instance_variable_get(("@" + s.name).to_sym)
       end
       Parser.set_context_variables(context_variables)
+      Parser.set_parameters(params)
+
+      configured_parameters = params.map { |k, v| k.to_s }
+      requested_parameters = rule.get_parameters_list
+      
+      # checks if mandatory parameters are all set
+      mandatory_parameters_check = requested_parameters - configured_parameters
+      if !mandatory_parameters_check.empty?
+        Engine::error_log("Evaluating #{rule.name}: mandatory parameters not set: " + mandatory_parameters_check.join(', '))
+        raise "Mandatory parameters not set: " + mandatory_parameters_check.join(', ')
+      end
+
+      extra_parameters_check = configured_parameters - requested_parameters
+      if !extra_parameters_check.empty?
+        Engine::warning_log("Evaluating #{rule.name}: too many parameters set: " + extra_parameters_check.join(', ') + " are not requested")
+      end
 
       parser = RulezParser.new
 
@@ -205,6 +222,23 @@ module Rulez
     # @return [Hash] All context variables
     def self.get_context_variables
       @@context_variables
+    end
+
+    # 
+    # set the parameters for evaluating the rule from the application
+    # 
+    # @param  hash [Hash] the parameters (the keys are the names, the values are the real values)
+    # 
+    def self.set_parameters(params = {})
+      @@parameters = params
+    end
+
+    # 
+    # get the parameters
+    # 
+    # @return [Hash] the parameters of the rule
+    def self.get_parameters
+      @@parameters
     end
   end
 

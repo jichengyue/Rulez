@@ -118,6 +118,7 @@ module Rulez
 
     rules = Rule.all
     variables = Rulez::Variable.all
+    alternatives = Rulez::Alternative.all
     
     existing_models = @@models.map { |m| m.name }
 
@@ -127,6 +128,7 @@ module Rulez
           level: :error, 
           type: "Variable", 
           description: "Variable #{s.name} refers to non-existent model: #{s.model}",
+          name: s.name,
           ref: s
         }
       end
@@ -139,7 +141,22 @@ module Rulez
             level: :error,
             type: "Rule",
             description: "#{k.to_s} => " + v.join(', '),
+            name: r.name,
             ref: r
+          }
+        end
+      end
+    end
+
+    alternatives.each do |a|
+      if !a.valid?
+        a.errors.messages.each do |k, v|
+          errors << {
+            level: :error,
+            type: "Alternative",
+            description: "#{k.to_s} => " + v.join(', '),
+            name: a.description,
+            ref: a
           }
         end
       end

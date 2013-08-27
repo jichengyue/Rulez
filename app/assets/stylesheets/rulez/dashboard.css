@@ -1,0 +1,24 @@
+li.item-fatal {
+  background-color: #FFB2B2;
+  color: black;
+}
+
+li.item-error {
+  background-color: #FFD1B2;
+  color: black;
+}
+
+li.item-warning {
+  background-color: #FFFFB2;
+  color: black;
+}
+
+li.item-debug {
+  background-color: #FFFFFF;
+  color: black;
+}
+
+li.item-info {
+  background-color: #C2E0FF;
+  color: black;
+}

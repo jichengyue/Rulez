@@ -1,4 +1,5 @@
 <%= javascript_include_tag "rulez/index" %>
+<%= stylesheet_link_tag "rulez/dashboard" %>
 
 <%= render partial: 'nav' %> 
 
@@ -12,18 +13,35 @@
   </div>
   <div id='doctor_output' class='row'>
   </div>
-
-  <ul class='list-group'>
-    <% f = File.open('log/rulez.log') %>
-    <% lines = [] %>
-    <% f.each_line { |line| lines << line } %>
-    <% f.close %>
-    <% display_lines = lines[(lines.length-10)...(lines.length)].reverse %>
-    <% display_lines.each do |line| %>
-      <li class='list-group-item'>
-        <%= "#{line}" %>
-      </li>
-    <% end %>
-  </ul>
-   
+  <br>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      rulez.log
+    </div>
+    <ul class='list-group'>
+      <% f = File.open('log/rulez.log') %>
+      <% lines = [] %>
+      <% f.each_line { |line| lines << line } %>
+      <% f.close %>
+      <% display_lines = lines[(lines.length-10)...(lines.length)].reverse %>
+      <% display_lines.each do |line| %>
+        <% item_color = '' %>
+        <% case line %>
+          <% when /\[FATAL\]/ %>
+            <% item_color = 'item-fatal' %>
+          <% when /\[ERROR\]/ %>
+            <% item_color = 'item-error' %>
+          <% when /\[WARNING\]/ %>
+            <% item_color = 'item-warning' %>
+          <% when /\[DEBUG\]/ %>
+            <% item_color = 'item-debug' %>
+          <% when /\[INFO\]/ %>
+            <% item_color = 'item-info' %>
+        <% end %>
+        <li class='list-group-item <%= item_color %>'>
+          <%= "#{line}" %>
+        </li>
+      <% end %>
+    </ul>
+   </div>
 </div>

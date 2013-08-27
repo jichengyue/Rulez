@@ -4,6 +4,7 @@ class CreateRulezRules < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.text :rule
+      t.text :parameters
       t.timestamps
       t.belongs_to :context
     end

@@ -95,9 +95,9 @@ class RulezParser < Whittle::Parser
   # questa regola fa il match di variabile.metodo...
   
   rule(function: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
-    if Rulez.get_methods_class.methods(false).map { |s| s.to_s }.include?(s)
-      Rulez.get_methods_class.method(s).call
-    else
+    if defined?(Rulez::Parser.get_parameters[s.to_sym])
+      Rulez::Parser.get_parameters[s.to_sym]
+    elsif Rulez.get_methods_class.methods(false).map { |s| s.to_s }.include?(s)
       raise "Missing method #{s}! Did you delete methods in your lib?"
     end
   end

@@ -17,7 +17,7 @@ module Rulez
   # Defines a rule.
   # 
   class Rule < ActiveRecord::Base
-    attr_accessible :description, :name, :rule, :context_id
+    attr_accessible :description, :name, :rule, :context_id, :parameters
 
     #associations
     belongs_to :context
@@ -28,5 +28,10 @@ module Rulez
     validates :description, presence: true
     validates :rule, presence: true, syntax: true
     validates :context, presence: true
+    validates :parameters, parameters: true
+
+    def get_parameters_list
+      parameters.split(',').map{|p| p.strip}
+    end
   end
 end

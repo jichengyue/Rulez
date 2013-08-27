@@ -14,5 +14,13 @@ module Rulez
     validates :description, :rule, presence: true
     validates :condition, :alternative, presence: true, syntax: true
     validates :priority, presence:true, numericality: true
+
+    # 
+    # Returns an array containing all the parameters of the rule
+    # 
+    # @return [Array] The list of all the parameters of the rule
+    def get_parameters_list
+      rule.get_parameters_list
+    end
   end
 end

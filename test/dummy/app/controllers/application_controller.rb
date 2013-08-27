@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_rulez_target, :last_restaurant, :first_restaurant
 
   private
-    def rulez? rule
-      return Rulez::rulez? rule
+    def rulez? rule, params = {}
+      return Rulez::rulez? rule, params
     end
 
     def set_rulez_target

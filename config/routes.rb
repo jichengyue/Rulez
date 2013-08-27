@@ -9,5 +9,6 @@ Rulez::Engine.routes.draw do
   resources :variables
 
   get 'contexts/:id/variables', to: 'contexts#variables', as: 'context_variables'
+  post 'rules/:id/sort_alternatives', to: 'rules#sort_alternatives'
   get 'doctor', to: 'static#doctor'
 end

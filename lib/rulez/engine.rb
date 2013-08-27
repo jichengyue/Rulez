@@ -13,6 +13,7 @@ module Rulez
   # 
   class Engine < ::Rails::Engine
     isolate_namespace Rulez
+    require 'jquery-ui-rails'
     
     @@rulez_logger = nil
 

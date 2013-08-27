@@ -7,11 +7,23 @@
 </div>
 
 <div class='span12'>
-<div id='doctor_button' class='btn'>
-  Run Doctor
-</div>
-<div id='doctor_output' class='row'>
-</div>
-<% #render partial: 'logger' %> 
+  <div id='doctor_button' class='btn'>
+    Run Doctor
+  </div>
+  <div id='doctor_output' class='row'>
+  </div>
 
+  <ul class='list-group'>
+    <% f = File.open('log/rulez.log') %>
+    <% lines = [] %>
+    <% f.each_line { |line| lines << line } %>
+    <% f.close %>
+    <% display_lines = lines[(lines.length-10)...(lines.length)].reverse %>
+    <% display_lines.each do |line| %>
+      <li class='list-group-item'>
+        <%= "#{line}" %>
+      </li>
+    <% end %>
+  </ul>
+   
 </div>

@@ -25,29 +25,33 @@
     <br>
     <dt><strong>Alternatives:</strong></dt>
       <dd>
-        <div class="accordion" id="accordion1">
+        <div id="sortable">
+          <% i = 0 %>
           <% @rule.alternatives.sort { |a, b| a.priority <=> b.priority }.each do |alternative| %>
-            <div class='accordion-group'>
+            <div class='accordion-group ui-state-default' id='alternative<%= alternative.id %>'>
               <div class='accordion-heading'>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-                  <%= alternative.priority.to_s + ": " + alternative.description %>
+                <a class="accordion-toggle" data-toggle="collapse" href="#collapse<%= i %>">
+                  <%= alternative.description %>
+                </a>
+              </div>
+              <div id="collapse<%= i %>" class="accordion-body collapse <%= "in" if i==0 %>">
+                <div class="accordion-inner">
+                  <strong>Condition:</strong>
+                  <%= alternative.condition %>
+                  <br>
+                  <strong>Alternative:</strong>
+                  <%= alternative.alternative %>
+                  <br>
                   <%= link_to 'Edit', edit_rule_alternative_path(@rule, alternative), class: 'btn btn-mini' %>
                   <%= link_to 'Destroy',
                               [@rule, alternative],
                               class: 'btn btn-mini btn-danger',
                               method: :delete,
                               data: { confirm: 'Are you sure? '} %>
-                </a>
-              </div>
-              <div id="collapseOne" class="accordion-body collapse in">
-                <div class="accordion-inner">
-                  <strong>Condition:</strong>
-                  <%= alternative.condition %>
-                  <strong>Alternative:</strong>
-                  <%= alternative.alternative %>
                 </div>
               </div>
             </div>
+            <% i += 1 %>
           <% end %>
         </div>
         <%= link_to 'Add alternative', new_rule_alternative_path(@rule) %>
@@ -64,3 +68,19 @@
                 data: { confirm: 'Are you sure?' } %>
   </div>
 </div>
+<script type="text/javascript">
+  $('#sortable').sortable({
+    axis: 'y',
+    stop: function (event, ui) {
+      var data = $(this).sortable('toArray').toString();
+      data = "order=" + data;
+
+      // POST to server using $.post or $.ajax
+      $.ajax({
+          data: data,
+          type: 'POST',
+          url: '/rulez/rules/<%= @rule.id %>/sort_alternatives'
+      });
+    }
+  });
+</script>

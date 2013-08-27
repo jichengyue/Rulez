@@ -64,6 +64,25 @@ module Rulez
       end
     end
 
+    def sort_alternatives
+      set_rule
+      new_order = params[:order].split(',').each { |e| e.slice! "alternative" }.map{ |e| e.to_i }
+      old_order = @rule.alternatives.map { |e| e.id }
+
+      #checks if all the alternatives referenced by params are the same found in current rule
+      if (new_order - old_order).empty? && (old_order - new_order).empty?
+        i = 1
+        new_order.each do |aid|
+          alternative = Alternative.find(aid)
+          alternative.priority = i
+          alternative.save
+          i += 1
+        end
+      end
+
+      render json: "{\"response\" : \"OK\"}"
+    end
+
     private
 
       # 

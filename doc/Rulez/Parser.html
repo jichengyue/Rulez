@@ -115,7 +115,7 @@
   
     <dl class="constants">
       
-        <dt id="arr-classvariable" class="">@@arr =
+        <dt id="function_list-classvariable" class="">@@function_list =
           
         </dt>
         <dd><pre class="code"><span class='lbracket'>[</span><span class='rbracket'>]</span></pre></dd>
@@ -169,7 +169,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_new_variable-class_method" title="add_new_variable (class method)">+ (Object) <strong>add_new_variable</strong>(v) </a>
+      <a href="#add_new_function-class_method" title="add_new_function (class method)">+ (Object) <strong>add_new_function</strong>(v) </a>
     
 
     
@@ -217,6 +217,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#functions_list-class_method" title="functions_list (class method)">+ (Object) <strong>functions_list</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the array of variables.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_context_variables-class_method" title="get_context_variables (class method)">+ (Hash) <strong>get_context_variables</strong> </a>
     
 
@@ -233,6 +257,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>get the context variables.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_parameters-class_method" title="get_parameters (class method)">+ (Hash) <strong>get_parameters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>get the parameters.</p>
 </div></span>
   
 </li>
@@ -289,7 +337,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#variables_list-class_method" title="variables_list (class method)">+ (Object) <strong>variables_list</strong> </a>
+      <a href="#set_parameters-class_method" title="set_parameters (class method)">+ (Object) <strong>set_parameters</strong>(params = {}) </a>
     
 
     
@@ -304,7 +352,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the array of variables.</p>
+<p>set the parameters for evaluating the rule from the application.</p>
 </div></span>
   
 </li>
@@ -365,12 +413,12 @@
       <pre class="lines">
 
 
-125
-126
-127</pre>
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_context_variable'>add_new_context_variable</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='cvar'>@@context_list</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
@@ -381,9 +429,9 @@
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="add_new_variable-class_method">
+  <h3 class="signature " id="add_new_function-class_method">
   
-    + (<tt>Object</tt>) <strong>add_new_variable</strong>(v) 
+    + (<tt>Object</tt>) <strong>add_new_function</strong>(v) 
   
 
   
@@ -426,15 +474,15 @@
       <pre class="lines">
 
 
-140
-141
-142</pre>
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 140</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 221</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_variable'>add_new_variable</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
-  <span class='cvar'>@@arr</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_new_function'>add_new_function</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='cvar'>@@function_list</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -467,15 +515,56 @@
       <pre class="lines">
 
 
-132
-133
-134</pre>
+213
+214
+215</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 132</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 213</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_context_variables_list'>context_variables_list</span>
   <span class='cvar'>@@context_list</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="functions_list-class_method">
+  
+    + (<tt>Object</tt>) <strong>functions_list</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the array of variables</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+228
+229
+230</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 228</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_functions_list'>functions_list</span>
+  <span class='cvar'>@@function_list</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -526,15 +615,74 @@
       <pre class="lines">
 
 
-164
-165
-166</pre>
+245
+246
+247</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 164</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 245</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_context_variables'>get_context_variables</span>
   <span class='cvar'>@@context_variables</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_parameters-class_method">
+  
+    + (<tt>Hash</tt>) <strong>get_parameters</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>get the parameters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the parameters of the rule</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+262
+263
+264</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 262</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_parameters'>get_parameters</span>
+  <span class='cvar'>@@parameters</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -587,19 +735,19 @@
       <pre class="lines">
 
 
-113
-114
-115
-116
-117
-118
-119</pre>
+194
+195
+196
+197
+198
+199
+200</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 194</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_input'>input</span><span class='rparen'>)</span>
-  <span class='cvar'>@@arr</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='cvar'>@@function_list</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='cvar'>@@context_list</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='cvar'>@@context_variables</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_analyzer'>analyzer</span> <span class='op'>=</span> <span class='const'>SyntaxAnalyzer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -657,12 +805,12 @@ values)</p>
       <pre class="lines">
 
 
-156
-157
-158</pre>
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 237</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_context_variables'>set_context_variables</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span>
   <span class='cvar'>@@context_variables</span> <span class='op'>=</span> <span class='id identifier rubyid_hash'>hash</span>
@@ -673,9 +821,9 @@ values)</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="variables_list-class_method">
+  <h3 class="signature " id="set_parameters-class_method">
   
-    + (<tt>Object</tt>) <strong>variables_list</strong> 
+    + (<tt>Object</tt>) <strong>set_parameters</strong>(params = {}) 
   
 
   
@@ -684,13 +832,35 @@ values)</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the array of variables</p>
+<p>set the parameters for evaluating the rule from the application</p>
 
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>params</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the parameters (the keys are the names, the values are the real values)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 
 </div><table class="source_code">
   <tr>
@@ -698,15 +868,15 @@ values)</p>
       <pre class="lines">
 
 
-147
-148
-149</pre>
+254
+255
+256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 254</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_variables_list'>variables_list</span>
-  <span class='cvar'>@@arr</span>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_parameters'>set_parameters</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='cvar'>@@parameters</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -718,7 +888,7 @@ values)</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 21 12:24:12 2013 by
+  Generated on Wed Aug 28 11:13:07 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

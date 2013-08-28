@@ -37,5 +37,16 @@ module Rulez
       render layout: false
     end
 
+    def displaylog
+      respond_to do |format|
+        format.json {
+          filter = params[:checkbox_actives].map { |s| s.to_s }.join("|")
+          nr = params[:n_rows]
+          res = `grep -E -w \'#{filter}\' log/rulez.log | tail -n #{nr}`
+          render json: res.split("\n").to_json
+        }
+      end
+    end
+
   end
 end

@@ -12,4 +12,5 @@ Rulez::Engine.routes.draw do
   post 'rules/:id/sort_alternatives', to: 'rules#sort_alternatives'
   get 'doctor', to: 'static#doctor'
   get 'flush_log', to: 'static#flush_log'
+  get 'displaylog', to: 'static#displaylog'
 end

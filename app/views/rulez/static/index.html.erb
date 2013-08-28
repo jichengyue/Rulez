@@ -14,34 +14,38 @@
   <div id='doctor_output' class='row'>
   </div>
   <br>
-  <div class='panel panel-default'>
+  <div class='panel'>
     <div class='panel-heading'>
       rulez.log
     </div>
-    <ul class='list-group'>
-      <% f = File.open('log/rulez.log') %>
-      <% lines = [] %>
-      <% f.each_line { |line| lines << line } %>
-      <% f.close %>
-      <% display_lines = lines[(lines.length-10)...(lines.length)].reverse %>
-      <% display_lines.each do |line| %>
-        <% item_color = '' %>
-        <% case line %>
-          <% when /\[FATAL\]/ %>
-            <% item_color = 'item-fatal' %>
-          <% when /\[ERROR\]/ %>
-            <% item_color = 'item-error' %>
-          <% when /\[WARNING\]/ %>
-            <% item_color = 'item-warning' %>
-          <% when /\[DEBUG\]/ %>
-            <% item_color = 'item-debug' %>
-          <% when /\[INFO\]/ %>
-            <% item_color = 'item-info' %>
-        <% end %>
-        <li class='list-group-item <%= item_color %>'>
-          <%= "#{line}" %>
-        </li>
-      <% end %>
+    <div class='panel-body col-md-12'>
+      <div class='col-md-1'>      
+        <div id='log-update-button' class='btn btn-primary log-buttons'>
+          Update
+        </div>
+      </div>
+      <div class='col-md-12'>
+        Numero Righe: <input id="log_number_lines" type="text" size='1' value='20'>
+      </div>
+      <div class='col-md-12 btn-group' data-toggle='buttons'>
+        <label class='btn btn-default log-danger'>
+          <input id='log_fatal_button' type='checkbox' class='log-buttons'> Fatal
+        </label>
+        <label class='btn btn-default log-danger'>
+          <input id='log_error_button' type='checkbox' class='log-buttons'> Error
+        </label>
+        <label class='btn btn-default log-warning'>
+          <input id='log_warning_button' type='checkbox' class='log-buttons'> Warning
+        </label>
+        <label class='btn btn-default log-info'>
+          <input id='log_info_button' type='checkbox' class='log-buttons'> Info
+        </label>
+        <label class='btn btn-default log-default'>
+          <input id='log_debug_button' type='checkbox' class='log-buttons'> Debug
+        </label>
+      </div>
+    </div>
+    <ul id='log_result' class='list-group'>
     </ul>
    </div>
 </div>

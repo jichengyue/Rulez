@@ -17,12 +17,6 @@ module Rulez
     
     @@rulez_logger = nil
 
-    initializer :append_migrations do |app|
-      unless app.root.to_s.match root.to_s
-        app.config.paths["db/migrate"] += config.paths["db/migrate"].expanded
-      end
-    end
-
     initializer :logger do |app|
       f = File.open('log/rulez.log', 'a')
       #f.sync = true
@@ -261,7 +255,7 @@ module Rulez
     # 
     # set the parameters for evaluating the rule from the application
     # 
-    # @param  hash [Hash] the parameters (the keys are the names, the values are the real values)
+    # @param params [Hash] the parameters (the keys are the names, the values are the real values)
     # 
     def self.set_parameters(params = {})
       @@parameters = params

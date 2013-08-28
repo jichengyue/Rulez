@@ -249,7 +249,7 @@ module Rulez
     # 
     # set the parameters for evaluating the rule from the application
     # 
-    # @param  hash [Hash] the parameters (the keys are the names, the values are the real values)
+    # @param params [Hash] the parameters (the keys are the names, the values are the real values)
     # 
     def self.set_parameters(params = {})
       @@parameters = params

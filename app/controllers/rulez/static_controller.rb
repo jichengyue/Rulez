@@ -9,6 +9,10 @@ module Rulez
     def index
     end
 
+    def flush_log
+      Rulez::Engine::flush_log
+    end
+
     # 
     # Executes rulez doctor and returns html page with errors or success message
     # 

@@ -11,4 +11,5 @@ Rulez::Engine.routes.draw do
   get 'contexts/:id/variables', to: 'contexts#variables', as: 'context_variables'
   post 'rules/:id/sort_alternatives', to: 'rules#sort_alternatives'
   get 'doctor', to: 'static#doctor'
+  get 'flush_log', to: 'static#flush_log'
 end

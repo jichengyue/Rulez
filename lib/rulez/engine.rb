@@ -24,7 +24,9 @@ module Rulez
     end
 
     initializer :logger do |app|
-      @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( File.open('log/rulez.log', 'a') ) )
+      f = File.open('log/rulez.log', 'a')
+      #f.sync = true
+      @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( f ) )
       Engine::info_log('Rulez waking up!')
     end
 
@@ -46,6 +48,10 @@ module Rulez
 
     def self.warning_log(message)
       @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warn message }
+    end
+
+    def flush_log
+      @@rulez_logger.flush
     end
 
   end

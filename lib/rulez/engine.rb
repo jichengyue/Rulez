@@ -16,11 +16,12 @@ module Rulez
     require 'jquery-ui-rails'
     
     @@rulez_logger = nil
+    @@file_log = nil
 
     initializer :logger do |app|
-      f = File.open('log/rulez.log', 'a')
-      #f.sync = true
-      @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( f ) )
+      @@file_log = File.open('log/rulez.log', 'a')
+      @@file_log.sync = true
+      @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( @@file_log ) )
       Engine::info_log('Rulez waking up!')
     end
 
@@ -45,7 +46,7 @@ module Rulez
     end
 
     def flush_log
-      @@rulez_logger.flush
+      @@file_log
     end
 
   end

@@ -84,7 +84,7 @@ function compute_log_display() {
       dataType: "json",
       success: function(msg) {
         $("#log_result").empty();
-        $.each(msg,function(i){
+        $.each(msg.reverse(),function(i){
           var itemcolor = "item-default";
           if(msg[i].match("FATAL")) {
             itemcolor = "item-fatal";

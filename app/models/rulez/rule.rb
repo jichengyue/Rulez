@@ -32,7 +32,11 @@ module Rulez
     validates :parameters, parameters: true
 
     def get_parameters_list
-      parameters.split(',').map{|p| p.strip}
+      if parameters.nil?
+        []
+      else
+        parameters.split(',').map{|p| p.strip}
+      end
     end
   end
 end

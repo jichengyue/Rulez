@@ -45,7 +45,6 @@ module Rulez
     def update
       set_rule
       set_contexts
-
       if @rule.update_attributes(params[:rule])
         Engine::info_log("Rule #{@rule.name} was successfully updated!")
         redirect_to @rule, notice: "Rule #{@rule.name} was successfully updated."

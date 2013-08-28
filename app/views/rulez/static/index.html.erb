@@ -18,29 +18,34 @@
     <div class='panel-heading'>
       rulez.log
     </div>
-    <div class='panel-body'>
-      <div id='log-update-button' class='btn btn-primary log-buttons'>
-        Update
+    <div class='panel-body col-md-12'>
+      <div class='col-md-1'>      
+        <div id='log-update-button' class='btn btn-primary log-buttons'>
+          Update
+        </div>
       </div>
-      <div class='btn-group' data-toggle='buttons'>
-        <label class='btn btn-danger'>
-          <input id='log-fatal-button' type='checkbox' class='log-buttons'> Fatal
+      <div class='col-md-12'>
+        Numero Righe: <input id="log_number_lines" type="text" size='1' value='20'>
+      </div>
+      <div class='col-md-12 btn-group' data-toggle='buttons'>
+        <label class='btn btn-default log-danger'>
+          <input id='log_fatal_button' type='checkbox' class='log-buttons'> Fatal
         </label>
-        <label class='btn btn-danger'>
-          <input id='log-error-button' type='checkbox' class='log-buttons'> Error
+        <label class='btn btn-default log-danger'>
+          <input id='log_error_button' type='checkbox' class='log-buttons'> Error
         </label>
-        <label class='btn btn-warning'>
-          <input id='log-warning-button' type='checkbox' class='log-buttons'> Warning
+        <label class='btn btn-default log-warning'>
+          <input id='log_warning_button' type='checkbox' class='log-buttons'> Warning
         </label>
-        <label class='btn btn-info'>
-          <input id='log-info-button' type='checkbox' class='log-buttons'> Info
+        <label class='btn btn-default log-info'>
+          <input id='log_info_button' type='checkbox' class='log-buttons'> Info
         </label>
-        <label class='btn btn-default'>
-          <input id='log-debug-button' type='checkbox' class='log-buttons'> Debug
+        <label class='btn btn-default log-default'>
+          <input id='log_debug_button' type='checkbox' class='log-buttons'> Debug
         </label>
       </div>
     </div>
-    <ul id='log-result' class='list-group'>
+    <ul id='log_result' class='list-group'>
     </ul>
    </div>
 </div>

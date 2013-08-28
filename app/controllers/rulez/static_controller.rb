@@ -37,7 +37,8 @@ module Rulez
       respond_to do |format|
         format.json {
           filter = params[:checkbox_actives].map { |s| s.to_s }.join("|")
-          res = `grep -E -w \'#{filter}\' log/rulez.log | tail -n 20`
+          nr = params[:n_rows]
+          res = `grep -E -w \'#{filter}\' log/rulez.log | tail -n #{nr}`
           render json: res.split("\n").to_json
         }
       end

@@ -17,12 +17,6 @@ module Rulez
     
     @@rulez_logger = nil
 
-    initializer :append_migrations do |app|
-      unless app.root.to_s.match root.to_s
-        app.config.paths["db/migrate"] += config.paths["db/migrate"].expanded
-      end
-    end
-
     initializer :logger do |app|
       @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( File.open('log/rulez.log', 'a') ) )
       Engine::info_log('Rulez waking up!')

@@ -63,6 +63,17 @@ module Rulez
       end
     end
 
+    # 
+    # Sort the alternatives priority.
+    # This action is called in ajax.
+    # 
+    # The request is made passing the parameter `:order` that is an array containing 
+    # the alternative ids ordered by priority
+    # 
+    # example:
+    # 
+    # order: [3,12,5,4] # alt. 3 has priority 1 (highest), alt. 12 has priority 2 etc...
+    # 
     def sort_alternatives
       set_rule
       new_order = params[:order].split(',').each { |e| e.slice! "alternative" }.map{ |e| e.to_i }

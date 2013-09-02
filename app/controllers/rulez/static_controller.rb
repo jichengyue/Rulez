@@ -10,14 +10,6 @@ module Rulez
     end
 
     # 
-    # flush the log file (tipically shoud be not used because of automatic write back
-    # setting imposed on thet file).
-    # 
-    def flush_log
-      Rulez::Engine::flush_log
-    end
-
-    # 
     # Executes rulez doctor and returns html page with errors or success message
     # 
     def doctor
@@ -56,6 +48,9 @@ module Rulez
       end
     end
 
+    # 
+    # clears the log file of rulez (log/rulez.log)
+    # 
     def clearlogfile
       respond_to do |format|
         format.json do
@@ -64,6 +59,5 @@ module Rulez
         end
       end
     end
-
   end
 end

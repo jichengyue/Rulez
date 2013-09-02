@@ -93,7 +93,7 @@ module Rulez
     rule = Rule.find_by_name(rule)
     if rule
       if @target.nil?
-        Engine::error_log("Evaluating #{rule.name}: Target object not found. Did you forget to set the target?")
+        Engine::fatal_log("Evaluating #{rule.name}: Target object not found. Did you forget to set the target?")
         raise "Target object not found. Did you forget to set the target?"
       end
 
@@ -111,13 +111,13 @@ module Rulez
       # checks if mandatory parameters are all set
       mandatory_parameters_check = requested_parameters - configured_parameters
       if !mandatory_parameters_check.empty?
-        Engine::error_log("Evaluating #{rule.name}: mandatory parameters not set: " + mandatory_parameters_check.join(', '))
+        Engine::fatal_log("Evaluating #{rule.name}: mandatory parameters not set: " + mandatory_parameters_check.join(', '))
         raise "Mandatory parameters not set: " + mandatory_parameters_check.join(', ')
       end
 
       extra_parameters_check = configured_parameters - requested_parameters
       if !extra_parameters_check.empty?
-        Engine::warning_log("Evaluating #{rule.name}: too many parameters set: " + extra_parameters_check.join(', ') + " are not requested")
+        Engine::error_log("Evaluating #{rule.name}: too many parameters set: " + extra_parameters_check.join(', ') + " are not requested")
       end
 
       parser = RulezParser.new
@@ -136,8 +136,8 @@ module Rulez
       Engine::info_log("Evaluated #{rule.name}: #{value}")
       value
     else
-      raise 'No such rule!'
       Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
+      raise 'No such rule!'
     end
   end
 

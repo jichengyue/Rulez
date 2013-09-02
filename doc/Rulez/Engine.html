@@ -118,6 +118,22 @@
     <dl class="constants">
       
         <dt id="rulez_logger-classvariable" class="">@@rulez_logger =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>logger configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
+      
+        <dt id="file_log-classvariable" class="">@@file_log =
           
         </dt>
         <dd><pre class="code"><span class='kw'>nil</span></pre></dd>
@@ -156,7 +172,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Writes out on the log file a debug level message.</p>
+</div></span>
   
 </li>
 
@@ -178,7 +196,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Writes out on the log file an error level message.</p>
+</div></span>
   
 </li>
 
@@ -200,7 +220,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Writes out on the log file a fatal level message.</p>
+</div></span>
   
 </li>
 
@@ -222,7 +244,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Writes out on the log file an info level message.</p>
+</div></span>
   
 </li>
 
@@ -231,6 +255,39 @@
   <span class="summary_signature">
     
       <a href="#warning_log-class_method" title="warning_log (class method)">+ (Object) <strong>warning_log</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Writes out on the log file a warning level message.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#flush_log-instance_method" title="#flush_log (instance method)">- (Object) <strong>flush_log</strong> </a>
     
 
     
@@ -268,18 +325,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes out on the log file a debug level message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-25
-26
-27</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_debug_log'>debug_log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_tagged'>tagged</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>DEBUG</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='id identifier rubyid_message'>message</span> <span class='rbrace'>}</span>
@@ -298,18 +386,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes out on the log file an error level message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-33
-34
-35</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_error_log'>error_log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_tagged'>tagged</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ERROR</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='id identifier rubyid_message'>message</span> <span class='rbrace'>}</span>
@@ -328,18 +447,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes out on the log file a fatal level message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-37
-38
-39</pre>
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_tagged'>tagged</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>FATAL</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_fatal'>fatal</span> <span class='id identifier rubyid_message'>message</span> <span class='rbrace'>}</span>
@@ -358,18 +508,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes out on the log file an info level message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-29
-30
-31</pre>
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_info_log'>info_log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_tagged'>tagged</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>INFO</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='id identifier rubyid_message'>message</span> <span class='rbrace'>}</span>
@@ -388,18 +569,49 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Writes out on the log file a warning level message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+75
+76
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_warning_log'>warning_log</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
   <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_tagged'>tagged</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>WARNING</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='const'>DateTime</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='cvar'>@@rulez_logger</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='id identifier rubyid_message'>message</span> <span class='rbrace'>}</span>
@@ -411,10 +623,46 @@
     
   </div>
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="flush_log-instance_method">
+  
+    - (<tt>Object</tt>) <strong>flush_log</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_flush_log'>flush_log</span>
+  <span class='cvar'>@@file_log</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
     <div id="footer">
-  Generated on Wed Aug 28 11:13:07 2013 by
+  Generated on Mon Sep  2 16:09:10 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.6.1 (ruby-1.9.3).
 </div>

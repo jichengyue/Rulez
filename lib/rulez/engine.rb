@@ -46,7 +46,7 @@ module Rulez
     end
 
     def flush_log
-      @@file_log
+      @@file_log.flush
     end
 
   end

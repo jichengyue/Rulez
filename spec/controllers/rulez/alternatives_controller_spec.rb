@@ -43,25 +43,9 @@ module Rulez
     # AlternativesController. Be sure to keep this updated too.
     let(:valid_session) { {} }
   
-    describe "GET index" do
-      it "assigns all alternatives as @alternatives" do
-        alternative = create_valid_alternative
-        get :index, {}, valid_session
-        assigns(:alternatives).should eq([alternative])
-      end
-    end
-  
-    describe "GET show" do
-      it "assigns the requested alternative as @alternative" do
-        alternative = create_valid_alternative
-        get :show, {:id => alternative.to_param}, valid_session
-        assigns(:alternative).should eq(alternative)
-      end
-    end
-  
     describe "GET new" do
       it "assigns a new alternative as @alternative" do
-        get :new, {}, valid_session
+        get :new, {rule_id: alternative.rule.id}, valid_session
         assigns(:alternative).should be_a_new(Alternative)
       end
     end
@@ -69,7 +53,7 @@ module Rulez
     describe "GET edit" do
       it "assigns the requested alternative as @alternative" do
         alternative = create_valid_alternative
-        get :edit, {:id => alternative.to_param}, valid_session
+        get :edit, {rule_id: alternative.rule.id, :id => alternative.to_param}, valid_session
         assigns(:alternative).should eq(alternative)
       end
     end
@@ -78,18 +62,18 @@ module Rulez
       describe "with valid params" do
         it "creates a new Alternative" do
           expect {
-            post :create, {:alternative => valid_attributes}, valid_session
+            post :create, {rule_id: alternative.rule.id, :alternative => valid_attributes}, valid_session
           }.to change(Alternative, :count).by(1)
         end
   
         it "assigns a newly created alternative as @alternative" do
-          post :create, {:alternative => valid_attributes}, valid_session
+          post :create, {rule_id: alternative.rule.id, :alternative => valid_attributes}, valid_session
           assigns(:alternative).should be_a(Alternative)
           assigns(:alternative).should be_persisted
         end
   
         it "redirects to the created alternative" do
-          post :create, {:alternative => valid_attributes}, valid_session
+          post :create, {rule_id: alternative.rule.id, :alternative => valid_attributes}, valid_session
           response.should redirect_to(Alternative.last)
         end
       end
@@ -98,14 +82,14 @@ module Rulez
         it "assigns a newly created but unsaved alternative as @alternative" do
           # Trigger the behavior that occurs when invalid params are submitted
           Alternative.any_instance.stub(:save).and_return(false)
-          post :create, {:alternative => { "description" => "invalid value" }}, valid_session
+          post :create, {rule_id: alternative.rule.id, :alternative => { "description" => "invalid value" }}, valid_session
           assigns(:alternative).should be_a_new(Alternative)
         end
   
         it "re-renders the 'new' template" do
           # Trigger the behavior that occurs when invalid params are submitted
           Alternative.any_instance.stub(:save).and_return(false)
-          post :create, {:alternative => { "description" => "invalid value" }}, valid_session
+          post :create, {rule_id: alternative.rule.id, :alternative => { "description" => "invalid value" }}, valid_session
           response.should render_template("new")
         end
       end
@@ -120,18 +104,18 @@ module Rulez
           # receives the :update_attributes message with whatever params are
           # submitted in the request.
           Alternative.any_instance.should_receive(:update_attributes).with({ "description" => "MyString" })
-          put :update, {:id => alternative.to_param, :alternative => { "description" => "MyString" }}, valid_session
+          put :update, {rule_id: alternative.rule.id, :id => alternative.to_param, :alternative => { "description" => "MyString" }}, valid_session
         end
   
         it "assigns the requested alternative as @alternative" do
           alternative = create_valid_alternative
-          put :update, {:id => alternative.to_param, :alternative => valid_attributes}, valid_session
+          put :update, {rule_id: alternative.rule.id, :id => alternative.to_param, :alternative => valid_attributes}, valid_session
           assigns(:alternative).should eq(alternative)
         end
   
         it "redirects to the alternative" do
           alternative = create_valid_alternative
-          put :update, {:id => alternative.to_param, :alternative => valid_attributes}, valid_session
+          put :update, {rule_id: alternative.rule.id, :id => alternative.to_param, :alternative => valid_attributes}, valid_session
           response.should redirect_to(alternative)
         end
       end
@@ -141,7 +125,7 @@ module Rulez
           alternative = create_valid_alternative
           # Trigger the behavior that occurs when invalid params are submitted
           Alternative.any_instance.stub(:save).and_return(false)
-          put :update, {:id => alternative.to_param, :alternative => { "description" => "invalid value" }}, valid_session
+          put :update, {rule_id: alternative.rule.id, :id => alternative.to_param, :alternative => { "description" => "invalid value" }}, valid_session
           assigns(:alternative).should eq(alternative)
         end
   
@@ -149,7 +133,7 @@ module Rulez
           alternative = create_valid_alternative
           # Trigger the behavior that occurs when invalid params are submitted
           Alternative.any_instance.stub(:save).and_return(false)
-          put :update, {:id => alternative.to_param, :alternative => { "description" => "invalid value" }}, valid_session
+          put :update, {rule_id: alternative.rule.id, :id => alternative.to_param, :alternative => { "description" => "invalid value" }}, valid_session
           response.should render_template("edit")
         end
       end
@@ -159,13 +143,13 @@ module Rulez
       it "destroys the requested alternative" do
         alternative = create_valid_alternative
         expect {
-          delete :destroy, {:id => alternative.to_param}, valid_session
+          delete :destroy, {rule_id: alternative.rule.id, :id => alternative.to_param}, valid_session
         }.to change(Alternative, :count).by(-1)
       end
   
       it "redirects to the alternatives list" do
         alternative = create_valid_alternative
-        delete :destroy, {:id => alternative.to_param}, valid_session
+        delete :destroy, {rule_id: alternative.rule.id, :id => alternative.to_param}, valid_session
         response.should redirect_to(alternatives_url)
       end
     end

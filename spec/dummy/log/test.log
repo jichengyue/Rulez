@@ -10508,3 +10508,1799 @@ Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
   [1m[35m (0.0ms)[0m  BEGIN
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (1.6ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyString' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:08', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"1"}}
+  [1m[35mRulez::Context Load (0.4ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (1, '2013-09-02 09:26:08', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:08')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/1
+Completed 302 Found in 35ms (ActiveRecord: 3.7ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:08', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:08')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"2"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (2, '2013-09-02 09:26:08', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:08')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/2
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36m (17.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:08', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"3"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (3, '2013-09-02 09:26:08', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:08')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/3
+Completed 302 Found in 26ms (ActiveRecord: 1.0ms)
+  [1m[35mRulez::Rule Load (0.1ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` ORDER BY `rulez_rules`.`id` DESC LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:08', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:08', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:08')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:08', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (6, '2013-09-02 09:26:08', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:08')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"6"}, "id"=>"4"}
+  [1m[36mRulez::Rule Load (0.3ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 4 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 4) LIMIT 1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/4
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 7 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (7, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyNewName", "description"=>"MyNewDescription", "rule"=>"true || true", "context_id"=>"7"}, "id"=>"5"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 5 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 8 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (8, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"8"}, "id"=>"6"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 6 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 6) LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/6
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (9, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"7"}
+  [1m[36mRulez::Rule Load (0.3ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 7 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 10 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (10, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"8"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 8 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 11 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (11, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRulez::Rule Load (0.3ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 9 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 12 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (12, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 10 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Alternative Load (0.2ms)[0m  SELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 10
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 10[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 13ms (ActiveRecord: 3.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (13, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 11 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Alternative Load (0.2ms)[0m  SELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 11
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 11[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 14 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (14, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#index as HTML
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` [0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#new as HTML
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:26:09', 'MyContextDescription', 'MyContextName', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 16 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (16, '2013-09-02 09:26:09', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:26:09')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 13 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (1.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}, "id"=>"1"}
+  [1m[35mRulez::Variable Load (0.4ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/rubencaliandro/MyTable/Rulez/app/views/rulez/variables/edit.html.erb within layouts/rulez/application (0.2ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}, "id"=>"2"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyString"}, "id"=>"3"}
+  [1m[35mRulez::Variable Load (0.3ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 3 LIMIT 1
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (20.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}, "id"=>"4"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE (`rulez_variables`.`name` = BINARY 'MyName' AND `rulez_variables`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/4
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}, "id"=>"5"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE (`rulez_variables`.`name` = BINARY 'MyName' AND `rulez_variables`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/5
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#index as HTML
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` [0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRulez::Variable Load (0.3ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 7 LIMIT 1
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` INNER JOIN `rulez_contexts_variables` ON `rulez_contexts`.`id` = `rulez_contexts_variables`.`context_id` WHERE `rulez_contexts_variables`.`variable_id` = 8[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `rulez_variables` WHERE `rulez_variables`.`id` = 8
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables
+Completed 302 Found in 22ms (ActiveRecord: 4.7ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+Processing by Rulez::VariablesController#destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` INNER JOIN `rulez_contexts_variables` ON `rulez_contexts`.`id` = `rulez_contexts_variables`.`context_id` WHERE `rulez_contexts_variables`.`variable_id` = 9[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `rulez_variables` WHERE `rulez_variables`.`id` = 9
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables
+Completed 302 Found in 24ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 10 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}}
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/11
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `rulez_variables` [0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables/12
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:28:52')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables/13
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` ORDER BY `rulez_variables`.`id` DESC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by Rulez::VariablesController#new as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (1, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"1"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 1 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (2, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"2"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 2 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (3, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyNewName", "description"=>"MyNewDescription", "rule"=>"true || true", "context_id"=>"3"}, "id"=>"3"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 3 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 4 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (4, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"4"}, "id"=>"4"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 4 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 4) LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/4
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 5 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (5, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"5"}, "id"=>"5"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 5 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 5) LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/5
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (6, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#index as HTML
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` [0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (7, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 7 LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 8 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (8, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 8 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Alternative Load (0.1ms)[0m  SELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 8
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 8[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (9, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 9 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Alternative Load (0.1ms)[0m  SELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 9
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 9[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 10 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (10, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 10 LIMIT 1
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"13"}}
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 13 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (13, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/11
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"14"}}
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 14 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (14, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/12
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"15"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (15, '2013-09-02 09:28:52', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:28:52')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/13
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` ORDER BY `rulez_rules`.`id` DESC LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:28:52', 'MyContextDescription', 'MyContextName', '2013-09-02 09:28:52')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#new as HTML
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#new as HTML
+  Rendered /Users/rubencaliandro/MyTable/Rulez/app/views/rulez/variables/new.html.erb within layouts/rulez/application (0.2ms)
+Completed 200 OK in 20ms (Views: 8.0ms | ActiveRecord: 6.1ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (1.5ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:50', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:50')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+Processing by Rulez::VariablesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` INNER JOIN `rulez_contexts_variables` ON `rulez_contexts`.`id` = `rulez_contexts_variables`.`context_id` WHERE `rulez_contexts_variables`.`variable_id` = 1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `rulez_variables` WHERE `rulez_variables`.`id` = 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables
+Completed 302 Found in 23ms (ActiveRecord: 5.1ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:50', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:50')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` INNER JOIN `rulez_contexts_variables` ON `rulez_contexts`.`id` = `rulez_contexts_variables`.`context_id` WHERE `rulez_contexts_variables`.`variable_id` = 2[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `rulez_variables` WHERE `rulez_variables`.`id` = 2
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:50', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:50')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 3 LIMIT 1
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:50', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:50')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}, "id"=>"4"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE (`rulez_variables`.`name` = BINARY 'MyName' AND `rulez_variables`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/4
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:50', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:50')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}, "id"=>"5"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE (`rulez_variables`.`name` = BINARY 'MyName' AND `rulez_variables`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/5
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[36m (23.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyString"}, "id"=>"6"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 6 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}, "id"=>"7"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}, "id"=>"8"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRulez::Variable Load (0.3ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 9 LIMIT 1
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/10
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` ORDER BY `rulez_variables`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables/11
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/12
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_variables` [0m
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}}
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:29:51')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#index as HTML
+  [1m[35mRulez::Variable Load (0.3ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` 
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#new as HTML
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 12ms (Views: 1.7ms | ActiveRecord: 2.4ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (2, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRulez::Rule Load (0.3ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Alternative Load (0.2ms)[0m  [1mSELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 1
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (3, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Alternative Load (0.1ms)[0m  [1mSELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 2[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 2
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (4, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 3 LIMIT 1
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (23.9ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 5 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (5, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"5"}, "id"=>"4"}
+  [1m[36mRulez::Rule Load (0.3ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 4 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 4) LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/4
+Completed 302 Found in 6ms (ActiveRecord: 1.1ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (6, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"6"}, "id"=>"5"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 5 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 5) LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/5
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 7 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (7, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyNewName", "description"=>"MyNewDescription", "rule"=>"true || true", "context_id"=>"7"}, "id"=>"6"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 6 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 8 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (8, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"7"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 7 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (9, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"8"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 8 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 10 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (10, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 9 LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"11"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 11 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (11, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/10
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` ORDER BY `rulez_rules`.`id` DESC LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"12"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (12, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/11
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"13"}}
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (13, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/12
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:29:51', 'MyContextDescription', 'MyContextName', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 16 LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (16, '2013-09-02 09:29:51', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:29:51')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#index as HTML
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` [0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (1.5ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#index as HTML
+  [1m[35mRulez::Variable Load (0.3ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` 
+  Rendered /Users/rubencaliandro/MyTable/Rulez/app/views/rulez/variables/index.html.erb within layouts/rulez/application (0.2ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (1.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}, "id"=>"2"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (4.2ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (67.0ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}, "id"=>"3"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 3 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyString"}, "id"=>"4"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}, "id"=>"5"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 5 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE (`rulez_variables`.`name` = BINARY 'MyName' AND `rulez_variables`.`id` != 5) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables/5
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#update as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}, "id"=>"6"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 6 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE (`rulez_variables`.`name` = BINARY 'MyName' AND `rulez_variables`.`id` != 6) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables/6
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 7 LIMIT 1
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::VariablesController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mRulez::Variable Load (0.3ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` INNER JOIN `rulez_contexts_variables` ON `rulez_contexts`.`id` = `rulez_contexts_variables`.`context_id` WHERE `rulez_contexts_variables`.`variable_id` = 8[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `rulez_variables` WHERE `rulez_variables`.`id` = 8
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables
+Completed 302 Found in 24ms (ActiveRecord: 5.0ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+Processing by Rulez::VariablesController#destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 9 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` INNER JOIN `rulez_contexts_variables` ON `rulez_contexts`.`id` = `rulez_contexts_variables`.`context_id` WHERE `rulez_contexts_variables`.`variable_id` = 9[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM `rulez_variables` WHERE `rulez_variables`.`id` = 9
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}}
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"invalid value"}}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `rulez_variables` [0m
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/variables/10
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `rulez_variables` 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/11
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by Rulez::VariablesController#create as HTML
+  Parameters: {"variable"=>{"name"=>"MyName", "description"=>"MyDescription", "model"=>"MyModel"}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Variable Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/variables/12
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[36mRulez::Variable Load (0.2ms)[0m  [1mSELECT `rulez_variables`.* FROM `rulez_variables` ORDER BY `rulez_variables`.`id` DESC LIMIT 1[0m
+  [1m[35m (12.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Variable Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_variables` WHERE `rulez_variables`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_variables` (`created_at`, `description`, `model`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyDescription', 'MyModel', 'MyName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::VariablesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mRulez::Variable Load (0.2ms)[0m  SELECT `rulez_variables`.* FROM `rulez_variables` WHERE `rulez_variables`.`id` = 13 LIMIT 1
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by Rulez::VariablesController#new as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (1, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#index as HTML
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` [0m
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (2, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"2"}
+  [1m[35mRulez::Rule Load (0.3ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 2 LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (3, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}, "id"=>"3"}
+  [1m[35mRulez::Rule Load (0.3ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 3 LIMIT 1
+  [1m[36mRulez::Context Load (0.3ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (4, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` LIMIT 1[0m
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyNewName", "description"=>"MyNewDescription", "rule"=>"true || true", "context_id"=>"4"}, "id"=>"4"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 4 LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 5 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (5, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"5"}, "id"=>"5"}
+  [1m[35mRulez::Rule Load (0.3ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 5 LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 5) LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 5 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/5
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (6, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#update as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"6"}, "id"=>"6"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 6 LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE (`rulez_rules`.`name` = BINARY 'MyName' AND `rulez_rules`.`id` != 6) LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 6 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/6
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.9ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 7 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (7, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 7 LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:31', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:31')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 8 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (8, '2013-09-02 09:30:31', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:31')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 8 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Alternative Load (0.1ms)[0m  SELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 8
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 8[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 11ms (ActiveRecord: 2.9ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.3ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 9 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (9, '2013-09-02 09:30:32', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:32')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+Processing by Rulez::RulesController#destroy as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 9 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Alternative Load (0.1ms)[0m  SELECT `rulez_alternatives`.* FROM `rulez_alternatives` WHERE `rulez_alternatives`.`rule_id` = 9
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM `rulez_rules` WHERE `rulez_rules`.`id` = 9[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `rulez_rules` [0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[35mRulez::Context Load (0.3ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"invalid value"}}
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"12"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 12 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (12, '2013-09-02 09:30:32', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:32')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/10
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `rulez_rules` 
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1[0m
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"13"}}
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` 
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 13 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (13, '2013-09-02 09:30:32', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:32')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/rulez/rules/11
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+Processing by Rulez::RulesController#create as HTML
+  Parameters: {"rule"=>{"name"=>"MyName", "description"=>"MyDescription", "rule"=>"true", "context_id"=>"14"}}
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Rule Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1[0m
+  [1m[35mRulez::Context Load (0.2ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 14 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (14, '2013-09-02 09:30:32', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:32')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/rulez/rules/12
+Completed 302 Found in 4ms (ActiveRecord: 1.1ms)
+  [1m[36mRulez::Rule Load (0.2ms)[0m  [1mSELECT `rulez_rules`.* FROM `rulez_rules` ORDER BY `rulez_rules`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mRulez::Context Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Load (0.1ms)[0m  SELECT `rulez_contexts`.* FROM `rulez_contexts` ORDER BY `rulez_contexts`.`id` DESC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Rule Exists (0.1ms)[0m  SELECT 1 AS one FROM `rulez_rules` WHERE `rulez_rules`.`name` = BINARY 'MyName' LIMIT 1
+  [1m[36mRulez::Context Load (0.1ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` WHERE `rulez_contexts`.`id` = 15 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `rulez_rules` (`context_id`, `created_at`, `description`, `name`, `parameters`, `rule`, `updated_at`) VALUES (15, '2013-09-02 09:30:32', 'MyDescription', 'MyName', NULL, 'true', '2013-09-02 09:30:32')
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by Rulez::RulesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mRulez::Rule Load (0.2ms)[0m  SELECT `rulez_rules`.* FROM `rulez_rules` WHERE `rulez_rules`.`id` = 13 LIMIT 1
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mRulez::Context Exists (0.2ms)[0m  SELECT 1 AS one FROM `rulez_contexts` WHERE `rulez_contexts`.`name` = BINARY 'MyContextName' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `rulez_contexts` (`created_at`, `description`, `name`, `updated_at`) VALUES ('2013-09-02 09:30:32', 'MyContextDescription', 'MyContextName', '2013-09-02 09:30:32')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Rulez::RulesController#new as HTML
+  [1m[36mRulez::Context Load (0.2ms)[0m  [1mSELECT `rulez_contexts`.* FROM `rulez_contexts` [0m
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK

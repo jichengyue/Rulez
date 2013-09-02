@@ -9,6 +9,10 @@ module Rulez
     def index
     end
 
+    # 
+    # flush the log file (tipically shoud be not used because of automatic write back
+    # setting imposed on thet file).
+    # 
     def flush_log
       Rulez::Engine::flush_log
     end
@@ -37,6 +41,10 @@ module Rulez
       render layout: false
     end
 
+    # 
+    # Return the first n_rows of lines in the rulez log file depending on which kind of 
+    # information the user has selected (FATAL, ERROR, WARNING, INFO, DEBUG) in json format.
+    # 
     def displaylog
       respond_to do |format|
         format.json {

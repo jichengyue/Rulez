@@ -18,16 +18,26 @@
     <div class='panel-heading'>
       rulez.log
     </div>
-    <div class='panel-body col-md-12'>
-      <div class='col-md-1'>      
+    <div class='panel-body row'>
+      <div class=''>      
         <div id='log-update-button' class='btn btn-primary log-buttons'>
           Update
         </div>
       </div>
-      <div class='col-md-2'>
+      <div class=''>      
+        <div id='log-clear-button' class='btn btn-primary log-buttons'>
+          Clear log file
+        </div>
+      </div>
+      <div class=''>
         Numero Righe: <input id="log_number_lines" type="text" size='1' value='20'>
       </div>
-      <div class='col-md-12 btn-group' data-toggle='buttons'>
+      <div class=''>      
+        <div id='log-selection-button' class='btn btn-primary log-buttons'>
+          Select all
+        </div>
+      </div>
+      <div class='btn-group' data-toggle='buttons'>
         <label class='btn btn-default log-danger'>
           <input id='log_fatal_button' type='checkbox' class='log-buttons'> Fatal
         </label>

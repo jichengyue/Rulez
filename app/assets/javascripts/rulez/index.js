@@ -13,11 +13,14 @@ $(document).ready(function() {
 
   });
 
+  $("#log-selection-button").click(function(){
+  });
+
   $(".log-buttons").change(function(){
     compute_log_display();
   });
 
-  $(".log-buttons").click(function(){
+  $("#log-update-button").click(function(){
     compute_log_display();
   });
 

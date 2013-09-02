@@ -9,7 +9,7 @@ module Rulez
     let(:valid_attributes) {{ 
       "name" => "MyName",
       "description" => "MyDescription",
-      "model" => "MyModel"
+      "model" => "Restaurant"
     }}
   
     # This should return the minimal set of values that should be in the session
@@ -51,7 +51,7 @@ module Rulez
         @variable.description = "MyNewDescription"
         @variable.save.should be_true
 
-        @variable.model = "MyNewModel"
+        @variable.model = "User"
         @variable.save.should be_true
       end
     end
@@ -73,7 +73,7 @@ module Rulez
         other_variable = Variable.new
         other_variable.name = @variable.name
         other_variable.description = "OtherDescription"
-        other_variable.model = "OtherModel"
+        other_variable.model = "User"
         other_variable.valid?.should be_false
       end
 

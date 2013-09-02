@@ -1,4 +1,21 @@
 # 
+# Defines a validator that checks if a given Model name exists
+# 
+class ModelExistenceValidator < ActiveModel::EachValidator
+
+  # 
+  # Custom Model name validator
+  #
+  def validate_each(object, attribute, value)
+    if value.present?
+      if !(Rulez.get_models.map{|m| m.name}.include? value)
+        object.errors[attribute] << "must be an existing Model name."
+      end
+    end
+  end
+end
+
+# 
 # Defines a validator for parameters definition
 # 
 class ParametersValidator < ActiveModel::EachValidator

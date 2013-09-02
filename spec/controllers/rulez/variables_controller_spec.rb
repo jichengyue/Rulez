@@ -28,7 +28,7 @@ module Rulez
     let(:valid_attributes) {{ 
       "name" => "MyName",
       "description" => "MyDescription",
-      "model" => "MyModel"
+      "model" => "Restaurant"
     }}
   
     # This should return the minimal set of values that should be in the session

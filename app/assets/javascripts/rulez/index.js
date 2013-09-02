@@ -24,24 +24,6 @@ $(document).ready(function() {
     });
   });
 
-  // $("#log-selection-button").click(function(){
-  //   if($(this).text().indexOf("Select All") >= 0){
-  //     $(this).html("Deselect All");
-  //   }
-  //   else {
-  //     $(this).html("Select All");
-  //   }
-  //   $(".label-log-button").click();
-  //   if(
-  //     !$("#log_fatal_button")[0].checked &&
-  //     !$("#log_error_button")[0].checked &&
-  //     !$("#log_warning_button")[0].checked &&
-  //     !$("#log_info_button")[0].checked &&
-  //     !$("#log_debug_button")[0].checked){
-  //       $("#log_result").empty();
-  //     }
-  // });
-
   $(".log-buttons").change(function(){
     compute_log_display();
   });

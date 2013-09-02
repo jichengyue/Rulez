@@ -47,12 +47,21 @@ module Rulez
     # 
     def displaylog
       respond_to do |format|
-        format.json {
+        format.json do
           filter = params[:checkbox_actives].map { |s| s.to_s }.join("|")
           nr = params[:n_rows]
           res = `grep -E -w \'#{filter}\' log/rulez.log | tail -n #{nr}`
           render json: res.split("\n").to_json
-        }
+        end
+      end
+    end
+
+    def clearlogfile
+      respond_to do |format|
+        format.json do
+          `>log/rulez.log`
+          render json: "OK".to_json 
+        end
       end
     end
 

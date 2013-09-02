@@ -13,5 +13,5 @@ Rulez::Engine.routes.draw do
   get 'flush_log', to: 'static#flush_log'
   get 'doctor', to: 'static#doctor'
   get 'displaylog', to: 'static#displaylog'
-  
+  get 'clearlogfile', to: 'static#clearlogfile'
 end

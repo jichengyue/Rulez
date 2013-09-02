@@ -50,7 +50,6 @@ class RulezParser < Whittle::Parser
 
   rule(:cmp_operand) do |r|
     r[:math_operation]
-    r[:variable_value]
   end
 
   rule(:math_operation) do |r|
@@ -69,6 +68,7 @@ class RulezParser < Whittle::Parser
     r[:string_value]
     r[:float_value]
     r[:integer_value]
+    r[:variable_value]
   end
 
   rule(boolean_value: /true|false/).as do |s|

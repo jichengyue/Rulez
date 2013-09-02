@@ -32,27 +32,24 @@
       <div class=''>
         Numero Righe: <input id="log_number_lines" type="text" size='1' value='20'>
       </div>
-      <div class=''>      
-        <div id='log-selection-button' class='btn btn-primary log-buttons'>
-          Select all
-        </div>
-      </div>
       <div class='btn-group' data-toggle='buttons'>
-        <label class='btn btn-default log-danger'>
+        <form>
+        <label class='label-log-button btn btn-default log-danger'>
           <input id='log_fatal_button' type='checkbox' class='log-buttons'> Fatal
         </label>
-        <label class='btn btn-default log-danger'>
+        <label class='label-log-button btn btn-default log-danger'>
           <input id='log_error_button' type='checkbox' class='log-buttons'> Error
         </label>
-        <label class='btn btn-default log-warning'>
+        <label class='label-log-button btn btn-default log-warning'>
           <input id='log_warning_button' type='checkbox' class='log-buttons'> Warning
         </label>
-        <label class='btn btn-default log-info'>
+        <label class='label-log-button btn btn-default log-info'>
           <input id='log_info_button' type='checkbox' class='log-buttons'> Info
         </label>
-        <label class='btn btn-default log-default'>
+        <label class='label-log-button btn btn-default log-default'>
           <input id='log_debug_button' type='checkbox' class='log-buttons'> Debug
         </label>
+        </form>
       </div>
     </div>
     <ul id='log_result' class='list-group'>

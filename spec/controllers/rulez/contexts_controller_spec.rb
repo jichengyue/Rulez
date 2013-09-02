@@ -20,11 +20,15 @@ require 'spec_helper'
 
 module Rulez
   describe ContextsController do
+    routes { Rulez::Engine.routes }
   
     # This should return the minimal set of attributes required to create a valid
     # Context. As you add validations to Context, be sure to
     # adjust the attributes here as well.
-    let(:valid_attributes) { { "name" => "MyString" } }
+    let(:valid_attributes) {{ 
+      "name" => "MyName",
+      "description" => "MyDescription"
+    }}
   
     # This should return the minimal set of values that should be in the session
     # in order to pass any filters (e.g. authentication) defined in

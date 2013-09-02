@@ -15,9 +15,19 @@ module Rulez
     isolate_namespace Rulez
     require 'jquery-ui-rails'
     
+    #Rspec configuration
+    config.generators do |g|
+      g.test_framework      :rspec,        :fixture => false
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
+      g.assets false
+      g.helper false
+    end
+
     @@rulez_logger = nil
     @@file_log = nil
 
+    #logger configuration
+    @@rulez_logger = nil
     initializer :logger do |app|
       @@file_log = File.open('log/rulez.log', 'a')
       @@file_log.sync = true
@@ -25,22 +35,43 @@ module Rulez
       Engine::info_log('Rulez waking up!')
     end
 
+    
+    # 
+    # Writes out on the log file a debug level message
+    # @param  message [String] the message
+    # 
     def self.debug_log(message)
       @@rulez_logger.tagged('DEBUG', DateTime.now) { @@rulez_logger.debug message }
     end
 
+    # 
+    # Writes out on the log file an info level message
+    # @param  message [String] the message
+    # 
     def self.info_log(message)
       @@rulez_logger.tagged('INFO', DateTime.now) { @@rulez_logger.info message }
     end
 
+    # 
+    # Writes out on the log file an error level message
+    # @param  message [String] the message
+    # 
     def self.error_log(message)
       @@rulez_logger.tagged('ERROR', DateTime.now) { @@rulez_logger.error message }
     end
 
+    # 
+    # Writes out on the log file a fatal level message
+    # @param  message [String] the message
+    # 
     def self.fatal_log(message)
       @@rulez_logger.tagged('FATAL', DateTime.now) { @@rulez_logger.fatal message }
     end
 
+    # 
+    # Writes out on the log file a warning level message
+    # @param  message [String] the message
+    # 
     def self.warning_log(message)
       @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warn message }
     end

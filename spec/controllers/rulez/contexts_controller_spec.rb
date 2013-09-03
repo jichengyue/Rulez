@@ -161,6 +161,50 @@ module Rulez
         response.should redirect_to(contexts_url)
       end
     end
+
+    describe "GET variables" do
+      it "with existent context responds with 200" do
+        context = Context.create! valid_attributes
+        get :variables, {:id => context.to_param}, valid_session
+        response.should be_success
+      end
+
+      it "assigns the variables as @variables" do
+        context = Context.create! valid_attributes
+        get :variables, {:id => context.to_param}, valid_session
+        assigns(:variables).should be_a(Array)
+      end
+
+      it "assigns the methods as @methods" do
+        context = Context.create! valid_attributes
+        get :variables, {:id => context.to_param}, valid_session
+        assigns(:methods).should be_a(Array)
+      end
+
+      it "fills @variables with all the variables of given context" do
+        context = Context.new valid_attributes
+        v1 = Variable.new(name: "v1", description: "v1Desc", model: "Restaurant")
+        v2 = Variable.new(name: "v2", description: "v2Desc", model: "User")
+        v3 = Variable.new(name: "v3", description: "v3Desc", model: "Restaurant")
+        v1.save!
+        v2.save!
+        v3.save!
+        context.variables = [v1,v2,v3]
+        context.save!
+
+        get :variables, {:id => context.to_param}, valid_session
+        context.reload
+        assigns(:variables).should match_array([v1,v2,v3])
+        assigns(:variables).should match_array(context.variables)
+      end
+
+      it "fills @methods with all the existent methods" do
+        context = Context.create! valid_attributes
+        methods = Rulez::get_methods_class.methods(false).map { |e| e.to_s }
+        get :variables, {:id => context.to_param}, valid_session
+        assigns(:methods).should match_array(methods)
+      end
+    end
   
   end
 end

@@ -54,11 +54,13 @@ module Rulez
     # Checks all validations
     describe "with invalid attributes" do
       it "should not validate a Variable without name" do
-        #nil name
+        @variable.valid?.should be_true
+
+        # nil name
         @variable.name = nil
         @variable.valid?.should be_false
 
-        #blank name
+        # blank name
         @variable.name = "   "
         @variable.valid?.should be_false
       end
@@ -66,33 +68,40 @@ module Rulez
       it "should not validate a Variable with name already taken" do
         @variable.save
         other_variable = Variable.new
-        other_variable.name = @variable.name
+        other_variable.name = "OtherName"
         other_variable.description = "OtherDescription"
         other_variable.model = "User"
+        other_variable.valid?.should be_true
+        other_variable.name = @variable.name
         other_variable.valid?.should be_false
       end
 
       it "should not validate a Variable without description" do
-        #nil description
+        @variable.valid?.should be_true
+
+        # nil description
         @variable.description = nil
         @variable.valid?.should be_false
 
-        #blank description
+        # blank description
         @variable.description = "   "
         @variable.valid?.should be_false
       end
 
       it "should not validate a Variable without model" do
-        #nil model
+        @variable.valid?.should be_true
+
+        # nil model
         @variable.model = nil
         @variable.valid?.should be_false
 
-        #blank model
+        # blank model
         @variable.model = "   "
         @variable.valid?.should be_false
       end
 
       it "should not validate a Variable that reference a non-existent model" do
+        @variable.valid?.should be_true
         @variable.model = "NonExistentModel"
         @variable.valid?.should be_false
       end

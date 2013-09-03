@@ -22,7 +22,7 @@ module Rulez
     end
 
     # Validation and creation
-    context "with valid attributes" do
+    describe "with valid attributes" do
       it "validates a Variable" do
         @variable.should be_valid
       end
@@ -33,7 +33,7 @@ module Rulez
     end
 
     # Deletion and modify
-    context "with existent Variable" do
+    describe "with existent Variable" do
       before(:each) do
         @variable.save
       end
@@ -57,7 +57,7 @@ module Rulez
     end
 
     # Checks all validations
-    context "with invalid attributes" do
+    describe "with invalid attributes" do
       it "should not validate a Variable without name" do
         #nil name
         @variable.name = nil

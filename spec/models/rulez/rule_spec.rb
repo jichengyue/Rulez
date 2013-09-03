@@ -67,34 +67,59 @@ module Rulez
 
         it "validates with valid param in rule" do
           @rule.rule = "p1 == true"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
 
           @rule.rule = "p2 == true"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
 
           @rule.rule = "p3 == true"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
         end
 
         it "validates with valid variable in rule" do
           @rule.rule = "v1.id == 4"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
 
           @rule.rule = "v2.id == 4"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
         end
 
         it "validates with valid function in rule" do 
           @rule.rule = "thetruth == true"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
 
           @rule.rule = "alie == true"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
         end
 
         it "validates with valid param/var/func" do
           @rule.rule = "thetruth == true && p1 == false || p2 - p3 >= v1.id + v2.id || alie == false"
-          @rule.valid?.should be_true, @rule.errors.messages.to_s
+          @rule.valid?.should be_true, "rule: " + @rule.rule + "\nerrors: " + @rule.errors.messages.to_s
+        end
+
+        it "validates with blank parameters" do
+          @rule.parameters = ""
+          @rule.valid?.should be_true, "parameters: " + @rule.parameters + "\nerrors: " + @rule.errors.messages.to_s
+          
+          @rule.parameters = "   "
+          @rule.valid?.should be_true, "parameters: " + @rule.parameters + "\nerrors: " + @rule.errors.messages.to_s
+
+          @rule.parameters = nil
+          @rule.valid?.should be_true, "parameters: nil\nerrors: " + @rule.errors.messages.to_s
+        end
+
+        it "validates with correct parameters syntax" do
+          @rule.parameters = "p1"
+          @rule.valid?.should be_true, "parameters: " + @rule.parameters + "\nerrors: " + @rule.errors.messages.to_s
+
+          @rule.parameters = "p1, p2"
+          @rule.valid?.should be_true, "parameters: " + @rule.parameters + "\nerrors: " + @rule.errors.messages.to_s
+
+          @rule.parameters = "p1, p2, p3,   p4"
+          @rule.valid?.should be_true, "parameters: " + @rule.parameters + "\nerrors: " + @rule.errors.messages.to_s
+
+          @rule.parameters = "p1_2_3, p_1_2_3, _p_1_2_3"
+          @rule.valid?.should be_true, "parameters: " + @rule.parameters + "\nerrors: " + @rule.errors.messages.to_s
         end
 
       end
@@ -157,6 +182,53 @@ module Rulez
           @rule.rule = "non_existent_variable == true"
           @rule.valid?.should be_false
         end
+
+        it "should not validate without context" do
+          # nil context
+          @rule.context = nil
+          @rule.valid?.should be_false
+
+          # invalid context_id
+          @rule.context = @c1
+          @rule.valid?.should be_true
+          @rule.context_id = 123123
+          @rule.valid?.should be_false
+        end
+
+        it "should not validate with invalid parameters syntax" do
+          @rule.parameters = ","
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p1,"
+          @rule.valid?.should be_false
+
+          @rule.parameters = ",p1"
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p1 p2"
+          @rule.valid?.should be_false
+
+          @rule.parameters = "1p"
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p1,p2,p3,p4, ,p5"
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p1 ,p2"
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p1,\np2"
+          @rule.valid?.should be_false
+
+          @rule.parameters = " p1 "
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p.1"
+          @rule.valid?.should be_false
+
+          @rule.parameters = "p-1"
+          @rule.valid?.should be_false
+        end
       end
     end
 
@@ -193,6 +265,26 @@ module Rulez
           @rule.context = @c2
           @rule.save.should be_true
         end
+      end
+    end
+
+    describe "get_parameters_list" do
+      it "return correct list when valid rule" do
+        @rule.parameters = "p1"
+        @rule.save!
+        @rule.get_parameters_list.should match_array(["p1"])
+
+        @rule.parameters = "p1, p2"
+        @rule.save!
+        @rule.get_parameters_list.should match_array(["p1", "p2"])
+
+        @rule.parameters = "p1, p2, p3,   p4"
+        @rule.save!
+        @rule.get_parameters_list.should match_array(["p1", "p2", "p3", "p4"])
+
+        @rule.parameters = "p1_2_3, p_1_2_3, _p_1_2_3"
+        @rule.save!
+        @rule.get_parameters_list.should match_array(["p1_2_3", "p_1_2_3", "_p_1_2_3"])
       end
     end
 

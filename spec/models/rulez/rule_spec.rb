@@ -64,12 +64,47 @@ module Rulez
         it "saves a new Rule" do
           @rule.save.should be_true
         end
+
+        it "validates with valid param in rule" do
+          @rule.rule = "p1 == true"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+
+          @rule.rule = "p2 == true"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+
+          @rule.rule = "p3 == true"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+        end
+
+        it "validates with valid variable in rule" do
+          @rule.rule = "v1.id == 4"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+
+          @rule.rule = "v2.id == 4"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+        end
+
+        it "validates with valid function in rule" do 
+          @rule.rule = "thetruth == true"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+
+          @rule.rule = "alie == true"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+        end
+
+        it "validates with valid param/var/func" do
+          @rule.rule = "thetruth == true && p1 == false || p2 - p3 >= v1.id + v2.id || alie == false"
+          @rule.valid?.should be_true, @rule.errors.messages.to_s
+        end
+
       end
 
       describe "with invalid attributes" do
-        it "should not validate without name" do
+        before(:each) do
           @rule.valid?.should be_true
+        end
 
+        it "should not validate without name" do
           # nil name
           @rule.name = nil
           @rule.valid?.should be_false
@@ -94,8 +129,6 @@ module Rulez
         end
 
         it "should not validate without description" do
-          @rule.valid?.should be_true
-
           # nil description
           @rule.description = nil
           @rule.valid?.should be_false
@@ -106,14 +139,22 @@ module Rulez
         end
 
         it "should not validate without rule" do
-          @rule.valid?.should be_true
-
           # nil rule
           @rule.rule = nil
           @rule.valid?.should be_false
 
           # blank rule
           @rule.rule = "   "
+          @rule.valid?.should be_false
+        end
+
+        it "should not validate with invalid rule syntax" do
+          @rule.rule = "+-true"
+          @rule.valid?.should be_false
+        end
+
+        it "should not validate with non-existent var/param/func in rule" do
+          @rule.rule = "non_existent_variable == true"
           @rule.valid?.should be_false
         end
       end

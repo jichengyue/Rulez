@@ -36,8 +36,8 @@ module Rulez
         end
 
         it "saves a new Context with existent Variables" do
-          Variable.new(valid_attributes_variables).save
-          v = Variable.last
+          v = Variable.new(valid_attributes_variables)
+          v.save
           @context.variables.push(v)
           @context.save
           @context.variables.should_not be_empty
@@ -85,12 +85,15 @@ module Rulez
       end
 
       it "destroys only the context and not the Variables associated" do
-        Variable.new(valid_attributes_variables).save
-        Variable.new(valid_attributes_variables).save
-        Variable.new(valid_attributes_variables).save
+        v1 = Variable.new(valid_attributes_variables)
+        v2 = Variable.new(valid_attributes_variables)
+        v3 = Variable.new(valid_attributes_variables)
+        v1.save
+        v2.save
+        v3.save
         n_vars = Variable.all.length
-        @context.variables.push(Variable.first)
-        @context.variables.push(Variable.last)
+        @context.variables.push(v1)
+        @context.variables.push(v3)
         @context.save
         @context.delete
         Variable.all.length.should be_equal(n_vars)

@@ -21,7 +21,7 @@ module Rulez
 
     let(:valid_session) { {} }
 
-    context "and Validation Creation" do
+    context "Validation and Creation" do
 
       describe "with valid attributes" do
 

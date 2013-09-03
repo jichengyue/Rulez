@@ -88,9 +88,10 @@ module Rulez
           alternative.save
           i += 1
         end
+        render json: "{\"response\" : \"OK\"}"
+      else
+        render json: "{\"response\" : \"ERROR: the alternatives provided does not belong to the given rule\"}"
       end
-
-      render json: "{\"response\" : \"OK\"}"
     end
 
     private

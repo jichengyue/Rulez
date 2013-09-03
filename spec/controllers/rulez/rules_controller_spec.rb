@@ -184,5 +184,64 @@ module Rulez
       end
     end
 
+    describe "POST sort_alternatives" do
+      before(:each) do
+        @rule1 = Rule.create! valid_attributes
+        @rule2 = Rule.new valid_attributes
+        @rule2.name = "Rule2Name"
+        @rule2.save!
+        8.times do |n|
+          alt = Alternative.new(description: "alt" + n.to_s + "Desc", condition: "true", alternative: "true")
+          alt.priority = n%4 + 1
+          if n < 4
+            @rule1.alternatives << alt
+          else
+            @rule2.alternatives << alt
+          end
+        end
+        @rule1.save!
+        @rule2.save!
+      end
+
+      it "correctly sorts the alternatives if params[:order] contains exactly its alternative_ids" do
+        old_alternatives = @rule1.alternatives
+        new_alternatives = [old_alternatives[2], old_alternatives[0], old_alternatives[3], old_alternatives[1]]
+        new_order = "alternative" + new_alternatives.map { |a| a.id.to_s }.join(",alternative")
+        get :sort_alternatives, {id: @rule1.to_param, order: new_order}, valid_session
+
+        response.should be_success
+        response.body.include?("OK").should be_true
+        @rule1.reload
+        @rule1.alternatives.sort { |a, b| a.priority <=> b.priority }.should match_array(new_alternatives)
+        @rule1.alternatives.sort { |a, b| a.priority <=> b.priority }.should_not == old_alternatives
+      end
+
+      it "should not sort the alternatives if params[:order] contains alternative_ids not belonging to the rule" do
+        old_alternatives = @rule1.alternatives
+        new_alternatives = [old_alternatives[2], old_alternatives[0], old_alternatives[3], @rule2.alternatives[1],old_alternatives[1]]
+        new_order = "alternative" + new_alternatives.map { |a| a.id.to_s }.join(",alternative")
+        get :sort_alternatives, {id: @rule1.to_param, order: new_order}, valid_session
+
+        response.should be_success
+        response.body.include?("ERROR").should be_true
+        @rule1.reload
+        @rule1.alternatives.sort { |a, b| a.priority <=> b.priority }.should match_array(old_alternatives)
+        @rule1.alternatives.sort { |a, b| a.priority <=> b.priority }.should_not == new_alternatives
+      end
+
+      it "should not sort the alternatives if params[:order] does not contains all the alternative_ids belonging to the rule" do
+        old_alternatives = @rule1.alternatives
+        new_alternatives = [old_alternatives[2], old_alternatives[0], old_alternatives[3]]
+        new_order = "alternative" + new_alternatives.map { |a| a.id.to_s }.join(",alternative")
+        get :sort_alternatives, {id: @rule1.to_param, order: new_order}, valid_session
+
+        response.should be_success
+        response.body.include?("ERROR").should be_true
+        @rule1.reload
+        @rule1.alternatives.sort { |a, b| a.priority <=> b.priority }.should match_array(old_alternatives)
+        @rule1.alternatives.sort { |a, b| a.priority <=> b.priority }.should_not == new_alternatives
+      end
+    end
+
   end
 end

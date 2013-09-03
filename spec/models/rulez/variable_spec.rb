@@ -11,11 +11,6 @@ module Rulez
       "description" => "MyDescription",
       "model" => "Restaurant"
     }}
-  
-    # This should return the minimal set of values that should be in the session
-    # in order to pass any filters (e.g. authentication) defined in
-    # VariablesController. Be sure to keep this updated too.
-    let(:valid_session) { {} }
 
     before(:each) do
       @variable = Variable.new valid_attributes

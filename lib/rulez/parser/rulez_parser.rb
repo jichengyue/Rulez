@@ -40,12 +40,12 @@ class RulezParser < Whittle::Parser
     r[:cmp_operand, "<=", :cmp_operand].as { |a, _, b| a <= b }
     r[:cmp_operand, "!=", :cmp_operand].as { |a, _, b| a != b }
     r[:cmp_operand, "==", :cmp_operand].as { |a, _, b| a == b }
-    r[:cmp_operand, ">", :boolean_value].as { |a, _, b| a > b }
-    r[:cmp_operand, "<", :boolean_value].as { |a, _, b| a < b }
-    r[:cmp_operand, ">=", :boolean_value].as { |a, _, b| a >= b }
-    r[:cmp_operand, "<=", :boolean_value].as { |a, _, b| a <= b }
     r[:cmp_operand, "!=", :boolean_value].as { |a, _, b| a != b }
     r[:cmp_operand, "==", :boolean_value].as { |a, _, b| a == b }
+    r[:boolean_value, "!=", :cmp_operand].as { |a, _, b| a != b }
+    r[:boolean_value, "==", :cmp_operand].as { |a, _, b| a == b }
+    r[:boolean_value, "!=", :boolean_value].as { |a, _, b| a != b }
+    r[:boolean_value, "==", :boolean_value].as { |a, _, b| a == b }
   end
 
   rule(:cmp_operand) do |r|

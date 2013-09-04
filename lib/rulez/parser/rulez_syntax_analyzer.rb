@@ -40,12 +40,12 @@ class SyntaxAnalyzer < Whittle::Parser
     r[:cmp_operand, "<=", :cmp_operand]
     r[:cmp_operand, "!=", :cmp_operand]
     r[:cmp_operand, "==", :cmp_operand]
-    r[:cmp_operand, ">", :boolean_value]
-    r[:cmp_operand, "<", :boolean_value]
-    r[:cmp_operand, ">=", :boolean_value]
-    r[:cmp_operand, "<=", :boolean_value]
     r[:cmp_operand, "!=", :boolean_value]
     r[:cmp_operand, "==", :boolean_value]
+    r[:boolean_value, "!=", :cmp_operand]
+    r[:boolean_value, "==", :cmp_operand]
+    r[:boolean_value, "!=", :boolean_value]
+    r[:boolean_value, "==", :boolean_value]
   end
 
   rule(:cmp_operand) do |r|

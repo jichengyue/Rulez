@@ -7,12 +7,12 @@ describe RulezParser do
     @parser = RulezParser.new
     @myvariable = Restaurant.new({name: "MyRestaurantName", city: "GothamCity"})
     @myvariable.save
-    context_variables = {}
-    context_variables["myvariable"] = @myvariable
-    Rulez::Parser.set_context_variables(context_variables)
-    params = {}
-    params["myparameter"] = 5
-    Rulez::Parser.set_parameters(params)
+    @context_variables = {}
+    @context_variables["myvariable"] = @myvariable
+    Rulez::Parser.set_context_variables(@context_variables)
+    @params = {}
+    @params[:myparameter] = 5
+    Rulez::Parser.set_parameters(@params)
   end
 
   it "create a valid RulezParser" do
@@ -322,6 +322,27 @@ describe RulezParser do
   end
 
   context "the Semantic" do
+    it "valuates Variables" do
+      rule = "myvariable.id == 1"
+      @parser.parse(rule).should be_true
 
+      rule = "myvariable.id != 1"
+      @parser.parse(rule).should be_false
+    end
+
+    it "valuates Parameters" do
+      rule = "myparameter == 5"
+      @parser.parse(rule).should be_true
+
+      rule = "myparameter != 5"
+      @parser.parse(rule).should be_false
+    end
   end
 end
+
+
+
+
+
+
+

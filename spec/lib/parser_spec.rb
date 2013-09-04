@@ -63,7 +63,7 @@ describe RulezParser do
         end
 
         it "parses Functions" do
-          rule = "myfunction == true"
+          rule = "thetruth == true"
           lambda{@parser.parse(rule)}.should_not raise_error
         end
 
@@ -98,7 +98,7 @@ describe RulezParser do
           rule = "16//02//1988#23:59:59"
           lambda{@parser.parse(rule)}.should raise_error
 
-          rule = "myfunction"
+          rule = "thetruth"
           lambda{@parser.parse(rule)}.should raise_error
 
           rule = "myparameter"
@@ -166,7 +166,7 @@ describe RulezParser do
           rule = "true || 16//02//1988#23:59:59"
           lambda{@parser.parse(rule)}.should raise_error
 
-          rule = "true || myfunction"
+          rule = "true || thetruth"
           lambda{@parser.parse(rule)}.should raise_error
 
           rule = "true || myparameter"
@@ -200,7 +200,7 @@ describe RulezParser do
           rule = "5 == 5"
           lambda{@parser.parse(rule)}.should_not raise_error
 
-          rule = "myfunction == myfunction"
+          rule = "thetruth == thetruth"
           lambda{@parser.parse(rule)}.should_not raise_error
 
           rule = "myparameter == myparameter"
@@ -209,7 +209,7 @@ describe RulezParser do
           rule = "myvariable.id == myvariable.id"
           lambda{@parser.parse(rule)}.should_not raise_error
 
-          rule = "true == myfunction"
+          rule = "true == thetruth"
           lambda{@parser.parse(rule)}.should_not raise_error
 
           rule = "\"MyString\" == myvariable.id"
@@ -336,6 +336,20 @@ describe RulezParser do
 
       rule = "myparameter != 5"
       @parser.parse(rule).should be_false
+    end
+
+    it "valuates Functions" do
+      rule = "thetruth == true"
+      @parser.parse(rule).should be_true
+      
+      rule = "thetruth != true"
+      @parser.parse(rule).should be_false
+
+      rule = "alie == false"
+      @parser.parse(rule).should be_true
+
+      rule = "alie != false"
+      @parser.parse(rule).should be_false 
     end
   end
 end

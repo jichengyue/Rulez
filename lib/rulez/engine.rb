@@ -29,7 +29,7 @@ module Rulez
     @@rulez_logger = nil
     initializer :logger do |app|
       @@file_log = File.open('log/rulez.log', 'a')
-      @@file_log.sync = true
+      # @@file_log.sync = true
       @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( @@file_log ) )
       Engine::info_log('Rulez waking up!')
     end
@@ -136,7 +136,7 @@ module Rulez
       value
     else
       Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
-      raise 'No such rule!'
+      raise "Can't find rule #{rule.name} to evaluate!"
     end
   end
 
@@ -212,8 +212,8 @@ module Rulez
   # @param  obj [Object] the target object
   # 
   def self.set_rulez_target(obj)
-    @target = obj
     Engine::debug_log("Target set: #{obj}")
+    @target = obj
   end
 
   # 

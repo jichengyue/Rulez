@@ -56,8 +56,8 @@ describe SyntaxAnalyzer do
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
       end
 
-      it "parses Variables"do
-        rule = "myvariable.myfield == \"MyString\""
+      it "parses Variables" do
+        rule = "myvariable.id == \"MyString\""
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
       end
     end
@@ -156,7 +156,7 @@ describe SyntaxAnalyzer do
         rule = "true || myparameter"
         lambda{@syntax_analyzer.parse(rule)}.should raise_error
 
-        rule = "true || myvariable.myfield"
+        rule = "true || myvariable.id"
         lambda{@syntax_analyzer.parse(rule)}.should raise_error
       end
     end
@@ -190,13 +190,13 @@ describe SyntaxAnalyzer do
         rule = "myparameter == myparameter"
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
 
-        rule = "myvariable.myfield == myvariable.myfield"
+        rule = "myvariable.id == myvariable.id"
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
 
         rule = "true == myfunction"
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
 
-        rule = "\"MyString\" == myvariable.myfield"
+        rule = "\"MyString\" == myvariable.id"
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
       end
     end
@@ -294,12 +294,12 @@ describe SyntaxAnalyzer do
       rule = "16//02//1988#23:59:59 * myfunction == 3.221"
       lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
 
-      rule = "16//02//1988 - myvariable.myfield == myparameter"
+      rule = "16//02//1988 - myvariable.id == myparameter"
       lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
     end
 
     #this is the only type checking till now. It is in the grammar not in the semantic.
-    it "does non parse Compare Operations <, <=, >, >= with Boolean Operand" do
+    it "does not parse Compare Operations <, <=, >, >= with Boolean Operand" do
       rule = "true <= false"
       lambda{@syntax_analyzer.parse(rule)}.should raise_error
 
@@ -314,12 +314,3 @@ describe SyntaxAnalyzer do
     end
   end
 end
-
-
-
-
-
-
-
-
-

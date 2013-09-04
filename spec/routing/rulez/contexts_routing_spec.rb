@@ -16,11 +16,11 @@ module Rulez
       end
   
       it "routes to #show" do
-        get("/contexts/1").should route_to("rulez/contexts#show", :id => "1")
+        get("/contexts/1").should route_to("rulez/contexts#show", id: "1")
       end
   
       it "routes to #edit" do
-        get("/contexts/1/edit").should route_to("rulez/contexts#edit", :id => "1")
+        get("/contexts/1/edit").should route_to("rulez/contexts#edit", id: "1")
       end
   
       it "routes to #create" do
@@ -28,11 +28,15 @@ module Rulez
       end
   
       it "routes to #update" do
-        put("/contexts/1").should route_to("rulez/contexts#update", :id => "1")
+        put("/contexts/1").should route_to("rulez/contexts#update", id: "1")
       end
   
       it "routes to #destroy" do
-        delete("/contexts/1").should route_to("rulez/contexts#destroy", :id => "1")
+        delete("/contexts/1").should route_to("rulez/contexts#destroy", id: "1")
+      end
+
+      it "routes to #variables" do
+        get("/contexts/1/variables").should route_to("rulez/contexts#variables", id: "1")
       end
   
     end

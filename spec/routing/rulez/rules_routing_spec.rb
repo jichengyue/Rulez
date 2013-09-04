@@ -16,11 +16,11 @@ module Rulez
       end
 
       it "routes to #show" do
-        get("/rules/1").should route_to("rulez/rules#show", :id => "1")
+        get("/rules/1").should route_to("rulez/rules#show", id: "1")
       end
 
       it "routes to #edit" do
-        get("/rules/1/edit").should route_to("rulez/rules#edit", :id => "1")
+        get("/rules/1/edit").should route_to("rulez/rules#edit", id: "1")
       end
 
       it "routes to #create" do
@@ -28,11 +28,15 @@ module Rulez
       end
 
       it "routes to #update" do
-        put("/rules/1").should route_to("rulez/rules#update", :id => "1")
+        put("/rules/1").should route_to("rulez/rules#update", id: "1")
       end
 
       it "routes to #destroy" do
-        delete("/rules/1").should route_to("rulez/rules#destroy", :id => "1")
+        delete("/rules/1").should route_to("rulez/rules#destroy", id: "1")
+      end
+
+      it "routes to #sort_alternatives" do
+        post("/rules/1/sort_alternatives").should route_to("rulez/rules#sort_alternatives", id: "1")
       end
 
     end

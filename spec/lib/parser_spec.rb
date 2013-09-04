@@ -7,11 +7,11 @@ describe RulezParser do
     @parser = RulezParser.new
     @myvariable = Restaurant.new({name: "MyRestaurantName", city: "GothamCity"})
     @myvariable.save
-    @context_variables = {}
-    @context_variables["myvariable"] = @myvariable
+    context_variables = {}
+    context_variables["myvariable"] = @myvariable
     Rulez::Parser.set_context_variables(context_variables)
-    @params = {}
-    @params["myparameter"] = 5
+    params = {}
+    params["myparameter"] = 5
     Rulez::Parser.set_parameters(params)
   end
 

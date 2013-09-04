@@ -223,7 +223,7 @@ module Rulez
     @@function_list = []
 
     @@context_list = []
-
+    
     # 
     # Parse the input
     # @param  input [String] the expression to parse

@@ -183,11 +183,14 @@ module Rulez
             end
 
             it "should raise error if params are not an hash" do
-              pending
+              lambda {rulez?("r1",["Mypar1",3])}.should raise_error
             end
 
             it "should raise error if params are not the same requested by the rule" do
-              pending
+              lambda {rulez?("r1",{}).should raise_error}
+              lambda {rulez?("r1",{p1: 1}).should raise_error}
+              lambda {rulez?("r1",{p1: 1, p2: 2, p3: 3}).should raise_error}
+              lambda {rulez?("r1",{p1: 1, p2: 2}).should_not raise_error}
             end
 
             context "Alternative check" do
@@ -204,116 +207,55 @@ module Rulez
               end
 
               it "evaluate alternatives" do
-                pending
+                lambda {rulez?("r1",{p1: 0, p2: 0}).should_not raise_error}
+                lambda {rulez?("r1",{p1: 0, p2: 0}).should be_true}
               end
 
               it "evaluate alternatives in correct priority order" do
-                pending
+                @rule.alternatives.each do |a|
+                  if(a.priority == 1)
+                    a.condition = "true"
+                    a.alternative = "true"
+                  else
+                    a.condition = "false"
+                    a.alternative = "false"
+                  end
+                end
+                @rule.save!
+                lambda {rulez?("r1",{p1: 0, p2: 0}).should be_true}
+                @rule.reload
+                @rule.alternatives.each do |a|
+                  if(a.priority == 2)
+                    a.condition = "true"
+                    a.alternative = "true"
+                  else
+                    a.condition = "false"
+                    a.alternative = "false"
+                  end
+                end
+                @rule.save!
+                lambda {rulez?("r1",{p1: 0, p2: 0}).should be_true}
+                @rule.reload
+                @rule.alternatives.each do |a|
+                  a.condition = "false"
+                  a.alternative = "false"
+                end
+                @rule.save!
+                lambda {rulez?("r1",{p1: 0, p2: 0}).should be_false}
               end
 
               it "evaluate rule when all alternatives have false condition" do
-                pending
+                @rule.rule = "true"
+                @rule.alternatives.each do |a|
+                  a.condition = "false"
+                  a.alternative = "false"
+                end
+                @rule.save!
+                lambda {rulez?("r1",{p1: 0, p2: 0}).should be_true}
               end
             end
           end
         end
-      end
-    end
-
-    describe "Parameter" do
-
-      before(:each) do
-        @v1 = Variable.new 
-        @v1.name = "v1"
-        @v1.description = "Myv1Description"
-        @v1.model = "Restaurant"
-        @v1.save!
-
-        @c1 = Context.new
-        @c1.name = "c1"
-        @c1.description = "MyContextDescription"
-        @c1.variables = [@v1]
-        @c1.save!
-
-        @rule = Rule.new
-        @rule.name = "r1"
-        @rule.description = "MyRuleDescription"
-        @rule.parameters = ""
-        @rule.rule = "true"
-        @rule.context = @c1
-        @rule.save!
-
-        Rulez::set_rulez_target FakeTarget
-      end
-
-      after(:each) do
-        @v1.destroy
-        @c1.destroy
-        @rule.destroy
-      end
-
-      it "raises error if try to evaluate a non-existent rule" do
-        lambda{Rulez::rulez? "InexistentRule"}.should raise_error
-      end
-
-      it "makes correct evaluation of the rule when it is not present" do
-        (Rulez::rulez? @rule.name).should_not be_false
-        (Rulez::rulez? @rule.name).should be_true
-      end
-
-      it "is always an hash" do
-        @rule.parameters = "p1, p2"
-        @rule.rule = "p1 == 3 && p2 == 4"
-        @rule.save!
-        p1 = 3
-        p2 = 4
-        pars = [p1,p2]
-        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
-        pars = {p1: 3, p2: 4}
-        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
-      end
-
-      it "matches exactly the one in the rule" do
-        @rule.parameters = "p1, p2, p3"
-        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
-        @rule.save!
-        pars = {p1: 3, p2: 4, p3: "MyString"}
-        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
-      end
-
-      it "raises error when Parameters defined in the rule are not all used" do
-        @rule.parameters = "p1, p2, p3"
-        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
-        @rule.save!
-        pars = {}
-        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
-        pars = {p1: 3, p3: "MyString"}
-        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
-      end
-
-      it "raises error when some Parameters defined in the rule are missing in the call of rulez? method" do
-        @rule.parameters = "p1, p2, p3"
-        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
-        @rule.save!
-        pars = {p5: 3, p2: 4, p3: "MyString"}
-        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
-      end
-
-      it "skips extra Parameters in the rulez? method call if they are not defined in the rule, but log error will be reported" do
-        @rule.parameters = "p1, p2, p3"
-        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
-        @rule.save!
-        pars = {p1: 3, p2: 4, p3: "MyString",p4: 32, p5: "MyOtherString"}
-        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
-      end
-
-      it "evaluates correctly Rules with Parameters" do
-        @rule.parameters = "p1, p2, p3"
-        @rule.rule = "p1 == "+FakeTarget.num.to_s+" && p2 == \""+FakeTarget.str.to_s+"\" && p3 == "+FakeTarget.bool.to_s
-        @rule.save!
-        pars = {p1: FakeTarget.num, p2: FakeTarget.str, p3: FakeTarget.bool}
-        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
-        (Rulez::rulez? @rule.name, pars).should be_true
       end
     end
   end

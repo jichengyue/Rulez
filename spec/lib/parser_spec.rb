@@ -6,7 +6,7 @@ describe RulezParser do
   before(:all) do
     @parser = RulezParser.new
     @myvariable = Restaurant.new({name: "MyRestaurantName", city: "GothamCity"})
-    @myvariable.save!
+    @myvariable.save
     @context_variables = {}
     @context_variables["myvariable"] = @myvariable
     Rulez::Parser.set_context_variables(@context_variables)
@@ -323,10 +323,10 @@ describe RulezParser do
 
   context "the Semantic" do
     it "valuates Variables" do
-      rule = "myvariable.name == \"MyRestaurantName\""
+      rule = "myvariable.id == 1"
       @parser.parse(rule).should be_true
 
-      rule = "myvariable.name != \"MyRestaurantName\""
+      rule = "myvariable.id != 1"
       @parser.parse(rule).should be_false
     end
 

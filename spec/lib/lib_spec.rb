@@ -12,6 +12,24 @@ end
 class FakeModel2 < ActiveRecord::Base
 end
 
+class FakeTarget
+  @@num = 5
+  @@str = "MyString"
+  @@bool = true
+  
+  def self.num
+    @@num
+  end
+
+  def self.str
+    @@str
+  end
+
+  def self.bool
+    @@bool
+  end
+end
+
 module Rulez
   describe Rulez do
     context "module" do
@@ -201,5 +219,110 @@ module Rulez
         end
       end
     end
+
+    describe "Parameter" do
+
+      before(:each) do
+        @v1 = Variable.new 
+        @v1.name = "v1"
+        @v1.description = "Myv1Description"
+        @v1.model = "Restaurant"
+        @v1.save!
+
+        @c1 = Context.new
+        @c1.name = "c1"
+        @c1.description = "MyContextDescription"
+        @c1.variables = [@v1]
+        @c1.save!
+
+        @rule = Rule.new
+        @rule.name = "r1"
+        @rule.description = "MyRuleDescription"
+        @rule.parameters = ""
+        @rule.rule = "true"
+        @rule.context = @c1
+        @rule.save!
+
+        Rulez::set_rulez_target FakeTarget
+      end
+
+      after(:each) do
+        @v1.destroy
+        @c1.destroy
+        @rule.destroy
+      end
+
+      it "raises error if try to evaluate a non-existent rule" do
+        lambda{Rulez::rulez? "InexistentRule"}.should raise_error
+      end
+
+      it "makes correct evaluation of the rule when it is not present" do
+        (Rulez::rulez? @rule.name).should_not be_false
+        (Rulez::rulez? @rule.name).should be_true
+      end
+
+      it "is always an hash" do
+        @rule.parameters = "p1, p2"
+        @rule.rule = "p1 == 3 && p2 == 4"
+        @rule.save!
+        p1 = 3
+        p2 = 4
+        pars = [p1,p2]
+        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
+        pars = {p1: 3, p2: 4}
+        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
+      end
+
+      it "matches exactly the one in the rule" do
+        @rule.parameters = "p1, p2, p3"
+        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
+        @rule.save!
+        pars = {p1: 3, p2: 4, p3: "MyString"}
+        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
+      end
+
+      it "raises error when Parameters defined in the rule are not all used" do
+        @rule.parameters = "p1, p2, p3"
+        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
+        @rule.save!
+        pars = {}
+        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
+        pars = {p1: 3, p3: "MyString"}
+        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
+      end
+
+      it "raises error when some Parameters defined in the rule are missing in the call of rulez? method" do
+        @rule.parameters = "p1, p2, p3"
+        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
+        @rule.save!
+        pars = {p5: 3, p2: 4, p3: "MyString"}
+        lambda{Rulez::rulez? @rule.name, pars}.should raise_error
+      end
+
+      it "skips extra Parameters in the rulez? method call if they are not defined in the rule, but log error will be reported" do
+        @rule.parameters = "p1, p2, p3"
+        @rule.rule = "p1 == 3 && p2 == 4 && p3 == \"MyString\""
+        @rule.save!
+        pars = {p1: 3, p2: 4, p3: "MyString",p4: 32, p5: "MyOtherString"}
+        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
+      end
+
+      it "evaluates correctly Rules with Parameters" do
+        @rule.parameters = "p1, p2, p3"
+        @rule.rule = "p1 == "+FakeTarget.num.to_s+" && p2 == \""+FakeTarget.str.to_s+"\" && p3 == "+FakeTarget.bool.to_s
+        @rule.save!
+        pars = {p1: FakeTarget.num, p2: FakeTarget.str, p3: FakeTarget.bool}
+        lambda{Rulez::rulez? @rule.name, pars}.should_not raise_error
+        (Rulez::rulez? @rule.name, pars).should be_true
+      end
+    end
   end
 end
+
+
+
+
+
+
+
+

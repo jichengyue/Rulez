@@ -258,8 +258,206 @@ module Rulez
         end
       end
 
-      describe "Doctor" do
-        pending
+      context "Doctor" do
+        describe "errors on Variables" do
+          before(:all) do
+            @models = Rulez::get_models
+          end
+
+          before(:each) do
+            Rulez::class_variable_set(:@@models, nil)
+            Rulez::set_models([FakeModel1, FakeModel2])
+            Rulez::Variable.new(name: "MyVariable1Name", description: "MyVariable1Description", model: "FakeModel1").save!
+            Rulez::Variable.new(name: "MyVariable2Name", description: "MyVariable2Description", model: "FakeModel2").save!
+          end
+
+          after(:each) do
+            Rulez::Variable.find(:all).each do |v|
+              v.destroy
+            end
+          end
+
+          after(:all) do
+            Rulez::set_models(@models)
+          end
+
+          it "raises error if a Variable refers to a non existent model" do
+            Rulez::set_models([FakeModel1])
+            errors = Rulez::doctor
+            errors.should_not be_empty
+            errors.length.should == 1
+
+            Rulez::set_models([])
+            errors = Rulez::doctor
+            errors.should_not be_empty
+            errors.length.should == 2
+          end
+
+          it "does not signal errors if all Variables are right" do
+            errors = Rulez::doctor
+            errors.should be_empty
+          end
+        end
+
+        describe "errors on Rules" do
+          before(:all) do
+            @models = Rulez::get_models
+          end          
+
+          before(:each) do 
+            Rulez::class_variable_set(:@@methods_class, nil)
+            Rulez::set_methods_class(RulezMethods::Methods)
+
+            Rulez::class_variable_set(:@@models, nil)
+            Rulez::set_models([FakeModel1, FakeModel2, Restaurant])
+
+            v1 = Rulez::Variable.new(name: "MyVariable1Name",
+                                    description: "MyVariable1Description",
+                                    model: "FakeModel1")
+            v1.save!
+            v2 = Rulez::Variable.new(name: "MyVariable2Name",
+                                    description: "MyVariable2Description",
+                                    model: "FakeModel2")
+            v2.save!
+            v3 = Rulez::Variable.new(name: "first_restaurant",
+                                    description: "MyVariable3Description",
+                                    model: "Restaurant")
+            v3.save!
+            
+            c1 = Rulez::Context.new(name: "MyContext1Name",
+                                    description: "MyContext1Description")
+            c1.variables.push(v1,v3)
+            c1.save!
+            
+            r1 = Rulez::Rule.new(name: "MyRule1Name",
+                                description: "MyRule1Description",
+                                parameters: "p1,p2,p3",
+                                rule: "p1 == true && p2 < 15 && p3 != \"MyString\" && first_restaurant.id == 1")
+            r1.context = c1
+            r1.save!
+          end
+
+          after(:each) do
+            Rulez::Variable.find(:all).each do |v|
+              v.destroy
+            end
+            Rulez::Context.find(:all).each do |c|
+              c.destroy
+            end
+            Rulez::Rule.find(:all).each do |r|
+              r.destroy
+            end
+          end
+
+          after(:all) do
+            Rulez::set_models(@models)
+          end
+
+          # # uncomment when discussed on issue #31 and changed the last line of this test consequently
+          # it "raises error if a Context contains a reference to inexistent Variable" do
+          #   Rulez::Variable.find_by_name("MyVariable1Name").destroy
+          #   errors = Rulez::doctor
+          #   errors.should_not be_empty
+          # end
+          
+          it "signals error if the Rule contains a reference to inexistent Variable" do
+            Rulez::Variable.find_by_name("first_restaurant").destroy
+            errors = Rulez::doctor
+            errors.should_not be_empty
+          end
+
+          it "does not signal errors if all Rules are right" do
+            errors = Rulez::doctor
+            errors.should be_empty
+          end
+        end
+
+        describe "errors on Alternatives" do
+          before(:all) do
+            @models = Rulez::get_models
+          end          
+
+          before(:each) do 
+            Rulez::class_variable_set(:@@methods_class, nil)
+            Rulez::set_methods_class(RulezMethods::Methods)
+
+            Rulez::class_variable_set(:@@models, nil)
+            Rulez::set_models([FakeModel1, FakeModel2, Restaurant])
+
+            v1 = Rulez::Variable.new(name: "MyVariable1Name",
+                                    description: "MyVariable1Description",
+                                    model: "FakeModel1")
+            v1.save!
+            v2 = Rulez::Variable.new(name: "MyVariable2Name",
+                                    description: "MyVariable2Description",
+                                    model: "FakeModel2")
+            v2.save!
+            v3 = Rulez::Variable.new(name: "first_restaurant",
+                                    description: "MyVariable3Description",
+                                    model: "Restaurant")
+            v3.save!
+            
+            c1 = Rulez::Context.new(name: "MyContext1Name",
+                                    description: "MyContext1Description")
+            c1.variables.push(v1,v3)
+            c1.save!
+            
+            r1 = Rulez::Rule.new(name: "MyRule1Name",
+                                description: "MyRule1Description",
+                                parameters: "p1,p2,p3",
+                                rule: "true")
+            r1.context = c1
+            r1.save!
+
+            a1 = Rulez::Alternative.new(description: "MyAlternative1Description",
+                                        condition: "true",
+                                        alternative: "true")
+            a1.rule_id = r1.id
+            a1.priority = 1
+            a1.save!
+          end
+
+          after(:each) do
+            Rulez::Variable.find(:all).each do |v|
+              v.destroy
+            end
+            Rulez::Context.find(:all).each do |c|
+              c.destroy
+            end
+            Rulez::Rule.find(:all).each do |r|
+              r.destroy
+            end
+          end
+
+          after(:all) do
+            Rulez::set_models(@models)
+          end
+          
+          it "signals error if the Alternative condition field contains a reference to inexistent Variable" do
+            a = Rulez::Rule.find_by_name("MyRule1Name").alternatives.first
+            a.condition = "p1 == true && p2 < 15 && p3 != \"MyString\" && first_restaurant.id == 1"
+            a.alternative = "true"
+            a.save!
+            Rulez::Variable.find_by_name("first_restaurant").destroy
+            errors = Rulez::doctor
+            errors.should_not be_empty
+          end
+
+          it "signals error if the Alternative alternative field contains a reference to inexistent Variable" do
+            a = Rulez::Rule.find_by_name("MyRule1Name").alternatives.first
+            a.alternative = "p1 == true && p2 < 15 && p3 != \"MyString\" && first_restaurant.id == 1"
+            a.condition = "true"
+            a.save!
+            Rulez::Variable.find_by_name("first_restaurant").destroy
+            errors = Rulez::doctor
+            errors.should_not be_empty
+          end
+
+          it "does not signal errors if all Alternatives are right" do
+            errors = Rulez::doctor
+            errors.should be_empty
+          end
+        end
       end
     end
   end

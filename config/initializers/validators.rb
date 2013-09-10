@@ -1,4 +1,21 @@
 # 
+# Defines a validator that checks if a given Model name exists
+# 
+class ModelExistenceValidator < ActiveModel::EachValidator
+
+  # 
+  # Custom Model name validator
+  #
+  def validate_each(object, attribute, value)
+    if value.present?
+      if !(Rulez.get_models.map{|m| m.name}.include? value)
+        object.errors[attribute] << "must be an existing Model name."
+      end
+    end
+  end
+end
+
+# 
 # Defines a validator for parameters definition
 # 
 class ParametersValidator < ActiveModel::EachValidator
@@ -8,9 +25,9 @@ class ParametersValidator < ActiveModel::EachValidator
   #
   def validate_each(object, attribute, value)
     if value.present?
-      regex = /^[A-Za-z_][A-Za-z0-9_]*(,\s*[A-Za-z_][A-Za-z0-9_]*)*$/
+      regex = /\A[A-Za-z_][A-Za-z0-9_]*(, *[A-Za-z_][A-Za-z0-9_]*)*\z/
       if !(value =~ regex)
-        object.errors[attribute] << "must be defined separated by comma. Only alphanumeric and \'_\' characters are allowed."
+        object.errors[attribute] << "must be defined separated by comma. Only alphanumeric and \'_\' characters are allowed. Spaces are allowed only after comma."
       end
     end
   end

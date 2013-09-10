@@ -40,6 +40,7 @@ module Rulez
     def displaylog
       respond_to do |format|
         format.json do
+          Engine.flush_log
           filter = params[:checkbox_actives].map { |s| s.to_s }.join("|")
           nr = params[:n_rows]
           res = `grep -E -w \'#{filter}\' log/rulez.log | tail -n #{nr}`
@@ -55,6 +56,7 @@ module Rulez
       respond_to do |format|
         format.json do
           `>log/rulez.log`
+          Engine.flush_log
           render json: "OK".to_json 
         end
       end

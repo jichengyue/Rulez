@@ -72,6 +72,41 @@ module Rulez
           assigns(:alternative).should be_a(Alternative)
           assigns(:alternative).should be_persisted
         end
+
+        describe "with siblings alternatives" do
+          #creates necessary models for testing
+          before(:each) do
+            @alt1 = create_valid_alternative(1)
+            @alt2 = create_valid_alternative(2)
+            @rule.alternatives = [@alt1, @alt2]
+            @rule.save!
+          end
+
+          it "creates a new Alternative with the highest priority compared to his siblings" do
+            post :create, {rule_id: @rule.id, :alternative => valid_attributes}, valid_session
+            new_alt = assigns(:alternative)
+            @rule.reload
+            @rule.alternative_ids.should match_array([@alt1.id, @alt2.id, new_alt.id])
+            @alt1.priority.should == 1
+            @alt2.priority.should == 2
+            new_alt.priority.should == 3
+          end
+
+          it "should assign priorities in sequence, without duplicates or holes" do
+            @alt2.priority = 3
+            @alt2.save!
+
+            post :create, {rule_id: @rule.id, :alternative => valid_attributes}, valid_session
+            new_alt = assigns(:alternative)
+            @rule.reload
+            @alt1.reload
+            @alt2.reload
+            @rule.alternative_ids.should match_array([@alt1.id, @alt2.id, new_alt.id])
+            @alt1.priority.should == 1
+            @alt2.priority.should == 2
+            new_alt.priority.should == 3
+          end
+        end
   
         it "redirects to the created alternative" do
           post :create, {rule_id: @rule.id, :alternative => valid_attributes}, valid_session
@@ -153,13 +188,30 @@ module Rulez
         delete :destroy, {rule_id: @rule.id, :id => alternative.to_param}, valid_session
         response.should redirect_to(@rule)
       end
+
+      it "removes alternative and sorts siblings priority, without duplicates or holes" do
+        alt1 = create_valid_alternative(4)
+        alt2 = create_valid_alternative(2)
+        alt3 = create_valid_alternative(1)
+        alt4 = create_valid_alternative(3)
+
+        delete :destroy, {rule_id: @rule.id, :id => alt3.to_param}, valid_session
+        @rule.reload
+        alt1.reload
+        alt2.reload
+        alt4.reload
+        @rule.alternative_ids.should match_array([alt1.id, alt2.id, alt4.id])
+        alt1.priority.should == 3
+        alt2.priority.should == 1
+        alt4.priority.should == 2
+      end
     end
   
-    def create_valid_alternative
+    def create_valid_alternative(priority = 1)
       a = Alternative.new(valid_attributes)
-      a.rule_id = Rule.last.id
-      a.priority = 1
-      a.save
+      a.rule_id = @rule.id
+      a.priority = priority
+      a.save!
       a
     end
   end

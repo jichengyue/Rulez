@@ -25,7 +25,7 @@ module Rulez
     #validations
     validates :name, presence: true, uniqueness: true
     validates :description, presence: true
-    validates :model, presence: true
+    validates :model, presence: true, model_existence: true
     
   end
 end

@@ -18,7 +18,6 @@ module Rulez
     #Rspec configuration
     config.generators do |g|
       g.test_framework      :rspec,        :fixture => false
-      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
       g.assets false
       g.helper false
     end
@@ -30,7 +29,6 @@ module Rulez
     @@rulez_logger = nil
     initializer :logger do |app|
       @@file_log = File.open('log/rulez.log', 'a')
-      @@file_log.sync = true
       @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( @@file_log ) )
       Engine::info_log('Rulez waking up!')
     end
@@ -76,7 +74,11 @@ module Rulez
       @@rulez_logger.tagged('WARNING', DateTime.now) { @@rulez_logger.warn message }
     end
 
-    def flush_log
+
+    # 
+    # flush the log file
+    # 
+    def self.flush_log
       @@file_log.flush
     end
 
@@ -137,7 +139,7 @@ module Rulez
       value
     else
       Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
-      raise 'No such rule!'
+      raise "Can't find rule #{rule.name} to evaluate!"
     end
   end
 
@@ -213,8 +215,8 @@ module Rulez
   # @param  obj [Object] the target object
   # 
   def self.set_rulez_target(obj)
-    @target = obj
     Engine::debug_log("Target set: #{obj}")
+    @target = obj
   end
 
   # 
@@ -224,7 +226,7 @@ module Rulez
     @@function_list = []
 
     @@context_list = []
-
+    
     # 
     # Parse the input
     # @param  input [String] the expression to parse

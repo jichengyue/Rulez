@@ -13,8 +13,8 @@ module Rulez
   # @return [Class] The methods class
   def self.set_methods_class(c)
     if c.class == Class
-      @@methods_class = c
       Engine::debug_log("Methods class set: #{c}")
+      @@methods_class = c
     else
       Engine::fatal_log("Methods class set: parameter is not a class!")
       raise 'Parameter should be a class'
@@ -37,9 +37,9 @@ module Rulez
   
   # 
   # Set the models of the application.
-  # @param  models [Array] the array of model names
+  # @param  models [Array] the array of models
   # 
-  # @return [Array] the array of model names
+  # @return [Array] the array of models
   def self.set_models(models)
     if models.class == Array
       models.each do |m|
@@ -55,6 +55,10 @@ module Rulez
     end
   end
 
+  # 
+  # Get the models of the application.
+  # 
+  # @return [Array] the array of models
   def self.get_models
     if @@models
       @@models

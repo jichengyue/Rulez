@@ -16,8 +16,15 @@ module Rulez
 
     # POST /alternatives
     def create
+      i = 1
+      @rule.alternatives.sort{|a,b| a.priority <=> b.priority}.each do |alternative|
+        alternative.priority = i
+        alternative.save
+        i += 1
+      end
+
       @alternative = @rule.alternatives.new(params[:alternative])
-      @alternative.priority = @rule.alternatives.length
+      @alternative.priority = i
 
       if @alternative.save
         redirect_to @rule, notice: 'Alternative was successfully created.'
@@ -40,6 +47,14 @@ module Rulez
     def destroy
       set_alternative
       @alternative.destroy
+      i = 1
+      @rule.alternatives.sort{|a,b| a.priority <=> b.priority}.each do |alternative|
+        if alternative.id != @alternative.id
+          alternative.priority = i
+          alternative.save
+          i += 1
+        end
+      end
       redirect_to rule_path(@rule), notice: 'Alternative was successfully destroyed.'
     end
 

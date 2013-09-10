@@ -23,9 +23,9 @@
         </td>
         <td>
           <div class='btn-group'>
-            <%= link_to 'Show', e[:show_path], class: 'btn btn-mini' %>
-            <%= link_to 'Edit', e[:edit_path], class: 'btn btn-mini' %>
-            <%= content_tag(:div, "Delete", {class: 'btn btn-mini btn-danger delete_button', "data-route" => e[:destroy_path]}) %>
+            <%= link_to 'Show', e[:show_path], class: 'btn btn-sm btn-default' %>
+            <%= link_to 'Edit', e[:edit_path], class: 'btn btn-sm btn-default' %>
+            <%= content_tag(:div, "Delete", {class: 'btn btn-sm btn-danger delete_button', "data-route" => e[:destroy_path]}) %>
           </div>
         </td>
       </tr>

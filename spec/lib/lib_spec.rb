@@ -257,14 +257,10 @@ module Rulez
           end
         end
       end
+
+      describe "Doctor" do
+        pending
+      end
     end
   end
 end
-
-
-
-
-
-
-
-

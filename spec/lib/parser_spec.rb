@@ -302,7 +302,7 @@ describe RulezParser do
       end
     end
 
-    context "Miscellaneous" do
+    context "Miscellaneous Syntax" do
 
       #this is the only type checking till now. It is in the grammar not in the semantic.
       it "does not parse Compare Operations <, <=, >, >= with Boolean Operand" do
@@ -322,41 +322,345 @@ describe RulezParser do
   end
 
   context "the Semantic" do
-    it "valuates Variables" do
-      rule = "myvariable.name == \"MyRestaurantName\""
-      @parser.parse(rule).should be_true
+    describe "Primitives" do
+      it "evaluates Variables" do
+        rule = "myvariable.name == \"MyRestaurantName\""
+        @parser.parse(rule).should be_true
 
-      rule = "myvariable.name != \"MyRestaurantName\""
-      @parser.parse(rule).should be_false
+        rule = "myvariable.name != \"MyRestaurantName\""
+        @parser.parse(rule).should be_false
+      end
+
+      it "evaluates Parameters" do
+        rule = "myparameter == 5"
+        @parser.parse(rule).should be_true
+
+        rule = "myparameter != 5"
+        @parser.parse(rule).should be_false
+      end
+
+      it "evaluates Functions" do
+        rule = "thetruth == true"
+        @parser.parse(rule).should be_true
+        
+        rule = "thetruth != true"
+        @parser.parse(rule).should be_false
+
+        rule = "alie == false"
+        @parser.parse(rule).should be_true
+
+        rule = "alie != false"
+        @parser.parse(rule).should be_false 
+      end
+
+      it "evaluates Boolean Values" do
+        rule = "true"
+        @parser.parse(rule).should be_true
+
+        rule = "false"
+        @parser.parse(rule).should be_false
+
+        rule = "true == true"
+        @parser.parse(rule).should be_true
+
+        rule = "true == false"
+        @parser.parse(rule).should be_false
+
+        rule = "false == true"
+        @parser.parse(rule).should be_false
+
+        rule = "false == false"
+        @parser.parse(rule).should be_true
+      end
+
+      it "evaluates Integers" do
+        rule = "10 == 10"
+        @parser.parse(rule).should be_true
+      end
+
+      it "evaluates Floats" do
+        rule = "10.98 == 10.98"
+        @parser.parse(rule).should be_true
+      end
+
+      it "evaluates Strings" do
+        rule = "\"MyString\" == \"MyString\""
+        @parser.parse(rule).should be_true
+      end
+
+      it "evaluates Dates" do
+        rule = "16//02//1988 == 16//02//1988"
+        @parser.parse(rule).should be_true
+      end
+
+      it "evaluates DateTimess" do
+        rule = "16//02//1988#23:59:59 == 16//02//1988#23:59:59"
+        @parser.parse(rule).should be_true
+      end
     end
 
-    it "valuates Parameters" do
-      rule = "myparameter == 5"
-      @parser.parse(rule).should be_true
+    describe "Mathematical Operations" do
+      it "evaluates all basic Mathematical Operations correctly" do
+        rule = "10 + 10 == 20"
+        @parser.parse(rule).should be_true
 
-      rule = "myparameter != 5"
-      @parser.parse(rule).should be_false
-    end
+        rule = "10 - 10 == 0"
+        @parser.parse(rule).should be_true
 
-    it "valuates Functions" do
-      rule = "thetruth == true"
-      @parser.parse(rule).should be_true
+        rule = "10 * 10 == 100"
+        @parser.parse(rule).should be_true
+
+        rule = "10 / 10 == 1"
+        @parser.parse(rule).should be_true
+
+        rule = "-4 - 1 == -5"
+        @parser.parse(rule).should be_true      
+
+        rule = "\"MyString\" + \"MyString\" == \"MyStringMyString\""
+        @parser.parse(rule).should be_true
+      end
+
+      it "respects precedence on mathematical operators" do
+        rule = "5 + 6 * 3 == 23"
+        @parser.parse(rule).should be_true
+
+        rule = "5 + 6 * 3 == 33"
+        @parser.parse(rule).should be_false
+
+        rule = "5 + 6 * 2 / 12 + 2 - 18 / 6 == 5"
+        @parser.parse(rule).should be_true
+      end
+
+      it "behaviours in the same way in rulez and in ruby" do
+        rule = "10 + 10 == 20"
+        eval(rule).should be_true
+
+        rule = "10 - 10 == 0"
+        eval(rule).should be_true
+
+        rule = "10 * 10 == 100"
+        eval(rule).should be_true
+
+        rule = "10 / 10 == 1"
+        eval(rule).should be_true
+
+        rule = "-4 - 1 == -5"
+        eval(rule).should be_true
+
+        rule = "\"MyString\" + \"MyString\" == \"MyStringMyString\""
+        eval(rule).should be_true
       
-      rule = "thetruth != true"
-      @parser.parse(rule).should be_false
+        rule = "5 + 6 * 3 == 23"
+        eval(rule).should be_true
 
-      rule = "alie == false"
-      @parser.parse(rule).should be_true
+        rule = "5 + 6 * 3 == 33"
+        eval(rule).should be_false
 
-      rule = "alie != false"
-      @parser.parse(rule).should be_false 
+        rule = "5 + 6 * 2 / 12 + 2 - 18 / 6 == 5"
+        eval(rule).should be_true
+      end
+    end
+
+    describe "Compare Operations" do
+      it "evaluates all basic Compare Operations" do
+        rule = "1 == 1"
+        @parser.parse(rule).should be_true
+
+        rule = "1 != 0"
+        @parser.parse(rule).should be_true
+
+        rule = "1 <= 1"
+        @parser.parse(rule).should be_true
+
+        rule = "1 < 2"
+        @parser.parse(rule).should be_true
+
+        rule = "1 >= 1"
+        @parser.parse(rule).should be_true
+
+        rule = "2 > 1"
+        @parser.parse(rule).should be_true
+
+        rule = "\"MyString\" == \"MyString\""
+        @parser.parse(rule).should be_true
+
+        rule = "\"MyString1\" != \"MyString2\""
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988 == 16//02//1988"
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988 != 16//02//2013"
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988#23:59:59 == 16//02//1988#23:59:59"
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988#23:59:59 != 17//02//1988#00:00:00"
+        @parser.parse(rule).should be_true
+      end
+
+      it "behaviours in the same way in rulez and in ruby" do
+        rule = "1 == 1"
+        eval(rule).should be_true
+
+        rule = "1 != 0"
+        eval(rule).should be_true
+
+        rule = "1 <= 1"
+        eval(rule).should be_true
+
+        rule = "1 < 2"
+        eval(rule).should be_true
+
+        rule = "1 >= 1"
+        eval(rule).should be_true
+
+        rule = "2 > 1"
+        eval(rule).should be_true
+
+        rule = "\"MyString\" == \"MyString\""
+        eval(rule).should be_true
+
+        rule = "\"MyString1\" != \"MyString2\""
+        eval(rule).should be_true
+      end
+    end
+
+    describe "Boolean Operations" do
+      it "evaluates all basic Boolean Operations" do
+        rule = "true && true"
+        @parser.parse(rule).should be_true
+
+        rule = "true && false"
+        @parser.parse(rule).should be_false
+
+        rule = "false && true"
+        @parser.parse(rule).should be_false
+
+        rule = "false && false"
+        @parser.parse(rule).should be_false
+
+        rule = "true || true"
+        @parser.parse(rule).should be_true
+
+        rule = "true || false"
+        @parser.parse(rule).should be_true
+
+        rule = "false || true"
+        @parser.parse(rule).should be_true
+
+        rule = "false || false"
+        @parser.parse(rule).should be_false
+
+        rule = "!true"
+        @parser.parse(rule).should be_false
+
+        rule = "!false"
+        @parser.parse(rule).should be_true
+      end
+
+      it "respects precedence on logical operators" do
+        # reference to the fixed issue #9
+        rule = "true && true || false && true || false && false"
+        @parser.parse(rule).should be_true
+
+        rule = "true && true || false && true || false && false"
+        @parser.parse(rule).should_not be_false
+      end
+
+      it "" do
+        rule = "true && true"
+        eval(rule).should be_true
+
+        rule = "true && false"
+        eval(rule).should be_false
+
+        rule = "false && true"
+        eval(rule).should be_false
+
+        rule = "false && false"
+        eval(rule).should be_false
+
+        rule = "true || true"
+        eval(rule).should be_true
+
+        rule = "true || false"
+        eval(rule).should be_true
+
+        rule = "false || true"
+        eval(rule).should be_true
+
+        rule = "false || false"
+        eval(rule).should be_false
+
+        rule = "!true"
+        eval(rule).should be_false
+
+        rule = "!false"
+        eval(rule).should be_true
+
+        rule = "true && true || false && true || false && false"
+        eval(rule).should be_true
+
+        rule = "true && true || false && true || false && false"
+        eval(rule).should_not be_false
+      end
+    end
+
+    describe "Miscellaneous Semantic" do
+      it "handles Variables in mixed Operations" do
+        rule = "myvariable.city + \"Batman\" == \"GothamCityBatman\""
+        @parser.parse(rule).should be_true
+
+        rule = "\"Batman\" + myvariable.city == \"BatmanGothamCity\""
+        @parser.parse(rule).should be_true
+
+        rule = "\"GothamCityBatman\" == myvariable.city + \"Batman\""
+        @parser.parse(rule).should be_true
+
+        rule = "\"BatmanGothamCity\" == \"Batman\" + myvariable.city"
+        @parser.parse(rule).should be_true
+      end
+
+      it "handles Parameters in mixed Operations" do
+        rule = "myparameter + 5 == 10"
+        @parser.parse(rule).should be_true
+
+        rule = "5 + myparameter == 10"
+        @parser.parse(rule).should be_true
+
+        rule = "10 == myparameter + 5"
+        @parser.parse(rule).should be_true
+
+        rule = "10 == 5 + myparameter"
+        @parser.parse(rule).should be_true
+      end
+
+      it "handles Functions in mixed Operations" do
+        rule = "thetruth == true || false"
+        @parser.parse(rule).should be_true
+
+        rule = "false || thetruth == true"
+        @parser.parse(rule).should be_true
+      end
+
+      it "complex expressions" do
+        # rule with mixed parameter, function and context variable
+        rule = "myvariable.city == \"GothamCity\" && myparameter * 2 - 3 == 7 && !false == thetruth"
+        @parser.parse(rule).should be_true
+
+        # this test fail only at Christmas 2013
+        rule = "date_today != 25//12//2013"
+        @parser.parse(rule).should be_true
+
+        # this rule returns true only till the end of 2013 
+        # (after that date you can comment or eliminate this test)
+        rule = "date_today >= 01//09//2013 && date_today <= 31//12//2013"
+        @parser.parse(rule).should be_true
+
+        # fill free to add others!
+      end 
     end
   end
 end
-
-
-
-
-
-
-

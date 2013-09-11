@@ -1,5 +1,9 @@
-<h1>Editing alternative</h1>
+<%= render partial: 'nav' %>
 
-<%= render 'form' %>
+<div class="page-header">
+  <h1>Editing alternative</h1>
+</div>
 
-<%= link_to 'Back', rule_path(@rule) %>
+<div class='row'>
+  <%= render partial: 'form' %>
+</div>

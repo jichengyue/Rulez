@@ -2,3 +2,16 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+div.sortable-element {
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  padding: 3px;
+}
+div.div-tr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  padding: 3px;
+}

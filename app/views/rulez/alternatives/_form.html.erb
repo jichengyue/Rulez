@@ -3,11 +3,10 @@
   var context_id = <%= @alternative.context.id %>;
 </script>
 
-<%= form_for([@rule, @alternative]) do |f| %>
+<div class='col-md-12'>
   <% if @alternative.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@alternative.errors.count, "error") %> prohibited this alternative from being saved:</h2>
-
+    <div id="error_explanation" class='alert alert-danger'>
+      <h4><%= pluralize(@alternative.errors.count, "error") %> prohibited this alternative from being saved:</h4>
       <ul>
       <% @alternative.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -15,25 +14,30 @@
       </ul>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  
-  <div class='field' id='available_variables'>
-  </div>
+<div class='col-md-6'>
+  <%= form_for([@rule, @alternative]) do |f| %>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, class: 'form-control' %>
+    </div>
+    
+    <div class='form-group' id='available_variables'>
+    </div>
 
-  <div class="field">
-    <%= f.label :condition %><br>
-    <%= f.text_area :condition %>
-  </div>
+    <div class="form-group">
+      <%= f.label :condition %><br>
+      <%= f.text_area :condition, rows: 10, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :alternative %><br>
-    <%= f.text_area :alternative %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :alternative %><br>
+      <%= f.text_area :alternative, rows: 10, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back', rule_path(@rule) ,class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

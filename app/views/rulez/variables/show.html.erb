@@ -6,6 +6,12 @@
   </div>
 <% end %>
 
+<% if alert %>
+  <div id='alert' class='alert alert-danger'>
+    <%= alert %>
+  </div>
+<% end %>
+
 <div class='row'>
   <dl class='dl-horizontal'>
     <dt><strong>Name:</strong></dt>

@@ -34,8 +34,13 @@ module Rulez
       @rule = Rule.new(params[:rule])
       set_contexts
       if @rule.save
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this create operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
         Engine::info_log("Rule #{@rule.name} was successfully created!")
-        redirect_to @rule, notice: "Rule #{@rule.name} was successfully created."
+        redirect_to @rule, notice: "Rule #{@rule.name} was successfully created.", alert: err_msg
       else
         render action: 'new'
       end
@@ -46,8 +51,13 @@ module Rulez
       set_rule
       set_contexts
       if @rule.update_attributes(params[:rule])
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this edit operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
         Engine::info_log("Rule #{@rule.name} was successfully updated!")
-        redirect_to @rule, notice: "Rule #{@rule.name} was successfully updated."
+        redirect_to @rule, notice: "Rule #{@rule.name} was successfully updated.", alert: err_msg
       else
         render action: 'edit'
       end
@@ -58,7 +68,14 @@ module Rulez
       set_rule
       @rule.destroy
       respond_to do |format|
-        format.html { redirect_to rules_url, notice: 'Rule was successfully destroyed.' }
+        format.html do
+          errors = Rulez::doctor
+          err_msg = nil
+          if !errors.empty?
+            err_msg = 'Due to this delete operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+          end
+          redirect_to rules_url, notice: 'Rule was successfully destroyed.', alert: err_msg
+        end
         format.json { render json: "{\"response\" : \"OK\"}" }
       end
     end

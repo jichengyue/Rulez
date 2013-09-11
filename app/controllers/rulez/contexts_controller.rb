@@ -43,7 +43,12 @@ module Rulez
       @context = Context.new(params[:context])
 
       if @context.save
-        redirect_to @context, notice: 'Context was successfully created.'
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this create operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+        redirect_to @context, notice: 'Context was successfully created.', alert: err_msg
       else
         render action: 'new'
       end
@@ -53,7 +58,12 @@ module Rulez
     def update
       set_context
       if @context.update_attributes(params[:context])
-        redirect_to @context, notice: 'Context was successfully updated.'
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this edit operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+        redirect_to @context, notice: 'Context was successfully updated.', alert: err_msg
       else
         render action: 'edit'
       end
@@ -63,7 +73,12 @@ module Rulez
     def destroy
       set_context
       @context.destroy
-      redirect_to contexts_url, notice: 'Context was successfully destroyed.'
+      errors = Rulez::doctor
+      err_msg = nil
+      if !errors.empty?
+        err_msg = 'Due to this delete operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+      end
+      redirect_to contexts_url, notice: 'Context was successfully destroyed.', alert: err_msg
     end
 
     private

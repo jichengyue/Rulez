@@ -1,5 +1,17 @@
 <%= render partial: 'nav' %> 
 
+<% if notice %>
+  <div id='notice' class='alert alert-success'>
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div id='alert' class='alert alert-danger'>
+    <%= alert %>
+  </div>
+<% end %>
+
 <div class='page-header'>
   <h1>Contexts</h1>
 </div>

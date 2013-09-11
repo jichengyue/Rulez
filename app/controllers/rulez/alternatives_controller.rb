@@ -27,7 +27,12 @@ module Rulez
       @alternative.priority = i
 
       if @alternative.save
-        redirect_to @rule, notice: 'Alternative was successfully created.'
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this create operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+        redirect_to @rule, notice: 'Alternative was successfully created.', alert: err_msg
       else
         render action: 'new'
       end
@@ -37,7 +42,12 @@ module Rulez
     def update
       set_alternative
       if @alternative.update_attributes(params[:alternative])
-        redirect_to @rule, notice: 'Alternative was successfully updated.'
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this edit operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+        redirect_to @rule, notice: 'Alternative was successfully updated.', alert: err_msg
       else
         render action: 'edit'
       end
@@ -55,7 +65,12 @@ module Rulez
           i += 1
         end
       end
-      redirect_to rule_path(@rule), notice: 'Alternative was successfully destroyed.'
+      errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this delete operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+      redirect_to rule_path(@rule), notice: 'Alternative was successfully destroyed.', alert: err_msg
     end
 
     private

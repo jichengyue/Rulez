@@ -30,7 +30,12 @@ module Rulez
       @variable = Variable.new(params[:variable])
       set_models
       if @variable.save
-        redirect_to @variable, notice: 'Variable was successfully created.'
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this create operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+        redirect_to @variable, notice: 'Variable was successfully created.', alert: err_msg
       else
         render action: 'new'
       end
@@ -41,7 +46,12 @@ module Rulez
       set_variable
       set_models
       if @variable.update_attributes(params[:variable])
-        redirect_to @variable, notice: 'Variable was successfully updated.'
+        errors = Rulez::doctor
+        err_msg = nil
+        if !errors.empty?
+          err_msg = 'Due to this edit operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+        end
+        redirect_to @variable, notice: 'Variable was successfully updated.', alert: err_msg
       else
         render action: 'edit'
       end
@@ -52,7 +62,14 @@ module Rulez
       set_variable
       @variable.destroy
       respond_to do |format|
-        format.html { redirect_to variables_url, notice: 'Variable was successfully destroyed.' }
+        format.html do
+          errors = Rulez::doctor
+          err_msg = nil
+          if !errors.empty?
+            err_msg = 'Due to this delete operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.'
+          end
+          redirect_to variables_url, notice: 'Variable was successfully destroyed.', alert: err_msg
+        end
         format.json { render json: "{\"response\" : \"OK\"}" }
       end
     end

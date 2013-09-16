@@ -62,6 +62,62 @@ describe RulezParser do
           lambda{@parser.parse(rule)}.should_not raise_error
         end
 
+        it "parses Arithmetic DataTime Values" do
+          rule = "1.second == 1.second"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "1.minute == 1.minute"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "1.hour == 1.hour"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "1.day == 1.day"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "1.month == 1.month"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "1.year == 1.year"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.seconds == 5.seconds"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.minutes == 5.minutes"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.hours == 5.hours"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.days == 5.days"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.months == 5.months"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.years == 5.years"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.second == 5.seconds"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.minute == 5.minutes"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.hour == 5.hours"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.day == 5.days"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.month == 5.months"
+          lambda{@parser.parse(rule)}.should_not raise_error
+
+          rule = "5.year == 5.years"
+          lambda{@parser.parse(rule)}.should_not raise_error
+        end
+
         it "parses Functions" do
           rule = "thetruth == true"
           lambda{@parser.parse(rule)}.should_not raise_error
@@ -418,6 +474,48 @@ describe RulezParser do
 
         rule = "\"MyString\" + \"MyString\" == \"MyStringMyString\""
         @parser.parse(rule).should be_true
+
+        rule = "1.second + 1.second == 2.seconds"
+        @parser.parse(rule).should be_true
+
+        rule = "1.second - 2.second == -1.seconds"
+        @parser.parse(rule).should be_true
+
+        rule = "1.second + 1.minute == 61.seconds"
+        @parser.parse(rule).should be_true
+
+        rule = "1.minute + 1.hour == 61.minutes"
+        @parser.parse(rule).should be_true
+
+        rule = "1.hour + 1.day == 25.hours"
+        @parser.parse(rule).should be_true
+
+        rule = "1.day + 1.month == 31.days"
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988 + 1.day == 17//02//1988"
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988 + 1.month == 16//03//1988"
+        @parser.parse(rule).should be_true
+
+        rule = "16//02//1988 + 1.year == 16//02//1989"
+        @parser.parse(rule).should be_true
+
+        # anno bisestile contiene 29 febbraio
+        rule = "28//02//1988 + 1.day == 29//02//1988"
+        @parser.parse(rule).should be_true
+
+        # avanza di un mese se aggiungo un giorno alla fine del mese
+        rule = "29//02//1988 + 1.day == 01//03//1988"
+        @parser.parse(rule).should be_true
+
+        # avanza di un anno se aggiungo un giorno a capodanno
+        rule = "31//12//1988 + 1.day == 01//01//1989"
+        @parser.parse(rule).should be_true
+
+        # FINIRE I TEST CON LE ORE!!! (poi ricopiare i test in syntax_analyser_spec)
+        pending
       end
 
       it "respects precedence on mathematical operators" do

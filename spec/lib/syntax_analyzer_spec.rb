@@ -46,6 +46,62 @@ describe SyntaxAnalyzer do
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
       end
 
+      it "parses Arithmetic DataTime Values" do
+        rule = "1.second == 1.second"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.minute == 1.minute"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.hour == 1.hour"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.day == 1.day"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.month == 1.month"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.year == 1.year"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.seconds == 5.seconds"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.minutes == 5.minutes"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.hours == 5.hours"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.days == 5.days"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.months == 5.months"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.years == 5.years"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.second == 5.seconds"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.minute == 5.minutes"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.hour == 5.hours"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.day == 5.days"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.month == 5.months"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "5.year == 5.years"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+      end
+
       it "parses Functions" do
         rule = "myfunction == true"
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error

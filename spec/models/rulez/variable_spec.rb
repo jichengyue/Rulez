@@ -39,6 +39,18 @@ module Rulez
         Variable.count.should == count-1
       end
 
+      it "should destroy all contexts reference of a Variable just destroyed" do
+        @variable.save
+        c = Context.new(name: "MyContextName", description: "MyContextDescription")
+        c.variables.push(@variable)
+        c.save
+        c.variables.length.should be_equal(1)
+        @variable.destroy
+        c.reload
+        c.variables.should be_empty
+        c.destroy
+      end
+
       it "should modify all its fields" do
         @variable.name = "MyNewName"
         @variable.save.should be_true

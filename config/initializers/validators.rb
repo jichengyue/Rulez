@@ -86,9 +86,12 @@ class SyntaxValidator < ActiveModel::EachValidator
             end
           end
         end
-
-      rescue StandardError => e
+      rescue Whittle::ParseError => e
         object.errors[attribute] << "is not a valid expression, parse error."
+      rescue Rulez::Error => e
+        object.errors[attribute] << "something went wrong in the parsing validation."
+      rescue StandardError => e
+        object.errors[attribute] << "bad things are happening with validator!"
       end
     end
   end

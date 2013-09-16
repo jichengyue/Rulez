@@ -102,7 +102,7 @@ class RulezParser < Whittle::Parser
     elsif Rulez.get_methods_class.methods(false).map { |s| s.to_s }.include?(s)
       Rulez.get_methods_class.send(s)
     else
-      raise "Missing method #{s}! Did you delete methods in your lib?"
+      raise Rulez::FunctionMissingError, "Missing method #{s}! Did you delete methods in your lib?"
     end
   end
 
@@ -113,13 +113,13 @@ class RulezParser < Whittle::Parser
     context_variables = Rulez::Parser.get_context_variables
 
     if context_variables.blank?
-      raise "Context variables not found."
+      raise Rulez::VariableMissingError, "Context variables not found."
     end
 
     if context_variables[left]
       context_variables[left].send(right)
     else
-      raise "Missing variable @#{left}. Did you initialized all the variables of this context?"
+      raise Rulez::VariableMissingError, "Missing variable @#{left}. Did you initialized all the variables of this context?"
     end
   end
 

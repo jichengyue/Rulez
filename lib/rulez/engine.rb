@@ -96,7 +96,7 @@ module Rulez
     if rule
       if @target.nil?
         Engine::fatal_log("Evaluating #{rule.name}: Target object not found. Did you forget to set the target?")
-        raise "Target object not found. Did you forget to set the target?"
+        raise Rulez::TargetMissingError, "Target object not found. Did you forget to set the target?"
       end
 
       #set context variables
@@ -114,7 +114,7 @@ module Rulez
       mandatory_parameters_check = requested_parameters - configured_parameters
       if !mandatory_parameters_check.empty?
         Engine::fatal_log("Evaluating #{rule.name}: mandatory parameters not set: " + mandatory_parameters_check.join(', '))
-        raise "Mandatory parameters not set: " + mandatory_parameters_check.join(', ')
+        raise Rulez::WrongParameters, "Mandatory parameters not set: " + mandatory_parameters_check.join(', ')
       end
 
       extra_parameters_check = configured_parameters - requested_parameters
@@ -139,7 +139,7 @@ module Rulez
       value
     else
       Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
-      raise "Can't find rule #{rule.name} to evaluate!"
+      raise Rulez::RuleMissing, "Can't find rule #{rule.name} to evaluate!"
     end
   end
 

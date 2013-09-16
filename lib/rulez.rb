@@ -17,7 +17,7 @@ module Rulez
       @@methods_class = c
     else
       Engine::fatal_log("Methods class set: parameter is not a class!")
-      raise 'Parameter should be a class'
+      raise Rulez::WrongParameters, 'Parameter should be a class'
     end
   end
 
@@ -31,7 +31,7 @@ module Rulez
       @@methods_class
     else
       Engine::fatal_log("Methods class get: class is not present!")
-      raise 'Init error, methods class is not present.'
+      raise Rulez::FunctionMissing, 'Init error, methods class is not present.'
     end
   end
   
@@ -45,13 +45,13 @@ module Rulez
       models.each do |m|
         if !(m < ActiveRecord::Base)
           Engine::fatal_log("Models set: one member is not a model!")
-          raise 'Found a member of the array that is not a model'
+          raise Rulez::Error, 'Found a member of the array that is not a model'
         end
       end
       @@models = models
     else
       Engine::fatal_log("Models set: parameter is not an array!")
-      raise 'Parameter should be an Array'
+      raise Rulez::WrongParameters, 'Parameter should be an Array'
     end
   end
 
@@ -64,7 +64,7 @@ module Rulez
       @@models
     else
       Engine::fatal_log("Models get: models not initialized!")
-      raise 'Init error, models not initialized'
+      raise Rulez::Error, 'Init error, models not initialized'
     end
   end
 

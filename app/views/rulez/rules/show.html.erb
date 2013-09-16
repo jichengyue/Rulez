@@ -85,6 +85,7 @@
 <script type="text/javascript">
   $('#sortable').sortable({
     axis: 'y',
+    scroll: false,
     stop: function (event, ui) {
       var data = $(this).sortable('toArray').toString();
       data = "order=" + data;

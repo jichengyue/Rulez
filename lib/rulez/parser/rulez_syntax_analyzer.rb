@@ -69,6 +69,7 @@ class SyntaxAnalyzer < Whittle::Parser
     r[:float_value]
     r[:integer_value]
     r[:variable_value]
+    r[:arithmetic_datetime_value]
   end
 
   rule(boolean_value: /true|false/) 
@@ -79,6 +80,11 @@ class SyntaxAnalyzer < Whittle::Parser
 
   rule(date_value: 
     /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
+  )
+
+
+  rule(arithmetic_datetime_value:
+    /([1-9][0-9]*|0)\.(second(s)?|minute(s)?|hour(s)?|day(s)?|month(s)?|year(s)?)/
   )
 
   rule(string_value: /\"[a-zA-Z0-9 ]*\"/)

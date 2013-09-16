@@ -69,6 +69,7 @@ class RulezParser < Whittle::Parser
     r[:float_value]
     r[:integer_value]
     r[:variable_value]
+    r[:arithmetic_datetime_value]
   end
 
   rule(boolean_value: /true|false/).as do |s|
@@ -90,9 +91,9 @@ class RulezParser < Whittle::Parser
 
   rule(string_value: /\"[a-zA-Z0-9 ]*\"/).as { |s| String.new(s[1..(s.length-2)]) }
 
-
-  #new variable value per contesti: [a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*
-  # questa regola fa il match di variabile.metodo...
+  rule(arithmetic_datetime_value:
+    /([1-9][0-9]*|0)\.(second(s)?|minute(s)?|hour(s)?|day(s)?|month(s)?|year(s)?)/
+  ).as { |s| eval(s) }
   
   rule(function: /[a-zA-Z][a-zA-Z0-9_]*/).as do |s|
     # if defined?(Rulez::Parser.get_parameters[s.to_sym])

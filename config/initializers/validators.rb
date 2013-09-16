@@ -87,7 +87,7 @@ class SyntaxValidator < ActiveModel::EachValidator
           end
         end
 
-      rescue Exception => e
+      rescue StandardError => e
         object.errors[attribute] << "is not a valid expression, parse error."
       end
     end

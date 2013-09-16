@@ -3,17 +3,17 @@ module Rulez
   class Error < StandardError; end
 
   # Target not set error
-  class TargetMissing < Error; end
+  class TargetMissingError < Error; end
 
   # Parameters are not correct
-  class WrongParameters < Error; end
+  class WrongParametersError < Error; end
 
   # Rule to evaluate not found
-  class RuleMissing < Error; end
+  class RuleMissingError < Error; end
 
   # Function in parsing not setted in methods class
-  class FunctionMissing < Error; end
+  class FunctionMissingError < Error; end
 
   # Variable in parsing not found
-  class VariableMissing < Error; end
+  class VariableMissingError < Error; end
 end

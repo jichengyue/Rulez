@@ -2,6 +2,7 @@ require 'whittle'
 require 'date'
 require File.join(File.expand_path(File.dirname(__FILE__)),'parser/rulez_syntax_analyzer.rb')
 require File.join(File.expand_path(File.dirname(__FILE__)),'parser/rulez_parser.rb')
+require File.join(File.expand_path(File.dirname(__FILE__)),'exceptions.rb')
 
 # 
 # The rulez engine
@@ -139,7 +140,7 @@ module Rulez
       value
     else
       Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
-      raise Rulez::RuleMissing, "Can't find rule #{rule.name} to evaluate!"
+      raise Rulez::RuleMissingError, "Can't find rule #{rule.name} to evaluate!"
     end
   end
 

@@ -502,20 +502,33 @@ describe RulezParser do
         rule = "16//02//1988 + 1.year == 16//02//1989"
         @parser.parse(rule).should be_true
 
-        # anno bisestile contiene 29 febbraio
+        # leap year contains 29 February
         rule = "28//02//1988 + 1.day == 29//02//1988"
         @parser.parse(rule).should be_true
 
-        # avanza di un mese se aggiungo un giorno alla fine del mese
+        # forward by one month if I add a day at the end of the month
         rule = "29//02//1988 + 1.day == 01//03//1988"
         @parser.parse(rule).should be_true
 
-        # avanza di un anno se aggiungo un giorno a capodanno
+        # forward by one year if I add one day to New Year's Eve
         rule = "31//12//1988 + 1.day == 01//01//1989"
         @parser.parse(rule).should be_true
 
-        # FINIRE I TEST CON LE ORE!!! (poi ricopiare i test in syntax_analyser_spec)
-        pending
+        # advances one minute if I add another second to 59 seconds
+        rule = "16//02//1988#13:20:59 + 1.second == 16//02//1988#13:21:00"
+        @parser.parse(rule).should be_true
+
+        # advances on hour if I add anoter minute to 59 minutes
+        rule = "16//02//1988#13:59:59 + 1.minute == 16//02//1988#14:00:59"
+        @parser.parse(rule).should be_true
+
+        # advances on day if I add anoter hour to 23 hours
+        rule = "16//02//1988#23:59:59 + 1.hour == 17//02//1988#00:59:59"
+        @parser.parse(rule).should be_true
+
+        # supports multiple date and datetime operations in the same expression
+        rule = "16//02//1988#12:10:20 + 1.second + 1.minute + 1.hour + 1.day + 1.month + 1.year == 17//03//1989#13:11:21"
+        @parser.parse(rule).should be_true
       end
 
       it "respects precedence on mathematical operators" do

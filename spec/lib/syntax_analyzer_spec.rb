@@ -309,6 +309,54 @@ describe SyntaxAnalyzer do
 
         rule = "--------5 == 5"
         lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.second + 1.second == 2.seconds"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.second - 2.second == -1.seconds"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.second + 1.minute == 61.seconds"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.minute + 1.hour == 61.minutes"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.hour + 1.day == 25.hours"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "1.day + 1.month == 31.days"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988 + 1.day == 17//02//1988"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988 + 1.month == 16//03//1988"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988 + 1.year == 16//02//1989"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "28//02//1988 + 1.day == 29//02//1988"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "29//02//1988 + 1.day == 01//03//1988"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "31//12//1988 + 1.day == 01//01//1989"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988#13:20:59 + 1.second == 16//02//1988#13:21:00"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988#13:59:59 + 1.minute == 16//02//1988#14:00:59"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988#23:59:59 + 1.hour == 17//02//1988#00:59:59"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
+
+        rule = "16//02//1988#12:10:20 + 1.second + 1.minute + 1.hour + 1.day + 1.month + 1.year == 17//03//1989#13:11:21"
+        lambda{@syntax_analyzer.parse(rule)}.should_not raise_error
       end
 
       it "parses multiple Mathematical Operations cascading in both Operands" do

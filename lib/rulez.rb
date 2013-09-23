@@ -4,20 +4,6 @@ module Rulez
   @@methods_class = nil
   @@models = nil
 
-  def initialize 
-    # sets the methods class
-    if (path = Pathname.new(Rails.root + "lib/rulez_methods.rb")).exist?
-      require path
-      Rulez.set_methods_class(RulezMethods::Methods)
-    end
-
-    # sets the models
-    Dir[Rails.root + "app/models/**/*.rb"].each do |path|
-      require path
-    end
-    Rulez.set_models(ActiveRecord::Base.send :descendants)
-  end
-
   # 
   # Set the methods class: a class that contains all the methods
   # that are wanted to be referenceable and evaluable from the rules.

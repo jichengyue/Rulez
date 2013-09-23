@@ -1,8 +1,63 @@
 # Rulez
 
-Gestisce condizioni logiche configurabili lato web e valutabili lato codice.
+Rulez is a business rule engine that makes possible to easily create logical conditions and evaluate them in the code.
 
-L'idea è quella di avere un editor visuale di espressioni booleane, definite in una grammatica custom.
+It provides a web editor of boolean expressions, defined with a grammar.
+
+## Features
+
+### Creating and managing rules (web-based)
+The engine provides a visual web-based editor for the rules.
+
+* The user can create a new rule. When creating, it's prompted to enter:
+  * An identifying *name* for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
+  * An exhaustive *description* about the meaning of the rule and about when is to be applied
+  * Some *parameters* (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
+  * The *context* in which the rule will be applied. (see the **Contexts** section)
+  * The real *rule*. It's a boolean expression, whose result indicates whether or not the rule will enable the behaviour that you are trying to describe. (For further instructions, see the **Rule syntax** section)
+
+### Applying the rules (code-side)
+For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
+
+  E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
+  If you want to evaluate it in the code, you just have to write:
+  ```ruby
+  if rulez? 'create_new_users' do
+    # inner_code
+  end
+  ```
+  This will executes `inner_code` only if the rule succeeds.
+
+For evaluating a rule with parameters, you can pass them to the rule in a hash:
+  
+  E.g.: An administrator defines a rule, named `use_advanced_tool_X`, that describes the possibility to use the advanced tool "X".
+  Since the rule has a different behaviour if the user is a premium user, the rule is defined with a boolean parameter `premium`.
+  For evaluating the rule, you have to pass to `rulez?` a value for that parameter, using a hash:
+  ```ruby
+  if rulez? 'use_advanced_tool_X' {premium: true} do
+    # inner_code
+  end
+  ```
+  This will executes `inner_code` only if the rule succeeds.
+
+
+
+### Contesti
+La gemma permette di definire dei contesti all'interno dei quali è garantita la presenza di alcune variabili.
+
+Un `context` prevede:
+* nome: univoco, identificativo
+* descrizione: anche lunga, deve spiegare che cos'è questo contesto, dove è definito e utilizzato all'interno dell'applicazione
+* variabili: una serie di variabili che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
+  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
+  * code_name: il nome reale della variabile, serve per eseguire il binding dalla grammatica custom a ruby
+  * type: indica il tipo della variabile
+* funzioni: una serie di funzioni che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
+  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
+  * description: descrive cosa fa la funzione
+  * type: indica il tipo che ritorna la funzione
+  * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
+  * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto
 
 ## Definizione della grammatica
 
@@ -26,45 +81,6 @@ L'idea è quella di avere un editor visuale di espressioni booleane, definite in
   * *
   * /
   * %
-
-## Features
-
-### Creare e gestire regole (lato web)
-Il servizio offre un editor visuale delle regole lato web.
-
-* L'utente può creare una nuova regola. In fase di creazione viene chiesto di inserire:
-
-  * un nome per nuova regola, che la identificherà univocamente. (non modificabile lato web, altrimenti può capitare di valutare una regola che non esiste più perchè è stata rinominata).
-  * il contesto a cui la regola viene applicata. (vedi la sezione **Contesti**)
-  * una descrizione esaustiva sul significato della regola e su quando va applicata.
-
-* L'utente può modificare una regola appena creata o già esistente. La modifica avviene scrivendo all'interno di un campo testuale, con l'aiuto di un intelli-sense
-  * L'intelli-sense aiuta l'utente passo per passo, dicendogli cosa si aspetta il parser in ogni determinato istante.
-  * L'utente può inserire (nei limiti della corretta sintassi): operatori, operandi, espressioni, variabili, funzioni.
-  * Le variabili e funzioni disponibili all'utente dipendono dal contesto e vengono suggerite volta per volta.
-
-### Applicare le regole (lato codice)
-Per valutare una regola, basta richiamarla utilizzando la funzione `rulez` definita dalla gemma e il nome della regola definita in fase di creazione
-
-  Esempio: viene definita la regola `create_new_users` che definisce la possibilità di creare nuovi utenti.
-  Per valutarla nel codice basterà eseguire una cosa del tipo `if rulez create_new_users ... else ... end`
-
-### Contesti
-La gemma permette di definire dei contesti all'interno dei quali è garantita la presenza di alcune variabili.
-
-Un `context` prevede:
-* nome: univoco, identificativo
-* descrizione: anche lunga, deve spiegare che cos'è questo contesto, dove è definito e utilizzato all'interno dell'applicazione
-* variabili: una serie di variabili che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
-  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
-  * code_name: il nome reale della variabile, serve per eseguire il binding dalla grammatica custom a ruby
-  * type: indica il tipo della variabile
-* funzioni: una serie di funzioni che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
-  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
-  * description: descrive cosa fa la funzione
-  * type: indica il tipo che ritorna la funzione
-  * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
-  * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto
 
 ## Configurazione
 
@@ -144,3 +160,5 @@ if rulez? 'nomeregola'
   ...
 end
 ```
+
+### Rule syntax

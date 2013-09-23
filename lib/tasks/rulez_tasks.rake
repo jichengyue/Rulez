@@ -6,7 +6,7 @@
 namespace :rulez do
   namespace :install do
     desc "Install Rulez in the application"
-    task :full => [:methods, :tests, :log_env] do
+    task :full => [:migrations, :methods, :log_env] do
       puts "Rulez Installation completed!"
     end
 

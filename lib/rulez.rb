@@ -13,10 +13,10 @@ module Rulez
   # @return [Class] The methods class
   def self.set_methods_class(c)
     if c.class == Class
-      Engine::debug_log("Methods class set: #{c}")
+      # Engine::debug_log("Methods class set: #{c}")
       @@methods_class = c
     else
-      Engine::fatal_log("Methods class set: parameter is not a class!")
+      # Engine::fatal_log("Methods class set: parameter is not a class!")
       raise Rulez::WrongParametersError, 'Parameter should be a class'
     end
   end

@@ -95,6 +95,27 @@ module Rulez
           Rulez::set_models([FakeModel1, FakeModel2])
           Rulez::get_models.should match_array([FakeModel1, FakeModel2])
         end
+
+        describe "with Models set" do
+          before(:each) do
+            Rulez::set_models(@models)
+          end
+
+          it "should not import Rulez models" do
+            models = Rulez::get_models.map{|m| m.name}
+            models.include?("Rulez::Rule").should == false
+            models.include?("Rulez::Variable").should == false
+            models.include?("Rulez::Context").should == false
+            models.include?("Rulez::Alternative").should == false
+          end
+
+          it "should import all (and only) the Application models" do
+            models = Rulez::get_models.map{|m| m.name}
+            models.include?("Restaurant").should == true
+            models.include?("User").should == true
+            (models - ["Restaurant", "User"]).should be_empty
+          end
+        end
       end
     end
 

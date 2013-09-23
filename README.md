@@ -17,8 +17,7 @@ The engine provides a visual web-based editor for the rules.
   * The real *rule*. It's a boolean expression, whose result indicates whether or not the rule will enable the behaviour that you are trying to describe. (For further instructions, see the **Rule syntax** section)
 
 ### Applying the rules (code-side)
-For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
-
+* For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
   E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
   If you want to evaluate it in the code, you just have to write:
   ```ruby
@@ -28,8 +27,7 @@ For evaluating a rule (without paramters), just call the function `rulez?` with 
   ```
   This will executes `inner_code` only if the rule succeeds.
 
-For evaluating a rule with parameters, you can pass them to the rule in a hash:
-  
+* For evaluating a rule with parameters, you can pass them to the rule in a hash:
   E.g.: An administrator defines a rule, named `use_advanced_tool_X`, that describes the possibility to use the advanced tool "X".
   Since the rule has a different behaviour if the user is a premium user, the rule is defined with a boolean parameter `premium`.
   For evaluating the rule, you have to pass to `rulez?` a value for that parameter, using a hash:
@@ -161,4 +159,4 @@ if rulez? 'nomeregola'
 end
 ```
 
-### Rule syntax
+### Rule syntax 

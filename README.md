@@ -35,25 +35,33 @@ bundle install
 
 ### 2. Installation
 * Full install - includes: migrations, log environment, rulez methods
+  
   ```
   rake rulez:install:full
   rake db:migrate
   ```
 * Custom install
   * Migrations:
+    
     ```
     rake rulez:install:migrations
     rake db:migrate
     ```
+
   * Log environment:
+   
     ```
     rake rulez:install:log_env
     ```
+  
   * Rulez methods:
+    
     ```
     rake rulez:install:methods
     ```
+  
   * Spec:
+    
     ```
     rake rulez:install:test
     ```

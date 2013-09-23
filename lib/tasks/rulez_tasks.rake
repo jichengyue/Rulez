@@ -6,28 +6,51 @@
 namespace :rulez do
   namespace :install do
     desc "Install Rulez in the application"
-    task :full => [:methods] do
-      puts "Rulez Installation Done!"
+    task :full => [:methods, :tests, :log_env] do
+      puts "Rulez Installation completed!"
     end
 
     desc "Install Rulez Tests in the application"
     task :tests => :environment do
+      print "Installing Tests... "
+      
       # import in spec_helper stuffs to make rulez tests work properly
       unless(File.exist?("#{Rails.root}/spec/spec_helper.rb"))        
-        copy("#{Rulez::Engine.root}/lib/tasks/templates/spec_helper.rb","#{Rails.root}/spec/")
+        FileUtils.copy("#{Rulez::Engine.root}/lib/tasks/templates/spec_helper.rb","#{Rails.root}/spec/")
       end
-
+      
       # doctor test for application
-      copy("#{Rulez::Engine.root}/lib/tasks/templates/rulez_spec.rb","#{Rails.root}/spec/")
-      puts "Tests installed..."
+      FileUtils.copy("#{Rulez::Engine.root}/lib/tasks/templates/rulez_spec.rb","#{Rails.root}/spec/")
+
+      puts "Done"
     end
 
     desc "Install Rulez Methods in the application"
     task :methods => :environment do
+      print "Installing Methods... "
+      
       # import in spec_helper stuffs to make rulez tests work properly
       unless(File.exist?("#{Rails.root}/lib/rulez_methods.rb"))        
-        copy("#{Rulez::Engine.root}/lib/tasks/templates/rulez_methods.rb","#{Rails.root}/lib/")
+        FileUtils.copy("#{Rulez::Engine.root}/lib/tasks/templates/rulez_methods.rb","#{Rails.root}/lib/")
       end
+
+      puts "Done"
+    end
+
+    desc "Install Log Environment in the application"
+    task :log_env => :environment do
+      print "Installing Log Environment... "
+      
+      # import in spec_helper stuffs to make rulez tests work properly
+      unless(File.directory?("#{Rails.root}/log"))        
+        FileUtils.mkdir("log")
+      end
+
+      unless(File.exist?("#{Rails.root}/log/rulez.log"))
+        FileUtils.touch("#{Rails.root}/log/rulez.log")
+      end
+
+      puts "Done"
     end
   end
 end

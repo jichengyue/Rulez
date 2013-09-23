@@ -15,7 +15,7 @@ module Rulez
   class Engine < ::Rails::Engine
     isolate_namespace Rulez
     require 'jquery-ui-rails'
-    
+
     #Rspec configuration
     config.generators do |g|
       g.test_framework      :rspec,        :fixture => false
@@ -34,6 +34,22 @@ module Rulez
       Engine::info_log('Rulez waking up!')
     end
 
+    # importing methods and models 
+    initializer :methods_and_models do |app|
+      # sets the methods class
+      if (path = Pathname.new(Rails.root + "lib/rulez_methods.rb")).exist?
+        require path
+      else
+        require "#{Rulez::Engine.root}/lib/tasks/templates/rulez_methods.rb"
+      end
+      Rulez.set_methods_class(RulezMethods::Methods)
+
+      # sets the models
+      Dir[Rails.root + "app/models/**/*.rb"].each do |path|
+        require path
+      end
+      Rulez.set_models(ActiveRecord::Base.send :descendants)
+    end
     
     # 
     # Writes out on the log file a debug level message

@@ -6,7 +6,7 @@
 namespace :rulez do
   namespace :install do
     desc "Install Rulez in the application"
-    task :full => [:tests] do
+    task :full => [:methods] do
       puts "Rulez Installation Done!"
     end
 
@@ -22,6 +22,12 @@ namespace :rulez do
       puts "Tests installed..."
     end
 
-
+    desc "Install Rulez Methods in the application"
+    task :methods => :environment do
+      # import in spec_helper stuffs to make rulez tests work properly
+      unless(File.exist?("#{Rails.root}/lib/rulez_methods.rb"))        
+        copy("#{Rulez::Engine.root}/lib/tasks/templates/rulez_methods.rb","#{Rails.root}/lib/")
+      end
+    end
   end
 end

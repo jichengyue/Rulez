@@ -2,7 +2,83 @@
 
 Rulez is a business rule engine that makes possible to easily create logical conditions and evaluate them in the code.
 
-It provides a web editor of boolean expressions, defined with a grammar.
+It provides also a web editor for the rules, that are stored in DB and can thus be modified at run-time.
+
+## Getting started
+
+### 1. Configuration
+
+Gemfile:
+```ruby
+gem 'rulez'
+```
+
+routes.rb:
+```ruby
+mount Rulez::Engine => "/rulez", as: 'rulez'
+```
+
+application_controller.rb:
+```ruby
+before_filter :set_rulez_target
+
+private
+  def set_rulez_target
+    Rulez::set_rulez_target self
+  end
+```
+
+Run from terminal:
+```
+bundle install
+```
+
+### 2. Installation
+* Full install - includes: migrations, log environment, rulez methods
+  ```
+  rake rulez:install:full
+  rake db:migrate
+  ```
+* Custom install
+  * Migrations:
+    ```
+    rake rulez:install:migrations
+    rake db:migrate
+    ```
+  * Log environment:
+    ```
+    rake rulez:install:log_env
+    ```
+  * Rulez methods:
+    ```
+    rake rulez:install:methods
+    ```
+  * Spec:
+    ```
+    rake rulez:install:test
+    ```
+    This task install a rspec test that automatically runs the **Doctor** when testing the application. (See Doctor section).
+    **NB:** this task is NOT automatically installed by the full install.
+
+### 3. Setting up the environment
+* Define methods TODO
+
+### 4. Using the gem
+The business rules can be created using the web editor at the engine path (default is "/rulez") 
+
+For evaluating the created rules in the code:
+* without parameters:
+  ```ruby
+  if rulez? 'rulename'
+    ...
+  end
+  ```
+* with parameters:
+  ```ruby
+  if rulez? 'rulename' {param1: value1, param2: value2, param3: value3}
+    ...
+  end
+  ```
 
 ## Features
 
@@ -10,13 +86,13 @@ It provides a web editor of boolean expressions, defined with a grammar.
 The engine provides a visual web-based editor for the rules.
 
 * The user can create a new rule. When creating, it's prompted to enter:
-  * An identifying *name* for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
-  * An exhaustive *description* about the meaning of the rule and about when is to be applied
-  * Some *parameters* (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
+  * An identifier **name** for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
+  * An exhaustive **description** about the meaning of the rule and about when is to be applied
+  * Some **parameters** (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
   * The *context* in which the rule will be applied. (see the **Contexts** section)
   * The real *rule*. It's a boolean expression, whose result indicates whether or not the rule will enable the behaviour that you are trying to describe. (For further instructions, see the **Rule syntax** section)
 
-### Applying the rules (code-side)
+### Applying a rule (code-side)
 * For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
   E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
   If you want to evaluate it in the code, you just have to write:
@@ -38,27 +114,37 @@ The engine provides a visual web-based editor for the rules.
   ```
   This will executes `inner_code` only if the rule succeeds.
 
+### Contexts
+Contexts are the core of the engine. They abstractly define some areas of code in which the presence of some variables is guaranteed by the developers.
 
+Each rule is always defined in a given context. The context *obliges* those who create the rule to use only the variables authorized (and guaranteed) from it.
 
-### Contesti
-La gemma permette di definire dei contesti all'interno dei quali è garantita la presenza di alcune variabili.
+Before creating any rule, it's mandatory to define at least one context.
 
-Un `context` prevede:
-* nome: univoco, identificativo
-* descrizione: anche lunga, deve spiegare che cos'è questo contesto, dove è definito e utilizzato all'interno dell'applicazione
-* variabili: una serie di variabili che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
-  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
-  * code_name: il nome reale della variabile, serve per eseguire il binding dalla grammatica custom a ruby
-  * type: indica il tipo della variabile
-* funzioni: una serie di funzioni che saranno utilizzabili nell'editor visuale. Ognuna di esse ha:
-  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell'editor
-  * description: descrive cosa fa la funzione
-  * type: indica il tipo che ritorna la funzione
-  * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
-  * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto
+When creating a context, it's prompted to enter:
+* An identifier **name**. It must be unique.
+* An exhaustive (and also long) **description**. It must explain what's this context, where it is defined and when it's used in the application.
+* A set of **variables** (selected from a list of existent variables. See the **Variables** section). Select a variable means *ensuring* that it will be ever available when evaluating a rule belonging to this context.
 
-## Definizione della grammatica
+### Variables
+A variable is, simply, a variable usable by a rule.
 
+To make a variable referenceable by a rule, the rule must belong to a context that contains that variable.
+
+When creating a `variable`, it's prompted to enter:
+* A unique identifier **name**. This name identifies both the variable (instance of the Model named "Variable") and the ruby variable (that is present in the code) that will be matched during the evaluation.
+* An exhaustive **description** for the variable.
+* A **Model**. This works as a Type for the variable. The engine is able to recognize the Models present in the application, indeed Models are the only types of variable allowed.
+
+### Alternatives TODO
+
+### The field `rule` TODO
+
+### Doctor TODO
+
+### Logger TODO
+
+## Grammar definition TODO
 * Ogni regola `rule` è composta da un'espressione `expr` che ritorna un booleano
 * Ogni `expr` è un gruppo `operand`-`operator`-`operand`
 * Ogni `operand` può essere: `boolean`, `num`, `datetime`, `expr`, `var` o `func`
@@ -79,84 +165,5 @@ Un `context` prevede:
   * *
   * /
   * %
-
-## Configurazione
-
-Gemfile:
-
-```ruby
-gem 'rulez'
-```
-
-eseguire da terminale:
-
-```
-bundle install
-rake rulez:install:migrations
-rake db:migrate
-```
-
-routes.rb:
-```ruby
-mount Rulez::Engine => "/rulez", as: 'rulez'
-```
-
-application_controller.rb:
-```ruby
-helper_method :rulez?
-before_filter :set_rulez_target
-
-private
-  def rulez? rule
-    return Rulez::rulez? rule
-  end
-
-  def set_rulez_target
-    Rulez::set_rulez_target self
-  end
-```
-
-in lib/ creare un file rulez_methods.rb dove verranno inseriti dei metodi statici utilizzabili all'interno delle rules
-```ruby
-module RulezMethods
-  class Methods
-    def self.thetruth
-      true
-    end
-  end
-end
-```
-
-in config/initializers creare un file rulez_methods_init.rb:
-```ruby
-require 'rulez_methods'
-
-module <NomeApplicazione>
-  class Application < Rails::Application
-    config.after_initialize do
-      
-      #set methods class here
-      Rulez.set_methods_class(RulezMethods::Methods)
-
-      #set models here
-      Dir[Rails.root + "app/models/**/*.rb"].each do |path|
-        require path
-      end
-      Rulez.set_models(ActiveRecord::Base.send :descendants)
-
-    end
-  end
-end
-```
-
-creare le regole lato web.
-
-Per utilizzare le regole nel codice:
-
-```ruby
-if rulez? 'nomeregola'
-  ...
-end
-```
-
-### Rule syntax 
+ 
+<img src="http://25.media.tumblr.com/275b8a41709b427e8a81fb046f06364a/tumblr_mqxx57LeMC1sbhz3go1_400.gif" />

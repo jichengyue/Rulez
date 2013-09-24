@@ -15,7 +15,7 @@ gem 'rulez'
 
 routes.rb:
 ```ruby
-mount Rulez::Engine => "/rulez", as: 'rulez'
+mount Rulez::Engine, at: "/rulez"
 ```
 
 application_controller.rb:
@@ -77,13 +77,13 @@ The business rules can be created using the web editor at the engine path (defau
 For evaluating the created rules in the code:
 * without parameters:
   ```ruby
-  if rulez? 'rulename'
+  if rulez? 'rulename' do
     ...
   end
   ```
 * with parameters:
   ```ruby
-  if rulez? 'rulename' {param1: value1, param2: value2, param3: value3}
+  if rulez? 'rulename' {param1: value1, param2: value2, param3: value3} do
     ...
   end
   ```

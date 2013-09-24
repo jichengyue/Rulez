@@ -63,7 +63,7 @@ bundle install
   * Spec:
     
     ```
-    rake rulez:install:test
+    rake rulez:install:tests
     ```
     This task install a rspec test that automatically runs the **Doctor** when testing the application. (See Doctor section).
     **NB:** this task is NOT automatically installed by the full install.
@@ -76,12 +76,15 @@ The business rules can be created using the web editor at the engine path (defau
 
 For evaluating the created rules in the code:
 * without parameters:
+
   ```ruby
   if rulez? 'rulename' do
     ...
   end
   ```
+
 * with parameters:
+  
   ```ruby
   if rulez? 'rulename' {param1: value1, param2: value2, param3: value3} do
     ...

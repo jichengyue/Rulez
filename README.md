@@ -28,18 +28,23 @@ private
   end
 ```
 
+### 2. Installation
 Run from terminal:
 ```
 bundle install
 ```
 
-### 2. Installation
+You can choose to use the full install option or to install each component apart.
+
 * Full install - includes: migrations, log environment, rulez methods
   
   ```
   rake rulez:install:full
   rake db:migrate
   ```
+  This installs the whole engine: migrations, log environment and rulez methods.
+  It doesn't install the spec file (it can be installed after).
+
 * Custom install
   * Migrations:
     
@@ -47,31 +52,34 @@ bundle install
     rake rulez:install:migrations
     rake db:migrate
     ```
+    This installs the migrations and creates the tables required to make the engine working.
 
   * Log environment:
    
     ```
     rake rulez:install:log_env
     ```
+    This installs the log environment of the engine. All performed operations are logged in `log/rulez.log`
   
   * Rulez methods:
     
     ```
     rake rulez:install:methods
     ```
+    This installs the file `lib/rulez_methods.rb`. See the **Rulez Methods** section.
   
   * Spec:
     
     ```
     rake rulez:install:tests
     ```
-    This task install a rspec test that automatically runs the **Doctor** when testing the application. (See Doctor section).
+    This task installs a rspec test that automatically runs the **Doctor** when testing the application. (See Doctor section).
+    
     **NB:** this task is NOT automatically installed by the full install.
 
-### 3. Setting up the environment
-* Define methods TODO
+### 3. Configure your first rule!
 
-### 4. Using the gem
+1. Launch the server, open the browser and go to `[your site]/rulez`
 The business rules can be created using the web editor at the engine path (default is "/rulez") 
 
 For evaluating the created rules in the code:
@@ -138,6 +146,7 @@ When creating an alternative, it's prompted to enter:
 
 After the creation of the alternatives, they can be sorted dragging them in an ordered list. This assigns a priority level to each alternative.
 
+## Code-side Features
 ### Applying a rule
 * For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
   

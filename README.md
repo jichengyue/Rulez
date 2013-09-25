@@ -95,7 +95,7 @@ For evaluating the created rules in the code:
 The engine provides a visual web-based editor for the rules.
 
 ### Rules
-It is a business rule.
+They are the business rules.
 When creating, it's prompted to enter:
   * An identifier **name** for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
   * An exhaustive **description** about the meaning of the rule and about when is to be applied

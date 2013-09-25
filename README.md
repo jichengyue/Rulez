@@ -1,8 +1,8 @@
 # Rulez
 
-Rulez is a business rule engine that makes possible to easily create logical conditions and evaluate them in the code.
+Rulez is a business rule engine that allows to easily create logical conditions and evaluate them in the code.
 
-It provides also a web editor for the rules, that are stored in DB and can thus be modified at run-time.
+It also provides a web editor for the rules, that are stored in DB and can thus be modified at run-time.
 
 ## Getting started
 
@@ -36,13 +36,13 @@ bundle install
 
 You can choose to use the full install option or to install each component apart.
 
-* Full install - includes: migrations, log environment, rulez methods
+* Full install
   
   ```
   rake rulez:install:full
   rake db:migrate
   ```
-  This installs the whole engine: migrations, log environment and rulez methods.
+  This installs the whole engine: migrations, logging environment and rulez methods.
   It doesn't install the spec file (it can be installed after).
 
 * Custom install
@@ -54,7 +54,7 @@ You can choose to use the full install option or to install each component apart
     ```
     This installs the migrations and creates the tables required to make the engine working.
 
-  * Log environment:
+  * Logging environment:
    
     ```
     rake rulez:install:log_env
@@ -80,7 +80,7 @@ You can choose to use the full install option or to install each component apart
 ### 3. Configure your first rule!
 
 1. Launch the server, open the browser and go to `[your site]/rulez`
-The business rules can be created using the web editor at the engine path (default is "/rulez") 
+2. 
 
 For evaluating the created rules in the code:
 * without parameters:
@@ -106,10 +106,10 @@ The engine provides a visual web-based editor for the rules.
 They are the business rules.
 When creating, it's prompted to enter:
   * An identifier **name** for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
-  * An exhaustive **description** about the meaning of the rule and about when is to be applied
+  * An exhaustive **description** about the meaning of the rule and about when it should be applied.
   * Some **parameters** (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
   * The **context** in which the rule will be applied. (see the **Contexts** section)
-  * The real **rule**. It's a boolean expression, whose result indicates whether or not the rule will enable the behaviour that you are trying to describe. (For further instructions, see the **Boolean expression syntax** section)
+  * The default **rule**. It's an expression, that must return a boolean value. (For further instructions, see the **Boolean expression syntax** section)
 
 ### Contexts
 Contexts are the core of the engine. They abstractly define some areas of code in which the presence of some variables is guaranteed by the developers.
@@ -134,10 +134,10 @@ When creating a `variable`, it's prompted to enter:
 * A **Model**. This works as a Type for the variable. The engine is able to recognize the Models present in the application, indeed Models are the only types of variable allowed.
 Once the rule is created, it's possible to insert some alternatives to it (see the section below)
 
-### Alternatives
+### Alternative rules
 Sometimes it might be useful to add one or more *alternatives* to the rules.
 
-An alternative is a kind of exception to the rule.
+An alternative, is a rule with higher priority than the default rule. The alternative replaces the default rule if its condition is satisfied.
 
 When creating an alternative, it's prompted to enter:
 * A **description** for the alternative.
@@ -146,9 +146,11 @@ When creating an alternative, it's prompted to enter:
 
 After the creation of the alternatives, they can be sorted dragging them in an ordered list. This assigns a priority level to each alternative.
 
+Higher priorities are on the top of the list.
+
 ## Code-side Features
 ### Applying a rule
-* For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
+* For evaluating a rule (without parameters), just call the function `rulez?` with a string containing the name of the rule.
   
   E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
   If you want to evaluate it in the code, you just have to write:

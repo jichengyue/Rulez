@@ -86,46 +86,22 @@ For evaluating the created rules in the code:
 * with parameters:
   
   ```ruby
-  if rulez? 'rulename' {param1: value1, param2: value2, param3: value3}
+  if rulez? 'rulename', {param1: value1, param2: value2, param3: value3}
     ...
   end
   ```
 
-## Features
-
-### Creating and managing rules (web-based)
+## Web-based Features
 The engine provides a visual web-based editor for the rules.
 
-* The user can create a new rule. When creating, it's prompted to enter:
+### Rules
+It is a business rule.
+When creating, it's prompted to enter:
   * An identifier **name** for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
   * An exhaustive **description** about the meaning of the rule and about when is to be applied
   * Some **parameters** (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
   * The **context** in which the rule will be applied. (see the **Contexts** section)
-  * The real **rule**. It's a boolean expression, whose result indicates whether or not the rule will enable the behaviour that you are trying to describe. (For further instructions, see the **Rule syntax** section)
-
-### Applying a rule (code-side)
-* For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
-  
-  E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
-  If you want to evaluate it in the code, you just have to write:
-  ```ruby
-  if rulez? 'create_new_users'
-    # inner_code
-  end
-  ```
-  This will executes `inner_code` only if the rule succeeds.
-
-* For evaluating a rule with parameters, you can pass them to the rule in a hash:
-  
-  E.g.: An administrator defines a rule, named `use_advanced_tool_X`, that describes the possibility to use the advanced tool "X".
-  Since the rule has a different behaviour if the user is a premium user, the rule is defined with a boolean parameter `premium`.
-  For evaluating the rule, you have to pass to `rulez?` a value for that parameter, using a hash:
-  ```ruby
-  if rulez? 'use_advanced_tool_X' {premium: true}
-    # inner_code
-  end
-  ```
-  This will executes `inner_code` only if the rule succeeds.
+  * The real **rule**. It's a boolean expression, whose result indicates whether or not the rule will enable the behaviour that you are trying to describe. (For further instructions, see the **Boolean expression syntax** section)
 
 ### Contexts
 Contexts are the core of the engine. They abstractly define some areas of code in which the presence of some variables is guaranteed by the developers.
@@ -148,10 +124,45 @@ When creating a `variable`, it's prompted to enter:
 * A unique identifier **name**. This name identifies both the variable (instance of the Model named "Variable") and the ruby variable (that is present in the code) that will be matched during the evaluation.
 * An exhaustive **description** for the variable.
 * A **Model**. This works as a Type for the variable. The engine is able to recognize the Models present in the application, indeed Models are the only types of variable allowed.
+Once the rule is created, it's possible to insert some alternatives to it (see the section below)
 
-### Alternatives TODO
+### Alternatives
+Sometimes it might be useful to add one or more *alternatives* to the rules.
 
-### The field `rule` TODO
+An alternative is a kind of exception to the rule.
+
+When creating an alternative, it's prompted to enter:
+* A **description** for the alternative.
+* The **condition** that triggers the alternative. It's a boolean expression, whose result indicates whether or not the alternative will be enabled. (For the syntax instructions see the **Boolean expression syntax** section)
+* The real **alternative**. It's a boolean expression. If the alternative is enabled by the condition, this field replaces the main rule.
+
+After the creation of the alternatives, they can be sorted dragging them in an ordered list. This assigns a priority level to each alternative.
+
+### Applying a rule
+* For evaluating a rule (without paramters), just call the function `rulez?` with a string containing the name of the rule.
+  
+  E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
+  If you want to evaluate it in the code, you just have to write:
+  ```ruby
+  if rulez? 'create_new_users'
+    # inner_code
+  end
+  ```
+  This will executes `inner_code` only if the rule succeeds.
+
+* For evaluating a rule with parameters, you can pass them to the rule in a hash:
+  
+  E.g.: An administrator defines a rule, named `use_advanced_tool_X`, that describes the possibility to use the advanced tool "X".
+  Since the rule has a different behaviour if the user is a premium user, the rule is defined with a boolean parameter `premium`.
+  For evaluating the rule, you have to pass to `rulez?` a value for that parameter, using a hash:
+  ```ruby
+  if rulez? 'use_advanced_tool_X', {premium: true}
+    # inner_code
+  end
+  ```
+  This will executes `inner_code` only if the rule succeeds.
+
+### Boolean expression sintax TODO
 
 ### Doctor TODO
 

@@ -174,7 +174,7 @@ After the creation of the alternatives, they can be sorted dragging them in an o
 ### Boolean Expression Syntax (for Rules and Alternatives)
 In the expression of a certain Rule (rule field) or Alternative (condition and alternative fields) is possible to reference Parameters, Functions and Variables.
 
-To reference a Parameter, it must match exactly one of parameter names' comma separated specified in the field Parameters of the Rule. For Example:
+To reference a Parameter, it must match exactly one of parameter's names comma separated specified in the field Parameters of the Rule. For Example:
 ```
 Parameters:
     par1, par2, par3
@@ -183,7 +183,7 @@ Expression:
     par2 >= (3 - par3) && par1 != "foobar"
 ```
 
-To reference a Function simply write the identifier of the Function available list. For Example:
+To reference a Function simply write the identifier of the Function in Available function list. For Example:
 ```
 Available functions:
     thetruth 
@@ -195,7 +195,7 @@ Expression:
     thetruth == true
 ```
 
-To reference a Variable simply write the identifier of the Variable followed by a field from Variable available list dot separated. For Example:
+To reference a Variable simply write the identifier of the Variable followed by a field from Available variable list dot separated. For Example:
 ```
 Available variables:
     your_variable (YourModel) - description of this variable

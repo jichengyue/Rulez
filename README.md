@@ -210,7 +210,8 @@ Expression:
 
 For more information on how to write correctly Rules and Alternatives take a look at their sections and also at Grammar definition section.
 
-### Doctor TODO
+### Doctor
+The Doctor is an amazing tool that is able to understand if information of all Rulez Engine is still coherent after every single modification to Rules, Contexts or Variables. To verify if all is setted correctly go to Rulex Dashboard and press Run Doctor button in Doctor panel. In case of errors, specific instructions will be given in order to easily fix all problems.
 
 ### Logger TODO
 

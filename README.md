@@ -213,7 +213,11 @@ For more information on how to write correctly Rules and Alternatives take a loo
 ### Doctor
 The Doctor is an amazing tool that is able to understand if information of all Rulez Engine is still coherent after every single modification to Rules, Contexts or Variables. To verify if all is setted correctly go to Rulex Dashboard and press Run Doctor button in Doctor panel. In case of errors, specific instructions will be given in order to easily fix all problems.
 
-### Logger TODO
+### Logger
+Rulez comes with a built-in logger to keep track of actions.
+You can view it in your log directory (filename is rulez.log) or you can view the last records in the rulez pages.
+Log entries are tagged with standard rails log levels (debug, info, error, fatal, warning) with timestamp.
+
 
 ## Grammar definition
 The Grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.

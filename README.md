@@ -181,40 +181,41 @@ After the creation of the alternatives, they can be sorted dragging them in an o
 The grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.
 
 The grammar is so defined:
-* ROOT = bool_operation
-* bool_operation =  "(" bool_operation ")"              |
+```code
+ROOT = bool_operation
+bool_operation =  "(" bool_operation ")"                |
                     "!", bool_operation                 |
                     bool_operation "||" bool_operation  |
                     bool_operation "&&" bool_operation  |
                     bool_operand
   
-* bool_operand =  boolean_value  |
+bool_operand =  boolean_value  |
                   cmp_operation
 
-* cmp_operation = cmp_operand ">" cmp_operand      |
-                  cmp_operand "<" cmp_operand      |
-                  cmp_operand ">=" cmp_operand     |
-                  cmp_operand "<=" cmp_operand     |
-                  cmp_operand "!=" cmp_operand     |
-                  cmp_operand "==" cmp_operand     |
-                  cmp_operand "!=" boolean_value   |
-                  cmp_operand "==" boolean_value   |
-                  boolean_value "!=" cmp_operand   |
-                  boolean_value "==" cmp_operand   |
-                  boolean_value "!=" boolean_value |
+cmp_operation = cmp_operand ">" cmp_operand         |
+                  cmp_operand "<" cmp_operand       |
+                  cmp_operand ">=" cmp_operand      |
+                  cmp_operand "<=" cmp_operand      |
+                  cmp_operand "!=" cmp_operand      |
+                  cmp_operand "==" cmp_operand      |
+                  cmp_operand "!=" boolean_value    |
+                  cmp_operand "==" boolean_value    |
+                  boolean_value "!=" cmp_operand    |
+                  boolean_value "==" cmp_operand    |
+                  boolean_value "!=" boolean_value  |
                   boolean_value "==" boolean_value   
 
-* cmp_operand = math_operation
+cmp_operand = math_operation
 
-* math_operation =  "(" math_operation ")"             |
-                    "-" math_operation                 |
-                    math_operation "/" math_operation  |
-                    math_operation "*" math_operation  |
-                    math_operation "-" math_operation  |
-                    math_operation "+" math_operation  |
+math_operation =  "(" math_operation ")"              |
+                    "-" math_operation                |
+                    math_operation "/" math_operation |
+                    math_operation "*" math_operation |
+                    math_operation "-" math_operation |
+                    math_operation "+" math_operation |
                     math_operand
 
-* math_operand =  datetime_value            |
+math_operand =  datetime_value              |
                   date_value                |
                   string_value              |
                   float_value               |
@@ -222,23 +223,24 @@ The grammar is so defined:
                   variable_value            |
                   arithmetic_datetime_value 
 
-* boolean_value = /true|false/
+boolean_value = /true|false/
 
-* datetime_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})(\#)([01][0-9]|2[0-3])(\:)([0-5][0-9])(\:)([0-5][0-9])/
+datetime_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})(\#)([01][0-9]|2[0-3])(\:)([0-5][0-9])(\:)([0-5][0-9])/
 
-* date_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
+date_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
 
-* arithmetic_datetime_value = /([1-9][0-9]*|0)\.(second(s)?|minute(s)?|hour(s)?|day(s)?|month(s)?|year(s)?)/
+arithmetic_datetime_value = /([1-9][0-9]*|0)\.(second(s)?|minute(s)?|hour(s)?|day(s)?|month(s)?|year(s)?)/
 
-* string_value = /\"[a-zA-Z0-9 ]*\"/
+string_value = /\"[a-zA-Z0-9 ]*\"/
 
-* function: /[a-zA-Z][a-zA-Z0-9_]*/
+function: /[a-zA-Z][a-zA-Z0-9_]*/
 
-* context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/
+context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/
 
-* variable_value =  context_variable  |
+variable_value =  context_variable  |
                     function
     
-* float_value = /([1-9][0-9]*|0)?\.[0-9]+/
+float_value = /([1-9][0-9]*|0)?\.[0-9]+/
 
-* integer_value = /[1-9][0-9]*|0/
+integer_value = /[1-9][0-9]*|0/
+```

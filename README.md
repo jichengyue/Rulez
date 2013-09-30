@@ -180,7 +180,29 @@ After the creation of the alternatives, they can be sorted dragging them in an o
 ## Grammar definition
 The grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.
 
-The grammar is so defined:
+* `root` of the parsed tree is a list of `boolean_operation`.
+* boolean operations are made of `boolean_operator` and `boolean_operand` elements.
+* boolean operators are AND (`&&`), OR (`||`), NOT (`!`).
+* boolean operands are `boolean_value` or `compare_operation` elements.
+* boolean values are `true` or `false`.
+* compare operations are made of `compare_operator`,`compare_operand` and `boolean_value` elements.
+* compare operators are Greater (`>`), Less (`<`), Greater Equal (`>=`), Less Equal (`<=`), Not Equal (`!=`), Equal (`==`)
+* compare operands are a list of `mathematical_operation`.
+* mathematical operations are made of `mathematical_operator` and `mathematical_operand` elements.
+* matematical operators are Sum (`+`), Difference (`-`), Multiplication (`*`), Division (`/`), Minus (`-`)
+* matematical operands are `datetime_value`, `date_value`, `string_value`, `float_value`, `integer_value`, `variable_value` and `arithmetic_datetime_value` elements.
+* datetime values are in the form DD//MM//YYYY#hh:mm:ss (DD: days, MM: months, YYYY: years, hh: hours, mm: minutes, ss: seconds).
+* date values are in the form DD//MM//YYYY (DD: days, MM: months, YYYY: years).
+* string values are wrapped between `"` `"`.
+* float values are normal float numbers
+* integer values are normal integer numbers
+* arithmetic datetime values are an integer follower by `.` and one word that specify which kind of datetime element is (year, minutes, ecc...).
+* variable values are `context_variable` or `function` elements.
+* functions are identifier
+* context_variables are identifier.identifier
+
+The Grammar handle correctly operator precedence (even with brackets) and semantic value of all elements of operations. For more detailed information watch at the definition below:
+
 ```code
 ROOT = bool_operation
 bool_operation =  "(" bool_operation ")"                |
@@ -215,13 +237,13 @@ math_operation =  "(" math_operation ")"              |
                     math_operation "+" math_operation |
                     math_operand
 
-math_operand =  datetime_value              |
-                  date_value                |
-                  string_value              |
-                  float_value               |
-                  integer_value             |
-                  variable_value            |
-                  arithmetic_datetime_value 
+math_operand =  datetime_value            |
+                date_value                |
+                string_value              |
+                float_value               |
+                integer_value             |
+                variable_value            |
+                arithmetic_datetime_value 
 
 boolean_value = /true|false/
 

@@ -178,7 +178,7 @@ After the creation of the alternatives, they can be sorted dragging them in an o
 ### Logger TODO
 
 ## Grammar definition
-The grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.
+The Grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.
 
 * `root` of the parsed tree is a list of `boolean_operation`.
 * boolean operations are made of `boolean_operator` and `boolean_operand` elements.
@@ -201,7 +201,7 @@ The grammar skips all spaces, tabs and black characters of any kind, so it is po
 * functions are identifier
 * context_variables are identifier.identifier
 
-The Grammar handle correctly operator precedence (even with brackets) and semantic value of all elements of operations. For more detailed information watch at the definition below:
+The Grammar handles correctly operator precedence (even with brackets) and semantic value of all elements of operations. For more detailed information watch at the definition below:
 
 ```code
 ROOT = bool_operation

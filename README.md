@@ -171,7 +171,44 @@ After the creation of the alternatives, they can be sorted dragging them in an o
   ```
   This will executes `inner_code` only if the rule succeeds.
 
-### Boolean expression sintax TODO
+### Boolean Expression Syntax (for Rules and Alternatives)
+In the expression of a certain Rule (rule field) or Alternative (condition and alternative fields) is possible to reference Parameters, Functions and Variables.
+
+To reference a Parameter, it must match exactly one of parameter names' comma separated specified in the field Parameters of the Rule. For Example:
+```
+Parameters:
+    par1, par2, par3
+
+Expression:
+    par2 >= (3 - par3) && par1 != "foobar"
+```
+
+To reference a Function simply write the identifier of the Function available list. For Example:
+```
+Available functions:
+    thetruth 
+    alie 
+    date_today 
+    datetime_now
+
+Expression:
+    thetruth == true
+```
+
+To reference a Variable simply write the identifier of the Variable followed by a field from Variable available list dot separated. For Example:
+```
+Available variables:
+    your_variable (YourModel) - description of this variable
+      .yourmodelfield1
+      .yourmodelfield2
+      ...
+      .yourmodelfieldN
+
+Expression:
+    your_variable.yourmodelfield2 != 5
+```
+
+For more information on how to write correctly Rules and Alternatives take a look at their sections and also at Grammar definition section.
 
 ### Doctor TODO
 
@@ -193,10 +230,10 @@ The Grammar skips all spaces, tabs and black characters of any kind, so it is po
 * matematical operands are `datetime_value`, `date_value`, `string_value`, `float_value`, `integer_value`, `variable_value` and `arithmetic_datetime_value` elements.
 * datetime values are in the form DD//MM//YYYY#hh:mm:ss (DD: days, MM: months, YYYY: years, hh: hours, mm: minutes, ss: seconds).
 * date values are in the form DD//MM//YYYY (DD: days, MM: months, YYYY: years).
-* string values are wrapped between `"` `"`.
+* string values are wrapped between `"` and `"`.
 * float values are normal float numbers
 * integer values are normal integer numbers
-* arithmetic datetime values are an integer follower by `.` and one word that specify which kind of datetime element is (year, minutes, ecc...).
+* arithmetic datetime values are an integer follower by `.` and one word that specify which kind of datetime element is (ex: 2.year, 5.minutes, ecc...).
 * variable values are `context_variable` or `function` elements.
 * functions are identifier
 * context_variables are identifier.identifier

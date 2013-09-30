@@ -215,7 +215,7 @@ The Doctor is an amazing tool that is able to understand if information of all R
 
 ### Logger
 Rulez comes with a built-in logger to keep track of actions.
-You can view it in your log directory (filename is rulez.log) or you can view the last records in the rulez pages.
+You can view it in your log directory (filename is rulez.log) or you can view all records you want in the rulez Dashbroad page.
 Log entries are tagged with standard rails log levels (debug, info, error, fatal, warning) with timestamp.
 
 

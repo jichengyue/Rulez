@@ -12,6 +12,11 @@
 class Restaurant < ActiveRecord::Base
   attr_accessible :city, :name
 
+  validates :name,
+            :presence => true
+
+  has_many :users
+  
   def annullamenti_a_settimana
     3
   end

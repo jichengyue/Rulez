@@ -7,16 +7,18 @@
     </span>
     <% methods = (eval "#{sym.model}").new.public_methods(false) + (eval "#{sym.model}").new.attribute_names %>
     <% methods.each do |m| %>
-      <br>
-      &nbsp;&nbsp;
-      <%= ".#{m}" %>
+      <% if (!m.match(/\A_callback|\A_one_time_conditions_valid|\Avalidate_associated_records|\Abefore_add_for_|\Aafter_add_for_|\Abefore_remove_for_|\Aafter_remove_for_|\Avalidate_associated_records_for_|\Aautosave_associated_records_for_/)) %>
+        <br>
+        &nbsp;&nbsp;
+        <%= ".#{m}" %>
+      <% end %>
     <% end %>
   </p>
 <% end %>
 <strong>Available functions:</strong><br>
 <p>
-  <% @methods.each do |m| %>
-    <%= m %>
+  <% @functions.each do |f| %>
+    <%= f %>
     <br>
   <% end %>
 </p>

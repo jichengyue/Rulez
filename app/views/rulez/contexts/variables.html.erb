@@ -7,7 +7,7 @@
     </span>
     <% methods = (eval "#{sym.model}").new.public_methods(false) + (eval "#{sym.model}").new.attribute_names %>
     <% methods.each do |m| %>
-      <% if (!m.match(/\A_callback|\A_one_time_conditions_valid|\Avalidate_associated_records|\Abefore_add_for_|\Aafter_add_for_|\Abefore_remove_for_|\Aafter_remove_for_|\Avalidate_associated_records_for_|\Aautosave_associated_records_for_/)) %>
+      <% if (!m.match(/\A_callback|\A_one_time_conditions_valid|\Avalidate_associated_records|\Abefore_|\Aafter_|\A_before_|\A_after_|\Aautosave_associated_records_for_/)) %>
         <br>
         &nbsp;&nbsp;
         <%= ".#{m}" %>

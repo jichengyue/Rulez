@@ -178,7 +178,7 @@ module Rulez
       it "assigns the methods as @methods" do
         context = Context.create! valid_attributes
         get :variables, {:id => context.to_param}, valid_session
-        assigns(:methods).should be_a(Array)
+        assigns(:functions).should be_a(Array)
       end
 
       it "fills @variables with all the variables of given context" do
@@ -202,7 +202,7 @@ module Rulez
         context = Context.create! valid_attributes
         methods = Rulez::get_methods_class.methods(false).map { |e| e.to_s }
         get :variables, {:id => context.to_param}, valid_session
-        assigns(:methods).should match_array(methods)
+        assigns(:functions).should match_array(methods)
       end
     end
   

@@ -131,7 +131,7 @@ module Rulez
       mandatory_parameters_check = requested_parameters - configured_parameters
       if !mandatory_parameters_check.empty?
         Engine::fatal_log("Evaluating #{rule.name}: mandatory parameters not set: " + mandatory_parameters_check.join(', '))
-        raise Rulez::WrongParameters, "Mandatory parameters not set: " + mandatory_parameters_check.join(', ')
+        raise Rulez::WrongParametersError, "Mandatory parameters not set: " + mandatory_parameters_check.join(', ')
       end
 
       extra_parameters_check = configured_parameters - requested_parameters

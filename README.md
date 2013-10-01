@@ -173,32 +173,140 @@ Higher priorities are on the top of the list.
   ```
   This will executes `inner_code` only if the rule succeeds.
 
-### Boolean expression sintax TODO
+### Boolean Expression Syntax (for Rules and Alternatives)
+In the expression of a certain Rule (rule field) or Alternative (condition and alternative fields) is possible to reference Parameters, Functions and Variables.
 
-### Doctor TODO
+To reference a Parameter, it must match exactly one of parameter's names comma separated specified in the field Parameters of the Rule. For Example:
+```
+Parameters:
+    par1, par2, par3
 
-### Logger TODO
+Expression:
+    par2 >= (3 - par3) && par1 != "foobar"
+```
 
-## Grammar definition TODO
-* Ogni regola `rule` è composta da un'espressione `expr` che ritorna un booleano
-* Ogni `expr` è un gruppo `operand`-`operator`-`operand`
-* Ogni `operand` può essere: `boolean`, `num`, `datetime`, `expr`, `var` o `func`
-  * `var`: sono variabili rese disponibili dal contesto corrente (vedi la sezione **Contesti**)
-  * `func`: sono funzioni custom rese disponibili dal contesto corrente (vedi la sezione **Contesti**)
-* Lista degli `operator` validi:
-  * >
-  * <
-  * >=
-  * <=
-  * !
-  * &&
-  * ||
-  * ==
-  * !=
-  * +
-  * -
-  * *
-  * /
-  * %
- 
-<img src="http://25.media.tumblr.com/275b8a41709b427e8a81fb046f06364a/tumblr_mqxx57LeMC1sbhz3go1_400.gif" />
+To reference a Function simply write the identifier of the Function in Available function list. For Example:
+```
+Available functions:
+    thetruth 
+    alie 
+    date_today 
+    datetime_now
+
+Expression:
+    thetruth == true
+```
+
+To reference a Variable simply write the identifier of the Variable followed by a field from Available variable list dot separated. For Example:
+```
+Available variables:
+    your_variable (YourModel) - description of this variable
+      .yourmodelfield1
+      .yourmodelfield2
+      ...
+      .yourmodelfieldN
+
+Expression:
+    your_variable.yourmodelfield2 != 5
+```
+
+For more information on how to write correctly Rules and Alternatives take a look at their sections and also at Grammar definition section.
+
+### Doctor
+The Doctor is an amazing tool that is able to understand if information of all Rulez Engine is still coherent after every single modification to Rules, Contexts or Variables. To verify if all is setted correctly go to Rulez Dashboard and press Run Doctor button in Doctor panel. In case of errors, specific instructions will be given in order to easily fix all problems.
+
+### Logger
+Rulez comes with a built-in logger to keep track of actions.
+You can view it in your log directory (filename is rulez.log) or you can view all records you want in the Rulez Dashboard page with possibility to filter the records by their type.
+Log entries are tagged with standard rails log levels (debug, info, error, fatal, warning) with timestamp.
+
+
+## Grammar definition
+The Grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.
+
+* `root` of the parsed tree is a list of `boolean_operation`.
+* boolean operations are made of `boolean_operator` and `boolean_operand` elements.
+* boolean operators are AND (`&&`), OR (`||`), NOT (`!`).
+* boolean operands are `boolean_value` or `compare_operation` elements.
+* boolean values are `true` or `false`.
+* compare operations are made of `compare_operator`,`compare_operand` and `boolean_value` elements.
+* compare operators are Greater (`>`), Less (`<`), Greater Equal (`>=`), Less Equal (`<=`), Not Equal (`!=`), Equal (`==`)
+* compare operands are a list of `mathematical_operation`.
+* mathematical operations are made of `mathematical_operator` and `mathematical_operand` elements.
+* matematical operators are Sum (`+`), Difference (`-`), Multiplication (`*`), Division (`/`), Minus (`-`)
+* matematical operands are `datetime_value`, `date_value`, `string_value`, `float_value`, `integer_value`, `variable_value` and `arithmetic_datetime_value` elements.
+* datetime values are in the form DD//MM//YYYY#hh:mm:ss (DD: days, MM: months, YYYY: years, hh: hours, mm: minutes, ss: seconds).
+* date values are in the form DD//MM//YYYY (DD: days, MM: months, YYYY: years).
+* string values are wrapped between `"` and `"`.
+* float values are normal float numbers
+* integer values are normal integer numbers
+* arithmetic datetime values are an integer follower by `.` and one word that specify which kind of datetime element is (ex: 2.year, 5.minutes, ecc...).
+* variable values are `context_variable` or `function` elements.
+* functions are identifier
+* context_variables are identifier.identifier
+
+The Grammar handles correctly operator precedence (even with brackets) and semantic value of all elements of operations. For more detailed information watch at the definition below:
+
+```code
+ROOT = bool_operation
+bool_operation =  "(" bool_operation ")"                |
+                    "!", bool_operation                 |
+                    bool_operation "||" bool_operation  |
+                    bool_operation "&&" bool_operation  |
+                    bool_operand
+  
+bool_operand =  boolean_value  |
+                  cmp_operation
+
+cmp_operation = cmp_operand ">" cmp_operand         |
+                  cmp_operand "<" cmp_operand       |
+                  cmp_operand ">=" cmp_operand      |
+                  cmp_operand "<=" cmp_operand      |
+                  cmp_operand "!=" cmp_operand      |
+                  cmp_operand "==" cmp_operand      |
+                  cmp_operand "!=" boolean_value    |
+                  cmp_operand "==" boolean_value    |
+                  boolean_value "!=" cmp_operand    |
+                  boolean_value "==" cmp_operand    |
+                  boolean_value "!=" boolean_value  |
+                  boolean_value "==" boolean_value   
+
+cmp_operand = math_operation
+
+math_operation =  "(" math_operation ")"              |
+                    "-" math_operation                |
+                    math_operation "/" math_operation |
+                    math_operation "*" math_operation |
+                    math_operation "-" math_operation |
+                    math_operation "+" math_operation |
+                    math_operand
+
+math_operand =  datetime_value            |
+                date_value                |
+                string_value              |
+                float_value               |
+                integer_value             |
+                variable_value            |
+                arithmetic_datetime_value 
+
+boolean_value = /true|false/
+
+datetime_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})(\#)([01][0-9]|2[0-3])(\:)([0-5][0-9])(\:)([0-5][0-9])/
+
+date_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
+
+arithmetic_datetime_value = /([1-9][0-9]*|0)\.(second(s)?|minute(s)?|hour(s)?|day(s)?|month(s)?|year(s)?)/
+
+string_value = /\"[a-zA-Z0-9 ]*\"/
+
+function: /[a-zA-Z][a-zA-Z0-9_]*/
+
+context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/
+
+variable_value =  context_variable  |
+                    function
+    
+float_value = /([1-9][0-9]*|0)?\.[0-9]+/
+
+integer_value = /[1-9][0-9]*|0/
+```

@@ -80,7 +80,21 @@ You can choose to use the full install option or to install each component apart
 ### 3. Configure your first rule!
 
 1. Launch the server, open the browser and go to `[your site]/rulez`
-2. 
+2. Create a Context with:
+  a. name: default
+  b. description: This is the default context, it can be used in the whole application, and describes generic rules that can be applied everywhere.
+  c. variables: leave this field blank.
+3. Create a new Rule with:
+  a. name: hello_world
+  b. description: This rule describes if the application will say "Hello world!".
+  c. parameters: leave this field blank.
+  d. context: default
+  e. rule: `true`
+4. In any view write:
+  
+  ```ruby
+  if rulez? "hello_world"
+  ```
 
 For evaluating the created rules in the code:
 * without parameters:

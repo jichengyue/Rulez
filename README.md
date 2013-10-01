@@ -81,31 +81,28 @@ You can choose to use the full install option or to install each component apart
 
 1. Launch the server, open the browser and go to `[your site]/rulez`
 2. Create a Context with:
-  a. name: default
-  b. description: This is the default context, it can be used in the whole application, and describes generic rules that can be applied everywhere.
-  c. variables: leave this field blank.
+  * name: default
+  * description: This is the default context, it can be used in the whole application, and describes generic rules that can be applied everywhere.
+  * variables: leave this field blank.
 3. Create a new Rule with:
-  a. name: hello_world
-  b. description: This rule describes if the application will say "Hello world!".
-  c. parameters: leave this field blank.
-  d. context: default
-  e. rule: `true`
+  * name: hello_world
+  * description: This rule describes if the application will say "Hello world!".
+  * parameters: leave this field blank.
+  * context: default
+  * rule: `true`
 4. In any view write:
   
   ```ruby
-  if rulez? "hello_world"
+  <%= if Rulez::rulez? "hello_world" %>
+    <h1>Hello world!</h1>
+  <%= else %>
+    <h1>Good bye!</h1>
+  <%= end %>
   ```
+5. Go with the browser to the view and see the message
+6. Modify the rule at `rulez/rules` with something more complex, and see what happens visiting the view
 
-For evaluating the created rules in the code:
-* without parameters:
-
-  ```ruby
-  if rulez? 'rulename'
-    ...
-  end
-  ```
-
-* with parameters:
+Consider that for evaluating a rule with parameters you have to set their values:
   
   ```ruby
   if rulez? 'rulename', {param1: value1, param2: value2, param3: value3}

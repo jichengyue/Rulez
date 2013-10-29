@@ -14,3 +14,5 @@ lib/rulez/.DS_Store
 # aptana studio files
 .project
 .settings/
+
+Gemfile.lock

@@ -23,11 +23,9 @@ module Rulez
       g.helper false
     end
 
-    @@rulez_logger = nil
-    @@file_log = nil
-
     #logger configuration
     @@rulez_logger = nil
+    @@file_log = nil
     initializer :logger do |app|
       @@file_log = File.open('log/rulez.log', 'a')
       @@rulez_logger = ActiveSupport::TaggedLogging.new( Logger.new( @@file_log ) )

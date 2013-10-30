@@ -41,8 +41,9 @@ You can choose to use the full install option or to install each component apart
   ```
   rake rulez:install:full
   rake db:migrate
+  rake rulez:install:seed
   ```
-  This installs the whole engine: migrations, logging environment and rulez methods.
+  This installs the whole engine: migrations, logging environment, rulez methods, and prepares the db.
   It doesn't install the spec file (it can be installed after).
 
 * Custom install
@@ -53,6 +54,14 @@ You can choose to use the full install option or to install each component apart
     rake db:migrate
     ```
     This installs the migrations and creates the tables required to make the engine working.
+
+  * Seeds:
+    ```
+    rake rulez:install:seed
+    ```
+    This prepares the DB to allow a simple first use of Rulez.
+    It only adds some records in the Rulez tables.
+
 
   * Logging environment:
    

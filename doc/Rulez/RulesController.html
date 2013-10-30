@@ -6,7 +6,7 @@
 <title>
   Class: Rulez::RulesController
   
-    &mdash; Documentation by YARD 0.8.6.1
+    &mdash; Documentation by YARD 0.8.7.2
   
 </title>
 
@@ -380,6 +380,11 @@
   
   
   
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="Rulez::ApplicationController (class)">ApplicationController</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#authenticate-instance_method" title="Rulez::ApplicationController#authenticate (method)">#authenticate</a></span></p>
+
+  
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -420,7 +425,12 @@
 39
 40
 41
-42</pre>
+42
+43
+44
+45
+46
+47</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 33</span>
@@ -429,8 +439,13 @@
   <span class='ivar'>@rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rule</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_set_contexts'>set_contexts</span>
   <span class='kw'>if</span> <span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+    <span class='id identifier rubyid_errors'>errors</span> <span class='op'>=</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='id identifier rubyid_doctor'>doctor</span>
+    <span class='id identifier rubyid_err_msg'>err_msg</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_err_msg'>err_msg</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Due to this create operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>end</span>
     <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_info_log'>info_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rule </span><span class='embexpr_beg'>#{</span><span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> was successfully created!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@rule</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rule </span><span class='embexpr_beg'>#{</span><span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> was successfully created.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@rule</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rule </span><span class='embexpr_beg'>#{</span><span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> was successfully created.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>alert:</span> <span class='id identifier rubyid_err_msg'>err_msg</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_render'>render</span> <span class='label'>action:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>new</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
@@ -466,23 +481,37 @@
       <pre class="lines">
 
 
-57
-58
-59
-60
-61
-62
-63
-64</pre>
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_set_rule'>set_rule</span>
   <span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
   <span class='id identifier rubyid_respond_to'>respond_to</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_format'>format</span><span class='op'>|</span>
-    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_rules_url'>rules_url</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Rule was successfully destroyed.</span><span class='tstring_end'>'</span></span> <span class='rbrace'>}</span>
+    <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_errors'>errors</span> <span class='op'>=</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='id identifier rubyid_doctor'>doctor</span>
+      <span class='id identifier rubyid_err_msg'>err_msg</span> <span class='op'>=</span> <span class='kw'>nil</span>
+      <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_err_msg'>err_msg</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Due to this delete operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.</span><span class='tstring_end'>'</span></span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='id identifier rubyid_rules_url'>rules_url</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Rule was successfully destroyed.</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='label'>alert:</span> <span class='id identifier rubyid_err_msg'>err_msg</span>
+    <span class='kw'>end</span>
     <span class='id identifier rubyid_format'>format</span><span class='period'>.</span><span class='id identifier rubyid_json'>json</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{\&quot;response\&quot; : \&quot;OK\&quot;}</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -662,12 +691,12 @@
       <pre class="lines">
 
 
-111
-112
-113</pre>
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 129</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_contexts'>set_contexts</span>
   <span class='ivar'>@contexts</span> <span class='op'>||=</span> <span class='const'>Context</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>
@@ -721,12 +750,12 @@
       <pre class="lines">
 
 
-102
-103
-104</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_set_rule'>set_rule</span>
   <span class='ivar'>@rule</span> <span class='op'>||=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -811,27 +840,28 @@ etc...</p>
       <pre class="lines">
 
 
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94</pre>
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sort_alternatives'>sort_alternatives</span>
   <span class='id identifier rubyid_set_rule'>set_rule</span>
@@ -847,9 +877,10 @@ etc...</p>
       <span class='id identifier rubyid_alternative'>alternative</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
       <span class='id identifier rubyid_i'>i</span> <span class='op'>+=</span> <span class='int'>1</span>
     <span class='kw'>end</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{\&quot;response\&quot; : \&quot;OK\&quot;}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{\&quot;response\&quot; : \&quot;ERROR: the alternatives provided does not belong to the given rule\&quot;}</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>{\&quot;response\&quot; : \&quot;OK\&quot;}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -882,26 +913,36 @@ etc...</p>
       <pre class="lines">
 
 
-45
-46
-47
-48
-49
 50
 51
 52
 53
-54</pre>
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'app/controllers/rulez/rules_controller.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='id identifier rubyid_set_rule'>set_rule</span>
   <span class='id identifier rubyid_set_contexts'>set_contexts</span>
   <span class='kw'>if</span> <span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_update_attributes'>update_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:rule</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_errors'>errors</span> <span class='op'>=</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='id identifier rubyid_doctor'>doctor</span>
+    <span class='id identifier rubyid_err_msg'>err_msg</span> <span class='op'>=</span> <span class='kw'>nil</span>
+    <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_err_msg'>err_msg</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Due to this edit operation some inconsistencies have been created. Go to DashBoard and Run Doctor to fix them.</span><span class='tstring_end'>'</span></span>
+    <span class='kw'>end</span>
     <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_info_log'>info_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rule </span><span class='embexpr_beg'>#{</span><span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> was successfully updated!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@rule</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rule </span><span class='embexpr_beg'>#{</span><span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> was successfully updated.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_redirect_to'>redirect_to</span> <span class='ivar'>@rule</span><span class='comma'>,</span> <span class='label'>notice:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rule </span><span class='embexpr_beg'>#{</span><span class='ivar'>@rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> was successfully updated.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>alert:</span> <span class='id identifier rubyid_err_msg'>err_msg</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_render'>render</span> <span class='label'>action:</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>edit</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
@@ -916,9 +957,9 @@ etc...</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Sep  2 16:09:10 2013 by
+  Generated on Wed Oct 30 13:07:18 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.1 (ruby-1.9.3).
+  0.8.7.2 (ruby-1.9.3).
 </div>
 
   </body>

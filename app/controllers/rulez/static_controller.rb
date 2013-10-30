@@ -61,5 +61,12 @@ module Rulez
         end
       end
     end
+
+
+    # 
+    # Access Denied page
+    # 
+    def accessdenied
+    end
   end
 end

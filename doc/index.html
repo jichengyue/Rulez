@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.6.1
+    &mdash; Documentation by YARD 0.8.7.2
   
 </title>
 
@@ -63,172 +63,364 @@
 
     <div id="content"><div id='filecontents'><h1>Rulez</h1>
 
-<p>Gestisce condizioni logiche configurabili lato web e valutabili lato codice.</p>
+<p>Rulez is a business rule engine that allows to easily create logical conditions and evaluate them in the code.</p>
 
-<p>L&#39;idea è quella di avere un editor visuale di espressioni booleane, definite in una grammatica custom.</p>
+<p>It also provides a web editor for the rules, that are stored in DB and can thus be modified at run-time.</p>
 
-<h2>Definizione della grammatica</h2>
+<h2>Getting started</h2>
 
-<ul>
-<li>Ogni regola <code>rule</code> è composta da un&#39;espressione <code>expr</code> che ritorna un booleano</li>
-<li>Ogni <code>expr</code> è un gruppo <code>operand</code>-<code>operator</code>-<code>operand</code></li>
-<li>Ogni <code>operand</code> può essere: <code>boolean</code>, <code>num</code>, <code>datetime</code>, <code>expr</code>, <code>var</code> o <code>func</code>
+<h3>1. Configuration</h3>
 
-<ul>
-<li><code>var</code>: sono variabili rese disponibili dal contesto corrente (vedi la sezione <strong>Contesti</strong>)</li>
-<li><code>func</code>: sono funzioni custom rese disponibili dal contesto corrente (vedi la sezione <strong>Contesti</strong>)</li>
-</ul></li>
-<li>Lista degli <code>operator</code> validi:
-
-<ul>
-<li>&gt;</li>
-<li>&lt;</li>
-<li>&gt;=</li>
-<li>&lt;=</li>
-<li>!</li>
-<li>&amp;&amp;</li>
-<li>||</li>
-<li>==</li>
-<li>!=</li>
-<li>+</li>
-<li>-</li>
-<li>*</li>
-<li>/</li>
-<li>%</li>
-</ul></li>
-</ul>
-
-<h2>Features</h2>
-
-<h3>Creare e gestire regole (lato web)</h3>
-
-<p>Il servizio offre un editor visuale delle regole lato web.</p>
-
-<ul>
-<li><p>L&#39;utente può creare una nuova regola. In fase di creazione viene chiesto di inserire:</p>
-
-<ul>
-<li>un nome per nuova regola, che la identificherà univocamente. (non modificabile lato web, altrimenti può capitare di valutare una regola che non esiste più perchè è stata rinominata).</li>
-<li>il contesto a cui la regola viene applicata. (vedi la sezione <strong>Contesti</strong>)</li>
-<li>una descrizione esaustiva sul significato della regola e su quando va applicata.</li>
-</ul></li>
-<li><p>L&#39;utente può modificare una regola appena creata o già esistente. La modifica avviene scrivendo all&#39;interno di un campo testuale, con l&#39;aiuto di un intelli-sense</p>
-
-<ul>
-<li>L&#39;intelli-sense aiuta l&#39;utente passo per passo, dicendogli cosa si aspetta il parser in ogni determinato istante.</li>
-<li>L&#39;utente può inserire (nei limiti della corretta sintassi): operatori, operandi, espressioni, variabili, funzioni.</li>
-<li>Le variabili e funzioni disponibili all&#39;utente dipendono dal contesto e vengono suggerite volta per volta.</li>
-</ul></li>
-</ul>
-
-<h3>Applicare le regole (lato codice)</h3>
-
-<p>Per valutare una regola, basta richiamarla utilizzando la funzione <code>rulez</code> definita dalla gemma e il nome della regola definita in fase di creazione</p>
-
-<p>Esempio: viene definita la regola <code>create_new_users</code> che definisce la possibilità di creare nuovi utenti.
-  Per valutarla nel codice basterà eseguire una cosa del tipo <code>if rulez create_new_users ... else ... end</code></p>
-
-<h3>Contesti</h3>
-
-<p>La gemma permette di definire dei contesti all&#39;interno dei quali è garantita la presenza di alcune variabili.</p>
-
-<p>Un <code>context</code> prevede:
-* nome: univoco, identificativo
-* descrizione: anche lunga, deve spiegare che cos&#39;è questo contesto, dove è definito e utilizzato all&#39;interno dell&#39;applicazione
-* variabili: una serie di variabili che saranno utilizzabili nell&#39;editor visuale. Ognuna di esse ha:
-  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell&#39;editor
-  * code_name: il nome reale della variabile, serve per eseguire il binding dalla grammatica custom a ruby
-  * type: indica il tipo della variabile
-* funzioni: una serie di funzioni che saranno utilizzabili nell&#39;editor visuale. Ognuna di esse ha:
-  * nome: univoco nel contesto, identificativo, sarà quello visualizzato nell&#39;editor
-  * description: descrive cosa fa la funzione
-  * type: indica il tipo che ritorna la funzione
-  * code_name: il nome reale della funzione, serve per eseguire il binding dalla grammatica custom a ruby.
-  * Ogni funzione (con tutti i campi descritti sopra) viene definita automaticamente parsificando un file in cui sono implementate tutte le funzioni del contesto</p>
-
-<h2>Configurazione</h2>
-
-<p>Gemfile:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rulez</span><span class='tstring_end'>'</span></span>
-</code></pre>
-
-<p>eseguire da terminale:</p>
-
-<pre class="code ruby"><code class="ruby">bundle install
-rake rulez:install:migrations
-rake db:migrate
-</code></pre>
+<p>Gemfile:
+<code>ruby
+gem &#39;rulez&#39;
+</code></p>
 
 <p>routes.rb:
 <code>ruby
-mount Rulez::Engine =&gt; &quot;/rulez&quot;, as: &#39;rulez&#39;
+mount Rulez::Engine, at: &quot;/rulez&quot;
 </code></p>
 
 <p>application_controller.rb:
 ```ruby
-helper_method :rulez?
 before_filter :set_rulez_target</p>
 
 <p>private
-  def rulez? rule
-    return Rulez::rulez? rule
-  end</p>
-
-<p>def set_rulez_target
+  def set_rulez_target
     Rulez::set_rulez_target self
   end
 ```</p>
 
-<p>in lib/ creare un file rulez_methods.rb dove verranno inseriti dei metodi statici utilizzabili all&#39;interno delle rules
-<code>ruby
-module RulezMethods
-  class Methods
-    def self.thetruth
-      true
-    end
-  end
-end
+<h3>2. Installation</h3>
+
+<p>Run from terminal:
+<code>
+bundle install
 </code></p>
 
-<p>in config/initializers creare un file rulez_methods_init.rb:
-```ruby
-require &#39;rulez_methods&#39;</p>
+<p>You can choose to use the full install option or to install each component apart.</p>
 
-<p>module <NomeApplicazione>
-  class Application &lt; Rails::Application
-    config.after_initialize do</p>
+<ul>
+<li><p>Full install</p>
 
-<pre class="code ruby"><code class="ruby">  #set methods class here
-  Rulez.set_methods_class(RulezMethods::Methods)
-
-  #set models here
-  Dir[Rails.root + &quot;app/models/**/*.rb&quot;].each do |path|
-    require path
-  end
-  Rulez.set_models(ActiveRecord::Base.send :descendants)
-
-end
+<pre class="code ruby"><code class="ruby">rake rulez:install:full
+rake db:migrate
+rake rulez:install:seed
 </code></pre>
 
+<p>This installs the whole engine: migrations, logging environment, rulez methods, and prepares the db.
+It doesn&#39;t install the spec file (it can be installed after).</p></li>
+<li><p>Custom install</p>
+
+<ul>
+<li>Migrations:</li>
+</ul>
+
+<pre class="code ruby"><code class="ruby">rake rulez:install:migrations
+rake db:migrate
+</code></pre>
+
+<p>This installs the migrations and creates the tables required to make the engine working.
+* Seeds:
+<code>
+rake rulez:install:seed
+</code>
+This prepares the DB to allow a simple first use of Rulez.
+It only adds some records in the Rulez tables.
+* Logging environment:</p>
+
+<pre class="code ruby"><code class="ruby">rake rulez:install:log_env
+</code></pre>
+
+<p>This installs the log environment of the engine. All performed operations are logged in <code>log/rulez.log</code>
+* Rulez methods:</p>
+
+<pre class="code ruby"><code class="ruby">rake rulez:install:methods
+</code></pre>
+
+<p>This installs the file <code>lib/rulez_methods.rb</code>. See the <strong>Rulez Methods</strong> section.
+* Spec:</p>
+
+<pre class="code ruby"><code class="ruby">rake rulez:install:tests
+</code></pre>
+
+<p>This task installs a rspec test that automatically runs the <strong>Doctor</strong> when testing the application. (See Doctor section).</p>
+
+<p><strong>NB:</strong> this task is NOT automatically installed by the full install.</p></li>
+</ul>
+
+<h3>3. Configure your first rule!</h3>
+
+<ol>
+<li>Launch the server, open the browser and go to <code>[your site]/rulez</code></li>
+<li>Create a Context with:
+
+<ul>
+<li>name: default</li>
+<li>description: This is the default context, it can be used in the whole application, and describes generic rules that can be applied everywhere.</li>
+<li>variables: leave this field blank.</li>
+</ul></li>
+<li>Create a new Rule with:
+
+<ul>
+<li>name: hello_world</li>
+<li>description: This rule describes if the application will say &quot;Hello world!&quot;.</li>
+<li>parameters: leave this field blank.</li>
+<li>context: default</li>
+<li>rule: <code>true</code></li>
+</ul></li>
+<li><p>In any view write:</p>
+
+<pre class="code ruby"><code class="ruby">&lt;%= if Rulez::rulez? &quot;hello_world&quot; %&gt;
+&lt;h1&gt;Hello world!&lt;/h1&gt;
+&lt;%= else %&gt;
+&lt;h1&gt;Good bye!&lt;/h1&gt;
+&lt;%= end %&gt;
+</code></pre></li>
+<li><p>Go with the browser to the view and see the message</p></li>
+<li><p>Modify the rule at <code>rulez/rules</code> with something more complex, and see what happens visiting the view</p></li>
+</ol>
+
+<p>Consider that for evaluating a rule with parameters you have to set their values:</p>
+
+<pre class="code ruby"><code class="ruby">  if rulez? 'rulename', {param1: value1, param2: value2, param3: value3}
+    ...
+  end
+</code></pre>
+
+<h2>Web-based Features</h2>
+
+<p>The engine provides a visual web-based editor for the rules.</p>
+
+<h3>Rules</h3>
+
+<p>They are the business rules.
+When creating, it&#39;s prompted to enter:
+  * An identifier <strong>name</strong> for the rule. It must be unique. It&#39;s important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
+  * An exhaustive <strong>description</strong> about the meaning of the rule and about when it should be applied.
+  * Some <strong>parameters</strong> (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
+  * The <strong>context</strong> in which the rule will be applied. (see the <strong>Contexts</strong> section)
+  * The default <strong>rule</strong>. It&#39;s an expression, that must return a boolean value. (For further instructions, see the <strong>Boolean expression syntax</strong> section)</p>
+
+<h3>Contexts</h3>
+
+<p>Contexts are the core of the engine. They abstractly define some areas of code in which the presence of some variables is guaranteed by the developers.</p>
+
+<p>Each rule is always defined in a given context. The context <em>obliges</em> those who create the rule to use only the variables authorized (and guaranteed) from it.</p>
+
+<p>Before creating any rule, it&#39;s mandatory to define at least one context.</p>
+
+<p>When creating a context, it&#39;s prompted to enter:
+* An identifier <strong>name</strong>. It must be unique.
+* An exhaustive (and also long) <strong>description</strong>. It must explain what&#39;s this context, where it is defined and when it&#39;s used in the application.
+* A set of <strong>variables</strong> (selected from a list of existent variables. See the <strong>Variables</strong> section). Select a variable means <em>ensuring</em> that it will be ever available when evaluating a rule belonging to this context.</p>
+
+<h3>Variables</h3>
+
+<p>A variable is, simply, a variable usable by a rule.</p>
+
+<p>To make a variable referenceable by a rule, the rule must belong to a context that contains that variable.</p>
+
+<p>When creating a <code>variable</code>, it&#39;s prompted to enter:
+* A unique identifier <strong>name</strong>. This name identifies both the variable (instance of the Model named &quot;Variable&quot;) and the ruby variable (that is present in the code) that will be matched during the evaluation.
+* An exhaustive <strong>description</strong> for the variable.
+* A <strong>Model</strong>. This works as a Type for the variable. The engine is able to recognize the Models present in the application, indeed Models are the only types of variable allowed.
+Once the rule is created, it&#39;s possible to insert some alternatives to it (see the section below)</p>
+
+<h3>Alternative rules</h3>
+
+<p>Sometimes it might be useful to add one or more <em>alternatives</em> to the rules.</p>
+
+<p>An alternative, is a rule with higher priority than the default rule. The alternative replaces the default rule if its condition is satisfied.</p>
+
+<p>When creating an alternative, it&#39;s prompted to enter:
+* A <strong>description</strong> for the alternative.
+* The <strong>condition</strong> that triggers the alternative. It&#39;s a boolean expression, whose result indicates whether or not the alternative will be enabled. (For the syntax instructions see the <strong>Boolean expression syntax</strong> section)
+* The real <strong>alternative</strong>. It&#39;s a boolean expression. If the alternative is enabled by the condition, this field replaces the main rule.</p>
+
+<p>After the creation of the alternatives, they can be sorted dragging them in an ordered list. This assigns a priority level to each alternative.</p>
+
+<p>Higher priorities are on the top of the list.</p>
+
+<h2>Code-side Features</h2>
+
+<h3>Applying a rule</h3>
+
+<ul>
+<li><p>For evaluating a rule (without parameters), just call the function <code>rulez?</code> with a string containing the name of the rule.</p>
+
+<p>E.g.: An administrator defines a rule, named <code>create_new_users</code>, that describes the possibility to create new users.
+If you want to evaluate it in the code, you just have to write:
+```ruby
+if rulez? &#39;create_new_users&#39;</p>
+
+<h1>inner_code</h1>
+
 <p>end
-end
+``<code>
+This will executes</code>inner_code` only if the rule succeeds.</p></li>
+<li><p>For evaluating a rule with parameters, you can pass them to the rule in a hash:</p>
+
+<p>E.g.: An administrator defines a rule, named <code>use_advanced_tool_X</code>, that describes the possibility to use the advanced tool &quot;X&quot;.
+Since the rule has a different behaviour if the user is a premium user, the rule is defined with a boolean parameter <code>premium</code>.
+For evaluating the rule, you have to pass to <code>rulez?</code> a value for that parameter, using a hash:
+```ruby
+if rulez? &#39;use_advanced_tool_X&#39;, true</p>
+
+<h1>inner_code</h1>
+
+<p>end
+``<code>
+This will executes</code>inner_code` only if the rule succeeds.</p></li>
+</ul>
+
+<h3>Boolean Expression Syntax (for Rules and Alternatives)</h3>
+
+<p>In the expression of a certain Rule (rule field) or Alternative (condition and alternative fields) is possible to reference Parameters, Functions and Variables.</p>
+
+<p>To reference a Parameter, it must match exactly one of parameter&#39;s names comma separated specified in the field Parameters of the Rule. For Example:
+```
+Parameters:
+    par1, par2, par3</p>
+
+<p>Expression:
+    par2 &gt;= (3 - par3) &amp;&amp; par1 != &quot;foobar&quot;
 ```</p>
 
-<p>creare le regole lato web.</p>
+<p>To reference a Function simply write the identifier of the Function in Available function list. For Example:
+```
+Available functions:
+    thetruth 
+    alie 
+    date_today 
+    datetime_now</p>
 
-<p>Per utilizzare le regole nel codice:</p>
+<p>Expression:
+    thetruth == true
+```</p>
 
-<pre class="code ruby"><code class="ruby">if rulez? 'nomeregola'
-  ...
-end
+<p>To reference a Variable simply write the identifier of the Variable followed by a field from Available variable list dot separated. For Example:
+```
+Available variables:
+    your_variable (YourModel) - description of this variable
+      .yourmodelfield1
+      .yourmodelfield2
+      ...
+      .yourmodelfieldN</p>
+
+<p>Expression:
+    your_variable.yourmodelfield2 != 5
+```</p>
+
+<p>For more information on how to write correctly Rules and Alternatives take a look at their sections and also at Grammar definition section.</p>
+
+<h3>Doctor</h3>
+
+<p>The Doctor is an amazing tool that is able to understand if information of all Rulez Engine is still coherent after every single modification to Rules, Contexts or Variables. To verify if all is setted correctly go to Rulez Dashboard and press Run Doctor button in Doctor panel. In case of errors, specific instructions will be given in order to easily fix all problems.</p>
+
+<h3>Logger</h3>
+
+<p>Rulez comes with a built-in logger to keep track of actions.
+You can view it in your log directory (filename is rulez.log) or you can view all records you want in the Rulez Dashboard page with possibility to filter the records by their type.
+Log entries are tagged with standard rails log levels (debug, info, error, fatal, warning) with timestamp.</p>
+
+<h2>Grammar definition</h2>
+
+<p>The Grammar skips all spaces, tabs and black characters of any kind, so it is possible write rules with indentation and spaces between elements. Each rule returns a boolean value that is its evaluation.</p>
+
+<ul>
+<li><code>root</code> of the parsed tree is a list of <code>boolean_operation</code>.</li>
+<li>boolean operations are made of <code>boolean_operator</code> and <code>boolean_operand</code> elements.</li>
+<li>boolean operators are AND (<code>&amp;&amp;</code>), OR (<code>||</code>), NOT (<code>!</code>).</li>
+<li>boolean operands are <code>boolean_value</code> or <code>compare_operation</code> elements.</li>
+<li>boolean values are <code>true</code> or <code>false</code>.</li>
+<li>compare operations are made of <code>compare_operator</code>,<code>compare_operand</code> and <code>boolean_value</code> elements.</li>
+<li>compare operators are Greater (<code>&gt;</code>), Less (<code>&lt;</code>), Greater Equal (<code>&gt;=</code>), Less Equal (<code>&lt;=</code>), Not Equal (<code>!=</code>), Equal (<code>==</code>)</li>
+<li>compare operands are a list of <code>mathematical_operation</code>.</li>
+<li>mathematical operations are made of <code>mathematical_operator</code> and <code>mathematical_operand</code> elements.</li>
+<li>matematical operators are Sum (<code>+</code>), Difference (<code>-</code>), Multiplication (<code>*</code>), Division (<code>/</code>), Minus (<code>-</code>)</li>
+<li>matematical operands are <code>datetime_value</code>, <code>date_value</code>, <code>string_value</code>, <code>float_value</code>, <code>integer_value</code>, <code>variable_value</code> and <code>arithmetic_datetime_value</code> elements.</li>
+<li>datetime values are in the form DD//MM//YYYY#hh:mm:ss (DD: days, MM: months, YYYY: years, hh: hours, mm: minutes, ss: seconds).</li>
+<li>date values are in the form DD//MM//YYYY (DD: days, MM: months, YYYY: years).</li>
+<li>string values are wrapped between <code>&quot;</code> and <code>&quot;</code>.</li>
+<li>float values are normal float numbers</li>
+<li>integer values are normal integer numbers</li>
+<li>arithmetic datetime values are an integer follower by <code>.</code> and one word that specify which kind of datetime element is (ex: 2.year, 5.minutes, ecc...).</li>
+<li>variable values are <code>context_variable</code> or <code>function</code> elements.</li>
+<li>functions are identifier</li>
+<li>context_variables are identifier.identifier</li>
+</ul>
+
+<p>The Grammar handles correctly operator precedence (even with brackets) and semantic value of all elements of operations. For more detailed information watch at the definition below:</p>
+
+<pre class="code code"><code class="code">ROOT = bool_operation
+bool_operation =  &quot;(&quot; bool_operation &quot;)&quot;                |
+                    &quot;!&quot;, bool_operation                 |
+                    bool_operation &quot;||&quot; bool_operation  |
+                    bool_operation &quot;&amp;&amp;&quot; bool_operation  |
+                    bool_operand
+
+bool_operand =  boolean_value  |
+                  cmp_operation
+
+cmp_operation = cmp_operand &quot;&gt;&quot; cmp_operand         |
+                  cmp_operand &quot;&lt;&quot; cmp_operand       |
+                  cmp_operand &quot;&gt;=&quot; cmp_operand      |
+                  cmp_operand &quot;&lt;=&quot; cmp_operand      |
+                  cmp_operand &quot;!=&quot; cmp_operand      |
+                  cmp_operand &quot;==&quot; cmp_operand      |
+                  cmp_operand &quot;!=&quot; boolean_value    |
+                  cmp_operand &quot;==&quot; boolean_value    |
+                  boolean_value &quot;!=&quot; cmp_operand    |
+                  boolean_value &quot;==&quot; cmp_operand    |
+                  boolean_value &quot;!=&quot; boolean_value  |
+                  boolean_value &quot;==&quot; boolean_value   
+
+cmp_operand = math_operation
+
+math_operation =  &quot;(&quot; math_operation &quot;)&quot;              |
+                    &quot;-&quot; math_operation                |
+                    math_operation &quot;/&quot; math_operation |
+                    math_operation &quot;*&quot; math_operation |
+                    math_operation &quot;-&quot; math_operation |
+                    math_operation &quot;+&quot; math_operation |
+                    math_operand
+
+math_operand =  datetime_value            |
+                date_value                |
+                string_value              |
+                float_value               |
+                integer_value             |
+                variable_value            |
+                arithmetic_datetime_value 
+
+boolean_value = /true|false/
+
+datetime_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})(\#)([01][0-9]|2[0-3])(\:)([0-5][0-9])(\:)([0-5][0-9])/
+
+date_value = /(([012][0-9]|3[01])(\/\/)(0[13578]|1[02])|([012][0-9]|30)(\/\/)(0[469]|11)|([012][0-9])(\/\/)(02))(\/\/)([0-9]{4})/
+
+arithmetic_datetime_value = /([1-9][0-9]*|0)\.(second(s)?|minute(s)?|hour(s)?|day(s)?|month(s)?|year(s)?)/
+
+string_value = /\&quot;[a-zA-Z0-9 ]*\&quot;/
+
+function: /[a-zA-Z][a-zA-Z0-9_]*/
+
+context_variable: /[a-zA-Z][a-zA-Z0-9_]*[.][a-zA-Z][a-zA-Z0-9_]*|[a-zA-Z][a-zA-Z0-9_]*/
+
+variable_value =  context_variable  |
+                    function
+
+float_value = /([1-9][0-9]*|0)?\.[0-9]+/
+
+integer_value = /[1-9][0-9]*|0/
 </code></pre>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Sep  2 16:09:10 2013 by
+  Generated on Wed Oct 30 13:07:17 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.1 (ruby-1.9.3).
+  0.8.7.2 (ruby-1.9.3).
 </div>
 
   </body>

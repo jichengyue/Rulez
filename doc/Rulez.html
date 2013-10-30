@@ -6,7 +6,7 @@
 <title>
   Module: Rulez
   
-    &mdash; Documentation by YARD 0.8.6.1
+    &mdash; Documentation by YARD 0.8.7.2
   
 </title>
 
@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/rulez/engine.rb<span class="defines">,<br />
-  lib/rulez.rb,<br /> lib/rulez/version.rb,<br /> app/models/rulez/rule.rb,<br /> app/models/rulez/context.rb,<br /> app/models/rulez/variable.rb,<br /> app/models/rulez/alternative.rb,<br /> app/helpers/rulez/rules_helper.rb,<br /> app/helpers/rulez/contexts_helper.rb,<br /> app/helpers/rulez/variables_helper.rb,<br /> app/helpers/rulez/application_helper.rb,<br /> app/helpers/rulez/alternatives_helper.rb,<br /> app/controllers/rulez/rules_controller.rb,<br /> app/controllers/rulez/static_controller.rb,<br /> app/controllers/rulez/contexts_controller.rb,<br /> app/controllers/rulez/variables_controller.rb,<br /> app/controllers/rulez/application_controller.rb,<br /> app/controllers/rulez/alternatives_controller.rb</span>
+  lib/rulez.rb,<br /> lib/rulez/version.rb,<br /> lib/rulez/exceptions.rb,<br /> app/models/rulez/rule.rb,<br /> app/models/rulez/context.rb,<br /> app/models/rulez/variable.rb,<br /> app/models/rulez/alternative.rb,<br /> lib/tasks/templates/rulez_spec.rb,<br /> app/helpers/rulez/rules_helper.rb,<br /> app/helpers/rulez/contexts_helper.rb,<br /> app/helpers/rulez/variables_helper.rb,<br /> app/helpers/rulez/application_helper.rb,<br /> app/helpers/rulez/alternatives_helper.rb,<br /> app/controllers/rulez/rules_controller.rb,<br /> app/controllers/rulez/static_controller.rb,<br /> app/controllers/rulez/contexts_controller.rb,<br /> app/controllers/rulez/variables_controller.rb,<br /> app/controllers/rulez/application_controller.rb,<br /> app/controllers/rulez/alternatives_controller.rb</span>
 </dd>
   
 </dl>
@@ -116,7 +116,7 @@ updated_at  :datetime         not null</code></pre>
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Rulez/Alternative.html" title="Rulez::Alternative (class)">Alternative</a></span>, <span class='object_link'><a href="Rulez/AlternativesController.html" title="Rulez::AlternativesController (class)">AlternativesController</a></span>, <span class='object_link'><a href="Rulez/ApplicationController.html" title="Rulez::ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="Rulez/Context.html" title="Rulez::Context (class)">Context</a></span>, <span class='object_link'><a href="Rulez/ContextsController.html" title="Rulez::ContextsController (class)">ContextsController</a></span>, <span class='object_link'><a href="Rulez/Engine.html" title="Rulez::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Rulez/Parser.html" title="Rulez::Parser (class)">Parser</a></span>, <span class='object_link'><a href="Rulez/Rule.html" title="Rulez::Rule (class)">Rule</a></span>, <span class='object_link'><a href="Rulez/RulesController.html" title="Rulez::RulesController (class)">RulesController</a></span>, <span class='object_link'><a href="Rulez/StaticController.html" title="Rulez::StaticController (class)">StaticController</a></span>, <span class='object_link'><a href="Rulez/Variable.html" title="Rulez::Variable (class)">Variable</a></span>, <span class='object_link'><a href="Rulez/VariablesController.html" title="Rulez::VariablesController (class)">VariablesController</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Rulez/Alternative.html" title="Rulez::Alternative (class)">Alternative</a></span>, <span class='object_link'><a href="Rulez/AlternativesController.html" title="Rulez::AlternativesController (class)">AlternativesController</a></span>, <span class='object_link'><a href="Rulez/ApplicationController.html" title="Rulez::ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="Rulez/Context.html" title="Rulez::Context (class)">Context</a></span>, <span class='object_link'><a href="Rulez/ContextsController.html" title="Rulez::ContextsController (class)">ContextsController</a></span>, <span class='object_link'><a href="Rulez/Engine.html" title="Rulez::Engine (class)">Engine</a></span>, <span class='object_link'><a href="Rulez/Error.html" title="Rulez::Error (class)">Error</a></span>, <span class='object_link'><a href="Rulez/FunctionMissingError.html" title="Rulez::FunctionMissingError (class)">FunctionMissingError</a></span>, <span class='object_link'><a href="Rulez/Parser.html" title="Rulez::Parser (class)">Parser</a></span>, <span class='object_link'><a href="Rulez/Rule.html" title="Rulez::Rule (class)">Rule</a></span>, <span class='object_link'><a href="Rulez/RuleMissingError.html" title="Rulez::RuleMissingError (class)">RuleMissingError</a></span>, <span class='object_link'><a href="Rulez/RulesController.html" title="Rulez::RulesController (class)">RulesController</a></span>, <span class='object_link'><a href="Rulez/StaticController.html" title="Rulez::StaticController (class)">StaticController</a></span>, <span class='object_link'><a href="Rulez/TargetMissingError.html" title="Rulez::TargetMissingError (class)">TargetMissingError</a></span>, <span class='object_link'><a href="Rulez/Variable.html" title="Rulez::Variable (class)">Variable</a></span>, <span class='object_link'><a href="Rulez/VariableMissingError.html" title="Rulez::VariableMissingError (class)">VariableMissingError</a></span>, <span class='object_link'><a href="Rulez/VariablesController.html" title="Rulez::VariablesController (class)">VariablesController</a></span>, <span class='object_link'><a href="Rulez/WrongParametersError.html" title="Rulez::WrongParametersError (class)">WrongParametersError</a></span>
     
   
 </p>
@@ -128,7 +128,7 @@ updated_at  :datetime         not null</code></pre>
         <dt id="VERSION-constant" class="">VERSION =
           
         </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>0.0.2</span><span class='tstring_end'>&quot;</span></span></pre></dd>
       
         <dt id="methods_class-classvariable" class="">@@methods_class =
           
@@ -208,7 +208,7 @@ updated_at  :datetime         not null</code></pre>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_models-class_method" title="get_models (class method)">+ (Object) <strong>get_models</strong> </a>
+      <a href="#get_models-class_method" title="get_models (class method)">+ (Array) <strong>get_models</strong> </a>
     
 
     
@@ -222,7 +222,9 @@ updated_at  :datetime         not null</code></pre>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Get the models of the application.</p>
+</div></span>
   
 </li>
 
@@ -378,23 +380,6 @@ requested variables.</p>
       <pre class="lines">
 
 
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
 165
 166
 167
@@ -438,10 +423,27 @@ requested variables.</p>
 205
 206
 207
-208</pre>
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_doctor'>doctor</span>
   <span class='id identifier rubyid_errors'>errors</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -570,7 +572,7 @@ requested variables.</p>
     <span class='cvar'>@@methods_class</span>
   <span class='kw'>else</span>
     <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Methods class get: class is not present!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, methods class is not present.</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>FunctionMissingError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, methods class is not present.</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -581,36 +583,65 @@ requested variables.</p>
       <div class="method_details ">
   <h3 class="signature " id="get_models-class_method">
   
-    + (<tt>Object</tt>) <strong>get_models</strong> 
+    + (<tt>Array</tt>) <strong>get_models</strong> 
   
 
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the models of the application.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the array of models</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-58
-59
-60
-61
 62
 63
 64
-65</pre>
+65
+66
+67
+68
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_models'>get_models</span>
   <span class='kw'>if</span> <span class='cvar'>@@models</span>
     <span class='cvar'>@@models</span>
   <span class='kw'>else</span>
     <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Models get: models not initialized!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, models not initialized</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Init error, models not initialized</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -700,23 +731,6 @@ requested variables.</p>
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
 109
 110
 111
@@ -750,17 +764,34 @@ requested variables.</p>
 139
 140
 141
-142</pre>
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rulez?'>rulez?</span><span class='lparen'>(</span><span class='id identifier rubyid_rule'>rule</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_rule'>rule</span> <span class='op'>=</span> <span class='const'>Rule</span><span class='period'>.</span><span class='id identifier rubyid_find_by_name'>find_by_name</span><span class='lparen'>(</span><span class='id identifier rubyid_rule'>rule</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_rule'>rule</span>
     <span class='kw'>if</span> <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
       <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Evaluating </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rule'>rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>: Target object not found. Did you forget to set the target?</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Target object not found. Did you forget to set the target?</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>TargetMissingError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Target object not found. Did you forget to set the target?</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>end</span>
 
     <span class='comment'>#set context variables
@@ -778,7 +809,7 @@ requested variables.</p>
 </span>    <span class='id identifier rubyid_mandatory_parameters_check'>mandatory_parameters_check</span> <span class='op'>=</span> <span class='id identifier rubyid_requested_parameters'>requested_parameters</span> <span class='op'>-</span> <span class='id identifier rubyid_configured_parameters'>configured_parameters</span>
     <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_mandatory_parameters_check'>mandatory_parameters_check</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
       <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Evaluating </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rule'>rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'>: mandatory parameters not set: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mandatory_parameters_check'>mandatory_parameters_check</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mandatory parameters not set: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mandatory_parameters_check'>mandatory_parameters_check</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>WrongParametersError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Mandatory parameters not set: </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_mandatory_parameters_check'>mandatory_parameters_check</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>, </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_extra_parameters_check'>extra_parameters_check</span> <span class='op'>=</span> <span class='id identifier rubyid_configured_parameters'>configured_parameters</span> <span class='op'>-</span> <span class='id identifier rubyid_requested_parameters'>requested_parameters</span>
@@ -803,7 +834,7 @@ requested variables.</p>
     <span class='id identifier rubyid_value'>value</span>
   <span class='kw'>else</span>
     <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Can't find rule </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rule'>rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> to evaluate!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>No such rule!</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>RuleMissingError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Can't find rule </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rule'>rule</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span><span class='tstring_content'> to evaluate!</span><span class='tstring_end'>&quot;</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -891,11 +922,11 @@ wanted to be referenceable and evaluable from the rules.</p>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_methods_class'>set_methods_class</span><span class='lparen'>(</span><span class='id identifier rubyid_c'>c</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>Class</span>
-    <span class='cvar'>@@methods_class</span> <span class='op'>=</span> <span class='id identifier rubyid_c'>c</span>
-    <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_debug_log'>debug_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Methods class set: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_c'>c</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='comment'># Engine::debug_log(&quot;Methods class set: #{c}&quot;)
+</span>    <span class='cvar'>@@methods_class</span> <span class='op'>=</span> <span class='id identifier rubyid_c'>c</span>
   <span class='kw'>else</span>
-    <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Methods class set: parameter is not a class!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Parameter should be a class</span><span class='tstring_end'>'</span></span>
+    <span class='comment'># Engine::fatal_log(&quot;Methods class set: parameter is not a class!&quot;)
+</span>    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>WrongParametersError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Parameter should be a class</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -935,7 +966,7 @@ wanted to be referenceable and evaluable from the rules.</p>
       
         &mdash;
         <div class='inline'>
-<p>the array of model names</p>
+<p>the array of models</p>
 </div>
       
     </li>
@@ -954,7 +985,7 @@ wanted to be referenceable and evaluable from the rules.</p>
       
         &mdash;
         <div class='inline'>
-<p>the array of model names</p>
+<p>the array of models</p>
 </div>
       
     </li>
@@ -990,13 +1021,13 @@ wanted to be referenceable and evaluable from the rules.</p>
     <span class='id identifier rubyid_models'>models</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
       <span class='kw'>if</span> <span class='op'>!</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='rparen'>)</span>
         <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Models set: one member is not a model!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Found a member of the array that is not a model</span><span class='tstring_end'>'</span></span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>Error</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Found a member of the array that is not a model</span><span class='tstring_end'>'</span></span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
     <span class='cvar'>@@models</span> <span class='op'>=</span> <span class='id identifier rubyid_models'>models</span>
   <span class='kw'>else</span>
     <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_fatal_log'>fatal_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Models set: parameter is not an array!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Parameter should be an Array</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>Rulez</span><span class='op'>::</span><span class='const'>WrongParametersError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Parameter should be an Array</span><span class='tstring_end'>'</span></span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1051,17 +1082,17 @@ requested variables.</p>
       <pre class="lines">
 
 
-215
-216
-217
-218</pre>
+232
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/rulez/engine.rb', line 232</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_set_rulez_target'>set_rulez_target</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
-  <span class='ivar'>@target</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span>
   <span class='const'>Engine</span><span class='op'>::</span><span class='id identifier rubyid_debug_log'>debug_log</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Target set: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_obj'>obj</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@target</span> <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1073,9 +1104,9 @@ requested variables.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Sep  2 16:09:10 2013 by
+  Generated on Wed Oct 30 13:07:17 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.6.1 (ruby-1.9.3).
+  0.8.7.2 (ruby-1.9.3).
 </div>
 
   </body>

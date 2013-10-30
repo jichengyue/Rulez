@@ -52,5 +52,11 @@ namespace :rulez do
 
       puts "Done"
     end
+
+    desc "Prepare the DB with initial rulez data"
+    task :seed => :environment do
+      puts "Loading Rulez Engine seeds..."
+      Rulez::Engine.load_seed
+    end
   end
 end

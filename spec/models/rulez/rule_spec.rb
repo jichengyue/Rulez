@@ -7,8 +7,8 @@
 #  description :text
 #  rule        :text
 #  parameters  :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  created_at  :datetime
+#  updated_at  :datetime
 #  context_id  :integer
 #
 

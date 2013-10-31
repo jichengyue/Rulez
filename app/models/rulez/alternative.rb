@@ -8,8 +8,8 @@
 #  alternative :text
 #  rule_id     :integer
 #  priority    :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 module Rulez

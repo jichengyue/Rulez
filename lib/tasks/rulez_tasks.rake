@@ -42,7 +42,7 @@ namespace :rulez do
       print "Installing Log Environment... "
       
       # import in spec_helper stuffs to make rulez tests work properly
-      unless(File.directory?("#{Rails.root}/log"))        
+      unless(File.directory?("#{Rails.root}/log"))
         FileUtils.mkdir("log")
       end
 

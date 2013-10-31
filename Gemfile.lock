@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rulez (0.0.2)
+    rulez (0.0.3)
       jquery-ui-rails (~> 4.0)
       rails (~> 3.2.13)
       whittle (~> 0.0.8)

@@ -37,9 +37,10 @@ module Rulez
   
     describe "GET index" do
       it "assigns all contexts as @contexts" do
-        context = Context.create! valid_attributes
+        Context.create! valid_attributes
+        contexts = Context.all
         get :index, {}, valid_session
-        assigns(:contexts).should eq([context])
+        assigns(:contexts).should eq(contexts)
       end
     end
   
@@ -205,6 +206,58 @@ module Rulez
         assigns(:functions).should match_array(methods)
       end
     end
-  
+
+    describe "redirects to AccessDenied when not authenticated" do
+      before(:all) do
+        auth_rule = Rule.find_by_name("admin_rulez")
+        auth_rule.rule = "false"
+        auth_rule.save!
+      end
+
+      after(:all) do
+        auth_rule = Rule.find_by_name("admin_rulez")
+        auth_rule.rule = "true"
+        auth_rule.save!
+      end
+
+      it "GET index" do
+        get :index, {}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET new" do
+        get :new, {}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET edit" do
+        context = Context.create! valid_attributes
+        get :edit, {:id => context.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "POST create" do
+        post :create, {:context => valid_attributes}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "PUT update" do
+        context = Context.create! valid_attributes
+        get :edit, {:id => context.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "DELETE destroy" do
+        context = Context.create! valid_attributes
+        delete :destroy, {:id => context.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET variables" do
+        context = Context.create! valid_attributes
+        get :variables, {:id => context.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+    end
   end
 end

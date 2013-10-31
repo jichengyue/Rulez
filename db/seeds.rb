@@ -25,8 +25,8 @@ if success
   puts "Succesfully prepared DB for the first use!"
 else
   if changes
-    puts "The DB was partially prepared. Read the lines above for more info."
+    puts "The DB was partially prepared."
   else
-    puts "The DB was not prepared. No changes were made. Read the lines above for more info."
+    puts "The DB was not prepared. No changes were made."
   end
 end

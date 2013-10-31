@@ -162,6 +162,52 @@ module Rulez
         response.should redirect_to(variables_url)
       end
     end
-  
+    
+    describe "redirects to AccessDenied when not authenticated" do
+      before(:all) do
+        auth_rule = Rule.find_by_name("admin_rulez")
+        auth_rule.rule = "false"
+        auth_rule.save!
+      end
+
+      after(:all) do
+        auth_rule = Rule.find_by_name("admin_rulez")
+        auth_rule.rule = "true"
+        auth_rule.save!
+      end
+
+      it "GET index" do
+        get :index, {}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET new" do
+        get :new, {}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET edit" do
+        variable = Variable.create! valid_attributes
+        get :edit, {:id => variable.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "POST create" do
+        post :create, {:variable => valid_attributes}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "PUT update" do
+        variable = Variable.create! valid_attributes
+        get :edit, {:id => variable.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "DELETE destroy" do
+        variable = Variable.create! valid_attributes
+        delete :destroy, {:id => variable.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+    end
   end
 end

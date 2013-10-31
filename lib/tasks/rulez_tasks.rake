@@ -42,7 +42,7 @@ namespace :rulez do
       print "Installing Log Environment... "
       
       # import in spec_helper stuffs to make rulez tests work properly
-      unless(File.directory?("#{Rails.root}/log"))        
+      unless(File.directory?("#{Rails.root}/log"))
         FileUtils.mkdir("log")
       end
 
@@ -51,6 +51,12 @@ namespace :rulez do
       end
 
       puts "Done"
+    end
+
+    desc "Prepare the DB with initial rulez data"
+    task :seed => :environment do
+      puts "Loading Rulez Engine seeds..."
+      Rulez::Engine.load_seed
     end
   end
 end

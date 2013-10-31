@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: rulez_contexts
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'spec_helper'
 
 module Rulez
@@ -79,9 +90,9 @@ module Rulez
       end
 
       it "destroys an existent Context" do
-        n = Context.all.length
+        n = Context.all.to_a.length
         @context.destroy
-        Context.all.length.should be_equal(n-1)
+        Context.all.to_a.length.should be_equal(n-1)
       end
 
       it "destroys only the context and not the Variables associated" do
@@ -91,12 +102,12 @@ module Rulez
         v1.save
         v2.save
         v3.save
-        n_vars = Variable.all.length
+        n_vars = Variable.all.to_a.length
         @context.variables.push(v1)
         @context.variables.push(v3)
         @context.save
         @context.delete
-        Variable.all.length.should be_equal(n_vars)
+        Variable.all.to_a.length.should be_equal(n_vars)
       end
     end
 

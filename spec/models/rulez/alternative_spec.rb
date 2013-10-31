@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: rulez_alternatives
+#
+#  id          :integer          not null, primary key
+#  description :string(255)
+#  condition   :text
+#  alternative :text
+#  rule_id     :integer
+#  priority    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'spec_helper'
 
 module Rulez

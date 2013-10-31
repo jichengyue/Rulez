@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :users
 
 
@@ -7,6 +6,6 @@ Rails.application.routes.draw do
 
 
   root to: "static#index"
-
-  mount Rulez::Engine, at: "/rulez"
+  
+  mount Rulez::Engine => "/rulez"
 end

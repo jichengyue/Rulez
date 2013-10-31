@@ -107,6 +107,7 @@ module Rulez
   # 
   # @return [Boolean] the result of the rule evaluated
   def self.rulez?(rule, params = {})
+    rulename = rule
     rule = Rule.find_by_name(rule)
     if rule
       if @target.nil?
@@ -153,8 +154,8 @@ module Rulez
       Engine::info_log("Evaluated #{rule.name}: #{value}")
       value
     else
-      Engine::fatal_log("Can't find rule #{rule.name} to evaluate!")
-      raise Rulez::RuleMissingError, "Can't find rule #{rule.name} to evaluate!"
+      Engine::fatal_log("Can't find rule #{rulename} to evaluate!")
+      raise Rulez::RuleMissingError, "Can't find rule #{rulename} to evaluate!"
     end
   end
 
@@ -165,9 +166,9 @@ module Rulez
   def self.doctor
     errors = []
 
-    rules = Rule.all
-    variables = Rulez::Variable.all
-    alternatives = Rulez::Alternative.all
+    rules = Rule.all.to_a
+    variables = Rulez::Variable.all.to_a
+    alternatives = Rulez::Alternative.all.to_a
     
     existing_models = @@models.map { |m| m.name }
 

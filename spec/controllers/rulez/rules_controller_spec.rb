@@ -43,9 +43,10 @@ module Rulez
 
     describe "GET index" do
       it "assigns all rules as @rules" do
-        rule = Rule.create! valid_attributes
+        Rule.create! valid_attributes
+        rules = Rule.all.to_a
         get :index, {}, valid_session
-        assigns(:rules).should eq([rule])
+        assigns(:rules).should eq(rules)
       end
     end
 
@@ -243,5 +244,51 @@ module Rulez
       end
     end
 
+    describe "redirects to AccessDenied when not authenticated" do
+      before(:all) do
+        auth_rule = Rule.find_by_name("admin_rulez")
+        auth_rule.rule = "false"
+        auth_rule.save!
+      end
+
+      after(:all) do
+        auth_rule = Rule.find_by_name("admin_rulez")
+        auth_rule.rule = "true"
+        auth_rule.save!
+      end
+
+      it "GET index" do
+        get :index, {}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET new" do
+        get :new, {}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "GET edit" do
+        rule = Rule.create! valid_attributes
+        get :edit, {:id => rule.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "POST create" do
+        post :create, {:rule => valid_attributes}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "PUT update" do
+        rule = Rule.create! valid_attributes
+        get :edit, {:id => rule.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+
+      it "DELETE destroy" do
+        rule = Rule.create! valid_attributes
+        delete :destroy, {:id => rule.to_param}, valid_session
+        response.should redirect_to("/rulez/accessdenied")
+      end
+    end
   end
 end

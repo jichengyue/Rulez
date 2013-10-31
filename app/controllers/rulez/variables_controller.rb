@@ -5,7 +5,7 @@ module Rulez
     
     # GET /variables
     def index
-      @variables = Variable.all
+      @variables = Variable.all.to_a
     end
 
     # GET /variables/1

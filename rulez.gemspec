@@ -13,16 +13,16 @@ Gem::Specification.new do |s|
   s.summary     = "Rulez is a Rails gem that makes rules logic awesome."
   s.description = "Rulez is a Rails gem that makes rules logic awesome."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.13"
+  s.add_dependency "rails", "~> 4.0.0"
+
   s.add_dependency "whittle", "~> 0.0.8"
   s.add_dependency "jquery-ui-rails", "~> 4.0"
 
-  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'rspec-rails', "~> 2.14.0"
   s.add_development_dependency "mysql2"
   s.add_development_dependency "yard", "~> 0.8"
   s.add_development_dependency "yard-rails", "~> 0.3"
-  s.add_development_dependency "redcarpet"
 end

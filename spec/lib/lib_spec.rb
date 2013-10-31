@@ -293,7 +293,7 @@ module Rulez
           end
 
           after(:each) do
-            Rulez::Variable.find(:all).each do |v|
+            Rulez::Variable.all.to_a.each do |v|
               v.destroy
             end
           end
@@ -359,13 +359,13 @@ module Rulez
           end
 
           after(:each) do
-            Rulez::Variable.find(:all).each do |v|
+            Rulez::Variable.all.to_a.each do |v|
               v.destroy
             end
-            Rulez::Context.find(:all).each do |c|
+            Rulez::Context.all.to_a.each do |c|
               c.destroy
             end
-            Rulez::Rule.find(:all).each do |r|
+            Rulez::Rule.all.to_a.each do |r|
               r.destroy
             end
           end
@@ -439,13 +439,13 @@ module Rulez
           end
 
           after(:each) do
-            Rulez::Variable.find(:all).each do |v|
+            Rulez::Variable.all.to_a.each do |v|
               v.destroy
             end
-            Rulez::Context.find(:all).each do |c|
+            Rulez::Context.all.to_a.each do |c|
               c.destroy
             end
-            Rulez::Rule.find(:all).each do |r|
+            Rulez::Rule.all.to_a.each do |r|
               r.destroy
             end
           end

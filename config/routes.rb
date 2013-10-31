@@ -13,4 +13,5 @@ Rulez::Engine.routes.draw do
   get 'doctor', to: 'static#doctor'
   get 'displaylog', to: 'static#displaylog'
   get 'clearlogfile', to: 'static#clearlogfile'
+  get 'accessdenied', to: 'static#accessdenied'
 end

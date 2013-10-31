@@ -9,7 +9,7 @@ module Rulez
 
     # GET /contexts
     def index
-      @contexts = Context.all
+      @contexts = Context.all.to_a
     end
 
     # GET /contexts/1
@@ -23,7 +23,7 @@ module Rulez
     # 
     def variables
       set_context
-      @variables = @context.variables
+      @variables = @context.variables.to_a
       @functions = Rulez::get_methods_class.methods(false).map { |e| e.to_s }
       render layout: false
     end

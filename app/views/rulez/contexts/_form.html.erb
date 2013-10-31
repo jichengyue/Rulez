@@ -23,7 +23,7 @@
     </div>
     <div class='form-group'>
       <%= f.label :variables %>
-      <%= f.select :variable_ids, Rulez::Variable.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, class: 'form-control' %>
+      <%= f.select :variable_ids, Rulez::Variable.all.to_a.collect {|x| [x.name, x.id]}, {}, :multiple => true, class: 'form-control' %>
     </div>
     <div class='form-group'>
       <%= f.submit class: 'btn btn-primary' %>

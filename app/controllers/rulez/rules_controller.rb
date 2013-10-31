@@ -9,7 +9,7 @@ module Rulez
 
     # GET /rules
     def index
-      @rules = Rule.all
+      @rules = Rule.all.to_a
     end
 
     # GET /rules/1
@@ -127,7 +127,7 @@ module Rulez
       # 
       # @return [Array] An array containing all the contexts
       def set_contexts
-        @contexts ||= Context.all
+        @contexts ||= Context.all.to_a
       end
   end
 end

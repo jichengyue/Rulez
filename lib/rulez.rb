@@ -42,13 +42,17 @@ module Rulez
   # @return [Array] the array of models
   def self.set_models(models)
     if models.class == Array
+      @@models = []
       models.each do |m|
         if !(m < ActiveRecord::Base)
           Engine::fatal_log("Models set: one member is not a model!")
           raise Rulez::Error, 'Found a member of the array that is not a model'
         end
+        if(m.name != "ActiveRecord::SchemaMigration")
+          @@models.push(m)  
+        end
       end
-      @@models = models
+      
     else
       Engine::fatal_log("Models set: parameter is not an array!")
       raise Rulez::WrongParametersError, 'Parameter should be an Array'

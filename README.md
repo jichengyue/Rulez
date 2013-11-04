@@ -10,7 +10,8 @@ It also provides a web editor for the rules, that are stored in DB and can thus 
 
 Gemfile:
 ```ruby
-gem 'rulez'
+gem "rulez"
+gem "jquery-ui"
 ```
 
 routes.rb:
@@ -89,17 +90,13 @@ You can choose to use the full install option or to install each component apart
 ### 3. Configure your first rule!
 
 1. Launch the server, open the browser and go to `[your site]/rulez`
-2. Create a Context with:
-  * name: default
-  * description: This is the default context, it can be used in the whole application, and describes generic rules that can be applied everywhere.
-  * variables: leave this field blank.
-3. Create a new Rule with:
+2. Create a new Rule with:
   * name: hello_world
   * description: This rule describes if the application will say "Hello world!".
   * parameters: leave this field blank.
   * context: default
   * rule: `true`
-4. In any view write:
+3. In any view write:
   
   ```ruby
   <%= if Rulez::rulez? "hello_world" %>
@@ -108,8 +105,8 @@ You can choose to use the full install option or to install each component apart
     <h1>Good bye!</h1>
   <%= end %>
   ```
-5. Go with the browser to the view and see the message
-6. Modify the rule at `rulez/rules` with something more complex, and see what happens visiting the view
+4. Go with the browser to the view and see the message
+5. Modify the rule at `rulez/rules` with something more complex, and see what happens visiting the view
 
 Consider that for evaluating a rule with parameters you have to set their values:
   

@@ -1,8 +1,10 @@
 # Rulez
 
-Rulez is a business rule engine that allows to easily create logical conditions and evaluate them in the code.
+Rulez is a business rule engine that allows easy creation of logical conditions to be evaluated in code.
 
-It also provides a web editor for the rules, that are stored in DB and can thus be modified at run-time.
+It also provides a web editor for writing rules, that are stored in DB and can be modified at run-time.
+
+Rules are written in a friendly ruby-like syntax.
 
 ## Getting started
 
@@ -35,7 +37,7 @@ Run from terminal:
 bundle install
 ```
 
-You can choose to use the full install option or to install each component apart.
+You can use the "full install" option or you can install each component one by one.
 
 * Full install
   
@@ -54,7 +56,7 @@ You can choose to use the full install option or to install each component apart
     rake rulez:install:migrations
     rake db:migrate
     ```
-    This installs the migrations and creates the tables required to make the engine working.
+    This installs the migrations and creates the tables the engine requires.
 
   * Seeds:
     ```
@@ -108,7 +110,7 @@ You can choose to use the full install option or to install each component apart
 4. Go with the browser to the view and see the message
 5. Modify the rule at `rulez/rules` with something more complex, and see what happens visiting the view
 
-Consider that for evaluating a rule with parameters you have to set their values:
+Consider that to evaluate a rule with parameters you have to set their values:
   
   ```ruby
   if rulez? 'rulename', {param1: value1, param2: value2, param3: value3}
@@ -122,23 +124,23 @@ The engine provides a visual web-based editor for the rules.
 ### Rules
 They are the business rules.
 When creating, it's prompted to enter:
-  * An identifier **name** for the rule. It must be unique. It's important to choose carefully the name: once the rule is evaluated by code, renaming the rule may result in strings of code that reference to a non-existing rule.
-  * An exhaustive **description** about the meaning of the rule and about when it should be applied.
-  * Some **parameters** (like the parameters of a function). If any, they must be declared writing down their names separated by comma.
-  * The **context** in which the rule will be applied. (see the **Contexts** section)
-  * The default **rule**. It's an expression, that must return a boolean value. (For further instructions, see the **Boolean expression syntax** section)
+  * An identifier **name** for the rule. It must be unique. It's important to choose carefully the name, bacause as explained before rules are evaluated in code by name: renaming the rule may result in portions of code referencing a non-existing rule and generating exceptions.
+  * An exhaustive **description** about the meaning of the rule and when it should be applied.
+  * Some **parameters** (like the parameters of a function). If any, they must be declared by writing their names separated by comma.
+  * The **context** in which the rule will be applied. (see **Contexts** section)
+  * The default **rule**. It's an expression, that must return a boolean value. (For further instructions, see **Boolean expression syntax** section)
 
 ### Contexts
 Contexts are the core of the engine. They abstractly define some areas of code in which the presence of some variables is guaranteed by the developers.
 
-Each rule is always defined in a given context. The context *obliges* those who create the rule to use only the variables authorized (and guaranteed) from it.
+Each rule is always defined in a given context. The context *forces* those who create the rule to use only the variables authorized (and guaranteed) from it.
 
 Before creating any rule, it's mandatory to define at least one context.
 
 When creating a context, it's prompted to enter:
 * An identifier **name**. It must be unique.
-* An exhaustive (and also long) **description**. It must explain what's this context, where it is defined and when it's used in the application.
-* A set of **variables** (selected from a list of existent variables. See the **Variables** section). Select a variable means *ensuring* that it will be ever available when evaluating a rule belonging to this context.
+* An exhaustive (and we suggest long) **description**. It must explain what's the meaning of this context, where it is defined and when it's used in the application.
+* A set of **variables** (selected from a list of existent variables. See the **Variables** section). Selecting a variable means *ensuring* that it will be ever available when evaluating a rule belonging to this context.
 
 ### Variables
 A variable is, simply, a variable usable by a rule.
@@ -167,7 +169,7 @@ Higher priorities are on the top of the list.
 
 ## Code-side Features
 ### Applying a rule
-* For evaluating a rule (without parameters), just call the function `rulez?` with a string containing the name of the rule.
+* To evaluate a rule (without parameters), just call the function `rulez?` with a string containing the name of the rule.
   
   E.g.: An administrator defines a rule, named `create_new_users`, that describes the possibility to create new users.
   If you want to evaluate it in the code, you just have to write:
@@ -178,7 +180,7 @@ Higher priorities are on the top of the list.
   ```
   This will executes `inner_code` only if the rule succeeds.
 
-* For evaluating a rule with parameters, you can pass them to the rule in a hash:
+* To evaluate a rule with parameters, you can pass them to the rule in a hash:
   
   E.g.: An administrator defines a rule, named `use_advanced_tool_X`, that describes the possibility to use the advanced tool "X".
   Since the rule has a different behaviour if the user is a premium user, the rule is defined with a boolean parameter `premium`.
@@ -230,7 +232,7 @@ Expression:
 For more information on how to write correctly Rules and Alternatives take a look at their sections and also at Grammar definition section.
 
 ### Doctor
-The Doctor is an amazing tool that is able to understand if information of all Rulez Engine is still coherent after every single modification to Rules, Contexts or Variables. To verify if all is setted correctly go to Rulez Dashboard and press Run Doctor button in Doctor panel. In case of errors, specific instructions will be given in order to easily fix all problems.
+The Doctor is an amazing tool that is able to understand if informations stored in Rulez Engine are still coherent after every single modification to Rules, Contexts or Variables. To verify if everything is good go to Rulez Dashboard and press the "Run Doctor" button in Doctor panel. In case of errors, specific instructions will be given in order to easily fix all problems.
 
 ### Logger
 Rulez comes with a built-in logger to keep track of actions.
@@ -262,7 +264,7 @@ The Grammar skips all spaces, tabs and black characters of any kind, so it is po
 * functions are identifier
 * context_variables are identifier.identifier
 
-The Grammar handles correctly operator precedence (even with brackets) and semantic value of all elements of operations. For more detailed information watch at the definition below:
+The Grammar handles correctly operator precedence (brackets too) and semantic value of all elements of every  operation. For more detailed information take a look at its definition below:
 
 ```code
 ROOT = bool_operation

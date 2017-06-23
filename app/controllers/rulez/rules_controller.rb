@@ -31,10 +31,9 @@ module Rulez
 
     # POST /rules
     def create
-      logger.debug "======#{req_param}======"
-      logger.debug "======#{req_param[:rule]}======"  
+      logger.debug "======#{req_param.to_json}======"
       set_contexts
-      @rule = Rule.new(req_param[:rule])
+      @rule = Rule.new(req_param)
       if @rule.save
         errors = Rulez::doctor
         err_msg = nil
@@ -50,11 +49,10 @@ module Rulez
 
     # PATCH/PUT /rules/1
     def update
-      logger.debug "======#{req_param}======"
-      logger.debug "======#{req_param[:rule]}======"
+      logger.debug "======#{req_param.to_json}======"
       set_rule
       set_contexts
-      if @rule.update_attributes(req_param[:rule])
+      if @rule.update_attributes(req_param)
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?

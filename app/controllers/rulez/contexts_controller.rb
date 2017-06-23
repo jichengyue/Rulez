@@ -40,7 +40,7 @@ module Rulez
 
     # POST /contexts
     def create
-      @context = Context.new(req_param[:context])
+      @context = Context.new(req_param)
 
       if @context.save
         errors = Rulez::doctor
@@ -57,7 +57,7 @@ module Rulez
     # PATCH/PUT /contexts/1
     def update
       set_context
-      if @context.update_attributes(req_param[:context])
+      if @context.update_attributes(req_param)
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?

@@ -27,7 +27,7 @@ module Rulez
 
     # POST /variables
     def create
-      @variable = Variable.new(req_param[:variable])
+      @variable = Variable.new(req_param)
       set_models
       if @variable.save
         errors = Rulez::doctor
@@ -45,7 +45,7 @@ module Rulez
     def update
       set_variable
       set_models
-      if @variable.update_attributes(req_param[:variable])
+      if @variable.update_attributes(req_param)
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?

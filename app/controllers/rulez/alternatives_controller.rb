@@ -23,7 +23,7 @@ module Rulez
         i += 1
       end
 
-      @alternative = @rule.alternatives.new(req_param[:alternative])
+      @alternative = @rule.alternatives.new(req_param)
       @alternative.priority = i
 
       if @alternative.save
@@ -41,7 +41,7 @@ module Rulez
     # PATCH/PUT /alternatives/1
     def update
       set_alternative
-      if @alternative.update_attributes(req_param[:alternative])
+      if @alternative.update_attributes(req_param)
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?

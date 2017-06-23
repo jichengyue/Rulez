@@ -31,10 +31,10 @@ module Rulez
 
     # POST /rules
     def create
-      @rule = Rule.new(req_param[:rule])
       logger.debug "======#{req_param}======"
       logger.debug "======#{req_param[:rule]}======"  
       set_contexts
+      @rule = Rule.new(req_param[:rule])
       if @rule.save
         errors = Rulez::doctor
         err_msg = nil
@@ -50,11 +50,11 @@ module Rulez
 
     # PATCH/PUT /rules/1
     def update
+      logger.debug "======#{req_param}======"
+      logger.debug "======#{req_param[:rule]}======"
       set_rule
       set_contexts
       if @rule.update_attributes(req_param[:rule])
-        logger.debug "======#{req_param}======"
-        logger.debug "======#{req_param[:rule]}======"  
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?

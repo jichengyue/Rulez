@@ -32,6 +32,8 @@ module Rulez
     # POST /rules
     def create
       @rule = Rule.new(req_param[:rule])
+      logger.debug "======#{req_param}======"
+      logger.debug "======#{req_param[:rule]}======"  
       set_contexts
       if @rule.save
         errors = Rulez::doctor
@@ -51,6 +53,8 @@ module Rulez
       set_rule
       set_contexts
       if @rule.update_attributes(req_param[:rule])
+        logger.debug "======#{req_param}======"
+        logger.debug "======#{req_param[:rule]}======"  
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?

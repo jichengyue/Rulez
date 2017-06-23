@@ -31,7 +31,7 @@ module Rulez
 
     # POST /rules
     def create
-      @rule = Rule.new(params[:rule])
+      @rule = Rule.new(req_param[:rule])
       set_contexts
       if @rule.save
         errors = Rulez::doctor
@@ -50,7 +50,7 @@ module Rulez
     def update
       set_rule
       set_contexts
-      if @rule.update_attributes(params[:rule])
+      if @rule.update_attributes(req_param[:rule])
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?
@@ -128,6 +128,10 @@ module Rulez
       # @return [Array] An array containing all the contexts
       def set_contexts
         @contexts ||= Context.all
+      end
+
+      def req_param
+        params.require(:rule).permit(:description, :name, :rule, :context_id, :parameters)
       end
   end
 end

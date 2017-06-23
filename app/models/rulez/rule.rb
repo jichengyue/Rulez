@@ -18,7 +18,7 @@ module Rulez
   # Defines a rule.
   # 
   class Rule < ActiveRecord::Base
-    attr_accessible :description, :name, :rule, :context_id, :parameters
+    # attr_accessible :description, :name, :rule, :context_id, :parameters
 
     #associations
     belongs_to :context

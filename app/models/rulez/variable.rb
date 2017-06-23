@@ -17,7 +17,7 @@ module Rulez
   # Defining variables allows to design rules that directly reference and evaluate application objects.
   # 
   class Variable < ActiveRecord::Base
-    attr_accessible :description, :name, :model
+    # attr_accessible :description, :name, :model
 
     #associations
     has_and_belongs_to_many :context, join_table: :rulez_contexts_variables

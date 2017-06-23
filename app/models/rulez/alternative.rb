@@ -19,7 +19,8 @@ module Rulez
   # When its condition is true, the alternative substitute the original rule.
   # 
   class Alternative < ActiveRecord::Base
-    attr_accessible :description, :condition, :alternative
+    #rails 5 strong parameters
+    # attr_accessible :description, :condition, :alternative
 
     belongs_to :rule
     has_one :context, through: :rule

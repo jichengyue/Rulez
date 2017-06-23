@@ -23,7 +23,7 @@ module Rulez
         i += 1
       end
 
-      @alternative = @rule.alternatives.new(params[:alternative])
+      @alternative = @rule.alternatives.new(req_param[:alternative])
       @alternative.priority = i
 
       if @alternative.save
@@ -41,7 +41,7 @@ module Rulez
     # PATCH/PUT /alternatives/1
     def update
       set_alternative
-      if @alternative.update_attributes(params[:alternative])
+      if @alternative.update_attributes(req_param[:alternative])
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?
@@ -86,6 +86,10 @@ module Rulez
       # Use callbacks to share common setup or constraints between actions.
       def set_alternative
         @alternative = @rule.alternatives.find(params[:id])
+      end
+
+      def req_param
+        params.require(:alternative).permit(:description, :condition, :alternative)
       end
   end
 end

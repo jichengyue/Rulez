@@ -27,7 +27,7 @@ module Rulez
 
     # POST /variables
     def create
-      @variable = Variable.new(params[:variable])
+      @variable = Variable.new(req_param[:variable])
       set_models
       if @variable.save
         errors = Rulez::doctor
@@ -45,7 +45,7 @@ module Rulez
     def update
       set_variable
       set_models
-      if @variable.update_attributes(params[:variable])
+      if @variable.update_attributes(req_param[:variable])
         errors = Rulez::doctor
         err_msg = nil
         if !errors.empty?
@@ -90,6 +90,10 @@ module Rulez
       # @return [Array] the array of models available
       def set_models
         @models = Rulez::get_models
+      end
+
+      def req_param
+        params.require(:variable).permit(:description, :name, :model)
       end
   end
 end

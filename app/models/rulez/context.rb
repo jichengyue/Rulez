@@ -17,7 +17,7 @@ module Rulez
   # All variables that are not defined in that context are considered invalid.
   # 
   class Context < ActiveRecord::Base
-    attr_accessible :description, :name, :variable_ids
+    # attr_accessible :description, :name, :variable_ids
 
     #associations
     has_many :rules
